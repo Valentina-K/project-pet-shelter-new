@@ -1,6 +1,7 @@
 {
     "arrowParens": "always",
-    "endOfLine": "crlf",
+    "endOfLine": "lf",
+    "insertFinalNewLine": true,
     "jsxSingleQuote": false,
     "printWidth": 80,
     "semi": true,
