@@ -1,0 +1,26 @@
+.photoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 300px;
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.adPhoto {
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
