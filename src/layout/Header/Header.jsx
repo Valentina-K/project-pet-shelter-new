@@ -1,16 +1,20 @@
 import { NavLink } from 'react-router-dom';
+import { FaRegHeart } from 'react-icons/fa';
 import clsx from 'clsx';
-import styles from '../../styles/Header/Header.module.css';
+import styles from './Header.module.css';
 
 const style = ({ isActive }) =>
   clsx(styles.link, { [styles.active]: isActive });
 
 function Navigation() {
   return (
-    <nav className={styles.nav}>
-      <NavLink to="/" className={style}>
-        Logo
-      </NavLink>
+    <nav className={styles.navContainer}>
+      <div className={styles.logoContainer}>
+        <NavLink to="/" className={styles.logoText}>
+          Logo
+        </NavLink>
+      </div>
+
       <div className={styles.navLinks}>
         <NavLink to="/about-us" className={style}>
           About us
@@ -18,19 +22,21 @@ function Navigation() {
         <NavLink to="/animals" className={style}>
           Our animals
         </NavLink>
-        <NavLink to="/volunteering" className={style}>
+        <NavLink to="/partners" className={style}>
           Partners
         </NavLink>
         <NavLink to="/contacts" className={style}>
           Contact
         </NavLink>
       </div>
-      <div className={styles.login}>
-        <NavLink to="/sign-in" className={style}>
-          Sign In
-        </NavLink>
-        <NavLink to="/donations" className={style}>
-          Donations
+      <div className={styles.loginContainer}>
+        {/* тимчасово сердечко буде статичним, поки не визначиться його функуіонал для зареєстрованого і незареєстрованого користувача */}
+        <div className={styles.iconContainer}>
+          <FaRegHeart className={styles.icon} />
+        </div>
+
+        <NavLink to="/sign-in" className={styles.loginBtn}>
+          Log In
         </NavLink>
       </div>
     </nav>
