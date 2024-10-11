@@ -1,46 +1,39 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+/* import { createSlice } from '@reduxjs/toolkit';
+import { getAllAttributes, createNewAttribute, getAttributeById } from './operations';
 
-axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+const handlePending = (state) => {
+  state.isLoading = true;
+  state.error = null;
+};
 
-export const getAllAttributes = createAsyncThunk(
-  'attributes/getAll',
-  async (_, thunkAPI) => {
-    try {
-      const response = axios.get(`/api/v1/attribute`);
+const handleReject = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload || 'An error occurred';
+};
 
-      console.log('response getAllAttributes', response);
-      return response;
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
-    }
+const attributeSlice = createSlice({
+  name: 'attributes',
+  initialState: {
+    breed: '',
+    age: '',
+    size: '',
+    gender: '',
+    coat_length: '',
+    color: '',
+    health_condition: '',
+    pet_name: ''
+  },
+  extraReducers: (builder)=>{
+    builder
+    .addCase(getAllAttributes.pending,handlePending)
+    .addCase(getAllAttributes.fulfilled,(state, action)=>{
+      state.isLoading = false;
+
+    })
+    .addCase(getAllAttributes.rejected, handleReject)
   }
-);
+})
 
-export const createNewAttribute = createAsyncThunk(
-  'attributes/createNew',
-  async (_, thunkAPI) => {
-    try {
-      const response = axios.post('/api/v1/attribute');
+export default attributeSlice.reducer;
 
-      console.log('response createNewAttributes', response);
-      return response;
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
-    }
-  }
-);
-
-export const getAttributeById = createAsyncThunk(
-  'attributes/getAttributeById',
-  async ({ attrId }, thunkAPI) => {
-    try {
-      const response = axios.get(`/api/v1/attribute${attrId}`);
-
-      console.log('response getAtrById', response);
-      return response;
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
-    }
-  }
-);
+ */
