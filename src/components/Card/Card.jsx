@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { FaRegHeart } from 'react-icons/fa';
 import { TbGenderDemiboy } from 'react-icons/tb';
 import { TbGenderDemigirl } from 'react-icons/tb';
@@ -9,8 +10,8 @@ import { getAdvertThumbnail } from '../../redux/photos/operations';
 import { selectIsLoading, selectError } from '../../redux/photos/selectors';
 import { IconContext } from 'react-icons';
 import PropTypes from 'prop-types';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import styles from './Card.module.css';
-import { NavLink } from 'react-router-dom';
 
 function Card({ ad }) {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function Card({ ad }) {
   const [photoUrl, setPhotoUrl] = useState('');
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const isLogged = useSelector(selectIsLoggedIn);
   const adId = ad.id;
   const thumbnailId = ad.thumbnail.id;
 
@@ -51,9 +53,11 @@ function Card({ ad }) {
           <p>No photo available</p>
         )}
         <IconContext.Provider value={{ style: { width: '32', height: '32' } }}>
-          <div className={styles.favorite}>
-            <FaRegHeart />
-          </div>
+          {isLogged && (
+            <div className={styles.favorite}>
+              <FaRegHeart />
+            </div>
+          )}
           <div className={styles.gender}>
             {petGender === 'male' ? <TbGenderDemiboy /> : <TbGenderDemigirl />}
           </div>
