@@ -2,7 +2,7 @@ import GetAllAds from '../../modules/Advertisements/GetAllAds';
 
 function HomePage() {
   return (
-    <div>
+    <>
       <GetAllAds />
       {/* <Hero />
       <GetAllAds />
@@ -13,7 +13,7 @@ function HomePage() {
       <Partners />
       <Donations />
       <OurBlog /> */}
-    </div>
+    </>
   );
 }
 

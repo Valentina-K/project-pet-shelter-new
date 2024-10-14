@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1195px;    
+    width: 100%;   
+}
+
+.item {
+    margin-bottom: 44px;  
+    flex-basis: calc((100% - 40px) / 3); 
+}
