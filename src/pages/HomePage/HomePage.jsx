@@ -1,9 +1,9 @@
-import GetAllAds from '../../modules/Advertisements/GetAllAds';
+// import GetAllAds from '../../modules/Advertisements/GetAllAds';
 
 function HomePage() {
   return (
     <>
-      <GetAllAds />
+      {/* <GetAllAds /> */}
       {/* <Hero />
       <GetAllAds />
       <AboutUs />
