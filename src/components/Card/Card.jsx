@@ -7,7 +7,7 @@ import { BsArrowRightCircle } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAdvertThumbnail } from '../../redux/photos/operations';
-import { selectIsLoading, selectError } from '../../redux/photos/selectors';
+import { selectError } from '../../redux/photos/selectors';
 import { IconContext } from 'react-icons';
 import PropTypes from 'prop-types';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
@@ -19,11 +19,10 @@ function Card({ ad }) {
   const [year, setYear] = useState('');
   const [petGender, setPetGender] = useState('');
   const [photoUrl, setPhotoUrl] = useState('');
-  const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const isLogged = useSelector(selectIsLoggedIn);
   const adId = ad.id;
-  const thumbnailId = ad.thumbnail.id;
+  const thumbnailId = ad.thumbnail ? ad.thumbnail.id : null;
 
   useEffect(() => {
     const fetchThumbnail = async () => {
@@ -34,6 +33,7 @@ function Card({ ad }) {
         setPhotoUrl(url);
       } catch (error) {
         console.log('Failed to fetch thumbnail:', error);
+        setPhotoUrl('https://dummyimage.com/337x300');
       }
     };
     fetchThumbnail();
@@ -42,7 +42,6 @@ function Card({ ad }) {
     setYear(ad.adAttributes[1].value);
   }, [adId, thumbnailId, ad, dispatch]);
 
-  if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message || 'An error occurred'}</p>;
   return (
     <div className={styles.cardWrapper}>
