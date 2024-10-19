@@ -1,7 +1,6 @@
 .wrapper {
   display: flex;
   flex-flow: column wrap;
-  align-items: center;
   background-color: #f8f9fa;
   border-top: 1px solid #ddd;
   padding-top: 169px;
@@ -11,7 +10,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 300px;
+  justify-content: space-between;
 }
 
 .infoList {
@@ -71,6 +70,7 @@
 .policyContainer {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   list-style: none;
   gap: 60px;
 }

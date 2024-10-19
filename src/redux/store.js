@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import advertisementsReducer from './advertisements/slice';
-// import { categoriesReducer } from './categories/slice';
+import { categoriesReducer } from './categories/slice';
 import photosReducer from './photos/slice';
 import authReducer from './auth/slice';
 
@@ -26,7 +26,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     advertisements: advertisementsReducer,
     photos: photosReducer,
-    // category: categoriesReducer,
+    category: categoriesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
