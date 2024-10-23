@@ -1,0 +1,16 @@
+.pageContainer{
+    display: flex;
+    gap: 70px;
+    width: 1920px;
+}
+
+.leftBlock{
+    width: 335px;
+}
+
+.rightBlock{
+    width: 1195px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
