@@ -30,7 +30,7 @@ function SideBar() {
     if (categories.length === 0 && !isLoading) {
       dispatch(getCategories());
     }
-  }, [categories, isLoading, dispatch]);
+  }, [dispatch]);
 
   useEffect(() => {
     const fetchAttributes = async () => {
