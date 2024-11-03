@@ -20,7 +20,7 @@ export const getCategoryById = createAsyncThunk(
   async (categoryId, thunkAPI) => {
     try {
       const { data } = await axios.get(`/api/v1/category/${categoryId}`);
-      // console.log('fetch categ by ID from operations:', data);
+      console.log('fetch categ by ID from operations:', data);
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);

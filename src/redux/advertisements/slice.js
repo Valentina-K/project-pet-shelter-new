@@ -73,9 +73,7 @@ const advertisementSlice = createSlice({
       .addCase(fetchAdvertisements.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items = action.payload;
-        state.filteredItems = state.items.filter((advert) =>
-          advert.title.includes(state.searchQuery.title)
-        );
+        state.error = null;
       })
       .addCase(fetchAdvertisements.rejected, (state, action) => {
         state.isLoading = false;
@@ -88,11 +86,7 @@ const advertisementSlice = createSlice({
       .addCase(addNewAdvertisement.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items.push(action.payload);
-        state.filteredItems = state.items.filter((advert) =>
-          advert.title
-            .toLowerCase()
-            .includes(state.searchQuery.title.toLowerCase())
-        );
+        state.filteredItems = state.items;
       })
       .addCase(addNewAdvertisement.rejected, (state, action) => {
         state.isLoading = false;

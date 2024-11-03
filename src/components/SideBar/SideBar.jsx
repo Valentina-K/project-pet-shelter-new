@@ -13,6 +13,7 @@ import {
 import AttributesFilter from '../AttributesFilter/AttributesFilter.jsx';
 import toast from 'react-hot-toast';
 import styles from './SideBar.module.css';
+import { toggleFilter } from '../../redux/categories/slice.js';
 
 import { IoIosArrowDown } from 'react-icons/io';
 
@@ -51,9 +52,9 @@ function SideBar() {
     fetchAttributes();
   }, [selectedCategoryId, dispatch]);
 
-  const handleCategoryChange = (e) => {
-    const newCategoryId = e.target.value;
-    setSelectedCategoryId(newCategoryId);
+  const handleCategoryChange = (categoryId) => {
+    setSelectedCategoryId(categoryId);
+    dispatch(toggleFilter(categoryId));
   };
 
   const handleToggleDropdown = () => {
