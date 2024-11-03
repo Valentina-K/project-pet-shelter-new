@@ -9,16 +9,24 @@ import Search from '../../components/Search/Search';
 import { useEffect } from 'react';
 import { fetchAdvertisements } from '../../redux/advertisements/operations';
 import styles from './styles.module.css';
+import { selectSelectedFilters } from '../../redux/categories/selectors';
 
 function AnimalsPage() {
   const dispatch = useDispatch();
   const ads = useSelector(selectAdvertisements);
   const isLoading = useSelector(selectIsLoading);
-  //const error = useSelector(selectError);
+  const selectedFilters = useSelector(selectSelectedFilters);
 
   useEffect(() => {
-    dispatch(fetchAdvertisements());
-  }, [dispatch]);
+    const fetchAds = async () => {
+      try {
+        await dispatch(fetchAdvertisements({ categories: selectedFilters }));
+      } catch (err) {
+        console.log('error fetching ads:', err);
+      }
+    };
+    fetchAds();
+  }, [dispatch, selectedFilters]);
 
   return (
     <div className={styles.pageContainer}>
