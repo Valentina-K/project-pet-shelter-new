@@ -9,6 +9,9 @@ const advertisementSlice = createSlice({
   name: 'advertisements',
   initialState: {
     items: [],
+    page: 0,
+    size: 15,
+    totalPages: 0,
     filteredItems: [],
     searchQuery: {
       categoryId: '',
@@ -24,6 +27,12 @@ const advertisementSlice = createSlice({
     error: null,
   },
   reducers: {
+    setPage(state, action) {
+      state.page = action.payload;
+    },
+    setSize(state, action) {
+      state.size = action.payload;
+    },
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
       const {
@@ -72,7 +81,10 @@ const advertisementSlice = createSlice({
       })
       .addCase(fetchAdvertisements.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.items = action.payload;
+        state.items = action.payload.content;
+        state.totalPages = action.payload.page.totalPages;
+        //state.size = action.payload.page.size;
+        //state.page=action.payload.page.number;
         state.error = null;
       })
       .addCase(fetchAdvertisements.rejected, (state, action) => {
@@ -112,6 +124,6 @@ const advertisementSlice = createSlice({
   },
 });
 
-export const { setSearchQuery } = advertisementSlice.actions;
+export const { setSearchQuery, setPage, setSize } = advertisementSlice.actions;
 
 export default advertisementSlice.reducer;
