@@ -1,32 +1,44 @@
 import { useDispatch, useSelector } from 'react-redux';
-import CardList from '../../components/CardList/CardList';
-import SideBar from '../../components/SideBar/SideBar';
+import { useEffect } from 'react';
 import {
   selectAdvertisements,
   selectIsLoading,
+  selectPage,
+  selectTotalPage,
+  selectSize,
 } from '../../redux/advertisements/selectors';
-import Search from '../../components/Search/Search';
-import { useEffect } from 'react';
 import { fetchAdvertisements } from '../../redux/advertisements/operations';
-import styles from './styles.module.css';
 import { selectSelectedFilters } from '../../redux/categories/selectors';
+import { setPage } from '../../redux/advertisements/slice';
+import Pagination from '../../components/Pagination/Pagination';
+import Search from '../../components/Search/Search';
+import CardList from '../../components/CardList/CardList';
+import SideBar from '../../components/SideBar/SideBar';
+import styles from './styles.module.css';
 
 function AnimalsPage() {
   const dispatch = useDispatch();
   const ads = useSelector(selectAdvertisements);
   const isLoading = useSelector(selectIsLoading);
   const selectedFilters = useSelector(selectSelectedFilters);
+  const page = useSelector(selectPage);
+  const size = useSelector(selectSize);
+  const totalPage = useSelector(selectTotalPage);
 
   useEffect(() => {
     const fetchAds = async () => {
       try {
-        await dispatch(fetchAdvertisements({ categories: selectedFilters }));
+        await dispatch(
+          fetchAdvertisements({ page, size, categories: selectedFilters })
+        );
       } catch (err) {
         console.log('error fetching ads:', err);
       }
     };
     fetchAds();
-  }, [dispatch, selectedFilters]);
+  }, [dispatch, selectedFilters, page, size]);
+
+  const handlePageChange = (newPage) => dispatch(setPage(newPage - 1));
 
   return (
     <div className={styles.pageContainer}>
@@ -36,6 +48,13 @@ function AnimalsPage() {
       <div className={styles.rightBlock}>
         <Search />
         {!isLoading && <CardList ads={ads} />}
+        {!isLoading && (
+          <Pagination
+            current={page + 1}
+            totalPage={totalPage}
+            onPageClick={handlePageChange}
+          />
+        )}
       </div>
     </div>
   );

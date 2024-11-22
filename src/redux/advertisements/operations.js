@@ -5,13 +5,19 @@ axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
 export const fetchAdvertisements = createAsyncThunk(
   'advertisements/fetchAll',
-  async (filters = {}, thunkAPI) => {
+  async ({ page, size, filters = {} }, thunkAPI) => {
     try {
       const { data } = await axios.get('/api/v1/ad', {
-        params: filters,
+        /* params: filters, */
+        params: {
+          page,
+          size,
+          filters,
+        },
       });
       console.log('Data Content:', data.content);
-      return data.content;
+      console.log('Page:', data.page);
+      return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
     }
