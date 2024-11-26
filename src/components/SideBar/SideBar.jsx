@@ -14,8 +14,7 @@ import AttributesFilter from '../AttributesFilter/AttributesFilter.jsx';
 import toast from 'react-hot-toast';
 import styles from './SideBar.module.css';
 import { toggleFilter } from '../../redux/categories/slice.js';
-
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 function SideBar() {
   const dispatch = useDispatch();
@@ -26,12 +25,13 @@ function SideBar() {
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
   const [attributes, setAttributes] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [categoryTitle, setCategoryTitle] = useState('Categories');
 
   useEffect(() => {
     if (categories.length === 0 && !isLoading) {
       dispatch(getCategories());
     }
-  }, [dispatch]);
+  }, [dispatch, isLoading, categories.length]);
 
   useEffect(() => {
     const fetchAttributes = async () => {
@@ -39,6 +39,7 @@ function SideBar() {
         try {
           const categoryId = Number(selectedCategoryId);
           const action = await dispatch(getCategoryById(categoryId));
+          //??
           if (getCategoryById.fulfilled.match(action)) {
             setAttributes(action.payload.attributes || []);
           }
@@ -55,6 +56,7 @@ function SideBar() {
   const handleCategoryChange = (categoryId) => {
     setSelectedCategoryId(categoryId);
     dispatch(toggleFilter(categoryId));
+    setCategoryTitle('yes');
   };
 
   const handleToggleDropdown = () => {
@@ -64,19 +66,27 @@ function SideBar() {
   return (
     <div className={styles.wrapper}>
       <div
-        className={styles.categoriesContainer}
+        className={
+          isDropdownOpen
+            ? `${styles.categoriesContainer} ${styles.isOpen}`
+            : styles.categoriesContainer
+        }
         onClick={handleToggleDropdown}
       >
-        <h2 className={styles.category}>Categories</h2>
-        <IoIosArrowDown />
+        <h2 className={styles.category}>{categoryTitle}</h2>
+        {isDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </div>
       {isDropdownOpen && (
-        <div className={styles.dropDown}>
+        <div /* className={styles.dropDown} */>
           {isLoading && <p>Loading...</p>}
           {error && <p>Error: {error}</p>}
           <ul className={styles.optionsList}>
             {categories.map((category) => (
-              <li key={category.id}>
+              <li key={category.id} className={styles.optionsItem}>
+                <span className={styles.itemWrapper}>
+                  {category.name}
+                  <span>(1224)</span>
+                </span>
                 <label className={styles.customRadio}>
                   <input
                     type="radio"
@@ -87,7 +97,6 @@ function SideBar() {
                     className={styles.hiddenRadio}
                   />
                   <span className={styles.radioMark}></span>
-                  {category.name}
                 </label>
               </li>
             ))}
