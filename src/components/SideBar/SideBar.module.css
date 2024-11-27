@@ -15,6 +15,38 @@
   gap: 128px;
   border-radius: 34px;
   background: #d9d9d9;
+  margin-bottom: 24.8px;
+  text-transform: capitalize;
+}
+
+.optionsList {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
+.optionsItem {
+  display: flex;
+  gap: 34px;
+  padding: 5.5px 13px 5.5px 44px;
+
+
+}
+
+.itemWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24.2px;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.itemWrapper span {
+  font-weight: 200;
 }
 
 .dropDown {
@@ -41,8 +73,8 @@
 }
 
 .radioMark {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   border: 2px solid #ccc;
   border-radius: 50%;
   margin-left: 10px;
@@ -50,15 +82,18 @@
 }
 
 .customRadio:hover .radioMark {
-  border-color: #007bff; /* Змінюємо колір при наведенні */
+  border-color: #939393;
+
+  ;
+  /* Змінюємо колір при наведенні */
 }
 
-.hiddenRadio:checked + .radioMark {
-  background-color: #007bff;
-  border-color: #007bff;
+.hiddenRadio:checked+.radioMark {
+  background-color: #939393;
+  border-color: #939393;
 }
 
-.hiddenRadio:checked + .radioMark::after {
+.hiddenRadio:checked+.radioMark::after {
   content: ' ';
   position: absolute;
   top: 3px;

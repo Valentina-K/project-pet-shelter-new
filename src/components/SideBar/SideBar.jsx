@@ -39,9 +39,9 @@ function SideBar() {
         try {
           const categoryId = Number(selectedCategoryId);
           const action = await dispatch(getCategoryById(categoryId));
-          //??
           if (getCategoryById.fulfilled.match(action)) {
-            setAttributes(action.payload.attributes || []);
+            setAttributes(action.payload.attribute || []);
+            console.log(getCategoryById.fulfilled.match(action));
           }
         } catch (err) {
           toast.error('Error fetching category attributes:', err);
@@ -56,7 +56,7 @@ function SideBar() {
   const handleCategoryChange = (categoryId) => {
     setSelectedCategoryId(categoryId);
     dispatch(toggleFilter(categoryId));
-    setCategoryTitle('yes');
+    setCategoryTitle(categories[categoryId - 1].name);
   };
 
   const handleToggleDropdown = () => {
