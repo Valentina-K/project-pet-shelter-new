@@ -13,4 +13,7 @@ export const selectPage = (state) => state.advertisements.page;
 
 export const selectTotalPage = (state) => state.advertisements.totalPages;
 
+export const selectTotalElements = (state) =>
+  state.advertisements.selectTotalElements;
+
 export const selectSize = (state) => state.advertisements.size;

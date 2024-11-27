@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
-import { nanoid } from '@reduxjs/toolkit';
 
 function AttributesFilter({ attributes }) {
   return (
     <>
       <ul>
         {attributes.map((attribute) => (
-          <li key={nanoid()}>{attribute.name}</li>
+          <li key={attribute.id}>{attribute.name}</li>
         ))}
       </ul>
     </>

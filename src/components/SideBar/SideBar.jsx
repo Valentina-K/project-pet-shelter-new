@@ -15,10 +15,12 @@ import toast from 'react-hot-toast';
 import styles from './SideBar.module.css';
 import { toggleFilter } from '../../redux/categories/slice.js';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+//import { selectTotalElements } from '../../redux/advertisements/selectors.js';
 
 function SideBar() {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
+  //const quantityAds = useSelector(selectTotalElements);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -77,7 +79,7 @@ function SideBar() {
         {isDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </div>
       {isDropdownOpen && (
-        <div /* className={styles.dropDown} */>
+        <div>
           {isLoading && <p>Loading...</p>}
           {error && <p>Error: {error}</p>}
           <ul className={styles.optionsList}>
@@ -111,7 +113,7 @@ function SideBar() {
 AttributesFilter.propTypes = {
   attributes: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
     })
   ).isRequired,
