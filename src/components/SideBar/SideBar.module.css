@@ -15,8 +15,20 @@
   gap: 128px;
   border-radius: 34px;
   background: #d9d9d9;
-  margin-bottom: 24.8px;
-  text-transform: capitalize;
+  margin-bottom: 24.8px;  
+}
+
+.categoriesContainer.isOpen{
+border-radius: 34px 34px 0 0;  
+}
+
+.category{
+  font-family: Inter, sans-serif;
+font-size: 20px;
+font-weight: 600;
+line-height: 24.2px;
+text-align: left;
+text-transform: capitalize;
 }
 
 .optionsList {
