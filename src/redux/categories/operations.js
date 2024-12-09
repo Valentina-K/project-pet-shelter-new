@@ -7,7 +7,7 @@ export const getCategories = createAsyncThunk(
   'category/getCategories',
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get('/api/v1/category');
+      const { data } = await axios.get('/api/v1/category/counted');
       return data.content;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -27,7 +27,7 @@ export const getCategoryById = createAsyncThunk(
     }
   }
 );
-
+// /api/v1/category/counted
 export const updateCategory = createAsyncThunk(
   'category/updateCategory',
   async ({ id, payload }, thunkAPI) => {

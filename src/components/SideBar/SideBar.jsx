@@ -12,21 +12,23 @@ import {
 } from '../../redux/categories/selectors.js';
 import AttributesFilter from '../AttributesFilter/AttributesFilter.jsx';
 import toast from 'react-hot-toast';
-import styles from './SideBar.module.css';
-import { toggleFilter } from '../../redux/categories/slice.js';
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import {
+  addFilter,
+  clearAttributes,
+  addAttributes,
+} from '../../redux/categories/slice.js';
+import DropDown from './DropDown/DropDown.jsx';
 //import { selectTotalElements } from '../../redux/advertisements/selectors.js';
 
 function SideBar() {
   const dispatch = useDispatch();
-  const categories = useSelector(selectCategories);
+  const categories = useSelector(selectCategories); //get all categories
   //const quantityAds = useSelector(selectTotalElements);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
   const [attributes, setAttributes] = useState([]);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [categoryTitle, setCategoryTitle] = useState('Categories');
 
   useEffect(() => {
@@ -41,6 +43,7 @@ function SideBar() {
         try {
           const categoryId = Number(selectedCategoryId);
           const action = await dispatch(getCategoryById(categoryId));
+          console.log(action);
           if (getCategoryById.fulfilled.match(action)) {
             setAttributes(action.payload.attribute || []);
             console.log(getCategoryById.fulfilled.match(action));
@@ -57,56 +60,33 @@ function SideBar() {
 
   const handleCategoryChange = (categoryId) => {
     setSelectedCategoryId(categoryId);
-    dispatch(toggleFilter(categoryId));
+    //dispatch(toggleFilter(categoryId));
+    dispatch(addFilter({ category: categoryId }));
     setCategoryTitle(categories[categoryId - 1].name);
+    dispatch(clearAttributes());
   };
 
-  const handleToggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
+  const handleSelectedAttribute = (attributeName) => {
+    dispatch(addAttributes({ attributeName }));
+    console.log(attributeName);
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div
-        className={
-          isDropdownOpen
-            ? `${styles.categoriesContainer} ${styles.isOpen}`
-            : styles.categoriesContainer
-        }
-        onClick={handleToggleDropdown}
-      >
-        <h2 className={styles.category}>{categoryTitle}</h2>
-        {isDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
-      </div>
-      {isDropdownOpen && (
-        <div>
-          {isLoading && <p>Loading...</p>}
-          {error && <p>Error: {error}</p>}
-          <ul className={styles.optionsList}>
-            {categories.map((category) => (
-              <li key={category.id} className={styles.optionsItem}>
-                <span className={styles.itemWrapper}>
-                  {category.name}
-                  <span>(1224)</span>
-                </span>
-                <label className={styles.customRadio}>
-                  <input
-                    type="radio"
-                    name="category"
-                    value={category.id}
-                    checked={selectedCategoryId === String(category.id)}
-                    onChange={() => handleCategoryChange(category.id)}
-                    className={styles.hiddenRadio}
-                  />
-                  <span className={styles.radioMark}></span>
-                </label>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <>
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      <DropDown
+        contents={categories}
+        title={categoryTitle}
+        onChange={handleCategoryChange}
+      />
+      {attributes.length > 0 && (
+        <AttributesFilter
+          attributes={attributes}
+          onSelectedAttribute={handleSelectedAttribute}
+        />
       )}
-      {attributes.length > 0 && <AttributesFilter attributes={attributes} />}
-    </div>
+    </>
   );
 }
 

@@ -37,7 +37,7 @@ function DropDown({ contents, title, onChange }) {
               <li key={category.id} className={styles.optionsItem}>
                 <span className={styles.itemWrapper}>
                   {category.name}
-                  <span>({contents.count ? contents.count : ''})</span>
+                  <span>({category.adsCount})</span>
                 </span>
                 <label className={styles.customRadio}>
                   <input
@@ -62,7 +62,7 @@ function DropDown({ contents, title, onChange }) {
 DropDown.propTypes = {
   contents: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       count: PropTypes.number,
     })
