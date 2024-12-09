@@ -13,7 +13,7 @@ export const selectError = (state) => state.category.error;
 
 export const selectSelectedFilters = createSelector(
   [selectCategoriesState],
-  (categoriesState) => (categoriesState ? categoriesState.selectedFilters : [])
+  (categoriesState) => (categoriesState ? categoriesState.selectedFilters : {})
 );
 
 export const selectSelectedCategory = createSelector(

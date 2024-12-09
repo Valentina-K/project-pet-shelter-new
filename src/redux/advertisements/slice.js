@@ -12,6 +12,7 @@ const advertisementSlice = createSlice({
     page: 0,
     size: 15,
     totalPages: 0,
+    totalElements: 0,
     filteredItems: [],
     searchQuery: {
       categoryId: '',
@@ -83,8 +84,7 @@ const advertisementSlice = createSlice({
         state.isLoading = false;
         state.items = action.payload.content;
         state.totalPages = action.payload.page.totalPages;
-        //state.size = action.payload.page.size;
-        //state.page=action.payload.page.number;
+        state.totalElements = action.payload.page.totalElements;
         state.error = null;
       })
       .addCase(fetchAdvertisements.rejected, (state, action) => {

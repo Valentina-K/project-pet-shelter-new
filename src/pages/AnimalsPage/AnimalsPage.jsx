@@ -20,23 +20,24 @@ function AnimalsPage() {
   const dispatch = useDispatch();
   const ads = useSelector(selectAdvertisements);
   const isLoading = useSelector(selectIsLoading);
-  const selectedFilters = useSelector(selectSelectedFilters);
+  const filters = useSelector(selectSelectedFilters);
   const page = useSelector(selectPage);
   const size = useSelector(selectSize);
   const totalPage = useSelector(selectTotalPage);
+  console.log({ page, size, filters });
 
   useEffect(() => {
     const fetchAds = async () => {
       try {
         await dispatch(
-          fetchAdvertisements({ page, size, categories: selectedFilters })
+          fetchAdvertisements({ page, size, filters }) //fetchAdvertisements({ page, size, filters: selectedFilters[0] })
         );
       } catch (err) {
         console.log('error fetching ads:', err);
       }
     };
     fetchAds();
-  }, [dispatch, selectedFilters, page, size]);
+  }, [dispatch, filters, page, size]);
 
   const handlePageChange = (newPage) => dispatch(setPage(newPage - 1));
 
