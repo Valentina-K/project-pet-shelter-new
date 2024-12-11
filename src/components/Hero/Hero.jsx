@@ -7,9 +7,7 @@ function Hero() {
         <span className={styles.highlight}>Find your new friend</span> and give
         them a loving home
       </h1>
-      <button className={`${styles.button} ${styles.heroButton}`}>
-        Adopt a friend
-      </button>
+      <button className={styles.heroButton}>Adopt a friend</button>
     </div>
   );
 }

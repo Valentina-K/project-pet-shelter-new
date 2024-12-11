@@ -1,0 +1,42 @@
+.section{
+    margin-bottom: 120px;
+}
+
+.title {
+    margin-bottom: 80px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38.73px;
+    text-align: center;
+    color: #000;
+}
+
+.animalsBlock{
+    margin-bottom: 64px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1600px;    
+    width: 100%;  
+
+    /* max-height: 3131px; */ 
+}
+
+.item {
+    margin-bottom: 64px;  
+    flex-basis: calc((100% - 120px) / 4); 
+}
+
+.morebutton{
+    border-radius: 32px;
+    width: 1600px;
+    padding: 18px 746px;
+    background: #D9D9D9;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

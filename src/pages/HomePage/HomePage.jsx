@@ -1,11 +1,12 @@
 import Hero from '../../components/Hero/Hero';
+import OurAnimals from '../../components/OurAnimals/OurAnimals';
 
 function HomePage() {
   return (
     <>
       <Hero />
-      {/*<OurAnimals />
-      <HotAds />
+      <OurAnimals />
+      {/*<HotAds />
       <Shelters />
       <joinUs />
       <OurBlog />
