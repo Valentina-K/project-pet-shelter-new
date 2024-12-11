@@ -1,0 +1,30 @@
+.heroTitle{
+    font-family: Inter, sans-serif;
+    font-size: 72px;
+    font-weight: 500;
+    line-height: 100.8px;
+    text-align: left;
+    color: #7F7E7C;  
+    margin-bottom: 175px;
+    width: 735px;  
+}
+
+.heroTitle .highlight{
+    color: #242323;
+}
+
+.button{
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.heroButton{
+    width: 322px;
+    background: #2D2D2D;
+    color: #FEFFFA;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25.2px;    
+    padding: 18px 99px;
+}
