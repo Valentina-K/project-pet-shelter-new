@@ -1,3 +1,8 @@
+.heroWrapper{
+    margin-bottom: 80px;
+    padding: 192px 0 205px 158px;
+}
+
 .heroTitle{
     font-family: Inter, sans-serif;
     font-size: 72px;

@@ -29,9 +29,7 @@ function AnimalsPage() {
   useEffect(() => {
     const fetchAds = async () => {
       try {
-        await dispatch(
-          fetchAdvertisements({ page, size, filters }) //fetchAdvertisements({ page, size, filters: selectedFilters[0] })
-        );
+        await dispatch(fetchAdvertisements({ page, size, filters }));
       } catch (err) {
         console.log('error fetching ads:', err);
       }

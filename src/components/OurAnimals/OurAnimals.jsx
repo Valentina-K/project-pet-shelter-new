@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import Card from '../Card/Card.jsx';
 import styles from './OurAnimals.module.css';
 
-function OurAnimals({ ads = [] }) {
+function OurAnimals({ ads = [], onViewMoreClick, limit }) {
+  console.log(limit, ads.length);
+  const isHasMore = ads.length < limit;
   return (
     <div className={styles.section}>
       <h2 className={styles.title}>Our animals</h2>
@@ -17,13 +19,19 @@ function OurAnimals({ ads = [] }) {
           ))
         )}
       </div>
-      <button className={styles.morebutton}>View more</button>
+      {isHasMore && (
+        <button className={styles.morebutton} onClick={onViewMoreClick}>
+          View more
+        </button>
+      )}
     </div>
   );
 }
 
 OurAnimals.propTypes = {
   ads: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onViewMoreClick: PropTypes.func.isRequired,
+  limit: PropTypes.number.isRequired,
 };
 
 export default OurAnimals;

@@ -10,9 +10,10 @@ const advertisementSlice = createSlice({
   initialState: {
     items: [],
     page: 0,
-    size: 15,
+    size: 8,
     totalPages: 0,
     totalElements: 0,
+    hasMore: false,
     filteredItems: [],
     searchQuery: {
       categoryId: '',
@@ -33,6 +34,10 @@ const advertisementSlice = createSlice({
     },
     setSize(state, action) {
       state.size = action.payload;
+    },
+    setHasMore(state, action) {
+      console.log(action.payload);
+      state.hasMore = action.payload;
     },
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
@@ -82,7 +87,8 @@ const advertisementSlice = createSlice({
       })
       .addCase(fetchAdvertisements.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.items = action.payload.content;
+        if (state.hasMore) state.items.push(...action.payload.content);
+        else state.items = action.payload.content;
         state.totalPages = action.payload.page.totalPages;
         state.totalElements = action.payload.page.totalElements;
         state.error = null;
@@ -124,6 +130,7 @@ const advertisementSlice = createSlice({
   },
 });
 
-export const { setSearchQuery, setPage, setSize } = advertisementSlice.actions;
+export const { setSearchQuery, setPage, setSize, setHasMore } =
+  advertisementSlice.actions;
 
 export default advertisementSlice.reducer;
