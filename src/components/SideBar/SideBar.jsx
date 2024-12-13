@@ -18,7 +18,7 @@ import {
   addAttributes,
 } from '../../redux/categories/slice.js';
 import DropDown from './DropDown/DropDown.jsx';
-//import { selectTotalElements } from '../../redux/advertisements/selectors.js';
+import { setPage } from '../../redux/advertisements/slice.js';
 
 function SideBar() {
   const dispatch = useDispatch();
@@ -30,7 +30,6 @@ function SideBar() {
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
   const [attributes, setAttributes] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState('Categories');
-
   useEffect(() => {
     if (categories.length === 0 && !isLoading) {
       dispatch(getCategories());
@@ -43,10 +42,9 @@ function SideBar() {
         try {
           const categoryId = Number(selectedCategoryId);
           const action = await dispatch(getCategoryById(categoryId));
-          console.log(action);
           if (getCategoryById.fulfilled.match(action)) {
             setAttributes(action.payload.attribute || []);
-            console.log(getCategoryById.fulfilled.match(action));
+            dispatch(setPage(0));
           }
         } catch (err) {
           toast.error('Error fetching category attributes:', err);
@@ -79,6 +77,7 @@ function SideBar() {
         contents={categories}
         title={categoryTitle}
         onChange={handleCategoryChange}
+        selectedCategoryId={String(selectedCategoryId)}
       />
       {attributes.length > 0 && (
         <AttributesFilter

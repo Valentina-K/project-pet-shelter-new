@@ -3,15 +3,11 @@ import PropTypes from 'prop-types';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import styles from './DropDown.module.css';
 
-function DropDown({ contents, title, onChange }) {
-  const [selectedCategoryId, setSelectedCategoryId] = useState('');
+function DropDown({ contents, title, onChange, selectedCategoryId }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [categoryTitle, setCategoryTitle] = useState(title);
 
   const handleCategoryChange = (categoryId) => {
-    setSelectedCategoryId(categoryId);
     onChange(categoryId);
-    setCategoryTitle(contents[categoryId - 1].name);
   };
 
   const handleToggleDropdown = () => {
@@ -27,7 +23,7 @@ function DropDown({ contents, title, onChange }) {
         }
         onClick={handleToggleDropdown}
       >
-        <h2 className={styles.category}>{categoryTitle}</h2>
+        <h2 className={styles.category}>{title}</h2>
         {isDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </div>
       {isDropdownOpen && (
@@ -69,6 +65,7 @@ DropDown.propTypes = {
   ).isRequired,
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  selectedCategoryId: PropTypes.string.isRequired,
 };
 
 export default DropDown;

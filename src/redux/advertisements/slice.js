@@ -29,7 +29,7 @@ const advertisementSlice = createSlice({
     error: null,
   },
   reducers: {
-    resetData: (state) => {
+    resetData(state) {
       state.items = [];
       state.page = 0;
       state.hasMore = false;

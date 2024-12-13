@@ -30,7 +30,6 @@ const categorySlice = createSlice({
   reducers: {
     addFilter: (state, action) => {
       console.log(action.payload);
-      // Object.assign(obj, { age: 25 });
       state.selectedFilters = { ...action.payload };
     },
     toggleFilter: (state, action) => {
@@ -44,6 +43,7 @@ const categorySlice = createSlice({
     },
     clearFilters: (state) => {
       state.selectedFilters = {};
+      state.selectedCategory = {};
     },
     addAttributes: (state, action) => {
       const attributeName = action.payload;
