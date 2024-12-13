@@ -10,7 +10,11 @@ import {
 import { selectIsLoading } from '../../redux/photos/selectors';
 import { useEffect } from 'react';
 import { fetchAdvertisements } from '../../redux/advertisements/operations';
-import { setPage, setHasMore } from '../../redux/advertisements/slice';
+import {
+  setPage,
+  setHasMore,
+  resetData,
+} from '../../redux/advertisements/slice';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -20,7 +24,9 @@ function HomePage() {
   const size = 8;
   const totalPage = useSelector(selectTotalPage);
   const totalElements = useSelector(selectTotalElements);
-
+  useEffect(() => {
+    dispatch(resetData());
+  }, [dispatch]);
   useEffect(() => {
     const fetchAds = async () => {
       try {
