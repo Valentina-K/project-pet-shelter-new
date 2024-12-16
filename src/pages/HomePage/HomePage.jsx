@@ -10,7 +10,12 @@ import {
 import { selectIsLoading } from '../../redux/photos/selectors';
 import { useEffect } from 'react';
 import { fetchAdvertisements } from '../../redux/advertisements/operations';
-import { setPage, setHasMore } from '../../redux/advertisements/slice';
+import {
+  setPage,
+  setHasMore,
+  resetData,
+} from '../../redux/advertisements/slice';
+import { clearFilters } from '../../redux/categories/slice';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -20,8 +25,14 @@ function HomePage() {
   const size = 8;
   const totalPage = useSelector(selectTotalPage);
   const totalElements = useSelector(selectTotalElements);
-
   useEffect(() => {
+    dispatch(resetData());
+    dispatch(clearFilters());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchAdvertisements({ page, size }));
+  }, [dispatch, page, size]);
+  /* useEffect(() => {
     const fetchAds = async () => {
       try {
         await dispatch(fetchAdvertisements({ page, size }));
@@ -30,7 +41,7 @@ function HomePage() {
       }
     };
     fetchAds();
-  }, [dispatch, page]);
+  }, [dispatch, page]); */
 
   const handlePageChange = () => {
     if (page < totalPage) {

@@ -5,16 +5,16 @@ import {
   selectIsLoading,
   selectPage,
   selectTotalPage,
-  selectSize,
 } from '../../redux/advertisements/selectors';
 import { fetchAdvertisements } from '../../redux/advertisements/operations';
 import { selectSelectedFilters } from '../../redux/categories/selectors';
-import { setPage } from '../../redux/advertisements/slice';
+import { resetData, setPage } from '../../redux/advertisements/slice';
 import Pagination from '../../components/Pagination/Pagination';
 import Search from '../../components/Search/Search';
 import CardList from '../../components/CardList/CardList';
 import SideBar from '../../components/SideBar/SideBar';
 import styles from './styles.module.css';
+import { clearFilters } from '../../redux/categories/slice';
 
 function AnimalsPage() {
   const dispatch = useDispatch();
@@ -22,22 +22,23 @@ function AnimalsPage() {
   const isLoading = useSelector(selectIsLoading);
   const filters = useSelector(selectSelectedFilters);
   const page = useSelector(selectPage);
-  const size = useSelector(selectSize);
+  const size = 15;
   const totalPage = useSelector(selectTotalPage);
-  console.log({ page, size, filters });
 
   useEffect(() => {
-    const fetchAds = async () => {
-      try {
-        await dispatch(fetchAdvertisements({ page, size, filters }));
-      } catch (err) {
-        console.log('error fetching ads:', err);
-      }
-    };
-    fetchAds();
+    dispatch(resetData());
+    dispatch(clearFilters());
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log('from useEffect', filters, page);
+    dispatch(fetchAdvertisements({ page, size, filters }));
   }, [dispatch, filters, page, size]);
 
-  const handlePageChange = (newPage) => dispatch(setPage(newPage - 1));
+  const handlePageChange = (newPage) => {
+    console.log(newPage);
+    dispatch(setPage(newPage - 1));
+  };
 
   return (
     <div className={styles.pageContainer}>

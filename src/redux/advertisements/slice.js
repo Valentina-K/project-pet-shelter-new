@@ -29,6 +29,11 @@ const advertisementSlice = createSlice({
     error: null,
   },
   reducers: {
+    resetData(state) {
+      state.items = [];
+      state.page = 0;
+      state.hasMore = false;
+    },
     setPage(state, action) {
       state.page = action.payload;
     },
@@ -130,7 +135,7 @@ const advertisementSlice = createSlice({
   },
 });
 
-export const { setSearchQuery, setPage, setSize, setHasMore } =
+export const { setSearchQuery, setPage, setSize, setHasMore, resetData } =
   advertisementSlice.actions;
 
 export default advertisementSlice.reducer;
