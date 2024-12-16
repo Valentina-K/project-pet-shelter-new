@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Card from '../Card/Card.jsx';
+import Card from '../Card/PetCard/Card.jsx';
 import styles from './OurAnimals.module.css';
 
 function OurAnimals({ ads = [], onViewMoreClick, limit }) {
