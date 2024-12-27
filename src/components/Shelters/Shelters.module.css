@@ -1,4 +1,5 @@
-.wrapper {    
+.wrapper { 
+    position: relative;   
     width: 1761px;
     height: 658px;
     margin-right: -161px;    
@@ -32,4 +33,10 @@
 .icon {
     width: 24px;
     height: 24px;
+}
+
+.toAllShelters{
+    position: absolute;
+    bottom: 0;
+    right: 161px;
 }

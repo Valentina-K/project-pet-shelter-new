@@ -4,6 +4,7 @@ import data from '../../models/shelters.json';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import styles from './Shelters.module.css';
 import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Shelters() {
   const [index, setIndex] = useState(0);
@@ -54,6 +55,9 @@ function Shelters() {
           <MdChevronRight className={styles.icon} />
         </button>
       </div>
+      <NavLink to="/shelters" className={styles.toAllShelters}>
+        View all
+      </NavLink>
     </div>
   );
 }
