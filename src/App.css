@@ -17,6 +17,9 @@ body {
   font-family: Inter, sans-serif;
   line-height: 1.6;
   padding: 0 160px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a {

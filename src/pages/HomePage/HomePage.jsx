@@ -16,6 +16,7 @@ import {
   resetData,
 } from '../../redux/advertisements/slice';
 import { clearFilters } from '../../redux/categories/slice';
+import Shelters from '../../components/Shelters/Shelters';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -59,8 +60,9 @@ function HomePage() {
           limit={totalElements}
         />
       )}
-      {/*<HotAds />
       <Shelters />
+      {/*<HotAds />
+      
       <joinUs />
       <OurBlog />
       <Subscribe />
