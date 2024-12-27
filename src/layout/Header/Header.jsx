@@ -22,8 +22,8 @@ function Navigation() {
         <NavLink to="/animals" className={style}>
           Our animals
         </NavLink>
-        <NavLink to="/partners" className={style}>
-          Partners
+        <NavLink to="/shelters" className={style}>
+          Shelters
         </NavLink>
         <NavLink to="/contacts" className={style}>
           Contact

@@ -10,7 +10,7 @@ import { selectError } from '../../../redux/photos/selectors';
 import { IconContext } from 'react-icons';
 import PropTypes from 'prop-types';
 import { selectIsLoggedIn } from '../../../redux/auth/selectors';
-import defImg from '../../assets/img/404-error-web-template-with-cute-dog_23-2147763341.jpg';
+import defImg from '../../../assets/img/404-error-web-template-with-cute-dog_23-2147763341.jpg';
 import styles from './Card.module.css';
 
 function Card({ ad }) {

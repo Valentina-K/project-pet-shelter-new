@@ -1,0 +1,35 @@
+.wrapper {    
+    width: 1761px;
+    height: 658px;
+    margin-right: -161px;    
+    overflow: hidden;
+}
+
+.list{
+    display: flex;
+    gap: 20px;
+    width: inherit;
+    transition: margin-left 250ms;
+    margin-bottom: 64px;
+}
+
+.controls {
+    width: 115px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid #D9D9D9;
+    border-radius: 40px;
+    transition: border 0.3s;
+}
+
+.controls:hover {
+    border: 1px solid #a39d9d;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
