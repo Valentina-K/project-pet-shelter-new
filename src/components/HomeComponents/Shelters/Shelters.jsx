@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import Card from '../Card/ShelterCard/Card';
-import data from '../../models/shelters.json';
+import Card from '../../Card/ShelterCard/Card';
+import data from '../../../models/shelters.json';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import styles from './Shelters.module.css';
 import { useEffect, useState } from 'react';
