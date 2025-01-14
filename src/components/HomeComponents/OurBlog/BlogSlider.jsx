@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import BlogCard from '../../Card/BlogCard/BlogCard';
 import { useEffect, useState } from 'react';
 import NavControls from '../NavControls/NavControls';
+import { NavLink } from 'react-router-dom';
 import styles from './OurBlog.module.css';
 
 function BlogSlider({ blogs, onClick }) {
@@ -32,8 +33,11 @@ function BlogSlider({ blogs, onClick }) {
         countVisibleItems={3}
         countAllItems={blogs.length - 1}
         onNavClick={handleComtrolClick}
-        componentSlyle={{ marginRight: `${marginLeft}` }}
+        /* componentSlyle={{ marginRight: `${marginLeft}` }} */
       />
+      <NavLink to="/blogs" className={styles.toAllBlogs}>
+        View all
+      </NavLink>
     </div>
   );
 }
