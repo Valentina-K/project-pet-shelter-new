@@ -103,3 +103,9 @@
     flex-direction: column;
     gap: 51px;
 }
+
+.toAllBlogs{
+    position: absolute;
+    bottom: 0;
+    right: 161px;
+}
