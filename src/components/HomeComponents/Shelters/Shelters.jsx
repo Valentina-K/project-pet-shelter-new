@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import Card from '../Card/ShelterCard/Card';
-import data from '../../models/shelters.json';
+import Card from '../../Card/ShelterCard/Card';
+import data from '../../../models/shelters.json';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import styles from './Shelters.module.css';
 import { useEffect, useState } from 'react';
@@ -34,31 +34,34 @@ function Shelters() {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div
-        className={styles.list}
-        style={{
-          marginLeft: `${Math.max(position, -width * (data.shelters.length - count))}px`,
-        }}
-      >
-        {data.shelters.map((shelter) => (
-          <div key={shelter.id}>
-            <Card shelter={shelter} />
-          </div>
-        ))}
+    <>
+      <h2 className="sectionTitle">Shelters</h2>
+      <div className={styles.wrapper}>
+        <div
+          className={styles.list}
+          style={{
+            marginLeft: `${Math.max(position, -width * (data.shelters.length - count))}px`,
+          }}
+        >
+          {data.shelters.map((shelter) => (
+            <div key={shelter.id}>
+              <Card shelter={shelter} />
+            </div>
+          ))}
+        </div>
+        <div className={styles.controls}>
+          <button onClick={handleLeftClick} disabled={leftDisabled}>
+            <MdChevronLeft className={styles.icon} />
+          </button>
+          <button onClick={handleRightClick} disabled={rightDisabled}>
+            <MdChevronRight className={styles.icon} />
+          </button>
+        </div>
+        <NavLink to="/shelters" className={styles.toAllShelters}>
+          View all
+        </NavLink>
       </div>
-      <div className={styles.controls}>
-        <button onClick={handleLeftClick} disabled={leftDisabled}>
-          <MdChevronLeft className={styles.icon} />
-        </button>
-        <button onClick={handleRightClick} disabled={rightDisabled}>
-          <MdChevronRight className={styles.icon} />
-        </button>
-      </div>
-      <NavLink to="/shelters" className={styles.toAllShelters}>
-        View all
-      </NavLink>
-    </div>
+    </>
   );
 }
 

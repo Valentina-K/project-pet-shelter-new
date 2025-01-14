@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Card from '../Card/PetCard/Card.jsx';
+import Card from '../../Card/PetCard/Card.jsx';
 import styles from './OurAnimals.module.css';
 
 function OurAnimals({ ads = [], onViewMoreClick, limit }) {
@@ -7,7 +7,7 @@ function OurAnimals({ ads = [], onViewMoreClick, limit }) {
   const isHasMore = ads.length < limit;
   return (
     <div className={styles.section}>
-      <h2 className={styles.title}>Our animals</h2>
+      <h2 className="sectionTitle">Our animals</h2>
       <div className={styles.animalsBlock}>
         {ads.length === 0 ? (
           <p>No advertisements available.</p>

@@ -1,0 +1,64 @@
+{
+    "blogs": [
+        {
+            "id": 1,
+            "author": {
+                "id": 1,
+                "name":"John Doe"
+            },
+            "title": "How to Prepare Your Home for a New Pet",
+            "content": "Bringing a new pet home? Ensure a smooth transition by pet-proofing your home, setting up a comfortable space, and stocking up on essential supplies Additionally, introduce your new pet to their environment gradually, allowing them time to explore and adjust at their own pace",
+            "publisedDate": "2021-09-01"
+        },
+        {
+            "id": 2,
+            "author": {
+                "id": 2,
+                "name":"Jane Smith"
+            },
+            "title": "Simple DIY Pet Toys",
+            "content": "Make fun, budget-friendly toys for your pet using household items. Create a tug rope from old t-shirts, a treat dispenser from a plastic bottle, or a crinkle toy with a toilet paper roll",
+            "publisedDate": "2021-09-02"
+        },
+        {
+            "id": 3,
+            "author": {
+                "id": 3,
+                "name":"Alice Johnson"
+            },
+            "title": "The Importance of Regular Vet Visits",
+            "content": "Regular vet visits are crucial for your pet's health. They help catch issues early, keep vaccinations current, and allow you to discuss concerns. Routine care",
+            "publisedDate": "2021-09-03"
+        },
+        {
+            "id": 4,
+            "author": {
+                "id": 4,
+                "name":"Robert Williams"
+            },
+            "title": "How to Keep Your Pet Safe During the Holidays",
+            "content": "The holidays can be a dangerous time for pets. Keep them safe by avoiding toxic plants, securing decorations, and watching for choking hazards. Additionally, be mindful of holiday foods that are harmful to pets",
+            "publisedDate": "2021-09-04"
+        },
+        {
+            "id": 5,
+            "author": {
+                "id": 5,
+                "name":"Emily Brown"
+            },
+            "title": "The Benefits of Adopting a Senior Pet",
+            "content": "Senior pets make wonderful companions. They're often calmer, house-trained, and less destructive than younger pets. Plus, adopting a senior pet can be incredibly rewarding",
+            "publisedDate": "2021-09-05"
+        },
+        {
+            "id": 6,
+            "author": {
+                "id": 6,
+                "name":"Michael Jones"
+            },
+            "title": "How to Help Your Pet Adjust to a New Home",
+            "content": "Moving can be stressful for pets. Help them adjust by keeping their routine consistent, setting up a comfortable space, and giving them plenty of love and attention. Additionally, consider using calming products like pheromone sprays or diffusers",
+            "publisedDate": "2021-09-06"
+        }
+    ]
+}

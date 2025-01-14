@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import Hero from '../../components/Hero/Hero';
-import OurAnimals from '../../components/OurAnimals/OurAnimals';
+import Hero from '../../components/HomeComponents/Hero/Hero';
+import OurAnimals from '../../components/HomeComponents/OurAnimals/OurAnimals';
 import {
   selectAdvertisements,
   selectPage,
@@ -16,8 +16,9 @@ import {
   resetData,
 } from '../../redux/advertisements/slice';
 import { clearFilters } from '../../redux/categories/slice';
-import Shelters from '../../components/Shelters/Shelters';
-import JoinUsSection from '../../components/JoinUsSection/JoinUsSection';
+import Shelters from '../../components/HomeComponents/Shelters/Shelters';
+import JoinUsSection from '../../components/HomeComponents/JoinUsSection/JoinUsSection';
+import OurBlog from '../../components/HomeComponents/OurBlog/OurBlog';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -63,6 +64,7 @@ function HomePage() {
       )}
       <Shelters />
       <JoinUsSection />
+      <OurBlog />
       {/*<HotAds />
       
       
