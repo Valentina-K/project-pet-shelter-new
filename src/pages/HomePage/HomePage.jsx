@@ -20,6 +20,7 @@ import Shelters from '../../components/HomeComponents/Shelters/Shelters';
 import JoinUsSection from '../../components/HomeComponents/JoinUsSection/JoinUsSection';
 import OurBlog from '../../components/HomeComponents/OurBlog/OurBlog';
 import Subscribe from '../../components/HomeComponents/Subscription/Subscription';
+import Statistics from '../../components/HomeComponents/Statistics/Statistics';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -67,12 +68,8 @@ function HomePage() {
       <JoinUsSection />
       <OurBlog />
       <Subscribe />
-      {/*<HotAds />
-      
-      
-      <OurBlog />
-      
-      <Metrics /> */}
+      <Statistics />
+      {/*<HotAds />*/}
     </>
   );
 }

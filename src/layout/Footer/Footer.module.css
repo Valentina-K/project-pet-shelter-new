@@ -122,15 +122,13 @@ a {
 }
 
 .scrollToTopBtn {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #7F7E7C;
+  color: #000;
   border: none;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   padding: 0;
-  font-size: 16px;
   border-radius: 50%;
-  cursor: pointer;
   transition: background-color 0.3s;
   margin: 20px;
   position: fixed;
@@ -142,5 +140,10 @@ a {
 }
 
 .scrollToTopBtn:hover {
-  background-color: #0056b3;
+  background-color: #bdbcbc;
+}
+
+.icon {
+  width: 72px;
+  height: 80px;
 }

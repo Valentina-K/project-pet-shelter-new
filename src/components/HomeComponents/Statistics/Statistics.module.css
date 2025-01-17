@@ -1,0 +1,45 @@
+.statistics {
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.textWrapper {
+    display: flex;
+    gap: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 34px;
+    margin-bottom: 120px;
+}
+
+.textTitle {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 38px;
+    margin-bottom: 56px;
+    text-align: center;
+}
+
+.statisticsWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.statisticsItem {
+    padding: 40px 30px;
+    font-family: "Hind Siliguri", serif;
+}
+
+.statisticsItem h5 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+}
+
+.statisticsItem p {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 78px;
+}
