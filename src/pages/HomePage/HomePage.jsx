@@ -19,6 +19,7 @@ import { clearFilters } from '../../redux/categories/slice';
 import Shelters from '../../components/HomeComponents/Shelters/Shelters';
 import JoinUsSection from '../../components/HomeComponents/JoinUsSection/JoinUsSection';
 import OurBlog from '../../components/HomeComponents/OurBlog/OurBlog';
+import Subscribe from '../../components/HomeComponents/Subscription/Subscription';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -65,11 +66,12 @@ function HomePage() {
       <Shelters />
       <JoinUsSection />
       <OurBlog />
+      <Subscribe />
       {/*<HotAds />
       
       
       <OurBlog />
-      <Subscribe />
+      
       <Metrics /> */}
     </>
   );
