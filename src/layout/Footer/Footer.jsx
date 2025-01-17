@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import SocialLinks from '../../components/SocialLinks/SocialLinks';
+import { IoIosArrowUp } from 'react-icons/io';
 import clsx from 'clsx';
 import styles from './Footer.module.css';
 
@@ -57,8 +58,12 @@ function Footer() {
         </div>
       </div>
 
-      <button onClick={scrollToTop} className={styles.scrollToTopBtn}>
-        Scroll to top
+      <button
+        onClick={scrollToTop}
+        className={styles.scrollToTopBtn}
+        aria-label="scroll to top"
+      >
+        <IoIosArrowUp className={styles.icon} />
       </button>
       <div>
         <ul className={styles.policyContainer}>
