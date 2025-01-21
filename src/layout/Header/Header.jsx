@@ -30,14 +30,16 @@ function Navigation() {
           Volunteers
         </NavLink>
       </div>
-      <NavLink to="/forum">
-        <TiMessages />
-      </NavLink>
-      <div className={styles.loginContainer}>
-        <LocaleDropDown />
-        <NavLink to="/sign-in" className={styles.loginBtn}>
-          Log In
+      <div className={styles.authLinks}>
+        <NavLink to="/forum" className={styles.forumLink}>
+          <TiMessages className={styles.forumIcon} />
         </NavLink>
+        <div className={styles.loginContainer}>
+          <LocaleDropDown />
+          <NavLink to="/sign-in" className={styles.loginBtn}>
+            Log In
+          </NavLink>
+        </div>
       </div>
     </nav>
   );

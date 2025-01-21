@@ -32,6 +32,7 @@
   
   .optionsItem {
     text-align: center; 
+    cursor: pointer;
   }
 
   .dropdownIcon{
