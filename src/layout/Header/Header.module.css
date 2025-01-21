@@ -82,8 +82,8 @@
 
 .loginBtn {
   display: inline-flex;
-  width: 114px;
-  padding: 18px 32px;
+  width: 115px;
+  padding: 18px 28px;
   justify-content: center;
   align-items: center;
   gap: 10px;

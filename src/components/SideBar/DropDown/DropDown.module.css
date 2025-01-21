@@ -40,9 +40,7 @@
   .optionsItem {
     display: flex;
     gap: 34px;
-    padding: 5.5px 13px 5.5px 44px;
-  
-  
+    padding: 5.5px 13px 5.5px 44px;  
   }
   
   .itemWrapper {

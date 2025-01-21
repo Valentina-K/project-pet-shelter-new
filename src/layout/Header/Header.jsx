@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import { FaRegHeart } from 'react-icons/fa';
+import { TiMessages } from 'react-icons/ti';
 import clsx from 'clsx';
 import styles from './Header.module.css';
+import LocaleDropDown from './LocaleDropDown/LocaleDropDown';
 
 const style = ({ isActive }) =>
   clsx(styles.link, { [styles.active]: isActive });
@@ -26,15 +27,14 @@ function Navigation() {
           Shelters
         </NavLink>
         <NavLink to="/contacts" className={style}>
-          Contact
+          Volunteers
         </NavLink>
       </div>
+      <NavLink to="/forum">
+        <TiMessages />
+      </NavLink>
       <div className={styles.loginContainer}>
-        {/* тимчасово сердечко буде статичним, поки не визначиться його функуіонал для зареєстрованого і незареєстрованого користувача */}
-        <div className={styles.iconContainer}>
-          <FaRegHeart className={styles.icon} />
-        </div>
-
+        <LocaleDropDown />
         <NavLink to="/sign-in" className={styles.loginBtn}>
           Log In
         </NavLink>
