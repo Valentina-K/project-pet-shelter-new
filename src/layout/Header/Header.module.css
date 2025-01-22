@@ -4,8 +4,8 @@
   align-items: center;
   margin-left: auto;
   padding-top: 80px;
-  margin-bottom: 20px;
-  gap: 200px;
+  margin-bottom: 24px;
+  gap: 189px;
 }
 
 .logoContainer {
@@ -47,10 +47,16 @@
   align-items: center;
   justify-content: center;
   width: auto;
-  padding: 20px 40px;
+  padding: 18px 43px;
   gap: 56px;
   border: 1px solid #d9d9d9;
   border-radius: 40px;
+}
+
+.authLinks{
+  display: flex;
+  gap: 53px;
+  align-items: center;
 }
 
 .loginContainer {
@@ -80,10 +86,19 @@
   flex-shrink: 0;
 }
 
+.forumLink:hover{
+  color: #007bff;
+}
+
+.forumIcon{
+  width: 48px;
+  height: 48px;
+}
+
 .loginBtn {
   display: inline-flex;
-  width: 114px;
-  padding: 18px 32px;
+  width: 115px;
+  padding: 18px 28px;
   justify-content: center;
   align-items: center;
   gap: 10px;
