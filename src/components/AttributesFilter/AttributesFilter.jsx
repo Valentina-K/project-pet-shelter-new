@@ -1,31 +1,39 @@
 import PropTypes from 'prop-types';
 import styles from './AttributesFilter.module.css';
-//import DropDown from '../SideBar/DropDown/DropDown';
+import AttributeDropDown from './AttributeDropDown';
 
 function AttributesFilter({ attributes, onSelectedAttribute }) {
-  const handleClick = (attributeName) => {
-    onSelectedAttribute(attributeName);
+  console.log('attributes', attributes);
+  const handleClick = (value) => {
+    console.log('selectedAttribute', value);
+    onSelectedAttribute(value);
   };
   return (
     <div className={styles.wrapper}>
       <ul>
-        {attributes.map((attribute) => (
-          <li key={attribute.id} onClick={() => handleClick(attribute.name)}>
-            {attribute.name}{' '}
-          </li>
+        {attributes.map((attribute, index) => (
+          <AttributeDropDown
+            key={index}
+            contents={attribute}
+            onChange={handleClick}
+            selectedAttribute={attribute.value}
+          />
         ))}
       </ul>
     </div>
   );
 }
-/* <DropDown contents={} title={attribute.name} onChannge = {}/> */
+
 AttributesFilter.propTypes = {
   attributes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+        count: PropTypes.number,
+      })
+    ).isRequired
+  ),
   onSelectedAttribute: PropTypes.func.isRequired,
 };
 
