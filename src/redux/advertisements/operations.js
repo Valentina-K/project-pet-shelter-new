@@ -2,13 +2,13 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;
-
+// /api/v1/ad/counted?category=3&page=0&size=7&sort=price,desc
 export const fetchAdvertisements = createAsyncThunk(
   'advertisements/fetchAll',
   async ({ page, size, filters = {} }, thunkAPI) => {
     console.log(page, size, filters);
     try {
-      const { data } = await axios.get('/api/v1/ad', {
+      const { data } = await axios.get('/api/v1/ad/counted', {
         params: { page, size, ...filters },
       });
       console.log('Data Content:', data.content);

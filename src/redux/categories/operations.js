@@ -14,7 +14,8 @@ export const getCategories = createAsyncThunk(
     }
   }
 );
-
+//api/v1/ad/counted?category=1
+//listOfAttributeCounts
 export const getCategoryById = createAsyncThunk(
   'category/getCategoryById',
   async (categoryId, thunkAPI) => {

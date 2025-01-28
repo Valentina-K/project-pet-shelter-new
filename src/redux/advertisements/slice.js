@@ -15,6 +15,7 @@ const advertisementSlice = createSlice({
     totalElements: 0,
     hasMore: false,
     filteredItems: [],
+    listOfAttributeCounts: [],
     searchQuery: {
       categoryId: '',
       breed: '',
@@ -92,10 +93,11 @@ const advertisementSlice = createSlice({
       })
       .addCase(fetchAdvertisements.fulfilled, (state, action) => {
         state.isLoading = false;
-        if (state.hasMore) state.items.push(...action.payload.content);
-        else state.items = action.payload.content;
-        state.totalPages = action.payload.page.totalPages;
-        state.totalElements = action.payload.page.totalElements;
+        if (state.hasMore) state.items.push(...action.payload.page.content);
+        else state.items = action.payload.page.content;
+        state.totalPages = action.payload.page.page.totalPages;
+        state.totalElements = action.payload.page.page.totalElements;
+        state.listOfAttributeCounts = action.payload.listOfAttributeCounts;
         state.error = null;
       })
       .addCase(fetchAdvertisements.rejected, (state, action) => {

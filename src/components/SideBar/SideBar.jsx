@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -19,6 +18,7 @@ import {
 } from '../../redux/categories/slice.js';
 import DropDown from './DropDown/DropDown.jsx';
 import { setPage } from '../../redux/advertisements/slice.js';
+import { selectListAttrByCategory } from '../../redux/advertisements/selectors.js';
 
 function SideBar() {
   const dispatch = useDispatch();
@@ -26,10 +26,11 @@ function SideBar() {
   //const quantityAds = useSelector(selectTotalElements);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-
+  const items = useSelector(selectListAttrByCategory);
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
-  const [attributes, setAttributes] = useState([]);
+  //const [attributes, setAttributes] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState('Categories');
+  console.log('items', items);
   useEffect(() => {
     if (categories.length === 0 && !isLoading) {
       dispatch(getCategories());
@@ -41,16 +42,16 @@ function SideBar() {
       if (selectedCategoryId) {
         try {
           const categoryId = Number(selectedCategoryId);
-          const action = await dispatch(getCategoryById(categoryId));
+          const action = dispatch(getCategoryById(categoryId));
           if (getCategoryById.fulfilled.match(action)) {
-            setAttributes(action.payload.attribute || []);
+            //setAttributes(action.payload.attribute || []);
             dispatch(setPage(0));
           }
         } catch (err) {
           toast.error('Error fetching category attributes:', err);
         }
       } else {
-        setAttributes([]);
+        //setAttributes([]);
       }
     };
     fetchAttributes();
@@ -79,23 +80,14 @@ function SideBar() {
         onChange={handleCategoryChange}
         selectedCategoryId={String(selectedCategoryId)}
       />
-      {attributes.length > 0 && (
+      {items?.length > 0 && (
         <AttributesFilter
-          attributes={attributes}
+          attributes={items}
           onSelectedAttribute={handleSelectedAttribute}
         />
       )}
     </>
   );
 }
-
-AttributesFilter.propTypes = {
-  attributes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
 
 export default SideBar;

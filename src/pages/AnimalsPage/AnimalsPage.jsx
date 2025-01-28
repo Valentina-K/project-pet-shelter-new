@@ -31,12 +31,11 @@ function AnimalsPage() {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log('from useEffect', filters, page);
+    //console.log('from useEffect', filters, page);
     dispatch(fetchAdvertisements({ page, size, filters }));
   }, [dispatch, filters, page, size]);
 
   const handlePageChange = (newPage) => {
-    console.log(newPage);
     dispatch(setPage(newPage - 1));
   };
 
