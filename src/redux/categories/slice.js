@@ -11,6 +11,7 @@ const initialState = {
   selectedFilters: {},
   selectedCategory: {},
   selectedAttributes: [],
+  selectedHeaderAttributes: [],
   isLoading: false,
   error: null,
 };
@@ -47,14 +48,26 @@ const categorySlice = createSlice({
     },
     addAttributes: (state, action) => {
       const attributeName = action.payload;
-      console.log(attributeName.attributeName);
-      // let entries = Object.entries(obj);
-
       const attrName = 'attribute_' + attributeName.attributeName;
       state.selectedAttributes.push(attrName);
+      state.selectedHeaderAttributes.push(attributeName.attributeName);
     },
     clearAttributes: (state) => {
       state.selectedAttributes = [];
+      state.selectedHeaderAttributes = [];
+    },
+    clearAttributeByName: (state, action) => {
+      const attrName = 'attribute_' + action.payload;
+      const index = state.selectedAttributes.indexOf(attrName);
+      if (index !== -1) {
+        state.selectedAttributes.splice(index, 1);
+      }
+      const headerIndex = state.selectedHeaderAttributes.indexOf(
+        action.payload
+      );
+      if (headerIndex !== -1) {
+        state.selectedHeaderAttributes.splice(headerIndex, 1);
+      }
     },
   },
   extraReducers: (builder) => {
@@ -101,6 +114,7 @@ export const {
   addFilter,
   addAttributes,
   clearAttributes,
+  clearAttributeByName,
 } = categorySlice.actions;
 
 export const categoriesReducer = categorySlice.reducer;

@@ -15,7 +15,6 @@ function Navigation() {
           Logo
         </NavLink>
       </div>
-
       <div className={styles.navLinks}>
         <NavLink to="/about-us" className={style}>
           About us

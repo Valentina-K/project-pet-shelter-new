@@ -21,3 +21,9 @@ export const selectSelectedCategory = createSelector(
   (categoriesState) =>
     categoriesState ? categoriesState.selectedCategory : null
 );
+
+export const selectSelectedAttributes = createSelector(
+  [selectCategoriesState],
+  (categoriesState) =>
+    categoriesState ? categoriesState.selectedHeaderAttributes : []
+);

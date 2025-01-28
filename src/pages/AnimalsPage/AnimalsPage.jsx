@@ -13,8 +13,9 @@ import Pagination from '../../components/Pagination/Pagination';
 import Search from '../../components/Search/Search';
 import CardList from '../../components/CardList/CardList';
 import SideBar from '../../components/SideBar/SideBar';
-import styles from './styles.module.css';
 import { clearFilters } from '../../redux/categories/slice';
+import SelectedAttribute from '../../components/AttributesFilter/SelectedAttribute/SelectedAttribute';
+import styles from './styles.module.css';
 
 function AnimalsPage() {
   const dispatch = useDispatch();
@@ -40,22 +41,25 @@ function AnimalsPage() {
   };
 
   return (
-    <div className={styles.pageContainer}>
-      <div className={styles.leftBlock}>
-        <SideBar />
+    <section>
+      <SelectedAttribute />
+      <div className={styles.pageContainer}>
+        <div className={styles.leftBlock}>
+          <SideBar />
+        </div>
+        <div className={styles.rightBlock}>
+          <Search />
+          {!isLoading && <CardList ads={ads} />}
+          {!isLoading && (
+            <Pagination
+              current={page + 1}
+              totalPage={totalPage}
+              onPageClick={handlePageChange}
+            />
+          )}
+        </div>
       </div>
-      <div className={styles.rightBlock}>
-        <Search />
-        {!isLoading && <CardList ads={ads} />}
-        {!isLoading && (
-          <Pagination
-            current={page + 1}
-            totalPage={totalPage}
-            onPageClick={handlePageChange}
-          />
-        )}
-      </div>
-    </div>
+    </section>
   );
 }
 

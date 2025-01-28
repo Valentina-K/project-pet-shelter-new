@@ -1,0 +1,20 @@
+.filterBlock{
+    margin-bottom: 48px;
+    display: flex;
+    gap: 24px;
+}
+
+.filter{
+    display: flex;
+    gap: 24px;
+    padding: 12px 12px 12px 30px;
+    border-radius: 32px;
+    background: #D9D9D9;
+    color: #000;
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}

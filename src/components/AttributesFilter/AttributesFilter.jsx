@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
-import styles from './AttributesFilter.module.css';
 import AttributeDropDown from './AttributeDropDown';
+import { useState } from 'react';
+import styles from './AttributesFilter.module.css';
 
 function AttributesFilter({ attributes, onSelectedAttribute }) {
-  console.log('attributes', attributes);
+  const [selectedAttribute, setSelectedAttribute] = useState('');
   const handleClick = (value) => {
-    console.log('selectedAttribute', value);
+    setSelectedAttribute(value);
     onSelectedAttribute(value);
   };
   return (
@@ -16,7 +17,7 @@ function AttributesFilter({ attributes, onSelectedAttribute }) {
             key={index}
             contents={attribute}
             onChange={handleClick}
-            selectedAttribute={attribute.value}
+            selectedAttribute={selectedAttribute}
           />
         ))}
       </ul>
