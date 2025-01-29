@@ -9,7 +9,6 @@ function SelectedAttribute() {
   const selectedAttributes = useSelector(selectSelectedAttributes);
   const dispatch = useDispatch();
   const handleClickedAttribute = (attribute) => {
-    console.log(attribute);
     dispatch(clearAttributeByName(attribute));
   };
 

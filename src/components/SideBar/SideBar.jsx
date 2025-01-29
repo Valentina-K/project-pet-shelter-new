@@ -66,8 +66,11 @@ function SideBar() {
   };
 
   const handleSelectedAttribute = (attributeName) => {
-    dispatch(addAttributes({ attributeName }));
+    dispatch(addAttributes(attributeName));
     console.log(attributeName);
+    const value = Object.values(attributeName);
+    console.log(Object.values(attributeName));
+    console.log(value[0]);
   };
 
   return (

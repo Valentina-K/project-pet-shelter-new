@@ -6,20 +6,23 @@ import styles from './AttributesFilter.module.css';
 function AttributesFilter({ attributes, onSelectedAttribute }) {
   const [selectedAttribute, setSelectedAttribute] = useState('');
   const handleClick = (value) => {
-    setSelectedAttribute(value);
+    setSelectedAttribute(Object.values(value)[0]);
     onSelectedAttribute(value);
   };
   return (
     <div className={styles.wrapper}>
       <ul>
-        {attributes.map((attribute, index) => (
-          <AttributeDropDown
-            key={index}
-            contents={attribute}
-            onChange={handleClick}
-            selectedAttribute={selectedAttribute}
-          />
-        ))}
+        {attributes.map(
+          (attribute, index) =>
+            attribute.length > 0 && (
+              <AttributeDropDown
+                key={index}
+                contents={attribute}
+                onChange={handleClick}
+                selectedAttribute={selectedAttribute}
+              />
+            )
+        )}
       </ul>
     </div>
   );

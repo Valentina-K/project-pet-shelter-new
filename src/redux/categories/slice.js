@@ -47,18 +47,18 @@ const categorySlice = createSlice({
       state.selectedCategory = {};
     },
     addAttributes: (state, action) => {
-      const attributeName = action.payload;
-      const attrName = 'attribute_' + attributeName.attributeName;
-      state.selectedAttributes.push(attrName);
-      state.selectedHeaderAttributes.push(attributeName.attributeName);
+      state.selectedAttributes.push(action.payload);
+      const value = Object.values(action.payload);
+      state.selectedHeaderAttributes.push(value[0]);
     },
     clearAttributes: (state) => {
       state.selectedAttributes = [];
       state.selectedHeaderAttributes = [];
     },
     clearAttributeByName: (state, action) => {
-      const attrName = 'attribute_' + action.payload;
-      const index = state.selectedAttributes.indexOf(attrName);
+      const index = state.selectedAttributes.findIndex((attr) =>
+        Object.values(attr).includes(action.payload)
+      );
       if (index !== -1) {
         state.selectedAttributes.splice(index, 1);
       }

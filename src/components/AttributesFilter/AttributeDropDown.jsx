@@ -4,10 +4,14 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import styles from '../SideBar/DropDown/DropDown.module.css';
 
 function AttributeDropDown({ contents, onChange, selectedAttribute }) {
+  console.log('contents', contents);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleCategoryChange = (attributeName) => {
-    onChange(attributeName);
+    const choiceAttribute = {
+      [`attribute_${contents[0].name}`]: attributeName,
+    };
+    onChange(choiceAttribute);
   };
 
   const handleToggleDropdown = () => {
