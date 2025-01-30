@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import styles from '../SideBar/DropDown/DropDown.module.css';
+import styles from './AttributeDropDown.module.css';
 
 function AttributeDropDown({ contents, onChange, selectedAttribute }) {
   console.log('contents', contents);

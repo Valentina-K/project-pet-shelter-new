@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import AttributeDropDown from './AttributeDropDown';
+import AttributeDropDown from './AttributeDropDown/AttributeDropDown';
 import { useState } from 'react';
 import styles from './AttributesFilter.module.css';
 
