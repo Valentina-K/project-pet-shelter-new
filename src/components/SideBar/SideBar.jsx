@@ -66,8 +66,7 @@ function SideBar() {
   };
 
   const handleSelectedAttribute = (attributeName) => {
-    dispatch(addAttributes({ attributeName }));
-    console.log(attributeName);
+    dispatch(addAttributes(attributeName));
   };
 
   return (

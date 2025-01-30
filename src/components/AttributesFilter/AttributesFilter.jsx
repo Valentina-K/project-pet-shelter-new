@@ -1,24 +1,28 @@
 import PropTypes from 'prop-types';
+import AttributeDropDown from './AttributeDropDown/AttributeDropDown';
+import { useState } from 'react';
 import styles from './AttributesFilter.module.css';
-import AttributeDropDown from './AttributeDropDown';
 
 function AttributesFilter({ attributes, onSelectedAttribute }) {
-  console.log('attributes', attributes);
+  const [selectedAttribute, setSelectedAttribute] = useState('');
   const handleClick = (value) => {
-    console.log('selectedAttribute', value);
+    setSelectedAttribute(Object.values(value)[0]);
     onSelectedAttribute(value);
   };
   return (
     <div className={styles.wrapper}>
       <ul>
-        {attributes.map((attribute, index) => (
-          <AttributeDropDown
-            key={index}
-            contents={attribute}
-            onChange={handleClick}
-            selectedAttribute={attribute.value}
-          />
-        ))}
+        {attributes.map(
+          (attribute, index) =>
+            attribute.length > 0 && (
+              <AttributeDropDown
+                key={index}
+                contents={attribute}
+                onChange={handleClick}
+                selectedAttribute={selectedAttribute}
+              />
+            )
+        )}
       </ul>
     </div>
   );
