@@ -1,8 +1,6 @@
 .wrapper {
     width: 375px;
-    border: 1px dashed #9747FF;
     border-radius: 5px;
-    padding: 34px 20px 9px;
     display: flex;
     flex-direction: column;
     gap: 24px;

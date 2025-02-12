@@ -14,15 +14,16 @@ function SelectedAttribute() {
 
   return (
     <div className={styles.filterBlock}>
-      {selectedAttributes.map((attr) => (
-        <div key={attr} className={styles.filter}>
-          {attr}
-          <RxCrossCircled
-            className={styles.icon}
-            onClick={() => handleClickedAttribute(attr)}
-          />
-        </div>
-      ))}
+      {selectedAttributes.length > 0 &&
+        selectedAttributes.map((attr) => (
+          <div key={attr} className={styles.filter}>
+            {attr}
+            <RxCrossCircled
+              className={styles.icon}
+              onClick={() => handleClickedAttribute(attr)}
+            />
+          </div>
+        ))}
     </div>
   );
 }

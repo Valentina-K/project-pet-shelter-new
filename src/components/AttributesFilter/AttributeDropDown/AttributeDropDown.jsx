@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import styles from './AttributeDropDown.module.css';
 
-function AttributeDropDown({ contents, onChange, selectedAttribute }) {
-  console.log('contents', contents);
+function AttributeDropDown({ contents, onChange }) {
+  //console.log('selectedAttribute', selectedAttribute);
+  //console.log('contents', contents);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(null);
 
   const handleCategoryChange = (attributeName) => {
+    setSelectedValue((prev) => (prev === attributeName ? null : attributeName));
     const choiceAttribute = {
       [`attribute_${contents[0].name}`]: attributeName,
     };
@@ -41,11 +44,12 @@ function AttributeDropDown({ contents, onChange, selectedAttribute }) {
                 </span>
                 <label className={styles.customRadio}>
                   <input
-                    type="radio"
-                    name="category"
+                    type="checkbox"
+                    name="attribute"
                     value={attribute.name}
-                    checked={selectedAttribute === attribute.value}
-                    onChange={() => handleCategoryChange(attribute.value)}
+                    checked={selectedValue === attribute.value}
+                    onClick={() => handleCategoryChange(attribute.value)}
+                    onChange={() => {}}
                     className={styles.hiddenRadio}
                   />
                   <span className={styles.radioMark}></span>
@@ -68,7 +72,6 @@ AttributeDropDown.propTypes = {
     })
   ).isRequired,
   onChange: PropTypes.func.isRequired,
-  selectedAttribute: PropTypes.string.isRequired,
 };
 
 export default AttributeDropDown;

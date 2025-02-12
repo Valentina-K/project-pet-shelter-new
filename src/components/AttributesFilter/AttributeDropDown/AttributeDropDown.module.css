@@ -2,6 +2,7 @@
     width: 335px;
     border-radius: 34px;
     background: var(--background-of-fields-icons, #eee);
+    margin-bottom: 24px;
   }
   
   .categoriesContainer {
@@ -13,8 +14,7 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 34px;
-    background: #d9d9d9;
-    margin-bottom: 24.8px;
+    background: #d9d9d9;    
   }
   
   .categoriesContainer.isOpen {
@@ -34,6 +34,7 @@
     display: flex;
     gap: 24px;
     flex-direction: column;
+    padding-top: 30px;
   }
   
   .optionsItem {
@@ -100,6 +101,11 @@
     background: #939393;
     border-color: #939393;
   }
+
+  .hiddenRadio:not(:checked) + .radioMark {
+    border: 2px solid #ccc;
+    background: #D9D9D9;
+  }
   
   .hiddenRadio:checked+.radioMark::after {
     content: ' ';
@@ -110,4 +116,8 @@
     height: 10px;
     border-radius: 50%;
     background-color: white;
+  }
+
+  .hiddenRadio:not(:checked) + .radioMark::after {
+    content: none;
   }

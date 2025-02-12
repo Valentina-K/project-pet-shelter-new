@@ -30,17 +30,15 @@ const categorySlice = createSlice({
   initialState,
   reducers: {
     addFilter: (state, action) => {
-      console.log(action.payload);
       state.selectedFilters = { ...action.payload };
     },
     toggleFilter: (state, action) => {
-      const categoryId = action.payload;
-      const index = state.selectedFilters.indexOf(categoryId);
-      if (index === -1) {
-        state.selectedFilters.push(categoryId);
-      } else {
-        state.selectedFilters.splice(index, 1);
-      }
+      const categoryId = action.payload.category;
+      const currentValue = state.selectedFilters['category'];
+      if (currentValue === categoryId) {
+        state.selectedFilters = {};
+        state.selectedCategory = {};
+      } else state.selectedFilters = { category: categoryId };
     },
     clearFilters: (state) => {
       state.selectedFilters = {};
@@ -50,6 +48,20 @@ const categorySlice = createSlice({
       state.selectedAttributes.push(action.payload);
       const value = Object.values(action.payload);
       state.selectedHeaderAttributes.push(value[0]);
+    },
+    toggleAttributes: (state, action) => {
+      const value = Object.values(action.payload);
+      const index = state.selectedAttributes.findIndex((attr) =>
+        Object.values(attr).includes(value[0])
+      );
+      if (index !== -1) {
+        state.selectedAttributes.splice(index, 1);
+      } else state.selectedAttributes.push(action.payload);
+
+      const headerIndex = state.selectedHeaderAttributes.indexOf(value[0]);
+      if (headerIndex !== -1) {
+        state.selectedHeaderAttributes.splice(headerIndex, 1);
+      } else state.selectedHeaderAttributes.push(value[0]);
     },
     clearAttributes: (state) => {
       state.selectedAttributes = [];
@@ -75,14 +87,12 @@ const categorySlice = createSlice({
       .addCase(getCategories.pending, handlePending)
       .addCase(getCategories.fulfilled, (state, action) => {
         state.isLoading = false;
-        // console.log('Categories fulfilled:', action.payload);
         state.categories = action.payload;
       })
       .addCase(getCategories.rejected, handleReject)
       .addCase(getCategoryById.pending, handlePending)
       .addCase(getCategoryById.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log('Selected category fulfilled:', action.payload);
         state.selectedCategory = action.payload;
       })
       .addCase(getCategoryById.rejected, handleReject)
@@ -115,6 +125,7 @@ export const {
   addAttributes,
   clearAttributes,
   clearAttributeByName,
+  toggleAttributes,
 } = categorySlice.actions;
 
 export const categoriesReducer = categorySlice.reducer;
