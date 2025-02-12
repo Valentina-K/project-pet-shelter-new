@@ -8,13 +8,14 @@ import {
   selectCategories,
   selectIsLoading,
   selectError,
+  selectSelectedCategory,
 } from '../../redux/categories/selectors.js';
 import AttributesFilter from '../AttributesFilter/AttributesFilter.jsx';
 import toast from 'react-hot-toast';
 import {
-  addFilter,
   clearAttributes,
-  addAttributes,
+  toggleFilter,
+  toggleAttributes,
 } from '../../redux/categories/slice.js';
 import DropDown from './DropDown/DropDown.jsx';
 import { setPage } from '../../redux/advertisements/slice.js';
@@ -23,14 +24,12 @@ import { selectListAttrByCategory } from '../../redux/advertisements/selectors.j
 function SideBar() {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories); //get all categories
-  //const quantityAds = useSelector(selectTotalElements);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const items = useSelector(selectListAttrByCategory);
+  const selectCategory = useSelector(selectSelectedCategory);
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
-  //const [attributes, setAttributes] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState('Categories');
-  console.log('items', items);
   useEffect(() => {
     if (categories.length === 0 && !isLoading) {
       dispatch(getCategories());
@@ -44,29 +43,29 @@ function SideBar() {
           const categoryId = Number(selectedCategoryId);
           const action = dispatch(getCategoryById(categoryId));
           if (getCategoryById.fulfilled.match(action)) {
-            //setAttributes(action.payload.attribute || []);
             dispatch(setPage(0));
           }
         } catch (err) {
           toast.error('Error fetching category attributes:', err);
         }
-      } else {
-        //setAttributes([]);
       }
     };
     fetchAttributes();
   }, [selectedCategoryId, dispatch]);
 
+  useEffect(() => {
+    if (!selectCategory['id']) setCategoryTitle('Categories');
+    else setCategoryTitle(categories[selectCategory['id'] - 1].name);
+  }, [selectCategory, categories]);
+
   const handleCategoryChange = (categoryId) => {
-    setSelectedCategoryId(categoryId);
-    //dispatch(toggleFilter(categoryId));
-    dispatch(addFilter({ category: categoryId }));
-    setCategoryTitle(categories[categoryId - 1].name);
+    setSelectedCategoryId((prev) => (prev === categoryId ? '' : categoryId));
+    dispatch(toggleFilter({ category: categoryId }));
     dispatch(clearAttributes());
   };
 
   const handleSelectedAttribute = (attributeName) => {
-    dispatch(addAttributes(attributeName));
+    dispatch(toggleAttributes(attributeName));
   };
 
   return (
@@ -77,7 +76,6 @@ function SideBar() {
         contents={categories}
         title={categoryTitle}
         onChange={handleCategoryChange}
-        selectedCategoryId={String(selectedCategoryId)}
       />
       {items?.length > 0 && (
         <AttributesFilter

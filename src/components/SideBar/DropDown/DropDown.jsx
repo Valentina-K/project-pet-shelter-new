@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import styles from './DropDown.module.css';
 
-function DropDown({ contents, title, onChange, selectedCategoryId }) {
+function DropDown({ contents, title, onChange }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(null);
 
   const handleCategoryChange = (categoryId) => {
+    setSelectedValue((prev) => (prev === categoryId ? null : categoryId));
     onChange(categoryId);
   };
 
@@ -40,8 +42,9 @@ function DropDown({ contents, title, onChange, selectedCategoryId }) {
                     type="radio"
                     name="category"
                     value={category.id}
-                    checked={selectedCategoryId === String(category.id)}
-                    onChange={() => handleCategoryChange(category.id)}
+                    checked={selectedValue === category.id}
+                    onChange={() => {}}
+                    onClick={() => handleCategoryChange(category.id)}
                     className={styles.hiddenRadio}
                   />
                   <span className={styles.radioMark}></span>
@@ -65,7 +68,6 @@ DropDown.propTypes = {
   ).isRequired,
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  selectedCategoryId: PropTypes.string.isRequired,
 };
 
 export default DropDown;

@@ -13,7 +13,7 @@ import Pagination from '../../components/Pagination/Pagination';
 import Search from '../../components/Search/Search';
 import CardList from '../../components/CardList/CardList';
 import SideBar from '../../components/SideBar/SideBar';
-import { clearFilters } from '../../redux/categories/slice';
+import { clearAttributes, clearFilters } from '../../redux/categories/slice';
 import SelectedAttribute from '../../components/AttributesFilter/SelectedAttribute/SelectedAttribute';
 import styles from './styles.module.css';
 
@@ -29,10 +29,10 @@ function AnimalsPage() {
   useEffect(() => {
     dispatch(resetData());
     dispatch(clearFilters());
+    dispatch(clearAttributes());
   }, [dispatch]);
 
   useEffect(() => {
-    //console.log('from useEffect', filters, page);
     dispatch(fetchAdvertisements({ page, size, filters }));
   }, [dispatch, filters, page, size]);
 
