@@ -40,6 +40,10 @@ function AnimalsPage() {
     dispatch(setPage(newPage - 1));
   };
 
+  const handleSearchConfirm = (query) => {
+    console.log(query);
+  };
+
   return (
     <section>
       <SelectedAttribute />
@@ -48,7 +52,7 @@ function AnimalsPage() {
           <SideBar />
         </div>
         <div className={styles.rightBlock}>
-          <Search />
+          <Search onSearch={handleSearchConfirm} />
           {!isLoading && <CardList ads={ads} />}
           {!isLoading && (
             <Pagination
