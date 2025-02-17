@@ -1,11 +1,12 @@
 import { IoSearch } from 'react-icons/io5';
-import styles from './Search.module.css';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import styles from './Search.module.css';
 
 function Search({ onSearch }) {
   const [searchValue, setSearchValue] = useState('');
   const [query, setQuery] = useState('');
+
   const handleChanged = (e) => setSearchValue(e.target.value);
   const handleClick = () => {
     setQuery(encodeURIComponent(searchValue));
@@ -19,7 +20,7 @@ function Search({ onSearch }) {
   };
 
   useEffect(() => {
-    onSearch(`description=${query}`);
+    onSearch(query);
   }, [query, onSearch]);
   return (
     <div className={styles.searchContainer}>

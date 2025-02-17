@@ -3,6 +3,7 @@ import {
   fetchAdvertisements,
   addNewAdvertisement,
   deleteAdvertisement,
+  fetchSearchAdvertisements,
 } from './operations';
 
 const advertisementSlice = createSlice({
@@ -15,6 +16,7 @@ const advertisementSlice = createSlice({
     totalElements: 0,
     hasMore: false,
     filteredItems: [],
+    searchString: '',
     listOfAttributeCounts: [],
     searchQuery: {
       categoryId: '',
@@ -42,7 +44,6 @@ const advertisementSlice = createSlice({
       state.size = action.payload;
     },
     setHasMore(state, action) {
-      console.log(action.payload);
       state.hasMore = action.payload;
     },
     setSearchQuery(state, action) {
@@ -85,6 +86,7 @@ const advertisementSlice = createSlice({
       });
     },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchAdvertisements.pending, (state) => {
@@ -101,6 +103,22 @@ const advertisementSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchAdvertisements.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload || 'Failed to fetch advertisements';
+      })
+      .addCase(fetchSearchAdvertisements.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchSearchAdvertisements.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items = action.payload.page.content;
+        state.totalPages = action.payload.page.page.totalPages;
+        state.totalElements = action.payload.page.page.totalElements;
+        state.listOfAttributeCounts = action.payload.listOfAttributeCounts;
+        state.error = null;
+      })
+      .addCase(fetchSearchAdvertisements.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload || 'Failed to fetch advertisements';
       })

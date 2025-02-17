@@ -1,12 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   selectAdvertisements,
   selectIsLoading,
   selectPage,
   selectTotalPage,
 } from '../../redux/advertisements/selectors';
-import { fetchAdvertisements } from '../../redux/advertisements/operations';
+import {
+  fetchAdvertisements,
+  fetchSearchAdvertisements,
+} from '../../redux/advertisements/operations';
 import { selectSelectedFilters } from '../../redux/categories/selectors';
 import { resetData, setPage } from '../../redux/advertisements/slice';
 import Pagination from '../../components/Pagination/Pagination';
@@ -25,6 +28,7 @@ function AnimalsPage() {
   const page = useSelector(selectPage);
   const size = 15;
   const totalPage = useSelector(selectTotalPage);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     dispatch(resetData());
@@ -33,16 +37,25 @@ function AnimalsPage() {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchAdvertisements({ page, size, filters }));
-  }, [dispatch, filters, page, size]);
+    if (searchQuery) {
+      const search = {
+        description: `${searchQuery}`,
+      };
+      dispatch(setPage(0));
+      dispatch(fetchSearchAdvertisements({ page, size, query: search }));
+    } else dispatch(fetchAdvertisements({ page, size, filters }));
+  }, [dispatch, filters, page, size, searchQuery]);
 
-  const handlePageChange = (newPage) => {
-    dispatch(setPage(newPage - 1));
-  };
+  const handlePageChange = useCallback(
+    (newPage) => {
+      dispatch(setPage(newPage - 1));
+    },
+    [dispatch]
+  );
 
-  const handleSearchConfirm = (query) => {
-    console.log(query);
-  };
+  const handleSearchConfirm = useCallback((query) => {
+    setSearchQuery(query);
+  }, []);
 
   return (
     <section>
