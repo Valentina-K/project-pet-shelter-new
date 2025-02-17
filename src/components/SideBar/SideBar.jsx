@@ -41,13 +41,15 @@ function SideBar() {
       if (selectedCategoryId) {
         try {
           const categoryId = Number(selectedCategoryId);
-          const action = dispatch(getCategoryById(categoryId));
+          const action = await dispatch(getCategoryById(categoryId));
           if (getCategoryById.fulfilled.match(action)) {
             dispatch(setPage(0));
           }
         } catch (err) {
           toast.error('Error fetching category attributes:', err);
         }
+      } else {
+        dispatch(setPage(0));
       }
     };
     fetchAttributes();
@@ -56,7 +58,7 @@ function SideBar() {
   useEffect(() => {
     if (!selectCategory['id']) setCategoryTitle('Categories');
     else setCategoryTitle(categories[selectCategory['id'] - 1].name);
-  }, [selectCategory, categories]);
+  }, [selectCategory, categories, dispatch]);
 
   const handleCategoryChange = (categoryId) => {
     setSelectedCategoryId((prev) => (prev === categoryId ? '' : categoryId));
