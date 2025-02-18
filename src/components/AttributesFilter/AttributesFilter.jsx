@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import AttributeDropDown from './AttributeDropDown/AttributeDropDown';
 import styles from './AttributesFilter.module.css';
+import BreedDropDown from './AttributeDropDown/BreedDropDown';
 
 function AttributesFilter({ attributes, onSelectedAttribute }) {
   const handleClick = (value) => {
@@ -11,13 +12,20 @@ function AttributesFilter({ attributes, onSelectedAttribute }) {
       <ul>
         {attributes.map(
           (attribute, index) =>
-            attribute.length > 0 && (
+            attribute.length > 0 &&
+            (attribute[0].name === 'breed' ? (
+              <BreedDropDown
+                key={index}
+                contents={attribute}
+                onChange={handleClick}
+              />
+            ) : (
               <AttributeDropDown
                 key={index}
                 contents={attribute}
                 onChange={handleClick}
               />
-            )
+            ))
         )}
       </ul>
     </div>
