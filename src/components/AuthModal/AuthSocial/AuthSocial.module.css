@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 52px;
+  }
+  
+  .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    padding: 6px;
+    background: #EEE;
+  }
+  
+  .icon {
+    width: 34px;
+    height: 34px;
+    fill: #000;
+    transition: fill 0.3s;
+  }
+   
+  .link:hover .icon {
+    fill: #0056b3;
+  }
+  

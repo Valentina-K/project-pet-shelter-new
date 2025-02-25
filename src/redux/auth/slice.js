@@ -21,6 +21,7 @@ const handleFulfilled = (state, action) => {
   state.token = action.payload.accessToken;
   state.isLoggedIn = true;
   state.error = null;
+  //localStorage.setItem('accessToken',action.payload.accessToken); //add to localStorage
 };
 
 const handleRejected = (state, action) => {
@@ -36,7 +37,7 @@ const authSlice = createSlice({
       state.user = null;
       state.token = null;
       state.isLoggedIn = false;
-      localStorage.removeItem('accessToken');
+      //localStorage.removeItem('accessToken');
       delete axios.defaults.headers.common['Authorization'];
     },
   },
