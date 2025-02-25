@@ -6,6 +6,7 @@ import Header from './layout/Header/Header.jsx';
 import Footer from './layout/Footer/Footer.jsx';
 import Loader from './components/Loader/Loader.jsx';
 import BlogPage from './pages/BlogPage/BlogPage.jsx';
+import { PrivateRoute } from './PrivateRoute.jsx';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const AnimalsPage = lazy(() => import('./pages/AnimalsPage/AnimalsPage.jsx'));
@@ -15,6 +16,7 @@ const SheltersPage = lazy(
 const ShelterPage = lazy(() => import('./pages/ShelterPage/ShelterPage.jsx'));
 const ForumPage = lazy(() => import('./pages/ForumPage/ForumPage.jsx'));
 const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage.jsx'));
+const DashboardPage = lazy(() => import('./pages/Dashboard/Dashboard.jsx'));
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
           <Route path="/blog/:id" element={<BlogPage />} />
           <Route path="/forum" element={<ForumPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/dashboard" element={<DashboardPage />} />
+          </Route>
         </Routes>
       </Suspense>
       <Footer />
