@@ -17,7 +17,7 @@ const ShelterPage = lazy(() => import('./pages/ShelterPage/ShelterPage.jsx'));
 const ForumPage = lazy(() => import('./pages/ForumPage/ForumPage.jsx'));
 const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage.jsx'));
 const DashboardPage = lazy(() => import('./pages/Dashboard/Dashboard.jsx'));
-
+const AboutUsPage = lazy(() => import('./pages/AboutUsPage/AboutUs.jsx'));
 function App() {
   return (
     <div>
@@ -31,6 +31,7 @@ function App() {
           <Route path="/blog/:id" element={<BlogPage />} />
           <Route path="/forum" element={<ForumPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
           <Route element={<PrivateRoute />}>
             <Route path="/dashboard" element={<DashboardPage />} />
           </Route>

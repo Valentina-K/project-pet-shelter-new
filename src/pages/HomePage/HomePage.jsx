@@ -65,7 +65,7 @@ function HomePage() {
         />
       )}
       <Shelters />
-      <JoinUsSection />
+      <JoinUsSection text={'Join us to make a bigger impact together!'} />
       <OurBlog />
       <Subscribe />
       <Statistics />
