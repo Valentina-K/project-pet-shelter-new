@@ -13,17 +13,32 @@ const setAuthHeader = (token) => {
   }
 };
 
+export const isExistUser = createAsyncThunk(
+  'auth/isExistUser',
+  async (email) => {
+    try {
+      const { data } = await axios.get(`/api/v1/user/email/${email}`);
+      console.log(data);
+      return true;
+    } catch (error) {
+      console.error('Error:', error.response?.data || error.message);
+      return false;
+      //return thunkAPI.rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
+
 export const loginUser = createAsyncThunk(
   'auth/login',
   async ({ email, password }, thunkAPI) => {
     console.log('Dispatching loginUser with:', { email, password });
     try {
-      const { data } = await axios.post('/api/v1/user/login', {
+      const { data } = await axios.post('/api/v1/auth/login', {
         email,
         password,
       });
       console.log('Login response data:', data);
-      setAuthHeader(data.token);
+      setAuthHeader(data.accessToken);
       return data;
     } catch (error) {
       console.error('Login error:', error.response?.data || error.message);
@@ -37,7 +52,7 @@ export const registerUser = createAsyncThunk(
   async (userData, thunkAPI) => {
     console.log('Dispatching registerUser with:', userData);
     try {
-      const { data } = await axios.post('/api/v1/user/signup', userData);
+      const { data } = await axios.post('/api/v1/auth/signup', userData);
       console.log('Register response data:', data);
       setAuthHeader(data.token);
       return data;
@@ -48,6 +63,19 @@ export const registerUser = createAsyncThunk(
       return thunkAPI.rejectWithValue(
         err.response?.data?.message || err.message
       );
+    }
+  }
+);
+
+export const getUserByEmail = createAsyncThunk(
+  'auth/getUserByEmail',
+  async (email, thunkAPI) => {
+    try {
+      const { data } = await axios.get(`/api/v1/user/email/${email}`);
+      return data;
+    } catch (error) {
+      console.error('Error:', error.response?.data || error.message);
+      return thunkAPI.rejectWithValue(error.response?.data || error.message);
     }
   }
 );

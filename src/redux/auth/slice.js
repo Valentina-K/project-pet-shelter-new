@@ -1,10 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginUser, registerUser } from './operations';
+import {
+  loginUser,
+  registerUser,
+  isExistUser,
+  getUserByEmail,
+} from './operations';
 import axios from 'axios';
 
 const initialState = {
   user: null,
+  email: null,
   token: null,
+  isExistUser: false,
   isLoggedIn: false,
   isLoading: false,
   error: null,
@@ -17,8 +24,9 @@ const handlePending = (state) => {
 
 const handleFulfilled = (state, action) => {
   state.isLoading = false;
-  state.user = action.payload.email;
+  state.email = action.payload.email;
   state.token = action.payload.accessToken;
+  state.isExistUser = true;
   state.isLoggedIn = true;
   state.error = null;
   //localStorage.setItem('accessToken',action.payload.accessToken); //add to localStorage
@@ -27,6 +35,8 @@ const handleFulfilled = (state, action) => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+  state.user = null;
+  state.email = null;
 };
 
 const authSlice = createSlice({
@@ -44,12 +54,26 @@ const authSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
+      .addCase(isExistUser.pending, handlePending)
+      .addCase(isExistUser.fulfilled, (state) => {
+        state.isLoading = false;
+        state.isExistUser = true;
+        state.error = null;
+      })
+      .addCase(isExistUser.rejected, handleRejected)
       .addCase(registerUser.pending, handlePending)
       .addCase(registerUser.fulfilled, handleFulfilled)
       .addCase(registerUser.rejected, handleRejected)
       .addCase(loginUser.pending, handlePending)
       .addCase(loginUser.fulfilled, handleFulfilled)
-      .addCase(loginUser.rejected, handleRejected);
+      .addCase(loginUser.rejected, handleRejected)
+      .addCase(getUserByEmail.pending, handlePending)
+      .addCase(getUserByEmail.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.email = action.payload.email;
+        state.error = null;
+      })
+      .addCase(getUserByEmail.rejected, handleRejected);
   },
 });
 

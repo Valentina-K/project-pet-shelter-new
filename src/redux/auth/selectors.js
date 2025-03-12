@@ -6,7 +6,7 @@ export const selectError = (state) => state.auth.error;
 
 export const selectAuth = (state) => {
   return {
-    user: state.user,
-    token: state.token,
+    user: state.auth.user,
+    token: state.auth.token,
   };
 };
