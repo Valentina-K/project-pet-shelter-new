@@ -1,17 +1,34 @@
 import PropTypes from 'prop-types';
 import styles from './AuthModal.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AuthSocial from './AuthSocial/AuthSocial';
 import { Link } from 'react-router-dom';
 
 function LoginWindow({ title, type, error = '', onLoginSuccess }) {
-  const placeholder = type === 'text' ? 'Mail adresse' : 'Password';
+  const placeholder = type === 'email' ? 'Mail adresse' : 'Password';
   const [value, setValue] = useState('');
-  const classNameInput = error ? styles.inputError : '';
+  const [classError, setClassError] = useState(
+    error ? `${styles.inputError}` : ''
+  );
+
+  useEffect(() => {
+    setClassError(error ? `${styles.inputError}` : '');
+  }, [error]);
 
   const handleContinue = () => {
     onLoginSuccess(value);
     setValue('');
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.currentTarget.blur();
+      handleContinue();
+    }
+  };
+
+  const handleFocus = () => {
+    setClassError('');
   };
 
   const handleChange = (e) => {
@@ -22,13 +39,15 @@ function LoginWindow({ title, type, error = '', onLoginSuccess }) {
       <div className={styles.contentWrapper}>
         <p className={styles.title}>{title}</p>
         <div className={styles.form}>
-          <div className={classNameInput}>
+          <div className={classError}>
             <input
               type={type}
               placeholder={placeholder}
               value={value}
               onChange={handleChange}
               onBlur={() => setValue(value)}
+              onFocus={handleFocus}
+              onKeyDown={handleKeyDown}
               className={styles.input}
             />
             {error && (

@@ -45,6 +45,7 @@ const authSlice = createSlice({
   reducers: {
     logout(state) {
       state.user = null;
+      state.email = null;
       state.token = null;
       state.isLoggedIn = false;
       //localStorage.removeItem('accessToken');
@@ -70,7 +71,6 @@ const authSlice = createSlice({
       .addCase(getUserByEmail.pending, handlePending)
       .addCase(getUserByEmail.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.email = action.payload.email;
         state.error = null;
       })
       .addCase(getUserByEmail.rejected, handleRejected);

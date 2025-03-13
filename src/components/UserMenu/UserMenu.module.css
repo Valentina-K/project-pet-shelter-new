@@ -1,5 +1,5 @@
 .container {
-    position: relative;
+    position: fixed;
     top: 52px;
     right: 160px;
     width: 520px;
@@ -7,15 +7,40 @@
     border-radius: 30px;
     background: #CFCFCF;
     padding: 28px 33px 48px 28px;
+    z-index: 100;
 }
 
 .header{
     display: flex;
-    justify-content: space-between;
-    align-items: top;
+    margin-bottom: 34px;
+    align-items: center;
+}
+
+.avatar{
+    margin-right: 47px;
+}
+
+.name{
+    font-family: Inter,sans-serif;
+font-weight: 700;
+font-size: 28px;
+line-height: 22px;
+letter-spacing: -0.41px;
+margin-bottom: 10px;
+}
+
+.email{
+    font-family: Inter, sans-serif;
+font-weight: 400;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: -0.24px;
 }
 
 .closeIcon{
+    position: absolute;
+    top: 28px;
+    right: 33px;
     width: 40px;
     height: 40px;
     background-color: #fff;
@@ -25,9 +50,33 @@
     justify-content: center;
     align-items: center;
     padding: 6px;
+    cursor: pointer;
 }
 
-.close{
+.close{    
     width: 34px;
     height: 34px;
+}
+
+.burger{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-left: 107px;
+}
+
+.item{
+    font-family: Inter, sans-serif;
+font-weight: 500;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: -0.24px;
+vertical-align: middle;
+
 }

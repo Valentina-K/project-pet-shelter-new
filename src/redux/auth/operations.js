@@ -1,9 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { privateApi, setAuthToken } from '../api';
 
-axios.defaults.baseURL = import.meta.env.VITE_API_URL;
-
-const setAuthHeader = (token) => {
+/* const setAuthHeader = (token) => {
   if (token) {
     console.log('Setting auth header with token:', token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -11,13 +9,13 @@ const setAuthHeader = (token) => {
     console.log('Removing auth header');
     delete axios.defaults.headers.common['Authorization'];
   }
-};
+}; */
 
 export const isExistUser = createAsyncThunk(
   'auth/isExistUser',
   async (email) => {
     try {
-      const { data } = await axios.get(`/api/v1/user/email/${email}`);
+      const { data } = await privateApi.get(`/api/v1/user/email/${email}`);
       console.log(data);
       return true;
     } catch (error) {
@@ -33,12 +31,12 @@ export const loginUser = createAsyncThunk(
   async ({ email, password }, thunkAPI) => {
     console.log('Dispatching loginUser with:', { email, password });
     try {
-      const { data } = await axios.post('/api/v1/auth/login', {
+      const { data } = await privateApi.post('/api/v1/auth/login', {
         email,
         password,
       });
       console.log('Login response data:', data);
-      setAuthHeader(data.accessToken);
+      setAuthToken(data.accessToken);
       return data;
     } catch (error) {
       console.error('Login error:', error.response?.data || error.message);
@@ -52,9 +50,9 @@ export const registerUser = createAsyncThunk(
   async (userData, thunkAPI) => {
     console.log('Dispatching registerUser with:', userData);
     try {
-      const { data } = await axios.post('/api/v1/auth/signup', userData);
+      const { data } = await privateApi.post('/api/v1/auth/signup', userData);
       console.log('Register response data:', data);
-      setAuthHeader(data.token);
+      setAuthToken(data.token);
       return data;
     } catch (err) {
       console.error('Register error:', err);
@@ -71,7 +69,7 @@ export const getUserByEmail = createAsyncThunk(
   'auth/getUserByEmail',
   async (email, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/v1/user/email/${email}`);
+      const { data } = await privateApi.get(`/api/v1/user/email/${email}`);
       return data;
     } catch (error) {
       console.error('Error:', error.response?.data || error.message);

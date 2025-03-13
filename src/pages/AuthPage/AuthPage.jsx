@@ -25,7 +25,7 @@ function AuthPage() {
     <div>
       <LoginWindow
         title={'Sing in or register '}
-        type={'text'}
+        type={'email'}
         onLoginSuccess={handleLoginSuccess}
       />
     </div>
