@@ -7,8 +7,17 @@ function AboutUs() {
     'Join our team and change animals lives for the better! Together we can do more!';
   return (
     <div className={styles.wrapper}>
+      <h1 className={styles.maintitle}>Uniting People to Help Animals</h1>
+      <p className={styles.preview}>
+        At [Platform Name], we believe that every animal deserves a loving home
+        and a chance at a better life. Our mission is simple yet profound: to
+        connect compassionate individuals, dedicated volunteers, and caring
+        shelters in one seamless platform that makes a real difference in the
+        lives of animals in need.
+      </p>
+      <div className={styles.hero}></div>
       <div className={styles.section}>
-        <div>
+        <div className={styles.textBlock}>
           <h3 className={styles.title}>Who we are?</h3>
           <p className={styles.text}>
             We are a community-driven platform designed to bridge the gap
@@ -30,7 +39,7 @@ function AboutUs() {
       </div>
       <div className={styles.section}>
         <img className={styles.image} src={temporaryImage} alt="#" />
-        <div>
+        <div className={styles.textBlock}>
           <h3 className={styles.title}>What We Do?</h3>
           <div>
             <p className={styles.text}>
@@ -59,7 +68,7 @@ function AboutUs() {
         </div>
       </div>
       <div className={styles.section}>
-        <div>
+        <div className={styles.textBlock}>
           <h3 className={styles.title}>Why We Do It?</h3>
           <p className={styles.text}>
             Every year, millions of animals around the world end up in shelters
