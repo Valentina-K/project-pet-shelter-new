@@ -35,6 +35,7 @@ function HomePage() {
     dispatch(clearFilters());
   }, [dispatch]);
   useEffect(() => {
+    console.log('from home page', page, size);
     dispatch(fetchAdvertisements({ page, size }));
   }, [dispatch, page, size]);
   /* useEffect(() => {
@@ -75,13 +76,3 @@ function HomePage() {
 }
 
 export default HomePage;
-/* <GetAllAds />
-      <Hero />
-      <GetAllAds />
-      <AboutUs />
-      <OurTeam />
-      <Metrics />
-      <OurAnimals />
-      <Partners />
-      <Donations />
-      <OurBlog /> */

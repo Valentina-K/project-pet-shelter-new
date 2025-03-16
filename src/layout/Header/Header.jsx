@@ -5,6 +5,7 @@ import styles from './Header.module.css';
 import LocaleDropDown from './LocaleDropDown/LocaleDropDown';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import UserMenu from '../../components/UserMenu/UserMenu';
 
 const style = ({ isActive }) =>
   clsx(styles.link, { [styles.active]: isActive });
@@ -14,7 +15,7 @@ function Navigation() {
   const navigate = useNavigate();
   const handleSignInClick = () => {
     // Передаем текущий путь в состояние при перенаправлении на страницу авторизации
-    navigate('/sign-in', { state: { from: location } });
+    navigate('/auth', { state: { from: location } });
   };
   console.log(location);
   const isAuth = useSelector(selectIsLoggedIn);
@@ -50,7 +51,7 @@ function Navigation() {
               Log In
             </button>
           ) : (
-            <div>BurgerMenu</div>
+            <UserMenu />
           )}
         </div>
       </div>

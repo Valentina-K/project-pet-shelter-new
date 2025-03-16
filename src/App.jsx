@@ -18,6 +18,14 @@ const ForumPage = lazy(() => import('./pages/ForumPage/ForumPage.jsx'));
 const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage.jsx'));
 const DashboardPage = lazy(() => import('./pages/Dashboard/Dashboard.jsx'));
 const AboutUsPage = lazy(() => import('./pages/AboutUsPage/AboutUs.jsx'));
+const ResetPasswordPage = lazy(
+  () => import('./pages/ResetPasswordPage/ResetPasswordPage.jsx')
+);
+const AuthPage = lazy(() => import('./pages/AuthPage/AuthPage.jsx'));
+const RegisterPage = lazy(
+  () => import('./pages/RegisterPage/RegisterPage.jsx')
+);
+
 function App() {
   return (
     <div>
@@ -30,8 +38,11 @@ function App() {
           <Route path="/shelter/:id" element={<ShelterPage />} />
           <Route path="/blog/:id" element={<BlogPage />} />
           <Route path="/forum" element={<ForumPage />} />
+          <Route path="/auth" element={<AuthPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route element={<PrivateRoute />}>
             <Route path="/dashboard" element={<DashboardPage />} />
           </Route>
