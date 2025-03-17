@@ -1,0 +1,39 @@
+.container {
+    width: 1060;
+    height: 456;
+    border-radius: 30px;
+    background: #CFCFCF;
+    padding: 80px 306px;
+}
+
+.container h2 {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #000;
+    margin-bottom: 40px;
+}
+
+.container button {
+    width: 100%;
+    border-radius: 8px;
+    padding: 16px 60px;
+    background: #6B6B6B;
+    border: 1px solid #000;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    color: #FFF;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,26 @@
+.accept {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: Inter,sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.41px;
+}
+
+.checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.acceptIcon {
+    margin-right: 12px;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.privacyLink {
+    text-decoration: underline;
+}

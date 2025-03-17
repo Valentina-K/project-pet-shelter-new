@@ -8,7 +8,7 @@ function Rating({ rating }) {
     <div className={styles.rating}>
       <div>
         {arr.map((value) => {
-          const cln = value <= rating ? styles.star : styles.empty;
+          const cln = value <= Number(rating) ? styles.star : styles.empty;
           return <GrStar key={value} className={cln} />;
         })}
       </div>
@@ -18,7 +18,7 @@ function Rating({ rating }) {
 }
 
 Rating.propTypes = {
-  rating: PropTypes.number,
+  rating: PropTypes.string,
 };
 
 export default Rating;
