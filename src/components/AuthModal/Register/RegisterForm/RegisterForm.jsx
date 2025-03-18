@@ -7,19 +7,19 @@ import styles from './RegisterForm.module.css';
 
 const RegisterForm = ({ chooseRole, onFormSubmit }) => {
   const title =
-    chooseRole === role.USER
+    chooseRole === role.USER[1]
       ? 'Register as User'
-      : chooseRole === role.SHELTER
+      : chooseRole === role.SHELTER[1]
         ? 'Register as Shelter'
         : 'Register as Volunteers';
   const placeholderFirstName =
-    chooseRole === role.USER
+    chooseRole === role.USER[1]
       ? 'First name'
-      : chooseRole === role.SHELTER
+      : chooseRole === role.SHELTER[1]
         ? 'Shelter name'
         : 'Volunteers first name';
   const placeholderLastName =
-    chooseRole === role.USER ? 'Last name' : 'Volunteers last name';
+    chooseRole === role.USER[1] ? 'Last name' : 'Volunteers last name';
   // Валидационная схема с Yup
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -33,7 +33,7 @@ const RegisterForm = ({ chooseRole, onFormSubmit }) => {
       .email('Некорректный email')
       .required('Обязательное поле'),
     password: Yup.string()
-      .min(8, 'Minimum 6 characters')
+      .min(8, 'Minimum 8 characters')
       .max(24, 'Maximum 24 characters')
       .required('Required'),
     confirmPassword: Yup.string()
@@ -56,7 +56,7 @@ const RegisterForm = ({ chooseRole, onFormSubmit }) => {
   const handleSubmit = (values, { resetForm }) => {
     console.log('Регистрация:', values);
     const { email, password, firstName, lastName } = values;
-    const userRole = chooseRole === role.USER ? 'INDIVIDUAL' : chooseRole;
+    const userRole = chooseRole;
     onFormSubmit({ email, password, userRole, firstName, lastName });
     resetForm();
   };
@@ -84,7 +84,7 @@ const RegisterForm = ({ chooseRole, onFormSubmit }) => {
                 className={styles.error}
               />
             </label>
-            {chooseRole !== role.SHELTER && (
+            {chooseRole !== role.SHELTER[1] && (
               <label>
                 <Field
                   type="text"

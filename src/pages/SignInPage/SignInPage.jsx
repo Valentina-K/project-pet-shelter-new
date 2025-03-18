@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import LoginWindow from '../../components/AuthModal/LoginWindow';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getUserByEmail, loginUser } from '../../redux/auth/operations';
+import { getUserById, loginUser } from '../../redux/auth/operations';
 
 function SignInPage() {
   const location = useLocation();
@@ -15,8 +15,8 @@ function SignInPage() {
   const handleLoginSuccess = (value) => {
     dispatch(loginUser({ email: email, password: value })).then((result) => {
       console.log(result.payload);
-      if (result.payload.email) {
-        dispatch(getUserByEmail(email));
+      if (result.payload.id) {
+        dispatch(getUserById(result.payload.id));
         navigate(from);
       } else {
         setError('Invalid password. Try again!');

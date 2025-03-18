@@ -1,7 +1,7 @@
 const role = {
-  SHELTER: 'Shelter',
-  VOLUNTEER: 'Volunteer',
-  USER: 'User',
+  SHELTER: ['Shelter', 'SHELTER'],
+  VOLUNTEER: ['Volunteer', 'VOLUNTEER'],
+  USER: ['User', 'USER'],
 };
 
 export default role;

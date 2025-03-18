@@ -13,15 +13,14 @@ import { privateApi, setAuthToken } from '../api';
 
 export const isExistUser = createAsyncThunk(
   'auth/isExistUser',
-  async (email) => {
+  async ({ email }, thunkAPI) => {
     try {
       const { data } = await privateApi.get(`/api/v1/user/email/${email}`);
-      console.log(data);
-      return true;
+      console.log(data); // true or false
+      return data;
     } catch (error) {
       console.error('Error:', error.response?.data || error.message);
-      return false;
-      //return thunkAPI.rejectWithValue(error.response?.data || error.message);
+      return thunkAPI.rejectWithValue(error.response?.data || error.message);
     }
   }
 );
@@ -65,11 +64,11 @@ export const registerUser = createAsyncThunk(
   }
 );
 
-export const getUserByEmail = createAsyncThunk(
-  'auth/getUserByEmail',
-  async (email, thunkAPI) => {
+export const getUserById = createAsyncThunk(
+  'auth/getUserById',
+  async (id, thunkAPI) => {
     try {
-      const { data } = await privateApi.get(`/api/v1/user/email/${email}`);
+      const { data } = await privateApi.get(`/api/v1/user/${id}`);
       return data;
     } catch (error) {
       console.error('Error:', error.response?.data || error.message);

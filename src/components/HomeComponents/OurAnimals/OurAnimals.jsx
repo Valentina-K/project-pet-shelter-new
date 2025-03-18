@@ -3,7 +3,6 @@ import Card from '../../Card/PetCard/Card.jsx';
 import styles from './OurAnimals.module.css';
 
 function OurAnimals({ ads = [], onViewMoreClick, limit }) {
-  console.log(limit, ads.length);
   const isHasMore = ads.length < limit;
   return (
     <div className={styles.section}>

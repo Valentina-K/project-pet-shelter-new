@@ -1,5 +1,6 @@
 .container {
-    width: 1070;
+    width: 1070px;
+    height: 932px;
     padding: 120px 311px;
     border-radius: 30px;
     background: #CFCFCF;
@@ -19,8 +20,7 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 448px;
 }
 
 .input {
