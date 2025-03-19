@@ -17,6 +17,7 @@ const ShelterPage = lazy(() => import('./pages/ShelterPage/ShelterPage.jsx'));
 const ForumPage = lazy(() => import('./pages/ForumPage/ForumPage.jsx'));
 const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage.jsx'));
 const DashboardPage = lazy(() => import('./pages/Dashboard/Dashboard.jsx'));
+const AboutUsPage = lazy(() => import('./pages/AboutUsPage/AboutUs.jsx'));
 const ResetPasswordPage = lazy(
   () => import('./pages/ResetPasswordPage/ResetPasswordPage.jsx')
 );
@@ -39,6 +40,7 @@ function App() {
           <Route path="/forum" element={<ForumPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route element={<PrivateRoute />}>
