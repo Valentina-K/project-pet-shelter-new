@@ -15,7 +15,7 @@ export const isExistUser = createAsyncThunk(
   'auth/isExistUser',
   async ({ email }, thunkAPI) => {
     try {
-      const { data } = await privateApi.get(`/api/v1/user/email/${email}`);
+      const { data } = await privateApi.get(`/api/v1/user/email/`, { email });
       console.log(data); // true or false
       return data;
     } catch (error) {

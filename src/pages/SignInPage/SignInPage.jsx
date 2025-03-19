@@ -14,7 +14,6 @@ function SignInPage() {
 
   const handleLoginSuccess = (value) => {
     dispatch(loginUser({ email: email, password: value })).then((result) => {
-      console.log(result.payload);
       if (result.payload.id) {
         dispatch(getUserById(result.payload.id));
         navigate(from);

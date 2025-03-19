@@ -5,7 +5,7 @@ import AuthSocial from './AuthSocial/AuthSocial';
 import { Link } from 'react-router-dom';
 
 function LoginWindow({ title, type, error = '', onLoginSuccess }) {
-  const placeholder = type === 'email' ? 'Mail adresse' : 'Password';
+  const placeholder = type === 'email' ? 'Mail address' : 'Password';
   const [value, setValue] = useState('');
   const [classError, setClassError] = useState(
     error ? `${styles.inputError}` : ''
@@ -32,7 +32,7 @@ function LoginWindow({ title, type, error = '', onLoginSuccess }) {
   };
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    setValue(e.target.value); //email or password of user
   };
   return (
     <div className={styles.container}>
