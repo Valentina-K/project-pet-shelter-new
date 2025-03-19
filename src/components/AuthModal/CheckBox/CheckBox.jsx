@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import CheckBoxEmpty from '../../../assets/img/CheckBoxEmpty.png';
-import CheckBoxChecked from '../../../assets/img/CheckBoxFull.png';
+import CheckBoxEmpty from '../../../assets/img/CheckboxEmpty.png';
+import CheckBoxChecked from '../../../assets/img/CheckboxFull.png';
 import { NavLink } from 'react-router-dom';
 import styles from './CheckBox.module.css';
 
