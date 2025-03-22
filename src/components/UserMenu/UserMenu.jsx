@@ -43,7 +43,6 @@ function UserMenu() {
                 <li className={styles.item}>
                   <Link to={'/dashboard'}>My account</Link>
                 </li>
-                <li className={styles.item}>Favorite</li>
                 <li>
                   <button
                     onClick={() => dispatch(logout())}

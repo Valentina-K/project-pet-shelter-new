@@ -41,14 +41,14 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    letter-spacing: 5%;    
+    letter-spacing: 5%;
 }
 
-.inputError{
+.inputError {
     position: relative;
 }
 
-.inputError::before{
+.inputError::before {
     content: '';
     position: absolute;
     right: 24px;
@@ -131,4 +131,84 @@
     line-height: 22px;
     letter-spacing: -0.41px;
     text-decoration: underline;
+}
+
+.wellcomeWrapper {
+    position: relative;
+    width: 1062px;
+    height: 922px;
+    background: #CFCFCF;
+    border-radius: 30px;
+    padding: 112px 0 160px;
+    font-family: Inter, sans-serif;
+    color: #000;
+}
+
+.close{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.wellcomeTitle {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.wellcomeContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.wellcomeBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    align-items: center;
+}
+
+.hello {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+    letter-spacing: -0.41px;
+    text-align: center;
+}
+
+.email {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: -0.24px;
+    text-align: center;
+}
+
+.gladtosee {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 22px;
+    letter-spacing: -0.41px;
+    text-align: center;
+}
+
+.homeButton {
+    width: 448;
+    border-radius: 8px;
+    background: #6B6B6B;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0%;
+    color: #fff;
+    padding: 16px 196px;
 }

@@ -3,13 +3,13 @@ import {
   loginUser,
   registerUser,
   isExistUser,
-  getUserByEmail,
+  getUserById,
 } from './operations';
-import axios from 'axios';
+import { privateApi } from '../api';
 
 const initialState = {
   user: null,
-  email: null,
+  id: null,
   token: null,
   isExistUser: false,
   isLoggedIn: false,
@@ -24,7 +24,7 @@ const handlePending = (state) => {
 
 const handleFulfilled = (state, action) => {
   state.isLoading = false;
-  state.email = action.payload.email;
+  state.id = action.payload.id;
   state.token = action.payload.accessToken;
   state.isExistUser = true;
   state.isLoggedIn = true;
@@ -36,7 +36,6 @@ const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
   state.user = null;
-  state.email = null;
 };
 
 const authSlice = createSlice({
@@ -45,11 +44,11 @@ const authSlice = createSlice({
   reducers: {
     logout(state) {
       state.user = null;
-      state.email = null;
+      state.id = null;
       state.token = null;
       state.isLoggedIn = false;
       //localStorage.removeItem('accessToken');
-      delete axios.defaults.headers.common['Authorization'];
+      delete privateApi.defaults.headers.common['Authorization'];
     },
   },
 
@@ -68,12 +67,12 @@ const authSlice = createSlice({
       .addCase(loginUser.pending, handlePending)
       .addCase(loginUser.fulfilled, handleFulfilled)
       .addCase(loginUser.rejected, handleRejected)
-      .addCase(getUserByEmail.pending, handlePending)
-      .addCase(getUserByEmail.fulfilled, (state, action) => {
+      .addCase(getUserById.pending, handlePending)
+      .addCase(getUserById.fulfilled, (state, action) => {
         state.user = action.payload;
         state.error = null;
       })
-      .addCase(getUserByEmail.rejected, handleRejected);
+      .addCase(getUserById.rejected, handleRejected);
   },
 });
 

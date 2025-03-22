@@ -3,8 +3,6 @@ import temporaryImage from '../../assets/img/subscript.png';
 import JoinUsSection from '../../components/HomeComponents/JoinUsSection/JoinUsSection.jsx';
 
 function AboutUs() {
-  const text =
-    'Join our team and change animals lives for the better! Together we can do more!';
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.maintitle}>Uniting People to Help Animals</h1>
@@ -87,7 +85,7 @@ function AboutUs() {
         </div>
         <img className={styles.image} src={temporaryImage} alt="#" />
       </div>
-      <JoinUsSection text={text} />
+      <JoinUsSection />
     </div>
   );
 }

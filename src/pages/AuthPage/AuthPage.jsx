@@ -11,8 +11,8 @@ function AuthPage() {
   localStorage.setItem('from', from);
 
   const handleLoginSuccess = (value) => {
+    //value - email
     dispatch(isExistUser(value)).then((result) => {
-      console.log(result.payload);
       if (result.payload) {
         navigate('/sign-in', { state: { value } });
       } else {

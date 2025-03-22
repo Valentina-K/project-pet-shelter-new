@@ -1,20 +1,16 @@
-import PropTypes from 'prop-types';
 import styles from './JoinUsSection.module.css';
 
-function JoinUsSection({ text }) {
+function JoinUsSection() {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>
-        Running a shelter?
+        Join our team and change animals lives for
         <br />
-        {text}
+        the better! Together we can do more!
       </h2>
       <button className={styles.button}>Join us</button>
     </div>
   );
 }
 
-JoinUsSection.propTypes = {
-  text: PropTypes.string,
-};
 export default JoinUsSection;
