@@ -25,6 +25,7 @@ const AuthPage = lazy(() => import('./pages/AuthPage/AuthPage.jsx'));
 const RegisterPage = lazy(
   () => import('./pages/RegisterPage/RegisterPage.jsx')
 );
+const AnimalPage = lazy(() => import('./pages/AnimalPage/AnimalPage.jsx'));
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/animals" element={<AnimalsPage />} />
+          <Route path="/animal/:id" element={<AnimalPage />} />
           <Route path="/shelters" element={<SheltersPage />} />
           <Route path="/shelter/:id" element={<ShelterPage />} />
           <Route path="/blog/:id" element={<BlogPage />} />
