@@ -2,8 +2,10 @@ import { createSelector } from '@reduxjs/toolkit';
 import { selectSelectedCategory } from '../categories/selectors';
 export const selectAdvertisements = (state) => state.advertisements.items;
 
-export const selectTopAdvertsments = (state) =>
-  state.advertisements.items.filter((item, index) => index >= 0 || index <= 3);
+export const selectTopAdvertisements = createSelector(
+  [selectAdvertisements],
+  (items) => items.slice(0, 4)
+);
 
 export const selectFilteredAdvertisements = (state) =>
   state.advertisements.filteredItems;

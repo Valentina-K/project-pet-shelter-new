@@ -17,7 +17,6 @@ function Navigation() {
     // Передаем текущий путь в состояние при перенаправлении на страницу авторизации
     navigate('/auth', { state: { from: location } });
   };
-  console.log(location);
   const isAuth = useSelector(selectIsLoggedIn);
   return (
     <nav className={styles.navContainer}>

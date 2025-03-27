@@ -14,6 +14,7 @@ function AuthPage() {
     //value - email
     dispatch(isExistUser(value)).then((result) => {
       if (result.payload) {
+        console.log(result.payload);
         navigate('/sign-in', { state: { value } });
       } else {
         navigate('/register', { state: { value } });
