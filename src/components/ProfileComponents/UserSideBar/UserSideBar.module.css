@@ -1,0 +1,38 @@
+.container{
+    width: 385px;
+    height: 1092px;
+    display: flex;
+    flex-direction: column;
+    gap: 53px;
+    align-items: center;
+    border-radius: 30px;
+    padding: 34px 25px 58px;
+    background-color: #d9d9d9;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 34px;
+    align-items: center;
+}
+
+.avatar {
+    margin-right: 47px;
+}
+
+.name {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 22px;
+    letter-spacing: -0.41px;
+    margin-bottom: 10px;
+}
+
+.email {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: -0.24px;
+}

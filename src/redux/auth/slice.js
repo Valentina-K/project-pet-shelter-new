@@ -12,7 +12,6 @@ const initialState = {
   id: null,
   token: null,
   isExistUser: false,
-  isLoggedIn: false,
   isLoading: false,
   error: null,
 };
@@ -27,7 +26,6 @@ const handleFulfilled = (state, action) => {
   state.id = action.payload.id;
   state.token = action.payload.accessToken;
   state.isExistUser = true;
-  state.isLoggedIn = true;
   state.error = null;
   //localStorage.setItem('accessToken',action.payload.accessToken); //add to localStorage
 };
@@ -46,7 +44,6 @@ const authSlice = createSlice({
       state.user = null;
       state.id = null;
       state.token = null;
-      state.isLoggedIn = false;
       //localStorage.removeItem('accessToken');
       delete privateApi.defaults.headers.common['Authorization'];
     },
