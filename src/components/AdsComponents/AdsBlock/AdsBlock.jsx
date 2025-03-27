@@ -1,9 +1,8 @@
-import { useSelector } from 'react';
+import PropTypes from 'prop-types';
 import Card from '../../Card/PetCard/Card';
-import { selectTopAdvertsments } from '../../../redux/advertisements/selectors';
 import styles from './styles.module.css';
-function AdsBlock() {
-  const ads = useSelector(selectTopAdvertsments);
+function AdsBlock({ ads }) {
+  console.log(ads);
   return (
     <div className={styles.conteiner}>
       {ads.map((ad, ind) => (
@@ -12,5 +11,18 @@ function AdsBlock() {
     </div>
   );
 }
+
+AdsBlock.propTypes = {
+  ads: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      description: PropTypes.string,
+      adAttributes: PropTypes.arrayOf(PropTypes.object),
+      thumbnail: PropTypes.shape({
+        id: PropTypes.number,
+      }),
+    })
+  ),
+};
 
 export default AdsBlock;

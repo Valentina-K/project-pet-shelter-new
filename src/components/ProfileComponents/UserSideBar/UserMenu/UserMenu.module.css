@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 22px;
+    background: inherit;
+    cursor: pointer;
+}
+
+.menuItem.active {
+    background: #F4F4F4;
+    border-radius: 24px;
+}
+
+.icon {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+}
+
+.icon>svg {
+    width: 100%;
+    height: 100%;
+}
+
+.text {
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+    color: #000;
+}

@@ -1,6 +1,6 @@
 import './App.css';
 import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 
 import Header from './layout/Header/Header.jsx';
 import Footer from './layout/Footer/Footer.jsx';
@@ -26,6 +26,12 @@ const RegisterPage = lazy(
   () => import('./pages/RegisterPage/RegisterPage.jsx')
 );
 const AnimalPage = lazy(() => import('./pages/AnimalPage/AnimalPage.jsx'));
+const MainPage = lazy(() => import('./pages/profile/MainPage.jsx'));
+const MessagesPage = lazy(() => import('./pages/profile/MessagesPage.jsx'));
+const AnnouncementPage = lazy(
+  () => import('./pages/profile/AnnouncementPage.jsx')
+);
+const SettingsPage = lazy(() => import('./pages/profile/SettingsPage.jsx'));
 
 function App() {
   return (
@@ -46,8 +52,15 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route element={<PrivateRoute />}>
-            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/dashboard" element={<DashboardPage />}>
+              <Route index element={<Navigate to="main" />} />
+              <Route path="main" element={<MainPage />} />
+              <Route path="messages" element={<MessagesPage />} />
+              <Route path="announcement" element={<AnnouncementPage />} />
+              <Route path="settings" element={<SettingsPage />} />
+            </Route>
           </Route>
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
       <Footer />

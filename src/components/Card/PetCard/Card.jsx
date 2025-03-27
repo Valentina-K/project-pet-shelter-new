@@ -35,35 +35,43 @@ function Card({ ad }) {
 
   return (
     <div className={styles.cardWrapper}>
-      <div className={styles.imgWrapper}>
-        <img src={defImg} alt={petName} className={styles.adPhoto} />
-        <IconContext.Provider value={{ style: { width: '32', height: '32' } }}>
-          {isLogged && (
-            <div className={styles.favorite}>
-              <FaRegHeart />
+      <NavLink to={`/animal/${ad.id}`}>
+        <div className={styles.imgWrapper}>
+          <img src={defImg} alt={petName} className={styles.adPhoto} />
+          <IconContext.Provider
+            value={{ style: { width: '32', height: '32' } }}
+          >
+            {isLogged && (
+              <div className={styles.favorite}>
+                <FaRegHeart />
+              </div>
+            )}
+            <div className={styles.gender}>
+              {petGender === 'male' ? (
+                <TbGenderDemiboy />
+              ) : (
+                <TbGenderDemigirl />
+              )}
             </div>
-          )}
-          <div className={styles.gender}>
-            {petGender === 'male' ? <TbGenderDemiboy /> : <TbGenderDemigirl />}
-          </div>
-        </IconContext.Provider>
-      </div>
-      <div className={styles.infoWrapper}>
-        <h3 className={styles.infoTitle}>
-          {petName} {year}
-        </h3>
-        <p className={styles.description}>{ad.description}</p>
-        <div className={styles.linkBlock}>
-          <NavLink to="/" className={styles.linkWrapper}>
-            <IoEyeOutline />
-            Meet
-          </NavLink>
-          <NavLink to="/" className={styles.linkWrapper}>
-            <BsArrowRightCircle />
-            owner
-          </NavLink>
+          </IconContext.Provider>
         </div>
-      </div>
+        <div className={styles.infoWrapper}>
+          <h3 className={styles.infoTitle}>
+            {petName} {year}
+          </h3>
+          <p className={styles.description}>{ad.description}</p>
+          <div className={styles.linkBlock}>
+            <NavLink to="/" className={styles.linkWrapper}>
+              <IoEyeOutline />
+              Meet
+            </NavLink>
+            <NavLink to="/" className={styles.linkWrapper}>
+              <BsArrowRightCircle />
+              owner
+            </NavLink>
+          </div>
+        </div>
+      </NavLink>
     </div>
   );
 }
