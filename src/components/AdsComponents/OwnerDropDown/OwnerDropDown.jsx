@@ -14,16 +14,17 @@ const HeaderItem = ({ type, name, website, contactInfo }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
+    console.log('from dropdown');
     setIsOpen(!isOpen);
   };
 
   return (
     <div className={styles.dropdownContainer}>
       {/* Основной блок */}
-      <div className={styles.dropdownHeader} onClick={toggleDropdown}>
+      <div className={styles.dropdownHeader}>
         <div className={styles.headerLeft}>
-          <span className="text-xl">{type === 'shelter' ? '🏠' : '👤'}</span>
-          <span className="font-semibold">{name}</span>
+          <span className={styles.x}>{type === 'shelter' ? '🏠' : '👤'}</span>
+          <span className={styles.y}>{name}</span>
         </div>
         <div className={styles.headerRight}>
           <FaFacebook />
@@ -31,9 +32,15 @@ const HeaderItem = ({ type, name, website, contactInfo }) => {
           {type === 'shelter' && <FaGlobe />}
           <FaEnvelope />
           <FaPhone />
-          <FaChevronDown
-            className={`${styles.chevronIcon} ${isOpen ? styles.chevronRotated : ''}`}
-          />
+          <button onClick={toggleDropdown}>
+            <FaChevronDown
+              className={
+                isOpen
+                  ? `${styles.chevronIcon} ${styles.chevronRotated}`
+                  : styles.chevronIcon
+              }
+            />
+          </button>
         </div>
       </div>
 
@@ -67,8 +74,8 @@ const HeaderItem = ({ type, name, website, contactInfo }) => {
 };
 
 HeaderItem.propTypes = {
-  type: PropTypes.string,
-  name: PropTypes.string,
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   website: PropTypes.string,
   contactInfo: PropTypes.shape({
     email: PropTypes.string,
