@@ -41,7 +41,9 @@ function UserMenu() {
               </div>
               <ul className={styles.list}>
                 <li className={styles.item}>
-                  <Link to={'/dashboard'}>My account</Link>
+                  <Link to={'/dashboard'} onClick={() => setIsOpen(!isOpen)}>
+                    My account
+                  </Link>
                 </li>
                 <li>
                   <button
