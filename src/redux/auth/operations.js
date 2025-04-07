@@ -1,21 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { privateApi, setAuthToken } from '../api';
-
-/* const setAuthHeader = (token) => {
-  if (token) {
-    console.log('Setting auth header with token:', token);
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  } else {
-    console.log('Removing auth header');
-    delete axios.defaults.headers.common['Authorization'];
-  }
-}; */
+import { publicApi, setAuthToken } from '../api';
 
 export const isExistUser = createAsyncThunk(
   'auth/isExistUser',
   async ({ email }, thunkAPI) => {
     try {
-      const { data } = await privateApi.get(`/api/v1/user/email/${email}`);
+      const { data } = await publicApi.get(`/api/v1/user/email/${email}`);
       console.log(data); // true or false
       return data;
     } catch (error) {
@@ -30,7 +20,7 @@ export const loginUser = createAsyncThunk(
   async ({ email, password }, thunkAPI) => {
     console.log('Dispatching loginUser with:', { email, password });
     try {
-      const { data } = await privateApi.post('/api/v1/auth/login', {
+      const { data } = await publicApi.post('/api/v1/auth/login', {
         email,
         password,
       });
@@ -49,7 +39,7 @@ export const registerUser = createAsyncThunk(
   async (userData, thunkAPI) => {
     console.log('Dispatching registerUser with:', userData);
     try {
-      const { data } = await privateApi.post('/api/v1/auth/signup', userData);
+      const { data } = await publicApi.post('/api/v1/auth/signup', userData);
       console.log('Register response data:', data);
       setAuthToken(data.token);
       return data;
@@ -68,7 +58,7 @@ export const getUserById = createAsyncThunk(
   'auth/getUserById',
   async (id, thunkAPI) => {
     try {
-      const { data } = await privateApi.get(`/api/v1/user/${id}`);
+      const { data } = await publicApi.get(`/api/v1/user/${id}`);
       return data;
     } catch (error) {
       console.error('Error:', error.response?.data || error.message);
