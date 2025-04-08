@@ -21,8 +21,6 @@ export const selectListAttrByCategory = createSelector(
     )
 );
 
-export const selectAuthorId = (state) => state.advertisements.authorId;
-
 export const selectSearchQuery = (state) => state.advertisements.searchQuery;
 
 export const selectIsLoading = (state) => state.advertisements.isLoading;

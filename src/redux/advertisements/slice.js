@@ -10,7 +10,6 @@ const advertisementSlice = createSlice({
   name: 'advertisements',
   initialState: {
     items: [],
-    authorId: null,
     page: 0,
     size: 8,
     totalPages: 0,
@@ -47,9 +46,7 @@ const advertisementSlice = createSlice({
     setHasMore(state, action) {
       state.hasMore = action.payload;
     },
-    setAuthorByAdId(state, action) {
-      state.authorId = state.items.filter((item) => item.id === action.payload);
-    },
+
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
       const {
@@ -159,13 +156,7 @@ const advertisementSlice = createSlice({
   },
 });
 
-export const {
-  setSearchQuery,
-  setPage,
-  setSize,
-  setHasMore,
-  resetData,
-  setAuthorByAdId,
-} = advertisementSlice.actions;
+export const { setSearchQuery, setPage, setSize, setHasMore, resetData } =
+  advertisementSlice.actions;
 
 export default advertisementSlice.reducer;
