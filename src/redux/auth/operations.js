@@ -3,7 +3,8 @@ import { publicApi, setAuthToken } from '../api';
 
 export const isExistUser = createAsyncThunk(
   'auth/isExistUser',
-  async ({ email }, thunkAPI) => {
+  async (email, thunkAPI) => {
+    console.log(email);
     try {
       const { data } = await publicApi.get(`/api/v1/user/email/${email}`);
       console.log(data); // true or false

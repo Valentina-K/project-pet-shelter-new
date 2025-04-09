@@ -1,16 +1,33 @@
-//import React from 'react'
-
 import { useSelector } from 'react-redux';
 import { FaFacebook, FaTelegram } from 'react-icons/fa';
 import { RiInstagramFill } from 'react-icons/ri';
 import { selectAuth } from '../../redux/auth/selectors';
 import Edit from '../../assets/img/Edit.png';
 import styles from './styles.module.css';
+import EditModal from '../../components/ProfileComponents/EditModal/EditModal';
+import { useState } from 'react';
 // import { useState } from 'react';
 
 function MainPage() {
   const { user } = useSelector(selectAuth);
-  /*  const dispatch = useDispatch();
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [profileDataId, setProfileDataId] = useState(null);
+
+  const handleEdit = (index) => {
+    const profileItem = profileData[index];
+    setProfileDataId(index);
+    console.log('Profile item:', profileItem);
+    setIsEditModalOpen(!isEditModalOpen);
+  };
+
+  const handleSave = (value) => {
+    console.log('Saved value:', value);
+    setIsEditModalOpen(false);
+  };
+  /*  
+  const formData = new FormData();
+formData.append("name", "Анна");
+  const dispatch = useDispatch();
   
   const [editField, setEditField] = useState(null);
   const [formData, setFormData] = useState(user); */
@@ -48,44 +65,80 @@ function MainPage() {
     },
   ];
   console.log(user);
+  const profileData = [
+    { label: 'Name', value: `${user.firstName} ${user.lastName}` },
+    { label: 'Address', value: user.contactInfo?.address || 'no address' },
+    { label: 'Mail-address', value: user.email },
+    {
+      label: 'About us / Our mission',
+      value: user.contactInfo?.mission || 'no mission',
+    },
+    { label: 'Tel.', value: user.contactInfo?.phone || 'no phone' },
+    {
+      label: 'Social media:',
+      value: socialLinks.length > 0 ? socialLinks : [],
+    },
+  ];
   return (
     <div className={styles.pageSection}>
+      {isEditModalOpen && (
+        <EditModal
+          profileDataId={profileDataId}
+          userInfo={profileData[profileDataId]}
+          handleSave={handleSave}
+          onClose={() => setIsEditModalOpen(false)}
+        />
+      )}
       <h2 className={styles.title}>About me</h2>
       <div className={styles.infoBlock}>
         <div className={styles.left}>
           <div className={styles.infoItem}>
             <div>
               <p className={styles.nameText}>Name: </p>
-              <p className={styles.nameValue}>
-                {user.firstName} {user.lastName}
-              </p>
+              <p className={styles.nameValue}>{profileData[0].value}</p>
             </div>
-            <img src={Edit} alt="edit" className={styles.editIcon} />
+            <img
+              src={Edit}
+              alt="edit"
+              className={styles.editIcon}
+              onClick={() => handleEdit(0)}
+            />
           </div>
           <div className={styles.infoItem}>
             <div>
               <p className={styles.nameText}>Address: </p>
-              <p className={styles.nameValue}>
-                {user.contactInfo?.phone || 'no addresse'}
-              </p>
+              <p className={styles.nameValue}>{profileData[1].value}</p>
             </div>
-            <img src={Edit} alt="edit" className={styles.editIcon} />
+            <img
+              src={Edit}
+              alt="edit"
+              className={styles.editIcon}
+              onClick={() => handleEdit(1)}
+            />
           </div>
           <div className={styles.infoItem}>
             <div>
               <p className={styles.nameText}>Mail-address: </p>
-              <p className={styles.nameValue}>{user.email}</p>
+              <p className={styles.nameValue}>{profileData[2].value}</p>
             </div>
-            <img src={Edit} alt="edit" className={styles.editIcon} />
+            <img
+              src={Edit}
+              alt="edit"
+              className={styles.editIcon}
+              onClick={() => handleEdit(2)}
+            />
           </div>
           <div className={styles.infoItem}>
             <div>
               <p className={styles.nameText}>About us /Our mission: </p>
-              <p className={styles.nameValue}>
-                {user.contactInfo?.mission || 'no mission'}
-              </p>
+              <p className={styles.nameValue}>{profileData[3].value}</p>
             </div>
-            <img src={Edit} alt="edit" className={styles.editIcon} />
+            <img
+              src={Edit}
+              alt="edit"
+              className={styles.editIcon}
+              onClick={() => handleEdit(3)}
+            />
           </div>
         </div>
         <div className={styles.right}>
@@ -96,7 +149,12 @@ function MainPage() {
                 {user.contactInfo?.phone || 'no phone'}
               </p>
             </div>
-            <img src={Edit} alt="edit" className={styles.editIcon} />
+            <img
+              src={Edit}
+              alt="edit"
+              className={styles.editIcon}
+              onClick={() => handleEdit(4)}
+            />
           </div>
           <div className={styles.infoItem}>
             <div>
@@ -115,7 +173,12 @@ function MainPage() {
                 ))}
               </div>
             </div>
-            <img src={Edit} alt="edit" className={styles.editIcon} />
+            <img
+              src={Edit}
+              alt="edit"
+              className={styles.editIcon}
+              onClick={() => handleEdit(5)}
+            />
           </div>
           <div className={styles.infoItem}>
             <div>
@@ -124,7 +187,12 @@ function MainPage() {
                 {user.contactInfo?.phone || 'no photo'}
               </p>
             </div>
-            <img src={Edit} alt="edit" className={styles.editIcon} />
+            <img
+              src={Edit}
+              alt="edit"
+              className={styles.editIcon}
+              onClick={() => handleEdit(6)}
+            />
           </div>
         </div>
       </div>

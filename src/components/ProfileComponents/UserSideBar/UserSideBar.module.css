@@ -1,6 +1,6 @@
 .container{
     width: 385px;
-    height: 1092px;
+    height: 580px;
     display: flex;
     flex-direction: column;
     gap: 53px;
@@ -17,13 +17,13 @@
 }
 
 .avatar {
-    margin-right: 47px;
+    margin-right: 21px;
 }
 
 .name {
     font-family: Inter, sans-serif;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 22px;
     letter-spacing: -0.41px;
     margin-bottom: 10px;

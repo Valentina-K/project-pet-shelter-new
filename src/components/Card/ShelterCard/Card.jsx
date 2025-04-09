@@ -10,7 +10,7 @@ function Card({ shelter }) {
   const { id } = shelter;
   return (
     <div className={styles.cardWrapper}>
-      <NavLink to={`/shelter/${id}`} className={styles.cardLink}>
+      <NavLink to={`/shelter/${Number(id)}`} className={styles.cardLink}>
         <div className={styles.imgWrapper}>
           <img src={shelter.logo} alt="logo" />
         </div>
