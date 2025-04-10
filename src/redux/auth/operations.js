@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { publicApi, setAuthToken } from '../api';
+import { privateApi, publicApi, setAuthToken } from '../api';
 
 export const isExistUser = createAsyncThunk(
   'auth/isExistUser',
@@ -60,6 +60,20 @@ export const getUserById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const { data } = await publicApi.get(`/api/v1/user/${id}`);
+      return data;
+    } catch (error) {
+      console.error('Error:', error.response?.data || error.message);
+      return thunkAPI.rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  'auth/updateUser',
+  async (userData, thunkAPI) => {
+    try {
+      console.log('userData', userData);
+      const { data } = await privateApi.put(`/api/v1/user`, userData);
       return data;
     } catch (error) {
       console.error('Error:', error.response?.data || error.message);

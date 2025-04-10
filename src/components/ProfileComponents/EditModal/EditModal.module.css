@@ -53,6 +53,12 @@
     line-height: 150%;
 }
 
+.socialMedia{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
 .closeIcon{
     position: absolute;
     top: 32px;

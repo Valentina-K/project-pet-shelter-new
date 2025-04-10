@@ -51,11 +51,11 @@ Card.propTypes = {
       city: PropTypes.string,
       country: PropTypes.string,
     }),
-    rating: PropTypes.number,
+    rating: PropTypes.string,
     animals: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string,
-        count: PropTypes.number,
+        count: PropTypes.string,
       })
     ),
     description: PropTypes.string,

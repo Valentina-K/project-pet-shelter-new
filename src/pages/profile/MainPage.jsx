@@ -1,41 +1,93 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FaFacebook, FaTelegram } from 'react-icons/fa';
 import { RiInstagramFill } from 'react-icons/ri';
 import { selectAuth } from '../../redux/auth/selectors';
 import Edit from '../../assets/img/Edit.png';
-import styles from './styles.module.css';
 import EditModal from '../../components/ProfileComponents/EditModal/EditModal';
-import { useState } from 'react';
-// import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { updateUser } from '../../redux/auth/operations';
+import styles from './styles.module.css';
 
 function MainPage() {
+  const dispatch = useDispatch();
   const { user } = useSelector(selectAuth);
+  const [formData, setFormData] = useState({ ...user });
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [profileDataId, setProfileDataId] = useState(null);
+  const updateDate = user.updatedAt;
+  console.log(updateDate);
+  useEffect(() => {
+    console.log('from useEffect', formData);
+    if (formData.updatedAt !== updateDate) dispatch(updateUser(formData));
+  }, [dispatch, formData, updateDate]);
 
   const handleEdit = (index) => {
-    const profileItem = profileData[index];
     setProfileDataId(index);
-    console.log('Profile item:', profileItem);
     setIsEditModalOpen(!isEditModalOpen);
   };
 
   const handleSave = (value) => {
-    console.log('Saved value:', value);
     setIsEditModalOpen(false);
+    switch (profileDataId) {
+      case 0:
+        setFormData((prev) =>
+          updateByPath(prev, 'firstName', value.split(' ')[0])
+        );
+        setFormData((prev) =>
+          updateByPath(prev, 'lastName', value.split(' ')[1])
+        );
+        break;
+      case 1:
+        setFormData((prev) => updateByPath(prev, 'contactInfo.website', value));
+        break;
+      case 2:
+        setFormData((prev) => updateByPath(prev, 'email', value));
+        break;
+      case 3:
+        setFormData((prev) => updateByPath(prev, 'contactInfo.mission', value));
+        break;
+      case 4:
+        setFormData((prev) => updateByPath(prev, 'contactInfo.phone', value));
+        break;
+      case 5:
+        setFormData((prev) =>
+          updateByPath(prev, 'contactInfo.instagram', value[1].url)
+        );
+        setFormData((prev) =>
+          updateByPath(prev, 'contactInfo.telegram', value[2].url)
+        );
+        setFormData((prev) =>
+          updateByPath(prev, 'contactInfo.facebook', value[0].url)
+        );
+        break;
+      default:
+        break;
+    }
+    setFormData((prev) => ({
+      ...prev,
+      ['updatedAt']: new Date().toISOString(),
+    }));
+    console.log(formData);
   };
+
+  function updateByPath(obj, path, value) {
+    const keys = path.split('.');
+    const lastKey = keys.pop();
+
+    const newObj = { ...obj };
+    let current = newObj;
+
+    for (const key of keys) {
+      current[key] = { ...(current[key] || {}) };
+      current = current[key];
+    }
+
+    current[lastKey] = value;
+    return newObj;
+  }
+
   /*  
-  const formData = new FormData();
-formData.append("name", "Анна");
-  const dispatch = useDispatch();
   
-  const [editField, setEditField] = useState(null);
-  const [formData, setFormData] = useState(user); */
-
-  /* const handleChange = (e) => {
-    setFormData({ ...formData, [editField]: e.target.value });
-  };
-
   const handleSave = () => {
     dispatch(updateProfile({ [editField]: formData[editField] })); // Обновляем только одно поле
     setEditField(null);
@@ -44,36 +96,35 @@ formData.append("name", "Анна");
   const socialLinks = [
     {
       name: 'Facebook',
-      url: user.contactInfo
+      url: user.contactInfo?.facebook
         ? `https://www.facebook.com/${user.contactInfo.facebook}`
         : 'https://www.facebook.com',
       icon: <FaFacebook className={styles.socialIcon} />,
     },
     {
       name: 'Instagram',
-      url: user.contactInfo
+      url: user.contactInfo?.instagram
         ? `https://www.instagram.com/${user.contactInfo.instagram}`
         : 'https://www.instagram.com',
       icon: <RiInstagramFill className={styles.socialIcon} />,
     },
     {
       name: 'Telegram',
-      url: user.contactInfo
+      url: user.contactInfo?.telegram
         ? `https://t.me/${user.contactInfo.telegram}`
         : 'https://t.me',
       icon: <FaTelegram className={styles.socialIcon} />,
     },
   ];
-  console.log(user);
   const profileData = [
-    { label: 'Name', value: `${user.firstName} ${user.lastName}` },
-    { label: 'Address', value: user.contactInfo?.address || 'no address' },
-    { label: 'Mail-address', value: user.email },
+    { label: 'Name', value: `${formData.firstName} ${formData.lastName}` },
+    { label: 'Address', value: formData.contactInfo?.website || 'no address' },
+    { label: 'Mail-address', value: formData.email },
     {
       label: 'About us / Our mission',
-      value: user.contactInfo?.mission || 'no mission',
+      value: formData.contactInfo?.mission || 'no mission',
     },
-    { label: 'Tel.', value: user.contactInfo?.phone || 'no phone' },
+    { label: 'Tel.', value: formData.contactInfo?.phone || 'no phone' },
     {
       label: 'Social media:',
       value: socialLinks.length > 0 ? socialLinks : [],
@@ -191,7 +242,7 @@ formData.append("name", "Анна");
               src={Edit}
               alt="edit"
               className={styles.editIcon}
-              onClick={() => handleEdit(6)}
+              onClick={() => console.log(6)}
             />
           </div>
         </div>
