@@ -15,9 +15,7 @@ function MainPage() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [profileDataId, setProfileDataId] = useState(null);
   const updateDate = user.updatedAt;
-  console.log(updateDate);
   useEffect(() => {
-    console.log('from useEffect', formData);
     if (formData.updatedAt !== updateDate) dispatch(updateUser(formData));
   }, [dispatch, formData, updateDate]);
 
@@ -85,13 +83,6 @@ function MainPage() {
     current[lastKey] = value;
     return newObj;
   }
-
-  /*  
-  
-  const handleSave = () => {
-    dispatch(updateProfile({ [editField]: formData[editField] })); // Обновляем только одно поле
-    setEditField(null);
-  }; */
 
   const socialLinks = [
     {
