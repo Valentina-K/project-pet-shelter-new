@@ -11,7 +11,7 @@ function AuthPage() {
   localStorage.setItem('from', from);
 
   const handleLoginSuccess = (value) => {
-    //value - email
+    console.log(value);
     dispatch(isExistUser(value)).then((result) => {
       if (result.payload) {
         console.log(result.payload);

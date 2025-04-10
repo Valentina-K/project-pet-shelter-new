@@ -4,6 +4,7 @@ import {
   registerUser,
   isExistUser,
   getUserById,
+  updateUser,
 } from './operations';
 import { privateApi } from '../api';
 
@@ -69,7 +70,13 @@ const authSlice = createSlice({
         state.user = action.payload;
         state.error = null;
       })
-      .addCase(getUserById.rejected, handleRejected);
+      .addCase(getUserById.rejected, handleRejected)
+      .addCase(updateUser.pending, handlePending)
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.error = null;
+      })
+      .addCase(updateUser.rejected, handleRejected);
   },
 });
 

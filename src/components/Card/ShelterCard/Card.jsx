@@ -10,7 +10,7 @@ function Card({ shelter }) {
   const { id } = shelter;
   return (
     <div className={styles.cardWrapper}>
-      <NavLink to={`/shelter/${id}`} className={styles.cardLink}>
+      <NavLink to={`/shelter/${Number(id)}`} className={styles.cardLink}>
         <div className={styles.imgWrapper}>
           <img src={shelter.logo} alt="logo" />
         </div>
@@ -51,11 +51,11 @@ Card.propTypes = {
       city: PropTypes.string,
       country: PropTypes.string,
     }),
-    rating: PropTypes.number,
+    rating: PropTypes.string,
     animals: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string,
-        count: PropTypes.number,
+        count: PropTypes.string,
       })
     ),
     description: PropTypes.string,
