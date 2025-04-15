@@ -31,6 +31,19 @@ const MessagesPage = lazy(() => import('./pages/profile/MessagesPage.jsx'));
 const AnnouncementPage = lazy(
   () => import('./pages/profile/AnnouncementPage.jsx')
 );
+const AddAd = lazy(() => import('./pages/profile/announcementParts/AddAd.jsx'));
+const ViewAds = lazy(
+  () => import('./pages/profile/announcementParts/ViewAds.jsx')
+);
+const EditAd = lazy(
+  () => import('./pages/profile/announcementParts/EditAd.jsx')
+);
+const HotAds = lazy(
+  () => import('./pages/profile/announcementParts/HotAds.jsx')
+);
+const FavoriteAds = lazy(
+  () => import('./pages/profile/announcementParts/FavoriteAds.jsx')
+);
 const SettingsPage = lazy(() => import('./pages/profile/SettingsPage.jsx'));
 
 function App() {
@@ -56,7 +69,13 @@ function App() {
               <Route index element={<Navigate to="main" />} />
               <Route path="main" element={<MainPage />} />
               <Route path="messages" element={<MessagesPage />} />
-              <Route path="announcement" element={<AnnouncementPage />} />
+              <Route path="announcement" element={<AnnouncementPage />}>
+                <Route path="add" element={<AddAd />} />
+                <Route path="view" element={<ViewAds />} />
+                <Route path="edit" element={<EditAd />} />
+                <Route path="hot" element={<HotAds />} />
+                <Route path="favorite" element={<FavoriteAds />} />
+              </Route>
               <Route path="settings" element={<SettingsPage />} />
             </Route>
           </Route>

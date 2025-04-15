@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useOutletContext } from 'react-router';
 import { FaFacebook, FaTelegram } from 'react-icons/fa';
 import { RiInstagramFill } from 'react-icons/ri';
-import { selectAuth } from '../../redux/auth/selectors';
 import Edit from '../../assets/img/Edit.png';
 import EditModal from '../../components/ProfileComponents/EditModal/EditModal';
 import { useEffect, useState } from 'react';
@@ -10,7 +10,7 @@ import styles from './styles.module.css';
 
 function MainPage() {
   const dispatch = useDispatch();
-  const { user } = useSelector(selectAuth);
+  const { user } = useOutletContext();
   const [formData, setFormData] = useState({ ...user });
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [profileDataId, setProfileDataId] = useState(null);
@@ -88,21 +88,21 @@ function MainPage() {
     {
       name: 'Facebook',
       url: user.contactInfo?.facebook
-        ? `https://www.facebook.com/${user.contactInfo.facebook}`
+        ? user.contactInfo.facebook
         : 'https://www.facebook.com',
       icon: <FaFacebook className={styles.socialIcon} />,
     },
     {
       name: 'Instagram',
       url: user.contactInfo?.instagram
-        ? `https://www.instagram.com/${user.contactInfo.instagram}`
+        ? user.contactInfo.instagram
         : 'https://www.instagram.com',
       icon: <RiInstagramFill className={styles.socialIcon} />,
     },
     {
       name: 'Telegram',
       url: user.contactInfo?.telegram
-        ? `https://t.me/${user.contactInfo.telegram}`
+        ? user.contactInfo.telegram
         : 'https://t.me',
       icon: <FaTelegram className={styles.socialIcon} />,
     },
