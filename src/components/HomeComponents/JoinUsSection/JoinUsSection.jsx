@@ -1,3 +1,4 @@
+import Button from '../../UI/Button.jsx';
 import styles from './JoinUsSection.module.css';
 
 function JoinUsSection() {
@@ -8,7 +9,7 @@ function JoinUsSection() {
         <br />
         the better! Together we can do more!
       </h2>
-      <button className={styles.button}>Join us</button>
+      <Button className={styles.button}>Join us</Button>
     </div>
   );
 }

@@ -1,12 +1,13 @@
-import './App.css';
 import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router';
-
+import Container from './layout/Container/Container.jsx';
 import Header from './layout/Header/Header.jsx';
 import Footer from './layout/Footer/Footer.jsx';
 import Loader from './components/Loader/Loader.jsx';
 import BlogPage from './pages/BlogPage/BlogPage.jsx';
 import { PrivateRoute } from './PrivateRoute.jsx';
+import './styles/variables.css';
+import './styles/globals.css';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const AnimalsPage = lazy(() => import('./pages/AnimalsPage/AnimalsPage.jsx'));
@@ -50,38 +51,40 @@ function App() {
   return (
     <div>
       <Header />
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/animals" element={<AnimalsPage />} />
-          <Route path="/animal/:id" element={<AnimalPage />} />
-          <Route path="/shelters" element={<SheltersPage />} />
-          <Route path="/shelter/:id" element={<ShelterPage />} />
-          <Route path="/blog/:id" element={<BlogPage />} />
-          <Route path="/forum" element={<ForumPage />} />
-          <Route path="/auth" element={<AuthPage />} />
-          <Route path="/sign-in" element={<SignInPage />} />
-          <Route path="/about-us" element={<AboutUsPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/reset-password" element={<ResetPasswordPage />} />
-          <Route element={<PrivateRoute />}>
-            <Route path="/dashboard" element={<DashboardPage />}>
-              <Route index element={<Navigate to="main" />} />
-              <Route path="main" element={<MainPage />} />
-              <Route path="messages" element={<MessagesPage />} />
-              <Route path="announcement" element={<AnnouncementPage />}>
-                <Route path="add" element={<AddAd />} />
-                <Route path="view" element={<ViewAds />} />
-                <Route path="edit" element={<EditAd />} />
-                <Route path="hot" element={<HotAds />} />
-                <Route path="favorite" element={<FavoriteAds />} />
+      <Container>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/animals" element={<AnimalsPage />} />
+            <Route path="/animal/:id" element={<AnimalPage />} />
+            <Route path="/shelters" element={<SheltersPage />} />
+            <Route path="/shelter/:id" element={<ShelterPage />} />
+            <Route path="/blog/:id" element={<BlogPage />} />
+            <Route path="/forum" element={<ForumPage />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path="/about-us" element={<AboutUsPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/dashboard" element={<DashboardPage />}>
+                <Route index element={<Navigate to="main" />} />
+                <Route path="main" element={<MainPage />} />
+                <Route path="messages" element={<MessagesPage />} />
+                <Route path="announcement" element={<AnnouncementPage />}>
+                  <Route path="add" element={<AddAd />} />
+                  <Route path="view" element={<ViewAds />} />
+                  <Route path="edit" element={<EditAd />} />
+                  <Route path="hot" element={<HotAds />} />
+                  <Route path="favorite" element={<FavoriteAds />} />
+                </Route>
+                <Route path="settings" element={<SettingsPage />} />
               </Route>
-              <Route path="settings" element={<SettingsPage />} />
             </Route>
-          </Route>
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </Suspense>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Suspense>
+      </Container>
       <Footer />
     </div>
   );

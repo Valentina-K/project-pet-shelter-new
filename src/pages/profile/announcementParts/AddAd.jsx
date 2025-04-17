@@ -7,6 +7,13 @@ function AddAd() {
     console.log(e.target.value);
     console.log(e.target.name);
   };
+
+  const handlePublishClick = () => {
+    console.log('Publish button clicked');
+  };
+  /*  const handlePhotoUpload = (e) => {
+    console.log(e.target.files);
+  }; */
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Add a new ad {user.firstName}</h1>
@@ -46,6 +53,9 @@ function AddAd() {
           />
         </div>
       </div>
+      <button className={styles.publishButton} onClick={handlePublishClick}>
+        Publish
+      </button>
     </div>
   );
 }

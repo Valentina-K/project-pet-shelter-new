@@ -1,11 +1,13 @@
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { TiMessages } from 'react-icons/ti';
 import clsx from 'clsx';
-import styles from './Header.module.css';
+import Logo from '../../assets/img/logo.png';
 import LocaleDropDown from './LocaleDropDown/LocaleDropDown';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import UserMenu from '../../components/UserMenu/UserMenu';
+import styles from './Header.module.css';
+import { useEffect, useState } from 'react';
 
 const style = ({ isActive }) =>
   clsx(styles.link, { [styles.active]: isActive });
@@ -13,16 +15,34 @@ const style = ({ isActive }) =>
 function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isScrolled, setIsScrolled] = useState(false); // Состояние для отслеживания прокрутки
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true); // Если прокрутили, активируем состояние
+      } else {
+        setIsScrolled(false); // Если вернулись в начало, сбрасываем состояние
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll); // Добавляем обработчик события
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // Очищаем обработчик при размонтировании
+    };
+  }, []);
+
   const handleSignInClick = () => {
-    // Передаем текущий путь в состояние при перенаправлении на страницу авторизации
     navigate('/auth', { state: { from: location } });
   };
   const isAuth = useSelector(selectIsLoggedIn);
   return (
-    <nav className={styles.navContainer}>
+    <nav
+      className={clsx(styles.navContainer, { [styles.scrolled]: isScrolled })}
+    >
       <div className={styles.logoContainer}>
         <NavLink to="/" className={styles.logoText}>
-          Logo
+          <img src={Logo} alt="logo" />
         </NavLink>
       </div>
       <div className={styles.navLinks}>

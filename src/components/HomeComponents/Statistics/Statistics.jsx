@@ -1,12 +1,10 @@
+import SectionTitle from '../../UI/SectionTitle.jsx';
 import styles from './Statistics.module.css';
 
 function Statistics() {
   return (
     <div className={styles.statistics}>
-      <h2 className="sectionTitle">Statistics</h2>
-      <h3 className={styles.textTitle}>
-        Our Shelter – Your Chance to Make a Difference!
-      </h3>
+      <SectionTitle text="Statistics" />
       <div className={styles.textWrapper}>
         <p>
           We are proud to share the significant results we have achieved thanks

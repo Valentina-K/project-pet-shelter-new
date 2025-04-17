@@ -1,9 +1,11 @@
 .wrapper {
+  position: relative;
   display: flex;
   flex-flow: column wrap;
-  background-color: #f8f9fa;
   border-top: 1px solid #ddd;
-  padding-top: 169px;
+  padding: 169px 163px 122px 160px;
+  background-color: var(--accent-background-color);
+  
 }
 
 .footerContainer {
@@ -102,7 +104,6 @@
 } */
 
 .link {
-  color: #000;
   font-size: 22px;
   font-weight: 400;
   text-decoration: none;
@@ -122,25 +123,25 @@ a {
 }
 
 .scrollToTopBtn {
-  background-color: #7F7E7C;
-  color: #000;
+  background-color: var(--primary-color);
+  color: #fff;
   border: none;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   padding: 0;
   border-radius: 50%;
   transition: background-color 0.3s;
   margin: 20px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  position: absolute;
+  bottom: 602px;
+  right: 163px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .scrollToTopBtn:hover {
-  background-color: #bdbcbc;
+  background-color: #5e45ec;
 }
 
 .icon {

@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import SocialLinks from '../../components/SocialLinks/SocialLinks';
 import { IoIosArrowUp } from 'react-icons/io';
 import clsx from 'clsx';
+import Logo from '../../assets/img/logo.png';
 import styles from './Footer.module.css';
 
 const style = ({ isActive }) =>
@@ -16,7 +17,7 @@ function Footer() {
       <div className={styles.footerContainer}>
         <ul className={styles.infoList}>
           <NavLink to="/" className={styles.logo}>
-            Logo
+            <img src={Logo} alt="logo" />
           </NavLink>
           <li className={styles.infoItem}>Kyiv, Ukraine, 01001, </li>
           <li className={styles.infoItem}>
