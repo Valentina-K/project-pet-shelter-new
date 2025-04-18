@@ -16,6 +16,7 @@ import {
   resetData,
 } from '../../redux/advertisements/slice';
 import { clearFilters } from '../../redux/categories/slice';
+import Container from '../../layout/Container/Container';
 import Shelters from '../../components/HomeComponents/Shelters/Shelters';
 import JoinUsSection from '../../components/HomeComponents/JoinUsSection/JoinUsSection';
 import OurBlog from '../../components/HomeComponents/OurBlog/OurBlog';
@@ -58,19 +59,21 @@ function HomePage() {
   return (
     <>
       <Hero />
-      {!isLoading && (
-        <OurAnimals
-          onViewMoreClick={handlePageChange}
-          ads={ads}
-          limit={totalElements}
-        />
-      )}
-      <Shelters />
-      <JoinUsSection text={'Join us to make a bigger impact together!'} />
-      <OurBlog />
-      <Subscribe />
-      <Statistics />
-      {/*<HotAds />*/}
+      <Container>
+        {!isLoading && (
+          <OurAnimals
+            onViewMoreClick={handlePageChange}
+            ads={ads}
+            limit={totalElements}
+          />
+        )}
+        <Shelters />
+        <JoinUsSection text={'Join us to make a bigger impact together!'} />
+        <OurBlog />
+        <Subscribe />
+        <Statistics />
+        {/*<HotAds />*/}
+      </Container>
     </>
   );
 }

@@ -5,7 +5,7 @@
   border-top: 1px solid #ddd;
   padding: 169px 163px 122px 160px;
   background-color: var(--accent-background-color);
-  
+  width: 100vw;
 }
 
 .footerContainer {
