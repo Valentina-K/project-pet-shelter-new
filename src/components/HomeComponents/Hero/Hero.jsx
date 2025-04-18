@@ -1,3 +1,4 @@
+import Button from '../../UI/Button.jsx';
 import styles from './Hero.module.css';
 
 function Hero() {
@@ -7,7 +8,7 @@ function Hero() {
         <span className={styles.highlight}>Find your new friend</span> and give
         them a loving home
       </h1>
-      <button className={styles.heroButton}>Adopt a friend</button>
+      <Button className={styles.heroButton}>Adopt a friend</Button>
     </div>
   );
 }

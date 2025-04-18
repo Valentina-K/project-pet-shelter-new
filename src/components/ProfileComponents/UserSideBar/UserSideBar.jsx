@@ -3,11 +3,14 @@ import styles from './UserSideBar.module.css';
 import UserMenu from './UserMenu/UserMenu';
 
 function UserSideBar({ user }) {
+  const profileImage = user.profilePicture
+    ? user.profilePicture
+    : 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <img
-          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+          src={profileImage}
           alt="user"
           width="60"
           height="60"
@@ -30,6 +33,7 @@ UserSideBar.propTypes = {
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     email: PropTypes.string,
+    profilePicture: PropTypes.string,
   }),
 };
 

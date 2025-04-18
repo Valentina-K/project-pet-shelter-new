@@ -4,6 +4,7 @@ import data from '../../../models/shelters.json';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import NavControls from '../NavControls/NavControls';
+import SectionTitle from '../../UI/SectionTitle.jsx';
 import styles from './Shelters.module.css';
 
 function Shelters() {
@@ -17,7 +18,7 @@ function Shelters() {
 
   return (
     <>
-      <h2 className="sectionTitle">Shelters</h2>
+      <SectionTitle text="Shelters" />
       <div className={styles.wrapper}>
         <div
           className={styles.list}

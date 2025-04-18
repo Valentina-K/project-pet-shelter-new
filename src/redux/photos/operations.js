@@ -1,14 +1,13 @@
-import axios from 'axios';
+//import axios from 'axios';
+import { privateApi, publicApi } from '../api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
 // Fetch user profile photo
 export const getUserProfilePhoto = createAsyncThunk(
   'photos/getUserProfilePhoto',
   async (userId, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/v1/photo/user/${userId}`);
+      const { data } = await privateApi.get(`/api/v1/photo/user/${userId}`);
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -23,7 +22,7 @@ export const uploadUserProfilePhoto = createAsyncThunk(
     try {
       const formData = new FormData();
       formData.append('file', file);
-      const { data } = await axios.post(
+      const { data } = await privateApi.post(
         `/api/v1/photo/user/${userId}`,
         formData,
         {
@@ -44,7 +43,7 @@ export const deleteUserProfilePhoto = createAsyncThunk(
   'photos/deleteUserProfilePhoto',
   async (userId, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`/api/v1/photo/user/${userId}`);
+      const { data } = await privateApi.delete(`/api/v1/photo/user/${userId}`);
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -57,7 +56,7 @@ export const getAllAdvertPhotos = createAsyncThunk(
   'photos/getAllAdvertPhotos',
   async (adId, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/v1/photo/ad/${adId}`);
+      const { data } = await publicApi.get(`/api/v1/photo/ad/${adId}`);
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -76,7 +75,7 @@ export const uploadPhotos = createAsyncThunk(
       formData.append('file', file);
 
       try {
-        const response = await axios.post('/api/v1/photo', formData);
+        const response = await privateApi.post('/api/v1/photo', formData);
 
         if (response.status !== 200) {
           throw new Error('Failed to upload photos');
@@ -99,11 +98,15 @@ export const uploadAdvertsPhoto = createAsyncThunk(
     try {
       const formData = new FormData();
       files.forEach((file) => formData.append('files[]', file));
-      const { data } = await axios.post(`/api/v1/photo/ad/${adId}`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const { data } = await privateApi.post(
+        `/api/v1/photo/ad/${adId}`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -116,7 +119,7 @@ export const deleteAdvertPhotos = createAsyncThunk(
   'photos/deleteAdvertPhotos',
   async ({ adId, photoIds }, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`/api/v1/photo/ad/${adId}`, {
+      const { data } = await privateApi.delete(`/api/v1/photo/ad/${adId}`, {
         data: photoIds,
       });
       return data;
@@ -131,7 +134,7 @@ export const downloadUserProfilePhotoFile = createAsyncThunk(
   'file/downloadUserProfilePhotoFile',
   async (userId, thunkAPI) => {
     try {
-      const response = await axios.get(`/api/v1/file/user/${userId}`, {
+      const response = await privateApi.get(`/api/v1/file/user/${userId}`, {
         responseType: 'blob',
       });
       const url = URL.createObjectURL(response.data);
@@ -147,7 +150,7 @@ export const getAdvertsPhotoFiles = createAsyncThunk(
   'file/getAdvertsPhotoFiles',
   async (adId, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/v1/file/ad/${adId}`);
+      const { data } = await publicApi.get(`/api/v1/file/ad/${adId}`);
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -160,7 +163,7 @@ export const downloadPhotoById = createAsyncThunk(
   'file/downloadPhotoById',
   async ({ adId, photoId }, thunkAPI) => {
     try {
-      const response = await axios.get(
+      const response = await publicApi.get(
         `/api/v1/file/ad/${adId}/photo/${photoId}`,
         { responseType: 'blob' }
       );
@@ -177,7 +180,7 @@ export const getAdvertThumbnail = createAsyncThunk(
   'photos/getAdvertThumbnail',
   async ({ adId, thumbnailId }, thunkAPI) => {
     try {
-      const response = await axios.get(
+      const response = await publicApi.get(
         `/api/v1/file/ad/${adId}/photo/${thumbnailId}`,
         {
           responseType: 'blob',

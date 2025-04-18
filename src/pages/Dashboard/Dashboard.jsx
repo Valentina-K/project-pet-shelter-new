@@ -16,7 +16,7 @@ function Dashboard() {
             console.log('from search');
           }}
         />
-        <Outlet />
+        <Outlet context={{ user }} />
       </div>
     </div>
   );

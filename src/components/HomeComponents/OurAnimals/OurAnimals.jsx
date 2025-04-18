@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import Card from '../../Card/PetCard/Card.jsx';
+import SectionTitle from '../../UI/SectionTitle.jsx';
 import styles from './OurAnimals.module.css';
+import Button from '../../UI/Button.jsx';
 
 function OurAnimals({ ads = [], onViewMoreClick, limit }) {
   const isHasMore = ads.length < limit;
   return (
     <div className={styles.section}>
-      <h2 className="sectionTitle">Our animals</h2>
+      <SectionTitle text={'Our animals'} />
       <div className={styles.animalsBlock}>
         {ads.length === 0 ? (
           <p>No advertisements available.</p>
@@ -19,9 +21,9 @@ function OurAnimals({ ads = [], onViewMoreClick, limit }) {
         )}
       </div>
       {isHasMore && (
-        <button className={styles.morebutton} onClick={onViewMoreClick}>
+        <Button className={styles.morebutton} onClick={onViewMoreClick}>
           View more
-        </button>
+        </Button>
       )}
     </div>
   );
