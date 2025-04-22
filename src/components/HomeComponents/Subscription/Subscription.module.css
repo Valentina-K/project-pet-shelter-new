@@ -1,12 +1,48 @@
 .subscription {
     position: relative;
     width: 100%;
-    padding: 124px 80px 204px 934px;    
-    margin-bottom: 120px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 96px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-start;
     border-radius: var(--button-border-radius);
-    background-color: #ADB2B8;
-    background-image: url('../../../assets/img/subscriptImage.png');
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    background-size: contain;
+    background: url('../../../assets/img/subscriptImage.png'),
+    linear-gradient(90.16deg, #B7BBC6 28.96%, #AEB3BA 89.22%)     ;
+    background-repeat: no-repeat, no-repeat;
+    background-position: calc(100% + 105px) bottom, center;
+    background-size: contain, cover;
+}
+
+@media screen and (width >= 768px) {
+    .subscription {
+        padding-left: 40px;
+        padding-top: 40px;
+        padding-bottom: 96px;
+        margin-bottom: 40px;
+        background-position: calc(100% + 205px) bottom, center;
+    }
+
+}
+
+@media screen and (width >= 1280px) {
+    .subscription {
+        padding-left: 62px;
+        padding-top: 76px;
+        padding-bottom: 258px;
+        margin-bottom: 80px;
+        background-position: calc(100% + 285px) bottom, center;
+    }
+}
+
+@media screen and (width >= 1920px) {
+    .subscription {
+        padding-top: 124px;
+        padding-right: 80px;
+        padding-bottom: 204px;
+        margin-bottom: 120px;
+        justify-content: flex-end;
+        background-position: left bottom, center;
+    }
 }

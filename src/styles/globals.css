@@ -19,6 +19,7 @@
     max-width: var(--max-width);
     margin: var(--margin);
     background-color: var(--secondary-background-color);
+    color: var(--primary-color);
   }
   
   a {

@@ -2,3 +2,27 @@
     padding: var(--padding);
     margin-top: 166px;
 }
+
+@media screen and (width >= 768px) {
+    .container{
+        padding: var(--padding-tablet);
+        margin-top: 166px;
+    }
+    
+}
+
+@media screen and (width >= 1280px) {
+    .container{
+        padding: var(--padding-laptop);
+        margin-top: 166px;
+    }
+    
+}
+
+@media screen and (width >= 1920px) {
+    .container{
+        padding: var(--padding-desktop);
+        margin-top: 166px;
+    }
+    
+}
