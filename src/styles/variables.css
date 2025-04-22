@@ -15,8 +15,10 @@
     --component-background-color: #BBB2A9;
     --header-background-color: #FFFFFF40;
     --font-family: 'Inter', sans-serif;
+    --hero-font-family: 'Lexend', sans-serif;
     --font-size: 16px;
     --line-height: 1.6;
+    --text-font-weight: 400;
     --section-title-font-size: 48px;
     --section-title-font-weight: 700;
     --section-title-line-height: 58.09px;
@@ -24,6 +26,9 @@
     --section-title-margin-bottom: 80px;
     --max-width: 1920px;
     --margin: 0 auto;
-    --padding: 0 160px;
+    --padding: 0 20px;
+    --padding-tablet: 0 40px;
+    --padding-laptop: 0 158px;
+    --padding-desktop: 0 160px;
     --button-border-radius: 24px;
 }
