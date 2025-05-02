@@ -121,15 +121,15 @@ a {
   background-color: var(--primary-color);
   color: #fff;
   border: none;
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   padding: 0;
   border-radius: 50%;
   transition: background-color 0.3s;
   margin: 20px;
   position: absolute;
-  bottom: 602px;
-  right: 163px;
+  bottom: 350px;
+  right: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,6 +137,33 @@ a {
 
 .scrollToTopBtn:hover {
   background-color: #1f14be;
+}
+
+@media screen and (width <= 768px) {
+  .scrollToTopBtn {
+    width: 96px;
+    height: 96px;
+    bottom: 450px;
+    right: 39px;
+  }
+}
+
+@media screen and (width <= 1280px) {
+  .scrollToTopBtn {
+    width: 104px;
+    height: 104px;
+    bottom: 558px;
+    right: 160px;
+  }
+}
+
+@media screen and (width <= 1920px) {
+  .scrollToTopBtn {
+    width: 120px;
+    height: 120px;
+    bottom: 602px;
+    right: 163px;
+  }
 }
 
 .icon {

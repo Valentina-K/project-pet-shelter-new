@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import styles from './NavControls.module.css';
+import { useMediaQuery } from '../../../hooks';
 
 function NavControls({
   currentIndex,
@@ -14,9 +15,19 @@ function NavControls({
   const [leftDisabled, setLeftDisabled] = useState(false);
   const [rightDisabled, setRightDisabled] = useState(false);
   const [marginLeft, setMarginLeft] = useState(0);
+  const [marginTop, setMarginTop] = useState(0);
   const [position, setPosition] = useState(0);
-  const width = 405;
+  const isTablet = useMediaQuery('(min-width: 768px)');
+  const isDesktop = useMediaQuery('(min-width: 1920px)');
+  // added gap = 20px to width and height
+  const width = isDesktop ? 405 : 0;
+  const height = useMediaQuery('(min-width: 1280px)')
+    ? 220
+    : isTablet
+      ? 161
+      : 0;
   const count = countVisibleItems;
+
   useEffect(() => {
     if (index === 0) {
       setLeftDisabled(true);
@@ -24,8 +35,13 @@ function NavControls({
     if (index === countAllItems - countVisibleItems) {
       setRightDisabled(true);
     } else setRightDisabled(false);
-    setMarginLeft(Math.max(position, -width * (countAllItems - count)));
-    onNavClick(marginLeft, index);
+    if (isDesktop) {
+      setMarginLeft(Math.max(position, -width * (countAllItems - count)));
+      onNavClick(marginLeft, index);
+    } else {
+      setMarginTop(Math.max(position, -height * (countAllItems - count)));
+      onNavClick(marginTop, index);
+    }
   }, [
     index,
     countAllItems,
@@ -35,14 +51,25 @@ function NavControls({
     count,
     onNavClick,
     marginLeft,
+    marginTop,
+    isDesktop,
+    height,
   ]);
   const handleLeftClick = () => {
-    setPosition((prev) => prev + width);
+    if (isDesktop) {
+      setPosition((prev) => prev + width);
+    } else {
+      setPosition((prev) => prev + height);
+    }
     setIndex((prev) => prev - 1);
   };
 
   const handleRightClick = () => {
-    setPosition((prev) => prev - width);
+    if (isDesktop) {
+      setPosition((prev) => prev - width);
+    } else {
+      setPosition((prev) => prev - height);
+    }
     setIndex((prev) => prev + 1);
   };
   return (

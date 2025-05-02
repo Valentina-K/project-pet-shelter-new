@@ -1,33 +1,33 @@
-.heroWrapper{
-    margin-top: 150px;
+.heroWrapper {
     width: 100vw;
     padding-top: 192px;
     padding-left: 160px;
     background-color: #fff;
     background-image: url('/src/assets/img/hero.png');
-  background-repeat: no-repeat;
-  background-size: 926px 829px;
-  background-position: calc(100% - 65px) calc(100% - 52px);;
+    background-repeat: no-repeat;
+    background-size: 926px 829px;
+    background-position: calc(100% - 65px) calc(100% - 52px);
+    ;
 }
 
-.heroTitle{
+.heroTitle {
     font-family: var(--hero-font-family);
     font-size: 45px;
     font-weight: 400;
     line-height: 63px;
     text-align: left;
-    color: var(--primary-color);  
+    color: var(--primary-color);
     margin-bottom: 108px;
-    width: 735px;  
+    width: 735px;
 }
 
-.heroTitle .highlight{
+.heroTitle .highlight {
     font-size: 72px;
     font-weight: 900;
     line-height: 90px;
 }
 
-.heroButton{
+.heroButton {
     margin-bottom: 378px;
 }
 

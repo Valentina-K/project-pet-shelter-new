@@ -15,3 +15,12 @@
     background: var(--hover-accent-color);
 }
 
+.sectionTitle {
+    font-family: var(--font-family);
+    font-size: var(--section-title-font-size);
+    font-weight: var(--section-title-font-weight);
+    line-height: var(--section-title-line-height);
+    text-align: var(--section-title-text-align);
+    margin-bottom: var(--section-title-margin-bottom);
+}
+

@@ -60,7 +60,7 @@ function Navigation() {
         </NavLink>
       </div>
       <div className={styles.authLinks}>
-        <NavLink to="/forum" className={styles.forumLink}>
+        <NavLink to="/" className={styles.forumLink}>
           <TiMessages className={styles.forumIcon} />
         </NavLink>
         <div className={styles.loginContainer}>
