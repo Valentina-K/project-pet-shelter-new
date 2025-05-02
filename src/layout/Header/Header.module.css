@@ -9,21 +9,17 @@
   align-items: center;
   margin-left: auto;
   padding: 45px 160px 35px 156px;
-  margin-bottom: 48px;
-  opacity: 1;
   background-color: var(--accent-background-color);
-  transition: background-color 0.3s ease, opacity 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .navContainer.scrolled{
   background-color: var(--accent-bgc-transparent);
-  opacity: 0.9;
 }
 
 .logoContainer {
   display: flex;
   align-items: flex-end;
-  padding-bottom: 10px;
 }
 
 .logoText {
@@ -38,7 +34,7 @@
   transition: color 0.3s ease;
   font-size: 20px;
   font-weight: var(--section-title-font-weight);
-  line-height: 24.2px;
+  line-height: 24px;
   text-align: left;
 }
 
@@ -58,7 +54,7 @@
   align-items: center;
   justify-content: center;
   width: auto;
-  padding: 18px 43px;
+  padding: 16px 43px;
   gap: 56px;
   border: 1px solid #d9d9d9;
   border-radius: 40px;
@@ -74,7 +70,6 @@
 .loginContainer {
   display: flex;
   align-items: center;
-  padding-bottom: 10px;
   gap: 20px;  
 }
 

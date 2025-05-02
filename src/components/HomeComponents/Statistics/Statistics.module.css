@@ -1,34 +1,49 @@
 .statistics {
     width: 100%;
-    margin-bottom: 80px;
+    margin-bottom: 166px;
+    font-family: var(--font-family);
+}
+
+.subTitle {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 32px;
+    text-align: center;
+    margin-bottom: 56px;
 }
 
 .textWrapper {
     display: flex;
-    gap: 40px;
-    font-size: 20px;
+    flex-wrap: wrap;
+    gap: 30px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 34px;
-    margin-bottom: 120px;
+    min-height: 350px;
+    margin-bottom: 56px;
 }
 
-.textTitle {
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 38px;
-    margin-bottom: 56px;
-    text-align: center;
+.text {
+    line-height: 34px;
+    flex: 1;
 }
 
 .statisticsWrapper {
+    max-width: 790px;
     display: flex;
     justify-content: center;
     gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .statisticsItem {
-    padding: 40px 30px;
+    flex: 1;
+    padding: 40px 38px 56px 30px;
     font-family: "Hind Siliguri", serif;
+    background: var(--card-background-color);
+    border-radius: 16px;
+    box-shadow: 0 0 12px 0 #0000000A;
 }
 
 .statisticsItem h5 {

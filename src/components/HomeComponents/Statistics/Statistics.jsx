@@ -5,33 +5,29 @@ function Statistics() {
   return (
     <div className={styles.statistics}>
       <SectionTitle text="Statistics" />
+      <h3 className={styles.subTitle}>
+        Our Shelter – Your Chance to Make a Difference!
+      </h3>
       <div className={styles.textWrapper}>
-        <p>
+        <p className={styles.text}>
           We are proud to share the significant results we have achieved thanks
-          to your support. This week alone, we’ve received 12,924 donations,
-          which help us provide the necessary care for our animals. Our team is
-          backed by 5,200 volunteers, with 467 of them working actively every
-          day to offer the assistance our animals need. Additionally, we
-          collaborate with 78 partner shelters, allowing us to expand our reach
-          and save even more lives.
-          <br />
-          <br /> Lorem ipsum dolor sit amet consectetur. Volutpat interdum
-          vivamus et placerat viverra fermentum volutpat quis. Non lacus non dui
-          sollicitudin massa sit adipiscing ut. Tellus lectus in imperdiet dolor
-          bibendum commodo amet cras.
+          to your unwavering support and compassion. This week alone, we&apos;ve
+          received 12,924 donations—each one a powerful testament to your belief
+          in our mission. These contributions directly help us provide food,
+          shelter, medical care, and rehabilitation for animals in need, giving
+          them a second chance at life. Our dedicated team of 5,200 volunteers
+          forms the backbone of our organization, with 467 of them actively
+          working every day to care for animals, manage rescues, assist with
+          adoptions, and provide emotional comfort to those who have suffered
+          neglect or abuse.
         </p>
-        <p>
-          Consectetur et urna consequat donec ultrices nulla. Vel in arcu
-          maecenas nisi diam. Nulla netus purus nec vulputate cras tellus
-          volutpat a. Proin neque quis interdum egestas ac ut sit. Tortor mattis
-          mattis egestas mattis quam pellentesque adipiscing. Vulputate aliquam
-          sed eu integer cursus vitae quisque. Ultricies elit dui sed bibendum
-          velit faucibus pellentesque odio. Tristique consequat dui tempus
-          turpis. Fusce euismod vitae nisl lectus ut quam augue. Quam nascetur
-          mi a et. Faucibus tincidunt fermentum duis sit vitae lacus.
-          <br />
-          <br /> Join our community, and together we can make the world a better
-          place for those who need it most!
+        <p className={styles.text}>
+          In addition to this, we are proud to collaborate with 78 trusted
+          partner shelters across the country. These partnerships allow us to
+          broaden our impact, share resources, and respond faster to emergencies
+          and overcrowding situations. Every act of kindness helps transform
+          lives. Join our growing community and be part of a powerful movement
+          making real change.
         </p>
       </div>
       <div className={styles.statisticsWrapper}>

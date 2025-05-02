@@ -1,7 +1,12 @@
+import { useNavigate } from 'react-router';
 import Button from '../../UI/Button.jsx';
 import styles from './JoinUsSection.module.css';
 
 function JoinUsSection() {
+  const navigate = useNavigate();
+  const handleJoinUs = () => {
+    navigate('/sign-in');
+  };
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>
@@ -9,7 +14,9 @@ function JoinUsSection() {
         <br />
         the better! Together we can do more!
       </h2>
-      <Button className={styles.button}>Join us</Button>
+      <Button className={styles.button} onClick={handleJoinUs}>
+        Join us
+      </Button>
     </div>
   );
 }

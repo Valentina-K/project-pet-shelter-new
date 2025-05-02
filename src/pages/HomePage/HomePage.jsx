@@ -22,6 +22,8 @@ import JoinUsSection from '../../components/HomeComponents/JoinUsSection/JoinUsS
 import OurBlog from '../../components/HomeComponents/OurBlog/OurBlog';
 import Subscribe from '../../components/HomeComponents/Subscription/Subscription';
 import Statistics from '../../components/HomeComponents/Statistics/Statistics';
+import PageWrapper from '../../layout/PageWrapper/PageWrapper';
+import HotAds from '../../components/HomeComponents/HotAds/HotAds';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -57,7 +59,7 @@ function HomePage() {
     }
   };
   return (
-    <>
+    <PageWrapper>
       <Hero />
       <Container>
         {!isLoading && (
@@ -67,14 +69,14 @@ function HomePage() {
             limit={totalElements}
           />
         )}
+        <HotAds />
         <Shelters />
         <JoinUsSection text={'Join us to make a bigger impact together!'} />
         <OurBlog />
         <Subscribe />
         <Statistics />
-        {/*<HotAds />*/}
       </Container>
-    </>
+    </PageWrapper>
   );
 }
 
