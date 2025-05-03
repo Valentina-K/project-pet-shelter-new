@@ -44,15 +44,7 @@ function AnimalPage() {
   return (
     <div className={styles.wrapper}>
       {' '}
-      {user && (
-        <OwnerDropDown
-          contactInfo={user}
-          name={'Vasya'}
-          website={'jfjgkfj'}
-          type={'user'}
-        />
-      )}{' '}
-      <AdsBlock ads={ads} />
+      {user && <OwnerDropDown user={user} />} <AdsBlock ads={ads} />
     </div>
   );
 

@@ -10,7 +10,7 @@ import {
 import styles from './styles.module.css';
 import PropTypes from 'prop-types';
 
-const HeaderItem = ({ type, name, website, contactInfo }) => {
+const HeaderItem = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -23,13 +23,40 @@ const HeaderItem = ({ type, name, website, contactInfo }) => {
       {/* Основной блок */}
       <div className={styles.dropdownHeader}>
         <div className={styles.headerLeft}>
-          <span className={styles.x}>{type === 'shelter' ? '🏠' : '👤'}</span>
-          <span className={styles.y}>{name}</span>
+          <span className={styles.x}>
+            {user.userRole === 'SHELTER' ? '🏠' : '👤'}
+          </span>
+          <span className={styles.y}>
+            {user.userRole === 'SHELTER'
+              ? user.firstName
+              : `${user.firstName} ${user.lastName}`}
+          </span>
         </div>
         <div className={styles.headerRight}>
-          <FaFacebook />
-          <FaInstagram />
-          {type === 'shelter' && <FaGlobe />}
+          <a
+            href={
+              user.contactInfo?.facebook
+                ? `https://www.facebook.com/${user.contactInfo.facebook}`
+                : 'https://www.facebook.com'
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            href={
+              user.contactInfo?.instagram
+                ? `https://www.instagram.com/${user.contactInfo.instagram}`
+                : 'https://www.instagram.com'
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram />
+          </a>
+
+          {user.userRole === 'SHELTER' && <FaGlobe />}
           <FaEnvelope />
           <FaPhone />
           <button onClick={toggleDropdown}>
@@ -48,23 +75,35 @@ const HeaderItem = ({ type, name, website, contactInfo }) => {
       {isOpen && (
         <div className={styles.dropdownMenu}>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute
-            irure dolor in reprehenderit.
+            {user.contactInfo?.mission
+              ? user.contactInfo.mission
+              : 'Author did not write information about itself yet'}
           </p>
           <div className="mt-3 space-y-2">
             <p className={styles.dropdownItem}>
-              <FaPhone /> {contactInfo.phone}
+              <FaPhone />{' '}
+              {user.contactInfo?.phone
+                ? user.contactInfo.phone
+                : 'The phone is missing'}
             </p>
-            {type === 'shelter' && (
+            {user.userRole === 'SHELTER' && (
               <p className={styles.dropdownItem}>
                 <FaGlobe />{' '}
-                <a href={website} target="_blank" rel="noopener noreferrer">
-                  {website}
+                <a
+                  href={
+                    user.contactInfo?.website ? user.contactInfo.website : '/'
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {user.contactInfo?.website
+                    ? user.contactInfo.website
+                    : 'The website is missing'}
                 </a>
               </p>
             )}
             <p className={styles.dropdownItem}>
-              <FaEnvelope /> {contactInfo.email}
+              <FaEnvelope /> {user.email}
             </p>
           </div>
         </div>
@@ -74,12 +113,22 @@ const HeaderItem = ({ type, name, website, contactInfo }) => {
 };
 
 HeaderItem.propTypes = {
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  website: PropTypes.string,
-  contactInfo: PropTypes.shape({
+  user: PropTypes.shape({
+    userRole: PropTypes.string,
     email: PropTypes.string,
-    phone: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    contactInfo: PropTypes.shape({
+      website: PropTypes.string,
+      mission: PropTypes.string,
+      facebook: PropTypes.string,
+      instagram: PropTypes.string,
+      telegram: PropTypes.string,
+      phone: PropTypes.string,
+    }),
   }),
 };
 export default HeaderItem;
+//user.contactInfo?.telegram
+// ? `https://t.me/${user.contactInfo.telegram}`
+// : 'https://t.me',
