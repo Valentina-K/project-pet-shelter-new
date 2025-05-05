@@ -66,7 +66,7 @@ function Footer() {
       >
         <IoIosArrowUp className={styles.icon} />
       </button>
-      <div>
+      <div className={styles.policyWrapper}>
         <ul className={styles.policyContainer}>
           <li className={styles.policyItem}>
             © 2024 Animal Shelter. All rights reserved
@@ -77,8 +77,8 @@ function Footer() {
           <li className={styles.policyItem}>
             <a href="#">Terms of Service</a>
           </li>
-          <li className={styles.policyItem}>Created with love by Team @233</li>
         </ul>
+        <p className={styles.policyCreated}>Created with love by Team @233</p>
       </div>
     </div>
   );
