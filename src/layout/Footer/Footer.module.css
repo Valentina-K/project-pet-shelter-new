@@ -1,9 +1,11 @@
 .wrapper {
+  position: relative;
   display: flex;
   flex-flow: column wrap;
-  background-color: #f8f9fa;
   border-top: 1px solid #ddd;
-  padding-top: 169px;
+  padding: 169px 163px 122px 160px;
+  background-color: var(--accent-background-color);
+  width: 100vw;
 }
 
 .footerContainer {
@@ -24,7 +26,6 @@
 .logo {
   display: inline-flex;
   margin-bottom: 56px;
-  color: #000;
   text-decoration: none;
   font-size: 28px;
   font-weight: 700;
@@ -34,7 +35,6 @@
 .infoItem {
   display: flex;
   margin-bottom: 11px;
-  color: #000;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.5;
@@ -51,7 +51,6 @@
 }
 
 .phone {
-  color: #000;
   text-decoration: none;
   font-size: 40px;
   font-style: normal;
@@ -76,7 +75,6 @@
 }
 
 .policyItem {
-  color: #000;
   text-align: center;
   font-size: 20px;
   font-weight: 400;
@@ -102,45 +100,70 @@
 } */
 
 .link {
-  color: #000;
   font-size: 22px;
   font-weight: 400;
   text-decoration: none;
 }
 
 .active {
-  color: #000;
+  color: #1f14be;
 }
 
 .link:hover {
-  color: #000;
+  color: #1f14be;
 }
 
 a {
-  color: #000;
   text-decoration: none;
 }
 
 .scrollToTopBtn {
-  background-color: #7F7E7C;
-  color: #000;
+  background-color: var(--primary-color);
+  color: #fff;
   border: none;
-  width: 150px;
-  height: 150px;
+  width: 80px;
+  height: 80px;
   padding: 0;
   border-radius: 50%;
   transition: background-color 0.3s;
   margin: 20px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  position: absolute;
+  bottom: 350px;
+  right: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .scrollToTopBtn:hover {
-  background-color: #bdbcbc;
+  background-color: #1f14be;
+}
+
+@media screen and (width <= 768px) {
+  .scrollToTopBtn {
+    width: 96px;
+    height: 96px;
+    bottom: 450px;
+    right: 39px;
+  }
+}
+
+@media screen and (width <= 1280px) {
+  .scrollToTopBtn {
+    width: 104px;
+    height: 104px;
+    bottom: 558px;
+    right: 160px;
+  }
+}
+
+@media screen and (width <= 1920px) {
+  .scrollToTopBtn {
+    width: 120px;
+    height: 120px;
+    bottom: 602px;
+    right: 163px;
+  }
 }
 
 .icon {

@@ -1,9 +1,10 @@
 import data from '../../models/shelters.json';
 import Card from '../../components/Card/ShelterCard/Card';
+import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 
 function ShelterPage() {
   return (
-    <div>
+    <PageWrapper>
       <div
         style={{
           display: 'flex',
@@ -12,6 +13,7 @@ function ShelterPage() {
           gap: '20px',
           maxWidth: '1195px',
           width: '100%',
+          paddingTop: '64px',
         }}
       >
         {data.shelters.length === 0 ? (
@@ -30,7 +32,7 @@ function ShelterPage() {
           ))
         )}
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 

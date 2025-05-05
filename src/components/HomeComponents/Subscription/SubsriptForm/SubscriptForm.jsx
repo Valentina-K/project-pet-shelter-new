@@ -1,6 +1,7 @@
 import { useState } from 'react';
 //import axios from 'axios';
 import styles from './SubscriptForm.module.css';
+import Button from '../../../UI/Button';
 
 const SubscriptionForm = () => {
   const [email, setEmail] = useState('');
@@ -25,6 +26,7 @@ const SubscriptionForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
+      <h3 className={styles.title}>Subscribe to the news</h3>
       <input
         type="email"
         placeholder="Your email "
@@ -33,9 +35,13 @@ const SubscriptionForm = () => {
         required
         className={styles.input}
       />
-      <button type="submit" className={styles.button}>
+      <p className={styles.text}>
+        Stay updated with our latest stories and tips! Enter your email to
+        subscribe to our blog
+      </p>
+      <Button type="submit" className={styles.button}>
         Subscribe
-      </button>
+      </Button>
       {visible && (
         <p
           className={

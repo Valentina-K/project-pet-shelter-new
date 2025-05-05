@@ -1,29 +1,39 @@
 import { MdChevronRight } from 'react-icons/md';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import blogcat from '../../../assets/img/blogcat.png';
 import PropTypes from 'prop-types';
 import styles from './OurBlog.module.css';
+import { useWindowWidth } from '../../../hooks';
 function PreviewBlog({ blog }) {
   const textRef = useRef(null);
+  const height = useWindowWidth() >= 1920 ? 256 : 103;
   useEffect(() => {
     const element = textRef.current;
-    const elementHeight = 256;
-    if (element) {
-      const { clientHeight } = element;
-      if (elementHeight < clientHeight) {
+    if (!element) return;
+
+    const observer = new MutationObserver(() => {
+      const elementHeight = height;
+      if (element.clientHeight > elementHeight) {
         let textContent = element.textContent;
-        while (elementHeight < element.clientHeight) {
+        while (element.clientHeight > elementHeight) {
           textContent = textContent.slice(0, -1);
           element.textContent = textContent + '...';
         }
       }
-    }
-  }, []);
+    });
+    observer.observe(element, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+    });
+    return () => observer.disconnect();
+  }, [height]);
   return (
     <div className={styles.previewWrapper}>
-      <img src="" alt="" className={styles.previewImg} />
+      <img src={blogcat} alt="cat" className={styles.previewImg} />
       <div className={styles.previewContent}>
-        <div>
+        <div className={styles.previewMainInfo}>
           <p className={styles.label}>{blog.author.name}</p>
           <h3 className={styles.blogTitle}>{blog.title}</h3>
           <p ref={textRef} className={styles.blogText}>

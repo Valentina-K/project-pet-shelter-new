@@ -10,13 +10,19 @@ import { useState, useEffect } from 'react';
 import OwnerDropDown from '../../components/AdsComponents/OwnerDropDown/OwnerDropDown.jsx';
 import { getUserById } from '../../redux/auth/operations.js';
 import { selectIsLoading } from '../../redux/advertisements/selectors.js';
+//import { FaPersonWalkingDashedLineArrowRight } from 'react-icons/fa6';
+import PageWrapper from '../../layout/PageWrapper/PageWrapper.jsx';
+import PetPhotoSlider from '../../components/PetPhotoSlider/PetPhotoSlider.jsx';
+import images from '../../models/images.json';
 
 function AnimalPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const IsLoading = useSelector(selectIsLoading);
   const allAds = useSelector(selectAdvertisements);
+
   const [user, setUser] = useState(null);
+
   useEffect(() => {
     async function fetchUser() {
       if (!IsLoading) {
@@ -33,7 +39,7 @@ function AnimalPage() {
     }
     fetchUser();
   }, [dispatch, id, IsLoading, allAds]);
-
+  console.log(images);
   /*const user = {
     phone: '22-33-56',
     email: 'fff@hh.com',
@@ -42,10 +48,12 @@ function AnimalPage() {
   const ads = useSelector(selectTopAdvertisements);
   console.log(id, ads);
   return (
-    <div className={styles.wrapper}>
-      {' '}
-      {user && <OwnerDropDown user={user} />} <AdsBlock ads={ads} />
-    </div>
+    <PageWrapper>
+      <div className={styles.wrapper}>
+        <div>{<PetPhotoSlider photos={images.photos} />}</div>
+        {user && <OwnerDropDown user={user} />} <AdsBlock ads={ads} />
+      </div>
+    </PageWrapper>
   );
 
   ///drop-down

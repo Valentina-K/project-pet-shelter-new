@@ -1,0 +1,24 @@
+.wrapper{
+display: flex;
+flex-direction: column;
+gap:50px;
+}
+
+.bigImage{
+width: 300px;
+height: 300px;
+}
+
+.smallImage{
+width: 80px;
+height: 80px;
+}
+
+.active{
+    border: 1px solid rgb(115 21 231)
+}
+
+.imgContainer{
+    display: flex;
+    gap:20px;
+}

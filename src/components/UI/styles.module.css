@@ -1,0 +1,26 @@
+.button{
+    width: 322px;
+    background: var(--accent-color);
+    color: var(--secondary-color);
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 25.2px;    
+    padding: 18px 0;
+    border-radius: var(--button-border-radius);
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: var(--hover-accent-color);
+}
+
+.sectionTitle {
+    font-family: var(--font-family);
+    font-size: var(--section-title-font-size);
+    font-weight: var(--section-title-font-weight);
+    line-height: var(--section-title-line-height);
+    text-align: var(--section-title-text-align);
+    margin-bottom: var(--section-title-margin-bottom);
+}
+

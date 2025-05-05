@@ -1,17 +1,25 @@
 .navContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: auto;
-  padding-top: 52px;
-  padding-bottom: 24px;
-  margin-bottom: 48px;
+  padding: 45px 160px 35px 156px;
+  background-color: var(--accent-background-color);
+  transition: background-color 0.3s ease;
+}
+
+.navContainer.scrolled{
+  background-color: var(--accent-bgc-transparent);
 }
 
 .logoContainer {
   display: flex;
   align-items: flex-end;
-  padding-bottom: 10px;
 }
 
 .logoText {
@@ -22,12 +30,11 @@
 }
 
 .link {
-  text-decoration: none;
-  color: #333;
+  color: var(--primary-color);
   transition: color 0.3s ease;
   font-size: 20px;
-  font-weight: 700;
-  line-height: 24.2px;
+  font-weight: var(--section-title-font-weight);
+  line-height: 24px;
   text-align: left;
 }
 
@@ -47,23 +54,23 @@
   align-items: center;
   justify-content: center;
   width: auto;
-  padding: 18px 43px;
+  padding: 16px 43px;
   gap: 56px;
   border: 1px solid #d9d9d9;
   border-radius: 40px;
+  background-color: var(--header-background-color);
 }
 
 .authLinks{
   display: flex;
   gap: 53px;
-  align-items: center;
+  align-items: center;  
 }
 
 .loginContainer {
   display: flex;
   align-items: center;
-  padding-bottom: 10px;
-  gap: 20px;
+  gap: 20px;  
 }
 
 .iconContainer {
@@ -110,4 +117,5 @@
   color: #000;
   font-size: 20px;
   font-weight: 400;
+  background-color: var(--header-background-color);
 }

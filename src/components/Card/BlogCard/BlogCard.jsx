@@ -2,6 +2,7 @@ import { MdChevronRight } from 'react-icons/md';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import blogcat from '../../../assets/img/blogcat.png';
 import styles from './BlogCard.module.css';
 
 function BlogCard({ blog }) {
@@ -24,23 +25,28 @@ function BlogCard({ blog }) {
   }, []);
   return (
     <div className={styles.wrapper}>
-      <div className={styles.cardContent}>
-        <p className={styles.label}>{blog.author.name}</p>
-        <h3 ref={titleRef} className={styles.cardTitle}>
-          {blog.title}
-        </h3>
-        <p ref={textRef} className={styles.cardText}>
-          {blog.content}
-        </p>
+      <div className={styles.imgBlock}>
+        <img src={blogcat} alt="cat" />
       </div>
-      <div className={styles.cardFooter}>
-        <span className={styles.footerDate}>{blog.updatedAt}</span>
-        <Link to={`/blog/${blog.id}`}>
-          <button className={styles.footerButton}>
-            More
-            <MdChevronRight className={styles.footerIcon} />
-          </button>
-        </Link>
+      <div className={styles.cardContent}>
+        <div className={styles.mainInfo}>
+          <p className={styles.label}>{blog.author.name}</p>
+          <h3 ref={titleRef} className={styles.cardTitle}>
+            {blog.title}
+          </h3>
+          <p ref={textRef} className={styles.cardText}>
+            {blog.content}
+          </p>
+        </div>
+        <div className={styles.cardFooter}>
+          <span className={styles.footerDate}>{blog.publisedDate}</span>
+          <Link to={`/blog/${blog.id}`}>
+            <button className={styles.footerButton}>
+              More
+              <MdChevronRight className={styles.footerIcon} />
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -55,7 +61,7 @@ BlogCard.propTypes = {
     }),
     title: PropTypes.string,
     content: PropTypes.string,
-    updatedAt: PropTypes.string,
+    publisedDate: PropTypes.string,
   }),
 };
 
