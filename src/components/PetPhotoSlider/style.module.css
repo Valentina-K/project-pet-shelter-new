@@ -1,17 +1,18 @@
 .wrapper{
-display: flex;
-flex-direction: column;
-gap:50px;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    margin-bottom: 65px
 }
 
 .bigImage{
-width: 300px;
-height: 300px;
+    width: 733px;
+    height: 650px;
 }
 
 .smallImage{
-width: 80px;
-height: 80px;
+    width: 115px;
+    height: 114px;
 }
 
 .active{
