@@ -1,0 +1,17 @@
+{
+  "photos": [
+        {
+        
+            "filename": "dog.png",
+          "altText": "black dog"
+        },
+        {
+          "filename": "whiteCat.png",
+          "altText": "cat"
+        },
+        {
+          "filename": "smallDog.png",
+          "altText": "small dog"
+        }
+      ]
+}
