@@ -28,7 +28,7 @@ function Footer() {
           </li>
           <li className={styles.infoItem}>
             <a href="mailto:contact@animal_shelter.com">
-              contact@animal_shelter.com
+              <strong>contact@animal_shelter.com</strong>
             </a>
           </li>
         </ul>

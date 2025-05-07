@@ -7,12 +7,12 @@ import styles from './OurBlog.module.css';
 import { useWindowWidth } from '../../../hooks';
 function PreviewBlog({ blog }) {
   const textRef = useRef(null);
-  const height = useWindowWidth() >= 1920 ? 256 : 103;
+  const height = useWindowWidth() >= 1920 ? 256 : 80;
   useEffect(() => {
     const element = textRef.current;
     if (!element) return;
 
-    const observer = new MutationObserver(() => {
+    const truncateText = () => {
       const elementHeight = height;
       if (element.clientHeight > elementHeight) {
         let textContent = element.textContent;
@@ -21,7 +21,10 @@ function PreviewBlog({ blog }) {
           element.textContent = textContent + '...';
         }
       }
-    });
+    };
+    truncateText();
+
+    const observer = new MutationObserver(truncateText);
     observer.observe(element, {
       childList: true,
       subtree: true,
@@ -41,7 +44,7 @@ function PreviewBlog({ blog }) {
           </p>
         </div>
         <div className={styles.previewFooter}>
-          <span className={styles.footerDate}>{blog.updatedAt}</span>
+          <span className={styles.footerDate}>{blog.publisedDate}</span>
           <Link to={`/blog/${blog.id}`}>
             <button className={styles.footerButton}>
               More
@@ -63,7 +66,7 @@ PreviewBlog.propTypes = {
     }),
     title: PropTypes.string,
     content: PropTypes.string,
-    updatedAt: PropTypes.string,
+    publisedDate: PropTypes.string,
   }),
 };
 
