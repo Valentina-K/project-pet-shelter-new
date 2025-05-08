@@ -1,0 +1,25 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    margin-bottom: 65px
+}
+
+.bigImage{
+    width: 733px;
+    height: 650px;
+}
+
+.smallImage{
+    width: 115px;
+    height: 114px;
+}
+
+.active{
+    border: 1px solid rgb(115 21 231)
+}
+
+.imgContainer{
+    display: flex;
+    gap:20px;
+}

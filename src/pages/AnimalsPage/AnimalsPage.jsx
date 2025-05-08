@@ -21,6 +21,7 @@ import SelectedAttribute from '../../components/AttributesFilter/SelectedAttribu
 import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import Container from '../../layout/Container/Container';
 import styles from './styles.module.css';
+import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 
 function AnimalsPage() {
   const dispatch = useDispatch();

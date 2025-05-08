@@ -46,6 +46,7 @@ const advertisementSlice = createSlice({
     setHasMore(state, action) {
       state.hasMore = action.payload;
     },
+
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
       const {
