@@ -1,6 +1,7 @@
 import styles from './AnimalPage.module.css';
 import { useParams } from 'react-router';
 import AdsBlock from '../../components/AdsComponents/AdsBlock/AdsBlock';
+import Container from '../../layout/Container/Container';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectAdvertisements,
@@ -11,10 +12,9 @@ import OwnerDropDown from '../../components/AdsComponents/OwnerDropDown/OwnerDro
 import { getUserById } from '../../redux/auth/operations.js';
 import { selectIsLoading } from '../../redux/advertisements/selectors.js';
 //import { FaPersonWalkingDashedLineArrowRight } from 'react-icons/fa6';
-import PageWrapper from '../../layout/PageWrapper/PageWrapper.jsx';
+import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import PetPhotoSlider from '../../components/PetPhotoSlider/PetPhotoSlider.jsx';
 import images from '../../models/images.json';
-
 function AnimalPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -48,12 +48,14 @@ function AnimalPage() {
   const ads = useSelector(selectTopAdvertisements);
   console.log(id, ads);
   return (
-    <PageWrapper>
+    <Container>
+            <PageWrapper>
       <div className={styles.wrapper}>
         <div>{<PetPhotoSlider photos={images.photos} />}</div>
         {user && <OwnerDropDown user={user} />} <AdsBlock ads={ads} />
       </div>
     </PageWrapper>
+     </Container>
   );
 
   ///drop-down

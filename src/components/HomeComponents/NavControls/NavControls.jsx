@@ -20,12 +20,8 @@ function NavControls({
   const isTablet = useMediaQuery('(min-width: 768px)');
   const isDesktop = useMediaQuery('(min-width: 1920px)');
   // added gap = 20px to width and height
-  const width = isDesktop ? 405 : 0;
-  const height = useMediaQuery('(min-width: 1280px)')
-    ? 220
-    : isTablet
-      ? 161
-      : 0;
+  const width = isDesktop ? 405 : isTablet ? 355 : 0;
+  const height = useMediaQuery('(min-width: 1280px)') ? 220 : 0;
   const count = countVisibleItems;
 
   useEffect(() => {

@@ -7,6 +7,8 @@ import { getUserById, registerUser } from '../../redux/auth/operations';
 import WellcomeWindow from '../../components/AuthModal/WellcomeWindow';
 import { useNavigate } from 'react-router';
 import { selectAuth } from '../../redux/auth/selectors';
+import Container from '../../layout/Container/Container';
+import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -33,25 +35,30 @@ function RegisterPage() {
   };
 
   return (
-    <div>
-      {!chooseRole && <RoleWindow onChooseRole={handleRole} />}
-      {!isSuccess && !isSubmitted && chooseRole && (
-        <RegisterForm chooseRole={chooseRole} onFormSubmit={handleSubmitted} />
-      )}
-      {isSubmitted && <SendMessageWindow text={text} />}
-      {isSuccess && user && (
-        <WellcomeWindow
-          title={'Successful registration!'}
-          firstname={user.firstName}
-          lastname={user.lastName}
-          email={user.email}
-          isRegistration={true}
-          onCloseWindow={() => {
-            navigate(from);
-          }}
-        />
-      )}
-    </div>
+    <Container>
+      <PageWrapper>
+        {!chooseRole && <RoleWindow onChooseRole={handleRole} />}
+        {!isSuccess && !isSubmitted && chooseRole && (
+          <RegisterForm
+            chooseRole={chooseRole}
+            onFormSubmit={handleSubmitted}
+          />
+        )}
+        {isSubmitted && <SendMessageWindow text={text} />}
+        {isSuccess && user && (
+          <WellcomeWindow
+            title={'Successful registration!'}
+            firstname={user.firstName}
+            lastname={user.lastName}
+            email={user.email}
+            isRegistration={true}
+            onCloseWindow={() => {
+              navigate(from);
+            }}
+          />
+        )}
+      </PageWrapper>
+    </Container>
   );
 }
 

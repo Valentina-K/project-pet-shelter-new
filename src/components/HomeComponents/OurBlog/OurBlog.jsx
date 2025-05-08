@@ -4,6 +4,7 @@ import styles from './OurBlog.module.css';
 import PreviewBlog from './PreviewBlog';
 import { useState } from 'react';
 import SectionTitle from '../../UI/SectionTitle.jsx';
+import Section from '../../../layout/Section/Section.jsx';
 import NavControls from '../NavControls/NavControls.jsx';
 
 function OurBlog() {
@@ -14,7 +15,7 @@ function OurBlog() {
     setMargin(margin);
   };
   return (
-    <>
+    <Section>
       <SectionTitle text="Our Blog" />
       <div className={styles.wrapper}>
         <div className={styles.sliderContainer}>
@@ -28,7 +29,7 @@ function OurBlog() {
           onNavClick={handleClick}
         />
       </div>
-    </>
+    </Section>
   );
 }
 

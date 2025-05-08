@@ -3,6 +3,8 @@ import LoginWindow from '../../components/AuthModal/LoginWindow';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUserById, loginUser } from '../../redux/auth/operations';
+import Container from '../../layout/Container/Container';
+import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 
 function SignInPage() {
   const location = useLocation();
@@ -24,14 +26,16 @@ function SignInPage() {
   };
 
   return (
-    <div>
-      <LoginWindow
-        title={'Еnter password '}
-        type={'password'}
-        onLoginSuccess={handleLoginSuccess}
-        error={error}
-      />
-    </div>
+    <Container>
+      <PageWrapper>
+        <LoginWindow
+          title={'Еnter password '}
+          type={'password'}
+          onLoginSuccess={handleLoginSuccess}
+          error={error}
+        />
+      </PageWrapper>
+    </Container>
   );
 }
 

@@ -1,7 +1,19 @@
 .container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
+}
+
+@media screen and (width >= 1280px) {
+  .container {
+    gap: 16px;
+  }  
+}
+
+@media screen and (width >= 768px) {
+  .container {
+    gap: 18px;
+  }  
 }
 
 .container.card{
@@ -15,10 +27,31 @@
 }
 
 .icon {
-  width: 48px;
-  height: 48px;
+  width: 24px;
+  height: 24px;
   fill: var(--primary-color);
   transition: fill 0.3s;
+}
+
+@media screen and (width >= 768px) {
+  .icon {
+    width: 27px;
+    height: 27px;
+  }  
+}
+
+@media screen and (width >= 1280px) {
+  .icon {
+    width: 36px;
+    height: 36px;
+  }  
+}
+
+@media screen and (width >= 1280px) {
+  .icon {
+    width: 40px;
+    height: 40px;
+  }  
 }
 
 .icon.card{

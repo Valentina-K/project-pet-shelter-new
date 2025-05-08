@@ -1,5 +1,12 @@
+import Container from '../../layout/Container/Container';
+import PageWrapper from '../../layout/PageWrapper/PageWrapper';
+
 function ResetPasswordPage() {
-  return <div>ResetPasswordPage</div>;
+  return (
+    <Container>
+      <PageWrapper>ResetPasswordPage</PageWrapper>
+    </Container>
+  );
 }
 
 export default ResetPasswordPage;

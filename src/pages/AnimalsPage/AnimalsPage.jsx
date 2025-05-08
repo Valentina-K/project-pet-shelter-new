@@ -18,8 +18,9 @@ import CardList from '../../components/CardList/CardList';
 import SideBar from '../../components/SideBar/SideBar';
 import { clearAttributes, clearFilters } from '../../redux/categories/slice';
 import SelectedAttribute from '../../components/AttributesFilter/SelectedAttribute/SelectedAttribute';
-import styles from './styles.module.css';
 import PageWrapper from '../../layout/PageWrapper/PageWrapper';
+import Container from '../../layout/Container/Container';
+import styles from './styles.module.css';
 
 function AnimalsPage() {
   const dispatch = useDispatch();
@@ -59,8 +60,8 @@ function AnimalsPage() {
   }, []);
 
   return (
-    <PageWrapper>
-      <section>
+    <Container>
+      <PageWrapper>
         <SelectedAttribute />
         <div className={styles.pageContainer}>
           <div className={styles.leftBlock}>
@@ -78,8 +79,8 @@ function AnimalsPage() {
             )}
           </div>
         </div>
-      </section>
-    </PageWrapper>
+      </PageWrapper>
+    </Container>
   );
 }
 

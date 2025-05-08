@@ -1,5 +1,6 @@
 .wrapper {
     margin-bottom: var(--section-margin-bottom-mobile);
+    width: 100%;
 }
 
 @media (width >= 768px) {
@@ -26,6 +27,12 @@
     margin-bottom: 40px;
     height: 471px;
 }
+
+@media screen and (width >= 768px) {
+    .sliderContainer {
+        height: 686px;
+    }    
+ }
 
  @media screen and (width >= 1280px) {
     .sliderContainer {
@@ -77,6 +84,7 @@
     .previewWrapper {
         display: flex;
         height: 100%;
+        width: 470px;
         border-radius: 24px;
         flex-direction: column;
         background-color: var(--card-background-color);
@@ -93,23 +101,33 @@
 
 .previewImg {
     object-fit: cover;
+    height: 340px;
     border-radius: 16px 16px 0 0;
 }
 
 @media (width >= 1920px) {
     .previewImg {   
-        width: 385px;     
+        width: 385px;  
+        height: 100%;   
         border-radius: 16px 0 0 16px;
     }
 }
 
 .previewContent {
-    width: 405px;
-    height: 570px;
-    padding: 19px 39px 29px 20px;
+    width: 470px;
+    height: 300px;
+    padding: 26px 22px 22px 32px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+@media (width >= 1920px) {
+    .previewContent {
+        width: 405px;
+        height: 100%;
+        padding: 19px 39px 29px 20px;
+    }
 }
 
 .previewMainInfo{
