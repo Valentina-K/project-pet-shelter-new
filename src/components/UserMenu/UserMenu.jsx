@@ -1,7 +1,8 @@
 import { IoMdClose } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAuth } from '../../redux/auth/selectors';
-import { GiHamburgerMenu } from 'react-icons/gi';
+//import { GiHamburgerMenu } from 'react-icons/gi';
+import { FaUser } from 'react-icons/fa';
 import styles from './UserMenu.module.css';
 import { logout } from '../../redux/auth/slice';
 import { Link } from 'react-router-dom';
@@ -55,16 +56,10 @@ function UserMenu() {
                 </li>
               </ul>
             </div>
-            <GiHamburgerMenu
-              onClick={() => setIsOpen(true)}
-              className={styles.burger}
-            />
+            <FaUser onClick={() => setIsOpen(true)} className={styles.burger} />
           </>
         ) : (
-          <GiHamburgerMenu
-            onClick={() => setIsOpen(true)}
-            className={styles.burger}
-          />
+          <FaUser onClick={() => setIsOpen(true)} className={styles.burger} />
         ))}
     </>
   );

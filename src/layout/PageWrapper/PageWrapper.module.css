@@ -1,3 +1,15 @@
 .wrapper{
-    margin-top: 140px;
+    margin-top: 70px;
+}
+
+@media screen and (width >= 768px) {
+    .wrapper{
+        margin-top: 100px;
+    }    
+}
+
+@media screen and (width >= 1280px) {
+    .wrapper{
+        margin-top: 140px;
+    }    
 }

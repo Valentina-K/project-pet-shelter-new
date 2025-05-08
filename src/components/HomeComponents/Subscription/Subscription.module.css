@@ -8,7 +8,7 @@
     justify-content: flex-start;
     border-radius: var(--button-border-radius);
     background: url('../../../assets/img/subscriptImage.png'),
-    linear-gradient(90.16deg, #B7BBC6 28.96%, #AEB3BA 89.22%)     ;
+    linear-gradient(90.16deg, #B0B5BD 89.22%, #B7BBC4 28.96%);
     background-repeat: no-repeat, no-repeat;
     background-position: calc(100% + 105px) bottom, center;
     background-size: contain, cover;
