@@ -1,0 +1,21 @@
+.section{
+    margin-bottom: var(--section-margin-bottom-mobile);
+}
+
+@media screen and (width >= 768px) {
+    .section{
+        margin-bottom: var(--section-margin-bottom-tablet);
+    }    
+}
+
+@media screen and (width >= 1280px) {
+    .section{
+        margin-bottom: var(--section-margin-bottom-laptop);
+    }    
+}
+
+@media screen and (width >= 1920px) {
+    .section{
+        margin-bottom: var(--section-margin-bottom-desk);
+    }    
+}

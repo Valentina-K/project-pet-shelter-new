@@ -22,6 +22,7 @@ import OurBlog from '../../components/HomeComponents/OurBlog/OurBlog';
 import Subscribe from '../../components/HomeComponents/Subscription/Subscription';
 import Statistics from '../../components/HomeComponents/Statistics/Statistics';
 import PageWrapper from '../../layout/PageWrapper/PageWrapper';
+import Container from '../../layout/Container/Container';
 import HotAds from '../../components/HomeComponents/HotAds/HotAds';
 
 function HomePage() {
@@ -60,19 +61,21 @@ function HomePage() {
   return (
     <PageWrapper>
       <Hero />
-      {!isLoading && (
-        <OurAnimals
-          onViewMoreClick={handlePageChange}
-          ads={ads}
-          limit={totalElements}
-        />
-      )}
-      <HotAds />
-      <Shelters />
-      <JoinUsSection text={'Join us to make a bigger impact together!'} />
-      <OurBlog />
-      <Subscribe />
-      <Statistics />
+      <Container>
+        {!isLoading && (
+          <OurAnimals
+            onViewMoreClick={handlePageChange}
+            ads={ads}
+            limit={totalElements}
+          />
+        )}
+        <HotAds />
+        <Shelters />
+        <JoinUsSection />
+        <OurBlog />
+        <Subscribe />
+        <Statistics />
+      </Container>
     </PageWrapper>
   );
 }

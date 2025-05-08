@@ -1,9 +1,7 @@
 .wrapper {
     background: var(--component-background-color);
     padding: 70px 406px 80px;
-    width: 1600px;
     border-radius: 24px;
-    margin-bottom: 80px;
 }
 
 .title {

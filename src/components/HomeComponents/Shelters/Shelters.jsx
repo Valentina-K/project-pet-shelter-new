@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import NavControls from '../NavControls/NavControls';
 import SectionTitle from '../../UI/SectionTitle.jsx';
+import Section from '../../../layout/Section/Section.jsx';
 import styles from './Shelters.module.css';
 
 function Shelters() {
@@ -17,7 +18,7 @@ function Shelters() {
   };
 
   return (
-    <>
+    <Section>
       <SectionTitle text="Shelters" />
       <div className={styles.wrapper}>
         <div
@@ -42,7 +43,7 @@ function Shelters() {
           View all
         </NavLink>
       </div>
-    </>
+    </Section>
   );
 }
 

@@ -1,6 +1,5 @@
 .subscription {
     position: relative;
-    width: 100%;
     padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 96px;
@@ -8,11 +7,10 @@
     justify-content: flex-start;
     border-radius: var(--button-border-radius);
     background: url('../../../assets/img/subscriptImage.png'),
-    linear-gradient(90.16deg, #B0B5BD 89.22%, #B7BBC4 28.96%);
+    linear-gradient(45deg, #BAC0C9 50%, #B2B3B7 50%);
     background-repeat: no-repeat, no-repeat;
     background-position: calc(100% + 105px) bottom, center;
     background-size: contain, cover;
-    margin-bottom: var(--section-margin-bottom-mobile);
 }
 
 @media screen and (width >= 768px) {
@@ -21,7 +19,6 @@
         padding-top: 40px;
         padding-bottom: 96px;
         background-position: calc(100% + 205px) bottom, center;
-        margin-bottom: var(--section-margin-bottom-tablet);
     }
 
 }
@@ -32,7 +29,6 @@
         padding-top: 76px;
         padding-bottom: 258px;
         background-position: calc(100% + 285px) bottom, center;
-        margin-bottom: var(--section-margin-bottom-laptop);
     }
 }
 
@@ -43,6 +39,5 @@
         padding-bottom: 204px;
         justify-content: flex-end;
         background-position: left bottom, center;
-        margin-bottom: var(--section-margin-bottom-desk);
     }
 }
