@@ -12,7 +12,7 @@ import OwnerDropDown from '../../components/AdsComponents/OwnerDropDown/OwnerDro
 import { getUserById } from '../../redux/auth/operations.js';
 import { selectIsLoading } from '../../redux/advertisements/selectors.js';
 //import { FaPersonWalkingDashedLineArrowRight } from 'react-icons/fa6';
-import PageWrapper from '../../layout/PageWrapper/PageWrapper.jsx';
+import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import PetPhotoSlider from '../../components/PetPhotoSlider/PetPhotoSlider.jsx';
 import images from '../../models/images.json';
 function AnimalPage() {
