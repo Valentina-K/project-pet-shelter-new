@@ -15,6 +15,8 @@ import { selectIsLoading } from '../../redux/advertisements/selectors.js';
 import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import PetPhotoSlider from '../../components/PetPhotoSlider/PetPhotoSlider.jsx';
 import images from '../../models/images.json';
+//import AnimalInfoBlock from '../../components/AdsComponents/AnimalInfoBlock/AnimalInfoBlock.jsx'
+import Section from '../../layout/Section/Section.jsx';
 function AnimalPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -47,15 +49,26 @@ function AnimalPage() {
 
   const ads = useSelector(selectTopAdvertisements);
   console.log(id, ads);
+  /* const animalInfo = {
+    age: ads.attributes[1],
+    size: ads.attributes[2],
+    gender: ads.attributes[3],
+    description: ads.description
+  } */
   return (
     <Container>
-            <PageWrapper>
-      <div className={styles.wrapper}>
-        <div>{<PetPhotoSlider photos={images.photos} />}</div>
-        {user && <OwnerDropDown user={user} />} <AdsBlock ads={ads} />
-      </div>
-    </PageWrapper>
-     </Container>
+      <PageWrapper>
+        <div className={styles.wrapper}>
+          <Section>
+            <div className={styles.infoBlock}>
+              <PetPhotoSlider photos={images.photos} />
+              {/* <AnimalInfoBlock animal={animalInfo} /> */}
+            </div>
+          </Section>
+          {user && <OwnerDropDown user={user} />} <AdsBlock ads={ads} />
+        </div>
+      </PageWrapper>
+    </Container>
   );
 
   ///drop-down
