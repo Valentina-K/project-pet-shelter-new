@@ -1,4 +1,10 @@
 .wrapper{
     display: flex;
     flex-direction: column;
+    padding-top: 106px;
+}
+
+.infoBlock{
+    display: flex;
+    gap:74px;
 }
