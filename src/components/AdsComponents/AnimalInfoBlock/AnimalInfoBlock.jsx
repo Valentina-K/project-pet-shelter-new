@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 function AnimalInfoBlock({ animal }) {
   return (
     <div className={styles.wrapper}>
-      <SectionTitle text="Pet Name" />
+      <SectionTitle text={animal.pet_name} />
       <div className={styles.jettons}>
         <div className={styles.jetton}>
           <span className={styles.label}>Age</span>
@@ -35,6 +35,7 @@ function AnimalInfoBlock({ animal }) {
 
 AnimalInfoBlock.propTypes = {
   animal: PropTypes.shape({
+    pet_name: PropTypes.string,
     age: PropTypes.string,
     gender: PropTypes.string,
     size: PropTypes.string,
