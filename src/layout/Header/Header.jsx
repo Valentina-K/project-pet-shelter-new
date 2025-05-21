@@ -81,7 +81,34 @@ function Navigation() {
         </button>
       </div>
       <div className={clsx(styles.mobileMenu, { [styles.opened]: isMenuOpen })}>
-        <p>Mobile</p>
+        <ul className={styles.mobileList}>
+          <li className={styles.mobileLink}>
+            <NavLink>Log in</NavLink>
+          </li>
+          <li className={styles.mobileLink}>
+            <NavLink>ENG/UKR</NavLink>
+          </li>
+          <li className={styles.mobileLink}>
+            <NavLink to="/about-us" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              About us
+            </NavLink>
+          </li>
+          <li className={styles.mobileLink}>
+            <NavLink to="/animals" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              Our animals
+            </NavLink>
+          </li>
+          <li className={styles.mobileLink}>
+            <NavLink to="/shelters" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              Shelters
+            </NavLink>
+          </li>
+          <li className={styles.mobileLink}>
+            <NavLink to="/contacts" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              Volunteers
+            </NavLink>
+          </li>
+        </ul>
         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <IoIosClose className={styles.closeButton} />
         </button>

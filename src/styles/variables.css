@@ -18,6 +18,8 @@
     --card-background-color: #FFFEFE;
     --component-background-color: #BBB2A9;
     --header-background-color: #FFFFFF40;
+    --header-mobile-menu-background-color: #D9D9D9;
+
 
     /* fonts */
     --font-family: 'Inter', sans-serif;
@@ -30,10 +32,11 @@
     /* section styles */
     --section-title-font-size: 48px;
     --section-tiltle-font-size-tablet: 24px;
-    --section-title-font-size-mobile: 16px;
+    --section-title-font-size-mobile: 20px;
     --section-title-font-weight: 700;
     --section-title-line-height: 1;
     --section-title-text-align: center;
+    --section-title-margin-bottom-mob: 16px;
     --section-title-margin-bottom: 64px;
     --section-margin-bottom-desk: 104px;
     --section-margin-bottom-laptop: 104px;
@@ -43,7 +46,7 @@
     /* container styles */
     --max-width: 1920px;
     --margin: 0 auto;
-    --padding: 0 20px;
+    --padding: 0 16px;
     --padding-tablet: 0 40px;
     --padding-laptop: 0 158px;
     --padding-desktop: 0 160px;

@@ -1,12 +1,12 @@
 .button{
-    width: 293px;
+    width: 355px;
     background: var(--accent-color);
     color: var(--secondary-color);
     font-family: var(--font-family);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 900;
-    line-height: 22.4px;    
-    padding: 9px 0;
+    line-height: 28px;    
+    padding: 6px 0;
     border-radius: var(--button-border-radius);
     transition: background 0.3s;
 }
@@ -39,7 +39,7 @@
     font-weight: var(--section-title-font-weight);
     line-height: var(--section-title-line-height);
     text-align: var(--section-title-text-align);
-    margin-bottom: var(--section-title-margin-bottom);
+    margin-bottom: var(--section-title-margin-bottom-mob);
 }
 
 @media screen and (width >= 768px) {

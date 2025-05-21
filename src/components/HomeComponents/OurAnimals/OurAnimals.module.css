@@ -3,23 +3,64 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1600px;    
+    gap: 16px; 
     width: 100%;  
-    margin-bottom: 44px;
+    margin-bottom: 16px;
     margin-left: auto;
     margin-right: auto;
 }
 
+@media screen and (width >= 768px) {
+    .animalsBlock {
+        margin-bottom: 64px;
+    }
+}
+
+@media screen and (width >= 1280px) {
+    .animalsBlock {
+        margin-bottom: 104px;
+    }
+}
+
+@media screen and (width >= 1920px) {
+    .animalsBlock {
+        gap: 20px;
+    max-width: 1600px;    
+    width: 100%;  
+    margin-bottom: 44px;
+    }
+}
+
 .item {
-    margin-bottom: 64px;  
-    flex-basis: calc((100% - 120px) / 4); 
+    margin-bottom: 16px;  
+    flex-basis: calc((100% - 16px) / 2); 
+}
+
+@media screen and (width >= 768px) {
+    .item {
+        margin-bottom: 64px;  
+        flex-basis: calc((100% - 120px) / 4); 
+    }
+}
+
+@media screen and (width >= 1280px) {
+    .item {
+        margin-bottom: 104px;  
+        flex-basis: calc((100% - 120px) / 4); 
+    }
+}
+
+@media screen and (width >= 1920px) {
+    .item {
+        margin-bottom: 64px;  
+    flex-basis: calc((100% - 120px) / 4);  
+    }
 }
 
 .morebutton{
     border-radius: 32px;
     border: none;
-    width: 1600px !important;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: block;
