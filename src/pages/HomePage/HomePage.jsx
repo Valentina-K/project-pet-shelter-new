@@ -15,6 +15,7 @@ import {
   setHasMore,
   resetData,
 } from '../../redux/advertisements/slice';
+import { useWindowWidth } from '../../hooks';
 import { clearFilters } from '../../redux/categories/slice';
 import Shelters from '../../components/HomeComponents/Shelters/Shelters';
 import JoinUsSection from '../../components/HomeComponents/JoinUsSection/JoinUsSection';
@@ -30,7 +31,8 @@ function HomePage() {
   const ads = useSelector(selectAdvertisements);
   const isLoading = useSelector(selectIsLoading);
   const page = useSelector(selectPage);
-  const size = 8;
+  const widthScreen = useWindowWidth();
+  const size = widthScreen < 768 ? 4 : widthScreen < 1920 ? 6 : 8;
   const totalPage = useSelector(selectTotalPage);
   const totalElements = useSelector(selectTotalElements);
   useEffect(() => {

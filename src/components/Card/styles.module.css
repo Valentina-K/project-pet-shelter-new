@@ -1,0 +1,8 @@
+.cardWrapper {
+  width: 177px;
+  height: 278px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 16px;
+}

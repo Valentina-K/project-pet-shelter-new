@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Card from '../../Card/ShelterCard/Card';
+import Card from '../../Card/HotCard/Card';
 import data from '../../../models/shelters.json';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -8,7 +8,7 @@ import SectionTitle from '../../UI/SectionTitle.jsx';
 import Section from '../../../layout/Section/Section.jsx';
 import styles from './HotAds.module.css';
 
-function HotAds() {
+function HotAds({ ads = [] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [marginLeft, setMarginLeft] = useState(0);
 
@@ -27,11 +27,15 @@ function HotAds() {
             marginLeft: `${marginLeft}px`,
           }}
         >
-          {data.shelters.map((shelter) => (
-            <div key={shelter.id}>
-              <Card shelter={shelter} />
-            </div>
-          ))}
+          {ads.length === 0 ? (
+            <p>No hot ads available.</p>
+          ) : (
+            ads.map((card) => (
+              <div className={styles.item} key={card.id}>
+                <Card ad={card} />
+              </div>
+            ))
+          )}
         </div>
         <NavControls
           currentIndex={currentIndex}
@@ -48,7 +52,7 @@ function HotAds() {
 }
 
 HotAds.propTypes = {
-  shelters: PropTypes.arrayOf(PropTypes.object),
+  ads: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default HotAds;

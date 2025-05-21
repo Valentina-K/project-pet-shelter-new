@@ -1,8 +1,6 @@
 .subscription {
     position: relative;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 96px;
+    padding: 22px 22px 32px;
     display: flex;
     justify-content: flex-start;
     border-radius: var(--button-border-radius);
