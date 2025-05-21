@@ -1,12 +1,22 @@
-.subTitle {
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 32px;
-    text-align: center;
-    margin-bottom: 56px;
+.statisticsSection{
+    margin-bottom: 80px;
 }
 
-@media (width >= 768px) {
+@media (width >=768px) {
+    .statisticsSection{
+        margin-bottom: 0;
+    }
+}
+
+.subTitle {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+@media (width >=768px) {
     .subTitle {
         font-size: 20px;
         line-height: 1;
@@ -14,35 +24,67 @@
     }
 }
 
-@media (width >= 1280px) {
+@media (width >=1280px) {
     .subTitle {
         font-size: 24px;
         margin-bottom: 40px;
     }
 }
 
-@media (width >= 1920px) {
+@media (width >=1920px) {
     .subTitle {
         font-size: 32px;
     }
 }
 
 .textWrapper {
+    position: relative;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    max-height: 259px;
     column-count: 1;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 500;
-    line-height: 34px;
-    max-height: 271px;
-    margin-bottom: 56px;
+    line-height: 26px;
+    margin-bottom: 16px;
 }
 
-@media (width >= 768px) {
+.expanded {
+    max-height: 2000px;
+
+    /* достаточное значение для всего текста */
+}
+
+.toggleLink {
+    font-weight: bold;
+    cursor: pointer;
+    padding-left: 0.3em;
+}
+
+.textContainer {
+    position: relative;
+}
+
+.ellipsis {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-left: 0.3em;
+}
+
+@media screen and (width >= 768px) {
     .textWrapper {
         column-count: 2;
         column-gap: 24px;
-        max-height: 260px;
         font-size: 14px;
         line-height: 1.5;
+        max-height: none !important;
+        overflow: visible;
+    }
+
+    .ellipsis,
+    .toggleLink {
+        display: none;
     }
 }
 
@@ -51,7 +93,6 @@
         column-gap: 30px;
         font-size: 16px;
         line-height: 34px;
-        max-height: 340px;
     }
 }
 
@@ -59,27 +100,26 @@
     .textWrapper {
         column-gap: 40px;
         font-size: 20px;
-        max-height: 272px;
     }
 }
 
 .statisticsWrapper {
-    max-width: 830px;
+    max-width: 320px;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 18px;
     margin-left: auto;
     margin-right: auto;
 }
 
-@media (width >= 768px) {
+@media (width >=768px) {
     .statisticsWrapper {
         max-width: 490px;
         gap: 20px;
     }
 }
 
-@media (width >= 1280px) {
+@media (width >=1280px) {
     .statisticsWrapper {
         max-width: 830px;
         gap: 40px;
@@ -88,35 +128,34 @@
 
 .statisticsItem {
     flex: 1;
-    padding: 24px;
-    font-family: "Hind Siliguri", serif;
+    padding: 22px;
     background: var(--card-background-color);
     border-radius: 16px;
     box-shadow: 0 0 12px 0 #0000000A;
 }
 
 .statisticsItem h5 {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 500;
-    line-height: 26px;
+    line-height: 28px;
     letter-spacing: 0.02em;
 }
 
-@media (width >= 768px) {
+@media (width >=768px) {
     .statisticsItem h5 {
         font-size: 14px;
         line-height: 14px;
     }
 }
 
-@media (width >= 1280px) {
+@media (width >=1280px) {
     .statisticsItem h5 {
         font-size: 16px;
         line-height: 16px;
     }
 }
 
-@media (width >= 1920px) {
+@media (width >=1920px) {
     .statisticsItem h5 {
         font-size: 16px;
         line-height: 26px;
@@ -124,25 +163,36 @@
 }
 
 .statisticsItem p {
-    font-size: 48px;
+    font-size: 28px;
     font-weight: 700;
-    line-height: 78px;
+    line-height: 28px;
 }
 
-@media (width >= 768px) {
+@media (width >=768px) {
     .statisticsItem p {
         font-size: 32px;
     }
 }
 
-@media (width >= 1280px) {
+@media (width >=1280px) {
     .statisticsItem p {
         font-size: 48px;
     }
 }
 
-@media (width >= 1920px) {
+@media (width >=1920px) {
     .statisticsItem p {
         font-size: 48px;
     }
+}
+
+.statisticsItem.hide{
+    display: none;
+}
+
+@media screen and (width >= 768px) {
+    .statisticsItem.hide{
+        display: block;
+    }
+    
 }
