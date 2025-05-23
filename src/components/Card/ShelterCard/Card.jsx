@@ -1,10 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { FaCircleChevronRight } from 'react-icons/fa6';
 import { GoLocation } from 'react-icons/go';
 import SocialLinks from '../../SocialLinks/SocialLinks';
 import Rating from '../../Rating/Rating';
 import styles from './Card.module.css';
+import FollowMeButton from '../../UI/FollowMeButton';
 
 function Card({ shelter }) {
   const { id } = shelter;
@@ -36,7 +36,7 @@ function Card({ shelter }) {
       <div className={styles.socialBlock}>
         <SocialLinks addStyle="card" />
         <Link to={`/shelter/${id}`}>
-          <FaCircleChevronRight className={styles.goSocial} />
+          <FollowMeButton />
         </Link>
       </div>
     </div>

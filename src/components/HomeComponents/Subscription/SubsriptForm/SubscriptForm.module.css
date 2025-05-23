@@ -1,3 +1,52 @@
+.form {
+    width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 13px;
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 20px;
+        color: var(--primary-color);
+    }
+
+    .input {
+        padding: 13.5px 16.5px;
+        width: 100%;
+        border-radius: 24px;
+        border: 1px solid #7F7E7C;
+        background: #FFFFFF80;
+        font-size: var(--font-size);
+        font-weight: var(--text-font-weight);
+        line-height: 16px;
+        color: var(--primary-color);
+    }
+
+    .text {
+        width: 284px;
+        font-size: 12px;
+        font-weight: var(--text-font-weight);
+        line-height: 18px;
+        color: #fff;
+        margin-bottom: 3px;
+    }
+
+    .thanking {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 20px;
+        font-size: 18px;
+        border-radius: 24px;
+        font-weight: 600;
+        line-height: 25px;
+        color: #fff;
+        background-color: #696969;
+    }
+
 @media screen and (width >= 768px) {
     .form {
         display: flex;
@@ -31,6 +80,7 @@
         font-weight: var(--text-font-weight);
         line-height: 24px;
         color: #fff;
+        margin-bottom: 3px;
     }
 
     .thanking {
@@ -157,6 +207,14 @@
 
 .hidden {
     animation: slidein 3s forwards;
+}
+
+.button { 
+    display: block;   
+    width: 220px;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 28px;
 }
 
 @keyframes slidein {
