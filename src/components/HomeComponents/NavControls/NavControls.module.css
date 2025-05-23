@@ -1,6 +1,6 @@
 .controls {
-    width: 107px;
-    padding: 8px;
+    width: 77px;
+    padding: 6px;
     display: flex;
     justify-content: space-between;
     margin-right: auto;
@@ -11,14 +11,20 @@
     background: #FFFEFE;
 }
 
-.controls:hover {
-    border: 1px solid #a39d9d;
+@media screen and (width >=768px) {
+    .controls {
+        width: 115px;
+    }        
 }
 
 @media screen and (width >= 1280px) {
     .controls {
         width: 130px;
     }    
+}
+
+.controls:hover {
+    border: 1px solid #a39d9d;
 }
 
 .icon {

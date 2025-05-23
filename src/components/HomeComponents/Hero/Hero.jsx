@@ -9,7 +9,10 @@ function Hero() {
     <Section>
       <div className={styles.heroWrapper}>
         <h1 className={styles.heroTitle}>
-          <span className={styles.highlight}>Find your new friend</span>
+          <span className={styles.highlight}>
+            Find <br />
+            your new <span className={styles.bigText}>friend</span>
+          </span>
           <br /> and give them a loving home
         </h1>
         <Button
