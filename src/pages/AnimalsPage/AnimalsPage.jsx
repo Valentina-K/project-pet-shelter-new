@@ -11,7 +11,7 @@ import {
   fetchSearchAdvertisements,
 } from '../../redux/advertisements/operations';
 import { selectSelectedFilters } from '../../redux/categories/selectors';
-import { resetData, setPage } from '../../redux/advertisements/slice';
+import { setPage } from '../../redux/advertisements/slice';
 import Pagination from '../../components/Pagination/Pagination';
 import Search from '../../components/Search/Search';
 import CardList from '../../components/CardList/CardList';
@@ -33,7 +33,7 @@ function AnimalsPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    dispatch(resetData());
+    /* dispatch(resetData()); */
     dispatch(clearFilters());
     dispatch(clearAttributes());
   }, [dispatch]);
