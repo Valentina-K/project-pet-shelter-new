@@ -1,14 +1,7 @@
 .cardWrapper {
-  width: 385px;
-  height: 575px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   padding: 24px;
   gap: 20px;
   background: #f4f2f0;
-  border-radius: 24px;
-  box-sizing: border-box;
 }
 
 .imgWrapper {
@@ -18,8 +11,10 @@
   align-items: flex-start;
   padding: 0;
   gap: 10px;
-  width: 337px;
-  height: 300px;  
+  width: 151px;
+  height: 161px;
+  border: 2px solid rgb(9 11 73 / 100%);
+  border-radius: 16px;
 }
 
 .imgWrapper img {
@@ -37,6 +32,11 @@
   height: 32px;
 }
 
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .gender {
   position: absolute;
   left: 20px;
@@ -49,28 +49,20 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
+  gap: 40px;
   overflow-y: auto;
+  color: var(--primary-color);
 }
 
 .infoTitle {
-  font-family: Inter, sans-serif;
-  font-style: normal;
   font-weight: 700;
-  font-size: 26px;
+  font-size: 14px;
   line-height: 140%;
   margin: 0;
-  color: #000;
 }
 
 .description {
-  font-family: Inter, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 21px;
-  line-height: 140%;
-  text-align: left;
-  color: #7F7E7C;
+  display: none;
 }
 
 .linkBlock {
@@ -80,12 +72,74 @@
 
 .linkWrapper {
   display: flex;
-  gap: 10px;
-  font-family: Inter, sans-serif;
-  font-style: normal;
+  gap: 16px;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  text-transform: uppercase;
-  color: rgb(0 0 0 / 80%);
+  font-size: 14px;
+  line-height: 14px;
+}
+
+@media screen and (width >= 768px) {
+  .imgWrapper {
+    width: 181px;
+    height: 193px;
+  }
+
+  .infoWrapper {
+    gap: 0;
+  }
+
+  .infoTitle {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 140%;
+    text-align: left;
+    margin-bottom: 21px;
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .imgWrapper {
+    width: 275px;
+    height: 245px;
+  }
+
+  .infoTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    font-size: 16px;
+    margin-bottom: 43px;
+  }
+
+  .linkWrapper {
+    font-size: 20px;
+    gap: 16px;
+  }
+}
+
+@media screen and (width >= 1920px) {
+  .imgWrapper {
+    width: 337px;
+    height: 300px;
+  }
+
+  .infoTitle {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 140%;
+    text-align: left;
+    margin-bottom: 73px;
+  }
 }

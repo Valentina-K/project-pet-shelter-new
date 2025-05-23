@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import { selectIsLoggedIn } from '../../../redux/auth/selectors';
 import defImg from '../../../assets/img/404-error-web-template-with-cute-dog_23-2147763341.jpg';
 import styles from './Card.module.css';
+import generic from '../styles.module.css';
 import { FaHouse } from 'react-icons/fa6';
 
 function Card({ ad }) {
@@ -44,7 +45,7 @@ function Card({ ad }) {
   if (error) return <p>Error: {error.message || 'An error occurred'}</p>;
 
   return (
-    <div className={styles.cardWrapper}>
+    <div className={`${generic.cardWrapper} ${styles.cardWrapper}`}>
       <NavLink to={`/animal/${ad.id}`}>
         <div className={styles.imgWrapper}>
           <img src={defImg} alt={petName} className={styles.adPhoto} />
@@ -56,6 +57,13 @@ function Card({ ad }) {
                 <FaRegHeart />
               </div>
             )}
+          </IconContext.Provider>
+        </div>
+        <div className={styles.infoWrapper}>
+          <div className={styles.titleWrapper}>
+            <h3 className={styles.infoTitle}>
+              {petName} {year}
+            </h3>
             <div className={styles.gender}>
               {petGender === 'male' ? (
                 <TbGenderDemiboy />
@@ -63,17 +71,14 @@ function Card({ ad }) {
                 <TbGenderDemigirl />
               )}
             </div>
-          </IconContext.Provider>
-        </div>
-        <div className={styles.infoWrapper}>
-          <h3 className={styles.infoTitle}>
-            {petName} {year}
-          </h3>
+          </div>
           <p className={styles.description}>{ad.description}</p>
           <div className={styles.linkBlock}>
             <NavLink to="/" className={styles.linkWrapper}>
               <FaHouse />
-              <span>{user?.firstName}</span>
+              <span>
+                {user?.firstName} {user?.lastName}
+              </span>
             </NavLink>
           </div>
         </div>
