@@ -37,7 +37,7 @@ function Card({ ad }) {
     if (ad.adAttributes && Array.isArray(ad.adAttributes)) {
       setPetGender(ad.adAttributes[3]?.value?.toLowerCase() || 'unknown');
       setPetName(ad.adAttributes[7]?.value || 'Unnamed Pet');
-      setYear(ad.adAttributes[1]?.value || 'Unknown Year');
+      setYear(ad.adAttributes[1]?.value || 'Unknown Age');
     }
     fetchUser();
   }, [ad, dispatch]);
@@ -45,8 +45,8 @@ function Card({ ad }) {
   if (error) return <p>Error: {error.message || 'An error occurred'}</p>;
 
   return (
-    <div className={`${generic.cardWrapper} ${styles.cardWrapper}`}>
-      <NavLink to={`/animal/${ad.id}`}>
+    <NavLink to={`/animal/${ad.id}`}>
+      <div className={`${generic.cardWrapper} ${styles.cardWrapper}`}>
         <div className={styles.imgWrapper}>
           <img src={defImg} alt={petName} className={styles.adPhoto} />
           <IconContext.Provider
@@ -60,19 +60,21 @@ function Card({ ad }) {
           </IconContext.Provider>
         </div>
         <div className={styles.infoWrapper}>
-          <div className={styles.titleWrapper}>
-            <h3 className={styles.infoTitle}>
-              {petName} {year}
-            </h3>
-            <div className={styles.gender}>
-              {petGender === 'male' ? (
-                <TbGenderDemiboy />
-              ) : (
-                <TbGenderDemigirl />
-              )}
+          <div className={styles.highterBlock}>
+            <div className={styles.titleWrapper}>
+              <h3 className={styles.infoTitle}>
+                {petName} {year}
+              </h3>
+              <div>
+                {petGender === 'male' ? (
+                  <TbGenderDemiboy className={styles.gender} />
+                ) : (
+                  <TbGenderDemigirl className={styles.gender} />
+                )}
+              </div>
             </div>
+            <p className={styles.description}>{ad.description}</p>
           </div>
-          <p className={styles.description}>{ad.description}</p>
           <div className={styles.linkBlock}>
             <NavLink to="/" className={styles.linkWrapper}>
               <FaHouse />
@@ -82,8 +84,8 @@ function Card({ ad }) {
             </NavLink>
           </div>
         </div>
-      </NavLink>
-    </div>
+      </div>
+    </NavLink>
   );
 }
 
