@@ -1,0 +1,55 @@
+.customSelect {
+  position: relative;
+  width: 574px;
+  cursor: pointer;
+}
+
+.selected {
+  background: var(--elemetnt-background);
+  padding: 16px;
+  border: 1px solid #ccc;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+  text-transform: capitalize;
+}
+
+.arrow {
+  font-size: 12px;
+}
+
+.options {
+  list-style: none;
+  padding: 16px;
+  margin: 5px 0 0;
+  background-color: rgb(255 255 255 / 80%);
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%); /* Добавляем тень */
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  text-transform: capitalize;
+  
+}
+
+.options.open {
+  max-height: 200px;
+  opacity: 1;
+  z-index: 2;
+  border-radius: 16px;
+}
+
+.options li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.options li:hover {
+  background-color: #ddd;
+}

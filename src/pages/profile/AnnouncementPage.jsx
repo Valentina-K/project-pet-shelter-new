@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useOutletContext } from 'react-router';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { TbArrowBackUp } from 'react-icons/tb';
 import styles from './styles.module.css';
 
 function AnnouncementPage() {
@@ -54,7 +55,9 @@ function AnnouncementPage() {
           </li>
         </ul>
       ) : (
-        <button onClick={handleBackClick}>Back</button>
+        <button onClick={handleBackClick}>
+          <TbArrowBackUp className={styles.backIcon} />
+        </button>
       )}
       <Outlet context={{ user }} />
     </div>

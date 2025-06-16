@@ -1,0 +1,230 @@
+{
+    "breed": {
+        "dog": {
+            "en": [
+                "Labrador Retriever",
+                "German Shepherd",
+                "Golden Retriever",
+                "French Bulldog",
+                "Bulldog",
+                "Poodle",
+                "Beagle",
+                "Yorkshire Terrier",
+                "Chihuahua",
+                "Siberian Husky",
+                "Rottweiler",
+                "Boxer",
+                "Dalmatian",
+                "Pug",
+                "Australian Shepherd",
+                "Shih Tzu",
+                "Jack Russell Terrier",
+                "Cavalier King Charles Spaniel",
+                "Doberman",
+                "Welsh Corgi"
+            ],
+            "uk": [
+                "Лабрадор-ретривер",
+                "Німецька вівчарка",
+                "Золотистий ретривер",
+                "Французький бульдог",
+                "Бульдог",
+                "Пудель",
+                "Бігль",
+                "Йоркширський тер’єр",
+                "Чихуахуа",
+                "Сибірський хаскі",
+                "Ротвейлер",
+                "Боксер",
+                "Далматин",
+                "Мопс",
+                "Австралійська вівчарка",
+                "Ші-тцу",
+                "Джек-рассел-тер’єр",
+                "Кавалер-кінг-чарльз-спанієль",
+                "Доберман",
+                "Вельш-коргі"
+            ]
+        },
+        "cat": {
+            "en": [
+                "Maine Coon",
+                "British Shorthair",
+                "Siamese",
+                "Bengal",
+                "Scottish Fold",
+                "Persian",
+                "Sphynx",
+                "Ragdoll",
+                "Norwegian Forest",
+                "Abyssinian"
+            ],
+            "uk": [
+                "Мейн-кун",
+                "Британська короткошерста",
+                "Сіамська",
+                "Бенгальська",
+                "Шотландська висловуха",
+                "Персидська",
+                "Сфінкс",
+                "Рагдолл",
+                "Норвезька лісова",
+                "Абіссінська"
+            ]
+        },
+        "fishe": {
+            "en": [
+                "Guppy",
+                "Goldfish",
+                "Neon Tetra",
+                "Angelfish",
+                "Barb",
+                "Discus",
+                "Betta (Siamese Fighting Fish)",
+                "Corydoras",
+                "Tetra",
+                "Molly"
+            ],
+            "uk": [
+                "Гуппі",
+                "Золоті рибки",
+                "Неон",
+                "Скалярія",
+                "Барбус",
+                "Дискус",
+                "Бета (півник)",
+                "Коридорас",
+                "Тетра",
+                "Моллінезія"
+            ]
+        },
+        "bird": {
+            "en": [
+                "Budgerigar",
+                "Cockatiel",
+                "Zebra Finch",
+                "Canary",
+                "Lovebird",
+                "Macaw",
+                "Cockatoo",
+                "African Grey Parrot",
+                "Senegal Parrot",
+                "Dove"
+            ],
+            "uk": [
+                "Хвилястий папуга",
+                "Корелла",
+                "Амадіна",
+                "Канарка",
+                "Нерозлучник",
+                "Ара",
+                "Какаду",
+                "Жако",
+                "Сенегальський папуга",
+                "Голуб"
+            ]
+        },
+        "rodent": {
+            "en": [
+                "Syrian Hamster",
+                "Djungarian Hamster",
+                "Guinea Pig",
+                "Degu",
+                "Chinchilla",
+                "Fancy Rat",
+                "Fancy Mouse",
+                "Dwarf Rabbit",
+                "Chipmunk",
+                "Gerbil"
+            ],
+            "uk": [
+                "Хом’як сирійський",
+                "Хом’як джунгарський",
+                "Морська свинка",
+                "Дегу",
+                "Шиншила",
+                "Щур декоративний",
+                "Миша декоративна",
+                "Кролик карликовий",
+                "Бурундук",
+                "Гербіл"
+            ]
+        }
+    },
+    "age": {
+        "en": [
+            "Baby",
+            "1 year",
+            "2 years",
+            "2+ years"
+        ],
+        "uk": [
+            "маля",
+            "1 рік",
+            "2 роки",
+            "більше 2 років"
+        ]
+    },
+    "size": {
+        "en": [
+            "Small",
+            "Medium",
+            "Large"
+        ],
+        "uk": [
+            "маленький",
+            "середній",
+            "великий"
+        ]
+    },
+    "gender": {
+        "en": [
+            "Male",
+            "Female"
+        ],
+        "uk": [
+            "він",
+            "вона"
+        ]
+    },
+    "coat_length": {
+        "en": [
+            "Short",
+            "Medium",
+            "Long"
+        ],
+        "uk": [
+            "маленький",
+            "середній",
+            "великий"
+        ]
+    },
+    "color": {
+        "en": [
+            "White",
+            "Brown",
+            "Black",
+            "grey",
+            "blue",
+            "red"
+        ],
+        "uk": [
+            "білий",
+            "коричньовий",
+            "чорний",
+            "сірий",
+            "плямистий",
+            "рудий"
+        ]
+    },
+    "health_condition": {
+        "en": [
+            "Healthy",
+            "Needs Care"
+        ],
+        "uk": [
+            "здоровий",
+            "потребує турботи"
+        ]
+    }
+}
