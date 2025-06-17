@@ -3,6 +3,7 @@ import Section from '../../../layout/Section/Section.jsx';
 import styles from './Statistics.module.css';
 import { useState } from 'react';
 import { useWindowWidth } from '../../../hooks/index.js';
+import MiniCard from '../../Card/MiniCard/MiniCard.jsx';
 
 function Statistics() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -33,6 +34,7 @@ function Statistics() {
   }, [widthScreen]); */
   return (
     <Section className={styles.statisticsSection}>
+      <MiniCard />
       <SectionTitle text="Statistics" />
       <h3 className={styles.subTitle}>
         Our Shelter – Your Chance to Make a Difference!
