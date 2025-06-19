@@ -1,9 +1,64 @@
 .container{
     width: 1195;
-height: 872;
-border-radius: 30px;
-background: #D9D9D9;
-padding: 22px;
+background: #fff;
+}
+
+.title{
+    margin-bottom: 32px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.choiseAnimal{
+    margin-bottom: 32px;
+}
+
+.formContainer{
+    width: 100%;
+    padding: 22px;
+    background-color: var(--header-mobile-menu-background-color);
+    border-radius: 30px;
+}
+
+.category{
+    border: none;
+    padding: 10px;
+    width: 200px;
+    border-radius: 16px;
+    text-transform: capitalize;
+    background: #EDEDED;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #000;
+    outline: none;
+}
+
+.category.options{
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.875rem;
+    box-sizing: border-box;
+    padding: 6px;
+    margin: 12px 0;
+    min-width: 320px;
+    border-radius: 12px;
+    overflow: auto;
+    outline: 0;
+    background: rgb(255 255 255);
+    border: 1px solid rgb(218 226 237);
+    color: rgb(28 32 37);
+    box-shadow: rgb(0 0 0 / 5%) 0 2px 6px;
+}
+
+.option{
+    padding: 8px;
+    border-radius: 8px;
+    cursor: default;    
+}
+
+.option.selected{
+    background-color: rgb(229 234 242);
+    color: rgb(28 32 37);
 }
 
 .aboutAnimalBlock{
@@ -19,11 +74,10 @@ padding: 22px;
 
 .fieldsBlock input {
     position: relative;
-    width: 574;
+    width: 574px;
 border-radius: 24px;
-background: #EDEDED;
+background: var(--elemetnt-background);
 padding: 30px 42px;
-font-family: Inter, sans-serif;
 font-weight: 600;
 font-size: 16px;
 line-height: 100%;

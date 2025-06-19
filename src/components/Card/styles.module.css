@@ -1,6 +1,6 @@
 .cardWrapper {
   width: 177px;
-  max-height: 278px;
+  height: 278px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -10,20 +10,20 @@
 @media screen and (width >= 768px) {
   .cardWrapper {
     width: 213px;
-    max-height: 335px;
+    height: 335px;
   }
 }
 
 @media screen and (width >= 1280px) {
   .cardWrapper {
     width: 307px;
-    max-height: 470px;
+    height: 470px;
   }
 }
 
 @media screen and (width >= 1920px) {
   .cardWrapper {
     width: 385px;
-    max-height: 575px;
+    height: 575px;
   }
 }

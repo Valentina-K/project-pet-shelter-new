@@ -9,13 +9,7 @@ function UserSideBar({ user }) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <img
-          src={profileImage}
-          alt="user"
-          width="60"
-          height="60"
-          className={styles.avatar}
-        />
+        <img src={profileImage} alt="user" className={styles.avatar} />
         <div>
           <p className={styles.name}>
             {user.firstName} {user.lastName}
