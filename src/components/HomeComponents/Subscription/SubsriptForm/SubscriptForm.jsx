@@ -27,18 +27,20 @@ const SubscriptionForm = () => {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <h3 className={styles.title}>Subscribe to the news</h3>
-      <input
-        type="email"
-        placeholder="Your email "
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        className={styles.input}
-      />
-      <p className={styles.text}>
-        Stay updated with our latest stories and tips! Enter your email to
-        subscribe to our blog
-      </p>
+      <div>
+        <input
+          type="email"
+          placeholder="Your email "
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className={styles.input}
+        />
+        <p className={styles.text}>
+          Stay updated with our latest stories and tips! Enter your email to
+          subscribe to our blog
+        </p>
+      </div>
       <Button type="submit" className={styles.button}>
         Subscribe
       </Button>
