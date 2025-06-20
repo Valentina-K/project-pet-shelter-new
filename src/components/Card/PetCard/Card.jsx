@@ -5,7 +5,6 @@ import { TbGenderDemigirl } from 'react-icons/tb';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectError } from '../../../redux/photos/selectors';
-import { IconContext } from 'react-icons';
 import { getUserById } from '../../../redux/auth/operations';
 import PropTypes from 'prop-types';
 import { selectIsLoggedIn } from '../../../redux/auth/selectors';
@@ -36,8 +35,8 @@ function Card({ ad }) {
     }
     if (ad.adAttributes && Array.isArray(ad.adAttributes)) {
       setPetGender(ad.adAttributes[3]?.value?.toLowerCase() || 'unknown');
-      setPetName(ad.adAttributes[7]?.value || 'Unnamed Pet');
-      setYear(ad.adAttributes[1]?.value || 'Unknown Age');
+      setPetName(ad.adAttributes[7]?.value || 'Unnamed');
+      setYear(ad.adAttributes[1]?.value || 'Unknown');
     }
     fetchUser();
   }, [ad, dispatch]);
@@ -49,15 +48,11 @@ function Card({ ad }) {
       <div className={`${generic.cardWrapper} ${styles.cardWrapper}`}>
         <div className={styles.imgWrapper}>
           <img src={defImg} alt={petName} className={styles.adPhoto} />
-          <IconContext.Provider
-            value={{ style: { width: '32', height: '32' } }}
-          >
-            {isLogged && (
-              <div className={styles.favorite}>
-                <FaRegHeart />
-              </div>
-            )}
-          </IconContext.Provider>
+          {isLogged && (
+            <div className={styles.favorite}>
+              <FaRegHeart />
+            </div>
+          )}
         </div>
         <div className={styles.infoWrapper}>
           <div className={styles.highterBlock}>

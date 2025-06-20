@@ -42,6 +42,7 @@
 
     .sectionTitle {
         font-size: var(--section-tiltle-font-size-tablet);
+        margin-bottom: var(--section-margin-bottom-tablet);
     }
 
     .followMe {
@@ -60,6 +61,7 @@
 
     .sectionTitle {
         font-size: var(--section-title-font-size);
+        margin-bottom: var(--section-margin-bottom-laptop);
     }
 
     .followMe {
