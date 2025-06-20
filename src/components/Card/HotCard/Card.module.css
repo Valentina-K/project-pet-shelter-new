@@ -1,3 +1,7 @@
+.cardWrapper {
+  height: 278px;
+}
+
 .imgWrapper {
   width: 100%;
   height: 94.6px;
@@ -61,7 +65,11 @@
   height: 25px;
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width >=768px) {
+  .cardWrapper {
+    height: 335px;
+  }
+
   .infoWrapper {
     padding: 19px 27px;
     height: 221px;
@@ -95,7 +103,11 @@
   }
 }
 
-@media screen and (width >= 1280px) {
+@media screen and (width >=1280px) {
+  .cardWrapper {
+    height: 470px;
+  }
+
   .infoWrapper {
     padding: 27px 32px;
     height: 297px;
@@ -134,7 +146,11 @@
   }
 }
 
-@media screen and (width >= 1920px) {
+@media screen and (width >=1920px) {
+  .cardWrapper {
+    height: 440px;
+  }
+
   .infoWrapper {
     padding: 21px 34px;
     height: 267px;
