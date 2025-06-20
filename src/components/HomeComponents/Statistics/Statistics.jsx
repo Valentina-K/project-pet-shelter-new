@@ -1,8 +1,8 @@
 import SectionTitle from '../../UI/SectionTitle.jsx';
 import Section from '../../../layout/Section/Section.jsx';
-import styles from './Statistics.module.css';
 import { useState } from 'react';
 import { useWindowWidth } from '../../../hooks/index.js';
+import styles from './Statistics.module.css';
 
 function Statistics() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -32,7 +32,7 @@ function Statistics() {
     }
   }, [widthScreen]); */
   return (
-    <Section className={styles.statisticsSection}>
+    <Section>
       <SectionTitle text="Statistics" />
       <h3 className={styles.subTitle}>
         Our Shelter – Your Chance to Make a Difference!
@@ -97,3 +97,5 @@ function Statistics() {
 }
 
 export default Statistics;
+
+/* className={styles.statisticsSection} */
