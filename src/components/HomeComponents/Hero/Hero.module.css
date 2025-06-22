@@ -9,31 +9,6 @@
     background-position: right -10px top 6px;
 }
 
-@media screen and (width >= 768px) {
-    .heroWrapper {
-        padding-left: 40px;
-        background-size: 492px 439px;
-        background-position: calc(100% - 40px) calc(100% - 24px);
-    }    
-}
-
-@media screen and (width >= 1280px) {
-    .heroWrapper {
-        padding-left: 40px;
-        background-size: 492px 439px;
-        background-position: calc(100% - 40px) calc(100% - 52px);
-    }    
-}
-
-@media screen and (width >= 1920px) {
-    .heroWrapper {
-        padding-top: 192px;
-        padding-left: 160px;
-        background-size: 926px 829px;
-        background-position: calc(100% - 65px) calc(100% - 52px);
-    }    
-}
-
 .heroTitle {
     font-family: var(--hero-font-family);
     font-size: 12px;
@@ -46,35 +21,6 @@
     width: 186px;
 }
 
-@media screen and (width >= 768px) {
-    .heroTitle {
-        font-weight: 900;
-        font-size: 32px;
-        line-height: 40px;
-        width: 319px;
-    }    
-}
-
-@media screen and (width >= 1280px) {
-    .heroTitle {
-        font-size: 72px;
-        line-height: 90px;
-        width: 100%;
-    }    
-}
-
-@media screen and (width >= 1920px) {
-    .heroTitle {
-        font-size: 45px;
-    font-weight: 400;
-    line-height: 63px;
-    text-align: left;
-    color: var(--primary-color);
-    margin-bottom: 108px;
-    width: 735px;
-    }    
-}
-
 .heroTitle .highlight {
     font-size: 24px;
     font-weight: 900;
@@ -82,29 +28,11 @@
     text-transform: uppercase;
 }
 
-@media screen and (width >= 768px) {
-    .heroTitle .highlight {
-        font-weight: 900;
-        font-size: 32px;
-        line-height: 40px;
-    }    
-}
-
-@media screen and (width >= 1280px) {
-    .heroTitle .highlight {
-        font-size: 72px;
-        line-height: 90px;
-    }    
-}
-
-@media screen and (width >= 1920px) {
-    .heroTitle .highlight {
-        font-size: 72px;
-        line-height: 90px;
-    }    
-}
-
 .heroTitle .highlight span {
+    margin-right: 100px;
+}
+
+.heroTitle .highlight .bigText {
     font-size: 40px;
 }
 
@@ -112,26 +40,97 @@
     font-size: 20px;
     font-weight: 900;
     line-height: 28px;
-    margin-bottom: 28px; 
+    margin-bottom: 28px;
     padding: 6px 0;
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width >=768px) {
+    .heroWrapper {
+        padding-left: 40px;
+        background-size: 492px 439px;
+        background-position: top 42px right -24px;
+    }
+
+    .heroTitle {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22.4px;
+        width: 319px;
+        margin-bottom: 48px;
+    }
+
+    .heroTitle .highlight {
+        font-weight: 900;
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .heroTitle .highlight span {
+        margin-right: 0;
+    }
+
+    .heroTitle .highlight .bigText {
+        font-size: inherit;
+    }
+
     .heroButton {
         margin-bottom: 190px;
-    }    
+        font-size: 16px;
+        line-height: 22.4px;
+        padding: 13px 0;
+    }
 }
 
-@media screen and (width >= 1280px) {
+@media screen and (width >=1280px) {
+    .heroWrapper {
+        padding-left: 160px;
+        padding-top: 166px;
+        background-size: 722px 707px;
+        background-position: top 64px right 12px;
+    }
+
+    .heroTitle {
+        font-size: 30px;
+        line-height: 42px;
+        width: 454px;
+        margin-bottom: 68px;
+    }
+
+    .heroTitle .highlight {
+        font-size: 50px;
+        line-height: 62.5px;
+    }
+
     .heroButton {
-        margin-bottom: 0;
-    }    
+        margin-bottom: 281px;
+        padding: 18px 0;
+        font-size: 18px;
+        line-height: 25.2px;
+    }
 }
 
-@media screen and (width >= 1920px) {
+@media screen and (width >=1920px) {
+    .heroWrapper {
+        padding-top: 192px;
+        padding-left: 160px;
+        background-size: 926px 829px;
+        background-position: top 116px right 68px;
+    }
+
+    .heroTitle {
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 56px;
+        margin-bottom: 112px;
+        width: 735px;
+    }
+
+    .heroTitle .highlight {
+        font-size: 72px;
+        line-height: 90px;
+    }
+
     .heroButton {
         margin-bottom: 378px
-    }    
+    }
 }
-
-/* background-position: bottom right; */

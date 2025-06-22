@@ -15,31 +15,33 @@
   gap: 10px;
   width: 151px;
   height: 161px;
-  border: 2px solid rgb(9 11 73 / 100%);
   border-radius: 16px;
+  border: 2px solid #090B49
 }
 
 .imgWrapper img {
-  width: inherit;
-  height: inherit;
-  object-fit: cover;
+  width: -webkit-fill-available;
   border-radius: 16px;
 }
 
 .favorite {
   position: absolute;
-  top: 23px;
-  right: 39px;
-  width: 36px;
-  height: 32px;
+  top: 13px;
+  right: 13px;
+  width: 18px;
+  height: 16px;
 }
+
+.favorite svg{
+    width: 18px;
+  height: 16px;
+  }
 
 .titleWrapper {
   display: flex;
   justify-content: space-between;
-  padding-right: 17px;
+  padding-right: 10px;
   align-items: center;
-  width: 100%;
 }
 
 .gender {
@@ -58,8 +60,8 @@
   color: var(--primary-color);
 }
 
-.highterBlock{
-width: 100%;
+.highterBlock {
+  width: 100%;
 }
 
 .infoTitle {
@@ -87,11 +89,22 @@ width: 100%;
   line-height: 14px;
 }
 
-@media screen and (width >= 768px) {
-  .cardWrapper{
+@media screen and (width >=768px) {
+  .cardWrapper {
     padding: 16px;
   }
-  
+
+  .favorite {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+
+  .favorite svg{
+    width: 22px;
+    height: 20px;
+  }
+
   .gender {
     height: 20px;
   }
@@ -101,8 +114,8 @@ width: 100%;
     height: 193px;
   }
 
-  
-  
+
+
   .infoWrapper {
     gap: 0;
   }
@@ -122,10 +135,10 @@ width: 100%;
   }
 }
 
-@media screen and (width >= 1280px) {
-  .cardWrapper{
-    padding: 24px;
-    gap: 20px;
+@media screen and (width >=1280px) {
+  .cardWrapper {
+    padding: 16px;
+    gap: 10px;
   }
 
   .imgWrapper {
@@ -153,8 +166,8 @@ width: 100%;
   }
 }
 
-@media screen and (width >= 1920px) {
-  .cardWrapper{
+@media screen and (width >=1920px) {
+  .cardWrapper {
     width: 385px;
     height: 575px;
     padding: 24px;

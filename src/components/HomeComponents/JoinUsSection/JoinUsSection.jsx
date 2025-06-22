@@ -12,10 +12,8 @@ function JoinUsSection() {
     <Section>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>
-          Join our team and change animals lives
-          <br />
-          for the better! <br />
-          Together we can do more!
+          Join our team and change animals lives for the better! Together we can
+          do more!
         </h2>
         <Button className={styles.button} onClick={handleJoinUs}>
           Join us
