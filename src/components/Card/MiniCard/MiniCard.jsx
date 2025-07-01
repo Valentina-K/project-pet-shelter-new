@@ -1,7 +1,9 @@
 import { RiDeleteBinLine } from 'react-icons/ri';
+
+import PropTypes from 'prop-types';
 import style from './styles.module.css';
 
-function MiniCard() {
+function MiniCard({ ad }) {
   return (
     <div className={style.wrapper}>
       <div className={style.leftBlock}>
@@ -11,11 +13,8 @@ function MiniCard() {
         />
       </div>
       <div className={style.rightBlock}>
-        <h3>Pet name</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod
-          temor incididunt utla bore et dolo....
-        </p>
+        <h3>{ad.adAttributes[7].value}</h3>
+        <p>{ad.description}</p>
         <button className={style.bin}>
           <RiDeleteBinLine />
         </button>
@@ -23,5 +22,17 @@ function MiniCard() {
     </div>
   );
 }
+
+MiniCard.propTypes = {
+  ad: PropTypes.shape({
+    id: PropTypes.number,
+    authorId: PropTypes.number,
+    description: PropTypes.string,
+    adAttributes: PropTypes.arrayOf(PropTypes.object),
+    thumbnail: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }).isRequired,
+};
 
 export default MiniCard;

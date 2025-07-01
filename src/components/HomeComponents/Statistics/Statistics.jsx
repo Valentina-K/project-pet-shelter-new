@@ -13,6 +13,57 @@ function Statistics() {
   const toggleText = () => {
     setIsExpanded((prev) => !prev);
   };
+
+  const ad = {
+    id: 1,
+    authorId: 1,
+    title: 'Beautiful dog searching a kind family',
+    description:
+      'This lovely dog is looking for a caring home. Friendly and playful.',
+    price: 100,
+    location: null,
+    distance: null,
+    photos: null,
+    thumbnail: null,
+    categoryId: 1,
+    createdAt: '2024-10-30T07:46:36.15242',
+    updatedAt: '2024-10-30T07:46:36.15242',
+    isHot: false,
+    adAttributes: [
+      {
+        name: 'breed',
+        value: 'Golden Retriever',
+      },
+      {
+        name: 'age',
+        value: '3 years',
+      },
+      {
+        name: 'size',
+        value: 'Large',
+      },
+      {
+        name: 'gender',
+        value: 'Male',
+      },
+      {
+        name: 'coat_length',
+        value: 'Medium',
+      },
+      {
+        name: 'color',
+        value: 'Golden',
+      },
+      {
+        name: 'health_condition',
+        value: 'Healthy',
+      },
+      {
+        name: 'pet_name',
+        value: 'Buddy',
+      },
+    ],
+  };
   /* const textRef = useRef(null);
   const widthScreen = useWindowWidth();  
 
@@ -34,7 +85,7 @@ function Statistics() {
   }, [widthScreen]); */
   return (
     <Section className={styles.statisticsSection}>
-      <MiniCard />
+      <MiniCard ad={ad} />
       <SectionTitle text="Statistics" />
       <h3 className={styles.subTitle}>
         Our Shelter – Your Chance to Make a Difference!
