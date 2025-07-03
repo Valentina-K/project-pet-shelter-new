@@ -1,5 +1,8 @@
 .wrapper {
     width: 100%;
+    max-width: 370px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .sliderContainer {
@@ -111,6 +114,10 @@
 }
 
 @media (width >= 768px) {
+    .wrapper{
+        max-width: 687px;
+    }
+
     .sliderContainer {
         height: 452px;
         margin-bottom: 50px;
@@ -118,6 +125,10 @@
 }
 
 @media (width >= 1280px) {
+    .wrapper{
+        max-width: 958px;
+    }
+
     .sliderContainer {
         height: 640px;
         margin-bottom: 40px;
@@ -125,6 +136,10 @@
 }
 
 @media (width >= 1920px) {
+    .wrapper{
+        max-width: 1600px;
+    }
+
     .sliderContainer {
         height: 570px;
     }
