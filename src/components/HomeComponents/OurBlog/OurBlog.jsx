@@ -6,11 +6,18 @@ import { useState } from 'react';
 import SectionTitle from '../../UI/SectionTitle.jsx';
 import Section from '../../../layout/Section/Section.jsx';
 import NavControls from '../NavControls/NavControls.jsx';
+import { useWindowWidth } from '../../../hooks/index.js';
 
 function OurBlog() {
   const [index, setIndex] = useState(0);
   const [margin, setMargin] = useState(0);
+  const widthScreen = useWindowWidth();
+  const countVisibleItems =
+    widthScreen >= 1920 ? 3 : widthScreen >= 768 ? 2 : 1;
+
   const handleClick = (margin, currentIndex) => {
+    console.log('currentIndex', currentIndex);
+    console.log('currentMargin', margin);
     setIndex(currentIndex);
     setMargin(margin);
   };
@@ -24,8 +31,8 @@ function OurBlog() {
         </div>
         <NavControls
           currentIndex={index}
-          countVisibleItems={3}
-          countAllItems={data.blogs.length - 1}
+          countVisibleItems={countVisibleItems}
+          countAllItems={data.blogs.length}
           onNavClick={handleClick}
         />
       </div>
