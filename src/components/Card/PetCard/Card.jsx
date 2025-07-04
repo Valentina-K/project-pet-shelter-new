@@ -9,9 +9,9 @@ import { getUserById } from '../../../redux/auth/operations';
 import PropTypes from 'prop-types';
 import { selectIsLoggedIn } from '../../../redux/auth/selectors';
 import defImg from '../../../assets/img/404-error-web-template-with-cute-dog_23-2147763341.jpg';
+import { FaHouse } from 'react-icons/fa6';
 import styles from './Card.module.css';
 import generic from '../styles.module.css';
-import { FaHouse } from 'react-icons/fa6';
 
 function Card({ ad }) {
   const dispatch = useDispatch();
@@ -24,11 +24,9 @@ function Card({ ad }) {
 
   useEffect(() => {
     async function fetchUser() {
-      console.log(ad.authorId);
       try {
         const result = await dispatch(getUserById(Number(ad.authorId)));
         setUser(result.payload);
-        console.log(result.payload);
       } catch (error) {
         console.error('Failed to fetch user:', error);
       }

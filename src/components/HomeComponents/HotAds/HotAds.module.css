@@ -1,6 +1,9 @@
 .wrapper {
     position: relative;
     width: 100%;
+    max-width: 370px;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
 }
 
@@ -8,61 +11,43 @@
     display: flex;
     gap: 16px;
     width: inherit;
-    transition: margin-left 250ms;
+    transition: margin-left 350ms;
     margin-bottom: 8px;
-}
-
-.controls {
-    width: 115px;
-    padding: 8px;
-    display: flex;
-    justify-content: space-between;
-    margin-right: auto;
-    margin-left: auto;
-    border: 1px solid #D9D9D9;
-    border-radius: 40px;
-    transition: border 0.3s;
-}
-
-.controls:hover {
-    border: 1px solid #a39d9d;
-}
-
-.icon {
-    width: 24px;
-    height: 24px;
 }
 
 .toAllShelters {
     position: absolute;
-    bottom: 10px;
-    right: 37px;
+    padding: 8px 21px;
+    bottom: 0;
+    right: 0;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 @media screen and (width >= 768px) {
+    .wrapper{
+        max-width: 687px;
+    }
+
     .list {
         margin-bottom: 32px;
         gap: 24px;
     }
-
-    .toAllShelters {
-        right: 62px;
-    }
 }
 
 @media screen and (width >= 1280px) {
+    .wrapper{
+        max-width: 958px;
+    }
+
     .list {
         margin-bottom: 40px;
         gap: 20px;
     }
-
-    .toAllShelters {
-        right: 181px;
-    }
 }
 
 @media screen and (width >= 1920px) {
-    .toAllShelters {
-        right: 183px;
-    }
+    .wrapper{
+        max-width: 1600px;
+    }    
 }

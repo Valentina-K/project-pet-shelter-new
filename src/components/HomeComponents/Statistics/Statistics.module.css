@@ -1,5 +1,5 @@
 .statisticsSection {
-    margin-bottom: 80px;
+    margin-bottom: 88px;
 }
 
 .subTitle {
@@ -12,6 +12,7 @@
 
 .textContainer {
     position: relative;
+    margin-bottom: 16px;
 }
 
 .textWrapper {
@@ -56,7 +57,11 @@
 
 .statisticsItem {
     flex: 1;
-    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    padding: 24px 22px;
     background: var(--card-background-color);
     border-radius: 16px;
     box-shadow: 0 0 12px 0 #0000000A;
@@ -65,7 +70,7 @@
 .statisticsItem h5 {
     font-size: 12px;
     font-weight: 500;
-    line-height: 28px;
+    line-height: 12px;
     letter-spacing: 0.02em;
 }
 
@@ -81,7 +86,7 @@
 
 @media (width >=768px) {
     .statisticsSection {
-        margin-bottom: 0;
+        margin-bottom: 128px;
     }
 
     .subTitle {
@@ -89,6 +94,10 @@
         line-height: 1;
         margin-bottom: 32px;
     }
+
+    .textContainer {
+    margin-bottom: 32px;
+}
 
     .textWrapper {
         column-count: 2;
@@ -107,20 +116,11 @@
     .statisticsWrapper {
         max-width: 490px;
         gap: 20px;
-    }
-
-    .statisticsItem h5 {
-        font-size: 14px;
-        line-height: 14px;
-    }
-
-    .statisticsItem p {
-        font-size: 32px;
-    }
+    } 
 
     .statisticsItem.hide {
-        display: block;
-    }
+    display: flex;
+}
 }
 
 @media (width >=1280px) {
@@ -128,6 +128,10 @@
         font-size: 24px;
         margin-bottom: 40px;
     }
+
+    .textContainer {
+    margin-bottom: 64px;
+}
 
     .textWrapper {
         column-gap: 30px;
@@ -140,6 +144,10 @@
         gap: 40px;
     }
 
+    .statisticsItem{
+        height: 150px;
+    }
+
     .statisticsItem h5 {
         font-size: 16px;
         line-height: 16px;
@@ -147,6 +155,7 @@
 
     .statisticsItem p {
         font-size: 48px;
+        line-height: 48px;
     }
 }
 
@@ -158,14 +167,5 @@
     .textWrapper {
         column-gap: 40px;
         font-size: 20px;
-    }
-
-    .statisticsItem h5 {
-        font-size: 16px;
-        line-height: 26px;
-    }
-
-    .statisticsItem p {
-        font-size: 48px;
     }
 }

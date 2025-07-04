@@ -1,8 +1,6 @@
 .cardWrapper {
   padding: 13px;
   gap: 8px;
-  width: 177px;
-  height: 278px;
   background: #f4f2f0;
 }
 
@@ -89,7 +87,7 @@
   line-height: 14px;
 }
 
-@media screen and (width >=768px) {
+@media screen and (width >= 768px) {
   .cardWrapper {
     padding: 16px;
   }
@@ -135,7 +133,7 @@
   }
 }
 
-@media screen and (width >=1280px) {
+@media screen and (width >= 1280px) {
   .cardWrapper {
     padding: 16px;
     gap: 10px;
@@ -166,10 +164,8 @@
   }
 }
 
-@media screen and (width >=1920px) {
+@media screen and (width >= 1920px) {
   .cardWrapper {
-    width: 385px;
-    height: 575px;
     padding: 24px;
     gap: 20px;
   }

@@ -4,12 +4,18 @@ import { Link } from 'react-router-dom';
 import blogcat from '../../../assets/img/blogcat.png';
 import PropTypes from 'prop-types';
 import styles from './OurBlog.module.css';
-import { useWindowWidth } from '../../../hooks';
+import monthNames from '../../../constants/month';
+
 function PreviewBlog({ blog }) {
   const textRef = useRef(null);
-  const height = useWindowWidth() >= 1920 ? 256 : 80;
+  const height = 256;
+  const d = new Date(blog.publisedDate);
+  const month = monthNames.en[d.getMonth()];
+  const year = d.getFullYear();
+  const formattedDate = `${month}, ${year}`;
   useEffect(() => {
     const element = textRef.current;
+    console.log('element', element);
     if (!element) return;
 
     const truncateText = () => {
@@ -44,7 +50,7 @@ function PreviewBlog({ blog }) {
           </p>
         </div>
         <div className={styles.previewFooter}>
-          <span className={styles.footerDate}>{blog.publisedDate}</span>
+          <span className={styles.footerDate}>{formattedDate}</span>
           <Link to={`/blog/${blog.id}`}>
             <button className={styles.footerButton}>
               More

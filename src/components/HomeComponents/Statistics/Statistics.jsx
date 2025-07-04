@@ -12,27 +12,9 @@ function Statistics() {
   const toggleText = () => {
     setIsExpanded((prev) => !prev);
   };
-  /* const textRef = useRef(null);
-  const widthScreen = useWindowWidth();  
 
-  useEffect(() => {
-    const element = textRef.current;
-    const textHeight = widthScreen < 1280 ? 259 : widthScreen < 1920 ? 339 : 271;
-    const elementHeight = textHeight - element.clientHeight;
-    console.log(elementHeight, element.clientHeight);
-    if (element) {
-      const { clientHeight } = element;
-      if (elementHeight < clientHeight) {
-        let textContent = element.textContent;
-        while (elementHeight < element.clientHeight) {
-          textContent = textContent.slice(0, -1);
-          element.textContent = textContent + '...';
-        }
-      }
-    }
-  }, [widthScreen]); */
   return (
-    <Section>
+    <Section className={styles.statisticsSection}>
       <SectionTitle text="Statistics" />
       <h3 className={styles.subTitle}>
         Our Shelter – Your Chance to Make a Difference!
