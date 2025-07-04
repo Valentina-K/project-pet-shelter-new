@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { useMediaQuery } from '../../../hooks';
+import cardWidth from '../../../constants/cardWidth';
 import styles from './NavControls.module.css';
 
 function NavControls({
@@ -10,6 +11,7 @@ function NavControls({
   countAllItems,
   onNavClick,
   componentSlyle,
+  typeCard,
 }) {
   const [index, setIndex] = useState(currentIndex);
   const [leftDisabled, setLeftDisabled] = useState(false);
@@ -20,9 +22,14 @@ function NavControls({
   const isLaptop = useMediaQuery('(min-width: 1280px)');
   const isDesktop = useMediaQuery('(min-width: 1920px)');
   // added gap = 20px or other value to width
-  const width = isDesktop ? 405 : isLaptop ? 490 : isTablet ? 346 : 390;
+  const width = isDesktop
+    ? cardWidth[typeCard].desc
+    : isLaptop
+      ? cardWidth[typeCard].lap
+      : isTablet
+        ? cardWidth[typeCard].tab
+        : cardWidth[typeCard].mob;
   const count = countVisibleItems;
-
   useEffect(() => {
     if (index === 0) {
       setLeftDisabled(true);
@@ -30,7 +37,6 @@ function NavControls({
     if (index === countAllItems - countVisibleItems) {
       setRightDisabled(true);
     } else setRightDisabled(false);
-    console.log('marginLeft, index', marginLeft, index);
     setMarginLeft(Math.max(position, -width * (countAllItems - count)));
     onNavClick(marginLeft, index);
   }, [
@@ -70,6 +76,7 @@ NavControls.propTypes = {
   countAllItems: PropTypes.number,
   onNavClick: PropTypes.func,
   componentSlyle: PropTypes.shape(),
+  typeCard: PropTypes.string,
 };
 
 export default NavControls;

@@ -16,8 +16,6 @@ function OurBlog() {
     widthScreen >= 1920 ? 3 : widthScreen >= 768 ? 2 : 1;
 
   const handleClick = (margin, currentIndex) => {
-    console.log('currentIndex', currentIndex);
-    console.log('currentMargin', margin);
     setIndex(currentIndex);
     setMargin(margin);
   };
@@ -34,6 +32,7 @@ function OurBlog() {
           countVisibleItems={countVisibleItems}
           countAllItems={data.blogs.length}
           onNavClick={handleClick}
+          typeCard={'blog'}
         />
       </div>
     </Section>

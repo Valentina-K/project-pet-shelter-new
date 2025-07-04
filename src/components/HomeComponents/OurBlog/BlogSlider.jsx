@@ -7,7 +7,6 @@ function BlogSlider({ blogs, margin }) {
   const style = { marginLeft: `${margin}px` };
   const widthScreen = useWindowWidth();
   const index = widthScreen >= 1920 ? 1 : 0;
-  console.log(blogs.length, index, widthScreen);
   return (
     <div className={styles.blogSlider}>
       <div className={styles.list} style={style}>

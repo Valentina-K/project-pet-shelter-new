@@ -21,11 +21,9 @@ function HotAds() {
   const widthScreen = useWindowWidth();
 
   useEffect(() => {
-    console.log('widthScreen', widthScreen);
     const filter = { isHot: true };
     dispatch(fetchSearchAdvertisements({ page: 0, size: 15, query: filter }))
       .then((response) => {
-        console.log(response.payload.page.content);
         setHotAds(response.payload.page.content);
         setIsLoading(false);
       })
@@ -69,6 +67,7 @@ function HotAds() {
           countVisibleItems={visibleItems}
           countAllItems={hotAds.length}
           onNavClick={handleComtrolClick}
+          typeCard={'hot'}
         />
         <NavLink to="/animals" className={styles.toAllShelters}>
           View all

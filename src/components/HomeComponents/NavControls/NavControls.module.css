@@ -20,7 +20,7 @@
     height: 16px;
 }
 
-@media screen and (width >=768px) {
+@media screen and (width >= 768px) {
     .controls {
         width: 107px;
     }
@@ -31,7 +31,7 @@
     }
 }
 
-@media screen and (width >=1280px) {
+@media screen and (width >= 1280px) {
     .controls {
         width: 130px;
         padding: 8px 13px;
