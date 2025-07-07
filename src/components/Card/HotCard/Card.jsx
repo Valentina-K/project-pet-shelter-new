@@ -1,4 +1,3 @@
-import genericStyle from '../styles.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
@@ -8,6 +7,7 @@ import fire from '../../../assets/img/firecracker.png';
 import FollowMeButton from '../../UI/FollowMeButton';
 import { getUserById } from '../../../redux/auth/operations';
 import { selectIsLoading } from '../../../redux/advertisements/selectors';
+import genericStyle from '../styles.module.css';
 import styles from './Card.module.css';
 
 function Card({ ad }) {
@@ -31,7 +31,7 @@ function Card({ ad }) {
     fetchUser();
   }, [dispatch, ad, IsLoading]);
   return (
-    <div className={genericStyle.cardWrapper}>
+    <div className={`${genericStyle.cardWrapper} ${styles.cardWrapper}`}>
       <div className={styles.imgWrapper}>
         <img src={fire} alt="hot" />
       </div>

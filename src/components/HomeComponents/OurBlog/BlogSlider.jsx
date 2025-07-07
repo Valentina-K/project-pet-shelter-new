@@ -4,14 +4,13 @@ import { useWindowWidth } from '../../../hooks';
 import styles from './OurBlog.module.css';
 
 function BlogSlider({ blogs, margin }) {
-  const style =
-    useWindowWidth() >= 1920
-      ? { marginLeft: `${margin}px` }
-      : { marginTop: `${margin}px` };
+  const style = { marginLeft: `${margin}px` };
+  const widthScreen = useWindowWidth();
+  const index = widthScreen >= 1920 ? 1 : 0;
   return (
     <div className={styles.blogSlider}>
       <div className={styles.list} style={style}>
-        {blogs.slice(1).map((blog, ind) => (
+        {blogs.slice(index).map((blog, ind) => (
           <div key={ind}>
             <BlogCard blog={blog} />
           </div>

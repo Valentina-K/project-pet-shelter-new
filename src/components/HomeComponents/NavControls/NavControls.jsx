@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import styles from './NavControls.module.css';
 import { useMediaQuery } from '../../../hooks';
+import cardWidth from '../../../constants/cardWidth';
+import styles from './NavControls.module.css';
 
 function NavControls({
   currentIndex,
@@ -10,21 +11,25 @@ function NavControls({
   countAllItems,
   onNavClick,
   componentSlyle,
+  typeCard,
 }) {
   const [index, setIndex] = useState(currentIndex);
   const [leftDisabled, setLeftDisabled] = useState(false);
   const [rightDisabled, setRightDisabled] = useState(false);
   const [marginLeft, setMarginLeft] = useState(0);
-  // const [marginTop, setMarginTop] = useState(0);
   const [position, setPosition] = useState(0);
   const isTablet = useMediaQuery('(min-width: 768px)');
   const isLaptop = useMediaQuery('(min-width: 1280px)');
   const isDesktop = useMediaQuery('(min-width: 1920px)');
-  // added gap = 20px to width and height
-  const width = isDesktop ? 405 : isLaptop ? 327 : isTablet ? 238 : 193;
-  // const height = useMediaQuery('(min-width: 1280px)') ? 220 : 0;
+  // added gap = 20px or other value to width
+  const width = isDesktop
+    ? cardWidth[typeCard].desc
+    : isLaptop
+      ? cardWidth[typeCard].lap
+      : isTablet
+        ? cardWidth[typeCard].tab
+        : cardWidth[typeCard].mob;
   const count = countVisibleItems;
-
   useEffect(() => {
     if (index === 0) {
       setLeftDisabled(true);
@@ -32,13 +37,6 @@ function NavControls({
     if (index === countAllItems - countVisibleItems) {
       setRightDisabled(true);
     } else setRightDisabled(false);
-    /* if (isDesktop) {
-      setMarginLeft(Math.max(position, -width * (countAllItems - count)));
-      onNavClick(marginLeft, index);
-    } else {
-      setMarginTop(Math.max(position, -height * (countAllItems - count)));
-      onNavClick(marginTop, index);
-    } */
     setMarginLeft(Math.max(position, -width * (countAllItems - count)));
     onNavClick(marginLeft, index);
   }, [
@@ -52,21 +50,11 @@ function NavControls({
     marginLeft,
   ]);
   const handleLeftClick = () => {
-    /* if (isDesktop) {
-      setPosition((prev) => prev + width);
-    } else {
-      setPosition((prev) => prev + height);
-    } */
     setPosition((prev) => prev + width);
     setIndex((prev) => prev - 1);
   };
 
   const handleRightClick = () => {
-    /* if (isDesktop) {
-      setPosition((prev) => prev - width);
-    } else {
-      setPosition((prev) => prev - height);
-    } */
     setPosition((prev) => prev - width);
     setIndex((prev) => prev + 1);
   };
@@ -88,6 +76,7 @@ NavControls.propTypes = {
   countAllItems: PropTypes.number,
   onNavClick: PropTypes.func,
   componentSlyle: PropTypes.shape(),
+  typeCard: PropTypes.string,
 };
 
 export default NavControls;

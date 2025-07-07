@@ -1,21 +1,43 @@
 import PropTypes from 'prop-types';
 import Card from '../../Card/ShelterCard/Card';
 import data from '../../../models/shelters.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import NavControls from '../NavControls/NavControls';
 import SectionTitle from '../../UI/SectionTitle.jsx';
 import Section from '../../../layout/Section/Section.jsx';
 import styles from './Shelters.module.css';
+import { useWindowWidth } from '../../../hooks/index.js';
 
 function Shelters() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [marginLeft, setMarginLeft] = useState(0);
+  const [visibleItems, setVisibleItems] = useState(2);
+  const widthScreen = useWindowWidth();
 
   const handleComtrolClick = (margin, index) => {
     setMarginLeft(margin);
     setCurrentIndex(index);
   };
+
+  useEffect(() => {
+    /*  const filter = { isHot: true };
+      dispatch(fetchSearchAdvertisements({ page: 0, size: 15, query: filter }))
+        .then((response) => {
+          console.log(response.payload.page.content);
+          setHotAds(response.payload.page.content);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          setError(error);
+          setIsLoading(false);
+        }); */
+    if (widthScreen < 768) {
+      setVisibleItems(2);
+    } else if (widthScreen < 1920) {
+      setVisibleItems(3);
+    } else setVisibleItems(4);
+  }, [widthScreen]);
 
   return (
     <Section>
@@ -35,9 +57,10 @@ function Shelters() {
         </div>
         <NavControls
           currentIndex={currentIndex}
-          countVisibleItems={5}
-          countAllItems={data.shelters.length - 1}
+          countVisibleItems={visibleItems}
+          countAllItems={data.shelters.length}
           onNavClick={handleComtrolClick}
+          typeCard={'shelter'}
         />
         <NavLink to="/shelters" className={styles.toAllShelters}>
           View all

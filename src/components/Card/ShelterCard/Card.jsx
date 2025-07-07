@@ -1,43 +1,34 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { GoLocation } from 'react-icons/go';
 import SocialLinks from '../../SocialLinks/SocialLinks';
 import Rating from '../../Rating/Rating';
-import styles from './Card.module.css';
 import FollowMeButton from '../../UI/FollowMeButton';
+import styles from './Card.module.css';
+import generic from '../styles.module.css';
 
 function Card({ shelter }) {
   const { id } = shelter;
   return (
-    <div className={styles.cardWrapper}>
-      <NavLink to={`/shelter/${Number(id)}`} className={styles.cardLink}>
-        <div className={styles.imgWrapper}>
-          <img src={shelter.logo} alt="logo" />
+    <div className={`${generic.cardWrapper} ${styles.cardWrapper}`}>
+      <div className={styles.imgWrapper}>
+        <img src={shelter.logo} alt="logo" />
+      </div>
+      <div className={styles.contentWrapper}>
+        <div className={styles.lacation}>
+          <GoLocation className={styles.locationIcon} />
+          <span>{shelter.address.city}, </span>
+          <span>{shelter.address.country}</span>
         </div>
-        <div className={styles.contentWrapper}>
-          <div className={styles.lacation}>
-            <GoLocation className={styles.locationIcon} />
-            <span>{shelter.address.city}, </span>
-            <span>{shelter.address.country}</span>
-          </div>
-          <h2 className={styles.title}>{shelter.name}</h2>
-          <Rating rating={shelter.rating} />
-          <div className={styles.statistics}>
-            {shelter.animals.map((animal) => (
-              <div key={animal.name}>
-                <span>{animal.name} </span>
-                <span>{animal.count}</span>
-              </div>
-            ))}
-          </div>
-          <div className={styles.description}>{shelter.description}</div>
+        <h2 className={styles.title}>{shelter.name}</h2>
+        <Rating rating={shelter.rating} />
+        <div className={styles.description}>{shelter.description}</div>
+        <div className={styles.socialBlock}>
+          <SocialLinks addStyle="card" />
+          <Link to={`/shelter/${id}`}>
+            <FollowMeButton />
+          </Link>
         </div>
-      </NavLink>
-      <div className={styles.socialBlock}>
-        <SocialLinks addStyle="card" />
-        <Link to={`/shelter/${id}`}>
-          <FollowMeButton />
-        </Link>
       </div>
     </div>
   );

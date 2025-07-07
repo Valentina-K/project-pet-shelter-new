@@ -5,14 +5,13 @@ import { TbGenderDemigirl } from 'react-icons/tb';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectError } from '../../../redux/photos/selectors';
-import { IconContext } from 'react-icons';
 import { getUserById } from '../../../redux/auth/operations';
 import PropTypes from 'prop-types';
 import { selectIsLoggedIn } from '../../../redux/auth/selectors';
 import defImg from '../../../assets/img/404-error-web-template-with-cute-dog_23-2147763341.jpg';
+import { FaHouse } from 'react-icons/fa6';
 import styles from './Card.module.css';
 import generic from '../styles.module.css';
-import { FaHouse } from 'react-icons/fa6';
 
 function Card({ ad }) {
   const dispatch = useDispatch();
@@ -25,19 +24,17 @@ function Card({ ad }) {
 
   useEffect(() => {
     async function fetchUser() {
-      console.log(ad.authorId);
       try {
         const result = await dispatch(getUserById(Number(ad.authorId)));
         setUser(result.payload);
-        console.log(result.payload);
       } catch (error) {
         console.error('Failed to fetch user:', error);
       }
     }
     if (ad.adAttributes && Array.isArray(ad.adAttributes)) {
       setPetGender(ad.adAttributes[3]?.value?.toLowerCase() || 'unknown');
-      setPetName(ad.adAttributes[7]?.value || 'Unnamed Pet');
-      setYear(ad.adAttributes[1]?.value || 'Unknown Age');
+      setPetName(ad.adAttributes[7]?.value || 'Unnamed');
+      setYear(ad.adAttributes[1]?.value || 'Unknown');
     }
     fetchUser();
   }, [ad, dispatch]);
@@ -49,15 +46,11 @@ function Card({ ad }) {
       <div className={`${generic.cardWrapper} ${styles.cardWrapper}`}>
         <div className={styles.imgWrapper}>
           <img src={defImg} alt={petName} className={styles.adPhoto} />
-          <IconContext.Provider
-            value={{ style: { width: '32', height: '32' } }}
-          >
-            {isLogged && (
-              <div className={styles.favorite}>
-                <FaRegHeart />
-              </div>
-            )}
-          </IconContext.Provider>
+          {isLogged && (
+            <div className={styles.favorite}>
+              <FaRegHeart />
+            </div>
+          )}
         </div>
         <div className={styles.infoWrapper}>
           <div className={styles.highterBlock}>

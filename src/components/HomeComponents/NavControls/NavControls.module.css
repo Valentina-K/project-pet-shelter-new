@@ -1,6 +1,6 @@
 .controls {
     width: 77px;
-    padding: 6px;
+    padding: 4px;
     display: flex;
     justify-content: space-between;
     margin-right: auto;
@@ -11,23 +11,29 @@
     background: #FFFEFE;
 }
 
-@media screen and (width >=768px) {
-    .controls {
-        width: 115px;
-    }        
-}
-
-@media screen and (width >= 1280px) {
-    .controls {
-        width: 130px;
-    }    
-}
-
 .controls:hover {
     border: 1px solid #a39d9d;
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
+}
+
+@media screen and (width >= 768px) {
+    .controls {
+        width: 107px;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media screen and (width >= 1280px) {
+    .controls {
+        width: 130px;
+        padding: 8px 13px;
+    }
 }

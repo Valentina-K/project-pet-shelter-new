@@ -5,7 +5,7 @@
     justify-content: flex-start;
     border-radius: var(--button-border-radius);
     background: url('../../../assets/img/subscriptImage.png'),
-    linear-gradient(45deg, #BAC0C9 50%, #B2B3B7 50%);
+    linear-gradient(90deg, #b7bdc5fa 50%, #9195a59c 50%);
     background-repeat: no-repeat, no-repeat;
     background-position: calc(100% + 105px) bottom, center;
     background-size: contain, cover;
@@ -15,7 +15,7 @@
     .subscription {
         padding-left: 40px;
         padding-top: 40px;
-        padding-bottom: 96px;
+        padding-bottom: 104px;
         background-position: calc(100% + 205px) bottom, center;
     }
 
@@ -34,7 +34,7 @@
     .subscription {
         padding-top: 124px;
         padding-right: 80px;
-        padding-bottom: 204px;
+        padding-bottom: 285px;
         justify-content: flex-end;
         background-position: left bottom, center;
     }

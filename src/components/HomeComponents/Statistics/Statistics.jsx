@@ -1,8 +1,8 @@
 import SectionTitle from '../../UI/SectionTitle.jsx';
 import Section from '../../../layout/Section/Section.jsx';
-import styles from './Statistics.module.css';
 import { useState } from 'react';
 import { useWindowWidth } from '../../../hooks/index.js';
+import styles from './Statistics.module.css';
 
 function Statistics() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -13,25 +13,6 @@ function Statistics() {
     setIsExpanded((prev) => !prev);
   };
 
-  /* const textRef = useRef(null);
-  const widthScreen = useWindowWidth();  
-
-  useEffect(() => {
-    const element = textRef.current;
-    const textHeight = widthScreen < 1280 ? 259 : widthScreen < 1920 ? 339 : 271;
-    const elementHeight = textHeight - element.clientHeight;
-    console.log(elementHeight, element.clientHeight);
-    if (element) {
-      const { clientHeight } = element;
-      if (elementHeight < clientHeight) {
-        let textContent = element.textContent;
-        while (elementHeight < element.clientHeight) {
-          textContent = textContent.slice(0, -1);
-          element.textContent = textContent + '...';
-        }
-      }
-    }
-  }, [widthScreen]); */
   return (
     <Section className={styles.statisticsSection}>
       <SectionTitle text="Statistics" />
@@ -98,3 +79,5 @@ function Statistics() {
 }
 
 export default Statistics;
+
+/* className={styles.statisticsSection} */
