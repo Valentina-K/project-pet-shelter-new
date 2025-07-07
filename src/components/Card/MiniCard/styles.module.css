@@ -1,0 +1,49 @@
+.wrapper{
+    display: flex;
+    padding: 24px;
+    gap: 15px;
+    width: 385px;
+    height: 210px;
+    border-radius: 30px;
+    background-color: #D1C8BF;
+}
+
+.leftBlock{
+    flex:1;
+    
+}
+
+.leftBlock img{
+    border-radius: 16px;
+}
+
+.rightBlock{
+    position: relative;
+    flex:1;
+}
+
+.rightBlock h3{
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.rightBlock p{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.bin{
+    position: absolute;
+    width: 22px;
+    height: 24px;
+    bottom: 0;
+    right: 0;
+}
+
+.bin svg{
+    width: 100%;
+    height: 100%;
+}
