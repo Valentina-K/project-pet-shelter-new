@@ -1,24 +1,10 @@
 import { RiDeleteBinLine } from 'react-icons/ri';
-
 import PropTypes from 'prop-types';
+import { useTextClamp } from '../../../hooks';
 import style from './styles.module.css';
-import { useEffect, useRef } from 'react';
 
 function MiniCard({ ad }) {
-  const textRef = useRef(null);
-  useEffect(() => {
-    const textElement = textRef.current;
-    if (textElement) {
-      const { clientHeight } = textElement;
-      if (clientHeight > 100) {
-        let textContent = textElement.textContent;
-        while (clientHeight > 100) {
-          textContent = textContent.slice(0, -1);
-          textElement.textContent = textContent + '...';
-        }
-      }
-    }
-  }, []);
+  const textRef = useTextClamp({ maxHeight: 100 });
   return (
     <div className={style.wrapper}>
       <div className={style.leftBlock}>

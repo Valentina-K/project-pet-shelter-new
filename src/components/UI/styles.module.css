@@ -28,11 +28,21 @@
     border: none;
     background: transparent;
     cursor: pointer;
-    width: 25px;
-    height: 25px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
 }
 
-@media screen and (width >=768px) {
+.followMe>img {
+    border-radius: 50%;
+    transition: transform 350ms;
+}
+
+.followMe>img:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (width >= 768px) {
     .button {
         width: 244px;
         padding: 13px 0;
@@ -51,7 +61,7 @@
     }
 }
 
-@media screen and (width >=1280px) {
+@media screen and (width >= 1280px) {
     .button {
         width: 322px;
         padding: 18px 0;

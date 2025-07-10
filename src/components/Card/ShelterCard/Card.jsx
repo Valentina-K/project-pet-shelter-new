@@ -4,11 +4,20 @@ import { GoLocation } from 'react-icons/go';
 import SocialLinks from '../../SocialLinks/SocialLinks';
 import Rating from '../../Rating/Rating';
 import FollowMeButton from '../../UI/FollowMeButton';
+import { useMediaQuery, useTextClamp } from '../../../hooks';
 import styles from './Card.module.css';
 import generic from '../styles.module.css';
 
 function Card({ shelter }) {
   const { id } = shelter;
+  const isTablet = useMediaQuery('(min-width: 768px)');
+  const isLaptop = useMediaQuery('(min-width: 1280px)');
+  const isDesktop = useMediaQuery('(min-width: 1920px)');
+  const textHeight = isDesktop ? 100 : isLaptop ? 103 : isTablet ? 51 : 28;
+  const textRef = useTextClamp({ maxHeight: textHeight });
+  const titleHeight = isDesktop || isLaptop ? 31 : isTablet ? 24 : 19;
+  const titleRef = useTextClamp({ maxHeight: titleHeight, ellipsis: '' });
+
   return (
     <div className={`${generic.cardWrapper} ${styles.cardWrapper}`}>
       <div className={styles.imgWrapper}>
@@ -20,9 +29,13 @@ function Card({ shelter }) {
           <span>{shelter.address.city}, </span>
           <span>{shelter.address.country}</span>
         </div>
-        <h2 className={styles.title}>{shelter.name}</h2>
+        <h2 ref={titleRef} className={styles.title}>
+          {shelter.name}
+        </h2>
         <Rating rating={shelter.rating} />
-        <div className={styles.description}>{shelter.description}</div>
+        <div ref={textRef} className={styles.description}>
+          {shelter.description}
+        </div>
         <div className={styles.socialBlock}>
           <SocialLinks addStyle="card" />
           <Link to={`/shelter/${id}`}>
@@ -44,10 +57,7 @@ Card.propTypes = {
     }),
     rating: PropTypes.string,
     animals: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string,
-        count: PropTypes.string,
-      })
+      PropTypes.shape({ name: PropTypes.string, count: PropTypes.string })
     ),
     description: PropTypes.string,
     logo: PropTypes.string,
