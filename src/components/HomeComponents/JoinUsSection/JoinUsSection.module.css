@@ -23,7 +23,7 @@
     line-height: 28px;
 }
 
-@media screen and (width >=768px) {
+@media screen and (width >= 768px) {
     .wrapper {
         padding: 36px 80px;
     }
@@ -39,7 +39,7 @@
     }
 }
 
-@media screen and (width >=1280px) {
+@media screen and (width >= 1280px) {
     .wrapper {
         padding: 80px 86px 96px;
     }
@@ -57,7 +57,7 @@
     }
 }
 
-@media screen and (width >=1920px) {
+@media screen and (width >= 1920px) {
     .wrapper {
         padding: 70px 407px 80px;
     }

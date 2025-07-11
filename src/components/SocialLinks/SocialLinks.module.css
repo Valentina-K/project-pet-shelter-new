@@ -34,11 +34,6 @@
   .container {
     gap: 18px;
   }
-
-  /* .icon {
-    width: 27px;
-    height: 27px;
-  }   */
 }
 
 @media screen and (width >= 1280px) {
