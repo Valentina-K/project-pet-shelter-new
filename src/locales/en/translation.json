@@ -7,5 +7,21 @@
             "friend": "friend",
             "give-them": "and give them a loving home"
         }
+    },
+    "menu": {
+        "main": "Main Page",
+        "about-us": "About us",
+        "our-animals": "Our animals",
+        "shelters": "Shelters",
+        "volunteers": "Volunteers"
+    },
+    "footer": {
+        "city": "Kyiv, Ukraine, 01001,",
+        "address": "Velyka Vasylkivska street, office 56",
+        "questions": "Have additional questions? Write to us at",
+        "all-rights": "All rights reserved",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "created-by": "Created with love by Team @467"
     }
 }

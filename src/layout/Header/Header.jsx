@@ -2,6 +2,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { TiMessages } from 'react-icons/ti';
 import { IoIosClose } from 'react-icons/io';
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 import Logo from '../../assets/img/logo.png';
 import LocaleDropDown from './LocaleDropDown/LocaleDropDown';
 import { useSelector } from 'react-redux';
@@ -15,6 +16,7 @@ const style = ({ isActive }) =>
   clsx(styles.link, { [styles.active]: isActive });
 
 function Navigation() {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Состояние для отслеживания состояния меню
@@ -48,16 +50,16 @@ function Navigation() {
       </NavLink>
       <div className={styles.navLinks}>
         <NavLink to="/about-us" className={style}>
-          About us
+          {t('menu.about-us')}
         </NavLink>
         <NavLink to="/animals" className={style}>
-          Our animals
+          {t('menu.our-animals')}
         </NavLink>
         <NavLink to="/shelters" className={style}>
-          Shelters
+          {t('menu.shelters')}
         </NavLink>
         <NavLink to="/contacts" className={style}>
-          Volunteers
+          {t('menu.volunteers')}
         </NavLink>
       </div>
       <div className={styles.rightBlock}>
@@ -90,22 +92,22 @@ function Navigation() {
           </li>
           <li className={styles.mobileLink}>
             <NavLink to="/about-us" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              About us
+              {t('menu.about-us')}
             </NavLink>
           </li>
           <li className={styles.mobileLink}>
             <NavLink to="/animals" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              Our animals
+              {t('menu.our-animals')}
             </NavLink>
           </li>
           <li className={styles.mobileLink}>
             <NavLink to="/shelters" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              Shelters
+              {t('menu.shelters')}
             </NavLink>
           </li>
           <li className={styles.mobileLink}>
             <NavLink to="/contacts" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              Volunteers
+              {t('menu.volunteers')}
             </NavLink>
           </li>
         </ul>

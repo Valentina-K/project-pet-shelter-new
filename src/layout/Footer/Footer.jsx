@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import SocialLinks from '../../components/SocialLinks/SocialLinks';
 import { IoIosArrowUp } from 'react-icons/io';
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 import Logo from '../../assets/img/logo.png';
 import styles from './Footer.module.css';
 
@@ -9,6 +10,7 @@ const style = ({ isActive }) =>
   clsx(styles.link, { [styles.active]: isActive });
 
 function Footer() {
+  const { t } = useTranslation();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -19,13 +21,9 @@ function Footer() {
           <NavLink to="/" className={styles.logo}>
             <img src={Logo} alt="logo" />
           </NavLink>
-          <li className={styles.infoItem}>Kyiv, Ukraine, 01001, </li>
-          <li className={styles.infoItem}>
-            Velyka Vasylkivska street, office 56{' '}
-          </li>
-          <li className={styles.infoItem}>
-            Have additional questions? Write to us at
-          </li>
+          <li className={styles.infoItem}>{t('footer.city')}</li>
+          <li className={styles.infoItem}>{t('footer.address')} </li>
+          <li className={styles.infoItem}>{t('footer.questions')}</li>
           <li className={styles.infoItem}>
             <a href="mailto:contact@animal_shelter.com">
               <strong>contact@animal_shelter.com</strong>
@@ -42,19 +40,19 @@ function Footer() {
         </div>
         <div className={styles.navContainer}>
           <NavLink to="/" className={style}>
-            Main page
+            {t('menu.main')}
           </NavLink>
           <NavLink to="/about-us" className={style}>
-            About us
+            {t('menu.about-us')}
           </NavLink>
           <NavLink to="/animals" className={style}>
-            Our animals
+            {t('menu.our-animals')}
           </NavLink>
-          <NavLink to="/volunteering" className={style}>
-            Partners
+          <NavLink to="/shelters" className={style}>
+            {t('menu.shelters')}
           </NavLink>
           <NavLink to="/contacts" className={style}>
-            Contact
+            {t('menu.volunteers')}
           </NavLink>
         </div>
       </div>
@@ -69,16 +67,16 @@ function Footer() {
       <div className={styles.policyWrapper}>
         <ul className={styles.policyContainer}>
           <li className={styles.policyItem}>
-            © 2024 Animal Shelter. All rights reserved
+            © 2024 Animal Shelter. {t('footer.all-rights')}
           </li>
           <li className={styles.policyItem}>
-            <a href="#">Privacy Policy</a>
+            <a href="#">{t('footer.privacy')}</a>
           </li>
           <li className={styles.policyItem}>
-            <a href="#">Terms of Service</a>
+            <a href="#">{t('footer.terms')}</a>
           </li>
         </ul>
-        <p className={styles.policyCreated}>Created with love by Team @233</p>
+        <p className={styles.policyCreated}>{t('footer.created-by')}</p>
       </div>
     </div>
   );
