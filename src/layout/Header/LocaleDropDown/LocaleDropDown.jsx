@@ -1,16 +1,19 @@
 import { useState } from 'react';
-import styles from './LocaleDropDown.module.css';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { useTranslation } from 'react-i18next';
+import styles from './LocaleDropDown.module.css';
 
-const locale = ['EN', 'UA'];
+const locale = ['en', 'ua'];
 
 function LocaleDropDown() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { i18n } = useTranslation();
   const [choiseLocale, setChoiseLocale] = useState('EN');
   const handleToggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
   const handleChoiseLocale = (locale) => {
+    i18n.changeLanguage(locale);
     setChoiseLocale(locale);
     setIsDropdownOpen(false);
     // need to add logic to change the language
