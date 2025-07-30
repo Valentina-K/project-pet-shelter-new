@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import blogcat from '../../../assets/img/blogcat.png';
 import monthNames from '../../../constants/month';
-import styles from './BlogCard.module.css';
 import { useMediaQuery } from '../../../hooks';
+import styles from './BlogCard.module.css';
 
 function BlogCard({ blog }) {
   const textRef = useRef(null);

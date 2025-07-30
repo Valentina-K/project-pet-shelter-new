@@ -9,7 +9,7 @@
 
 .imgWrapper {
   width: 100%;
-  height: 94.6px;
+  height: 94px;
   border-radius: 16px 16px 0 0;
   display: flex;
   justify-content: center;
@@ -25,9 +25,11 @@
 }
 
 .contentWrapper {
-  height: 183px;
+  height: 184px;
+  width: 100%;
   padding: 8px 16px 16px;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   align-items: flex-start;
   color: var(--primary-color);
@@ -51,7 +53,7 @@
 .title {
   font-size: 16px;
   font-weight: 700;
-  line-height: 16px;
+  line-height: 19px;
   margin-bottom: 8px;
 }
 
@@ -66,6 +68,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .goSocial {
@@ -108,7 +111,7 @@
 
   .title {
     font-size: 20px;
-    line-height: 20px;
+    line-height: 24px;
   }
 
   .description {
@@ -119,8 +122,17 @@
 }
 
 @media screen and (width >= 1280px) {
+  .cardWrapper{
+    height: 470px;
+  }
+
   .imgWrapper {
-    height: 173px;
+    height: 187px;
+  }
+
+  .imgWrapper img {
+    width: 222px;
+    height: 142px;
   }
 
   .contentWrapper {
@@ -137,7 +149,7 @@
 
   .title {
     font-size: 26px;
-    line-height: 26px;
+    line-height: 31px;
     margin-bottom: 12px;
   }
 
@@ -149,8 +161,12 @@
 }
 
 @media screen and (width >= 1920px) {
+  .cardWrapper{
+    height: 554px;
+  }
+
   .contentWrapper {
-    height: 221px;
-    padding: 10px 24px 24px 15px;
+    height: 367px;
+    padding: 10px 34px 34px;
   }
 }

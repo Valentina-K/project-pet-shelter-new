@@ -113,7 +113,7 @@
     margin-left: 11px;
 }
 
-@media (width >= 768px) {
+@media screen and (width >= 768px) {
     .wrapper{
         max-width: 687px;
     }
@@ -124,7 +124,7 @@
     }
 }
 
-@media (width >= 1280px) {
+@media screen and (width >= 1280px) {
     .wrapper{
         max-width: 958px;
     }
@@ -135,7 +135,7 @@
     }
 }
 
-@media (width >= 1920px) {
+@media screen and (width >= 1920px) {
     .wrapper{
         max-width: 1600px;
     }

@@ -28,7 +28,7 @@ function AddAd() {
     if (categories.length === 0 && !isLoading) {
       dispatch(getCategories());
     } else setAnimal(categories[0]);
-  }, [isLoading, categories.length]);
+  }, [isLoading, categories, dispatch]);
 
   console.log('categories', categories);
   useEffect(() => {

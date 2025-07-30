@@ -4,19 +4,7 @@
   gap: 16px;
 }
 
-@media screen and (width >= 1280px) {
-  .container {
-    gap: 16px;
-  }  
-}
-
-@media screen and (width >= 768px) {
-  .container {
-    gap: 18px;
-  }  
-}
-
-.container.card{
+.container.card {
   gap: 12px;
 }
 
@@ -27,38 +15,51 @@
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   fill: var(--primary-color);
   transition: fill 0.3s;
 }
 
-@media screen and (width >= 768px) {
-  .icon {
-    width: 27px;
-    height: 27px;
-  }  
-}
-
-@media screen and (width >= 1280px) {
-  .icon {
-    width: 36px;
-    height: 36px;
-  }  
-}
-
-@media screen and (width >= 1280px) {
-  .icon {
-    width: 40px;
-    height: 40px;
-  }  
-}
-
-.icon.card{
-  width: 32px;
-  height: 32px;
+.icon.card {
+  width: 16px;
+  height: 16px;
 }
 
 .link:hover .icon {
   fill: #1f14be;
+}
+
+@media screen and (width >= 768px) {
+  .container {
+    gap: 18px;
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .container {
+    gap: 16px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon.card {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (width >= 1920px) {
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon.card {
+    width: 26px;
+    height: 26px;
+  }
 }

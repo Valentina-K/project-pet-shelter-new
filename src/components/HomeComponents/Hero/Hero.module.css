@@ -44,7 +44,7 @@
     padding: 6px 0;
 }
 
-@media screen and (width >=768px) {
+@media screen and (width >= 768px) {
     .heroWrapper {
         padding-left: 40px;
         background-size: 492px 439px;
@@ -81,7 +81,7 @@
     }
 }
 
-@media screen and (width >=1280px) {
+@media screen and (width >= 1280px) {
     .heroWrapper {
         padding-left: 160px;
         padding-top: 166px;
@@ -109,7 +109,7 @@
     }
 }
 
-@media screen and (width >=1920px) {
+@media screen and (width >= 1920px) {
     .heroWrapper {
         padding-top: 192px;
         padding-left: 160px;
