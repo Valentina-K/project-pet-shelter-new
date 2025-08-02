@@ -3,6 +3,7 @@ import data from '../../../models/blog';
 import styles from './OurBlog.module.css';
 import PreviewBlog from './PreviewBlog';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '../../UI/SectionTitle.jsx';
 import Section from '../../../layout/Section/Section.jsx';
 import NavControls from '../NavControls/NavControls.jsx';
@@ -10,6 +11,7 @@ import { useWindowWidth } from '../../../hooks/index.js';
 
 function OurBlog() {
   const [index, setIndex] = useState(0);
+  const { t } = useTranslation();
   const [margin, setMargin] = useState(0);
   const widthScreen = useWindowWidth();
   const countVisibleItems =
@@ -21,7 +23,7 @@ function OurBlog() {
   };
   return (
     <Section>
-      <SectionTitle text="Our Blog" />
+      <SectionTitle text={t('home.titles.our-blog')} />
       <div className={styles.wrapper}>
         <div className={styles.sliderContainer}>
           <PreviewBlog blog={data.blogs[index]} />

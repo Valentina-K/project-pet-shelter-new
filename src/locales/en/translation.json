@@ -6,7 +6,21 @@
             "your-new": "your new",
             "friend": "friend",
             "give-them": "and give them a loving home"
-        }
+        },
+        "titles":{
+            "our-animals": "Our Animal",
+            "hot-ads": "Hot ads",
+            "shelters": "Shelters",
+            "our-blog": "Our Blog",
+            "statistics": "Statistics",
+            "statistics-h3": "Our Shelter – Your Chance to Make a Difference!"
+
+        },
+        "statistics-p-part1": "We are proud to share the significant results we have achieved thanks to your unwavering support and compassion. This week alone, we&apos;ve received 12,924 donations—each one a powerful testament to your belief in our mission. These contributions directly help us provide food, shelter, medical care, and rehabilitation for animals in need, giving them a second chance at life. Our dedicated team of 5,200 volunteers forms the backbone of our organization, with 467 of them actively working every day to care for animals, manage rescues,",
+        "statistics-p-part2": "assist with adoptions, and provide emotional comfort to those who have suffered neglect or abuse. In addition to this, we are proud to collaborate with 78 trusted partner shelters across the country. These partnerships allow us to broaden our impact, share resources, and respond faster to emergencies and overcrowding situations. Every act of kindness helps transform lives. Join our growing community and be part of a powerful movement making real change.",
+        "statisics-item1": "Animals",
+        "statisics-item2": "Active Volunteers",
+        "statisics-item3": "Partner Shelters"
     },
     "menu": {
         "main": "Main Page",

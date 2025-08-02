@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { fetchSearchAdvertisements } from '../../../redux/advertisements/operations';
 import Card from '../../Card/HotCard/Card';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import NavControls from '../NavControls/NavControls';
 import SectionTitle from '../../UI/SectionTitle.jsx';
@@ -11,6 +12,7 @@ import { useWindowWidth } from '../../../hooks';
 import styles from './HotAds.module.css';
 
 function HotAds() {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [marginLeft, setMarginLeft] = useState(0);
   const [hotAds, setHotAds] = useState([]);
@@ -47,7 +49,7 @@ function HotAds() {
   }
   return (
     <Section>
-      <SectionTitle text="Hot ads" />
+      <SectionTitle text={t('home.titles.hot-ads')} />
       <div className={styles.wrapper}>
         <div
           className={styles.list}

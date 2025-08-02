@@ -1,10 +1,12 @@
 import SectionTitle from '../../UI/SectionTitle.jsx';
 import Section from '../../../layout/Section/Section.jsx';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useWindowWidth } from '../../../hooks/index.js';
 import styles from './Statistics.module.css';
 
 function Statistics() {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const width = useWindowWidth();
   const isMobile = width < 768;
@@ -15,33 +17,16 @@ function Statistics() {
 
   return (
     <Section className={styles.statisticsSection}>
-      <SectionTitle text="Statistics" />
-      <h3 className={styles.subTitle}>
-        Our Shelter – Your Chance to Make a Difference!
-      </h3>
+      <SectionTitle text={t('home.titles.statistics')} />
+      <h3 className={styles.subTitle}>{t('home.titles.statistics-h3')}</h3>
       <div className={styles.textContainer}>
         <p
           className={`${styles.textWrapper} ${
             isExpanded ? styles.expanded : ''
           }`}
         >
-          We are proud to share the significant results we have achieved thanks
-          to your unwavering support and compassion. This week alone, we&apos;ve
-          received 12,924 donations—each one a powerful testament to your belief
-          in our mission. These contributions directly help us provide food,
-          shelter, medical care, and rehabilitation for animals in need, giving
-          them a second chance at life. Our dedicated team of 5,200 volunteers
-          forms the backbone of our organization, with 467 of them actively
-          working every day to care for animals, manage rescues,
-          <br /> assist with adoptions, and provide emotional comfort to those
-          who have suffered neglect or abuse.
-          <br /> In addition to this, we are proud to collaborate with 78
-          trusted partner shelters across the country. These partnerships allow
-          us to broaden our impact, share resources, and respond faster to
-          emergencies and overcrowding situations. Every act of kindness helps
-          transform lives.
-          <br /> Join our growing community and be part of a powerful movement
-          making real change.
+          {t('home.statistics-p-part1')}
+          <br /> {t('home.statistics-p-part2')}
         </p>
         {isMobile && !isExpanded && (
           <span className={styles.ellipsis}>
@@ -62,15 +47,15 @@ function Statistics() {
       </div>
       <div className={styles.statisticsWrapper}>
         <div className={`${styles.statisticsItem} ${styles.hide}`}>
-          <h5>Animal</h5>
+          <h5>{t('home.statisics-item1')}</h5>
           <p>12,924</p>
         </div>
         <div className={styles.statisticsItem}>
-          <h5>Active Volunteers</h5>
+          <h5>{t('home.statisics-item2')}</h5>
           <p>467</p>
         </div>
         <div className={styles.statisticsItem}>
-          <h5>Partner Shelters</h5>
+          <h5>{t('home.statisics-item3')}</h5>
           <p>78</p>
         </div>
       </div>
