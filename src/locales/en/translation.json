@@ -20,7 +20,17 @@
         "statistics-p-part2": "assist with adoptions, and provide emotional comfort to those who have suffered neglect or abuse. In addition to this, we are proud to collaborate with 78 trusted partner shelters across the country. These partnerships allow us to broaden our impact, share resources, and respond faster to emergencies and overcrowding situations. Every act of kindness helps transform lives. Join our growing community and be part of a powerful movement making real change.",
         "statisics-item1": "Animals",
         "statisics-item2": "Active Volunteers",
-        "statisics-item3": "Partner Shelters"
+        "statisics-item3": "Partner Shelters",
+        "subscription":{
+            "h2": "Subscribe to the news",
+            "description":"Stay updated with our latest stories and tips! Enter your email to subscribe to our blog",
+            "button":"Subscribe",
+            "placeholder":"Your email"
+        },
+        "join-us":{
+            "description":"Join our team and change animals lives for the better! Together we can do more!",
+            "button":"Join us"
+        }
     },
     "menu": {
         "main": "Main Page",
