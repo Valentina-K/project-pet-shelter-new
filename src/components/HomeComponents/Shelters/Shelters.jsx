@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import Card from '../../Card/ShelterCard/Card';
 import data from '../../../models/shelters.json';
+import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import NavControls from '../NavControls/NavControls';
@@ -10,6 +11,7 @@ import styles from './Shelters.module.css';
 import { useWindowWidth } from '../../../hooks/index.js';
 
 function Shelters() {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [marginLeft, setMarginLeft] = useState(0);
   const [visibleItems, setVisibleItems] = useState(2);
@@ -41,7 +43,7 @@ function Shelters() {
 
   return (
     <Section>
-      <SectionTitle text="Shelters" />
+      <SectionTitle text={t('home.titles.shelters')} />
       <div className={styles.wrapper}>
         <div
           className={styles.list}

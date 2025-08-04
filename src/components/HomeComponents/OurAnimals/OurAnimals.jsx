@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Card from '../../Card/PetCard/Card.jsx';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '../../UI/SectionTitle.jsx';
 import Button from '../../UI/Button.jsx';
 import Section from '../../../layout/Section/Section.jsx';
@@ -7,9 +8,10 @@ import styles from './OurAnimals.module.css';
 
 function OurAnimals({ ads = [], onViewMoreClick, limit }) {
   const isHasMore = ads.length < limit;
+  const { t } = useTranslation();
   return (
     <Section>
-      <SectionTitle text={'Our animals'} />
+      <SectionTitle text={t('home.titles.our-animals')} />
       <div className={styles.animalsBlock}>
         {ads.length === 0 ? (
           <p>No advertisements available.</p>
