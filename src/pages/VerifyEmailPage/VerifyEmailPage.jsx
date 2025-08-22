@@ -29,6 +29,7 @@ function VerifyEmailPage() {
     dispatch(verifyEmail(token))
       .then(async (res) => {
         const data = await res.json();
+        console.log('data', data);
         if (res.ok) {
           setIsSuccess(true);
           setMessage(data.message || 'Successful registration!');

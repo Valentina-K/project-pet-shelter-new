@@ -63,7 +63,7 @@ export const verifyEmail = createAsyncThunk(
   async (token, thunkAPI) => {
     console.log('Dispatching registerUser with:', token);
     try {
-      const { data } = await publicApi.post(
+      const { data } = await publicApi.get(
         `/api/v1/auth/verify-email?token=${token})`
       );
       console.log('Verify response data:', data);
