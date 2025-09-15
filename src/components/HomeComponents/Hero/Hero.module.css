@@ -1,5 +1,8 @@
-.heroWrapper {
-    width: 100vw;
+.heroWrapper {           
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    max-width: 402px; 
+    width: 100%;
     padding-top: 77px;
     padding-left: 23px;
     background-color: #fff;
@@ -44,11 +47,12 @@
     padding: 6px 0;
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width >=768px) {
     .heroWrapper {
         padding-left: 40px;
         background-size: 492px 439px;
         background-position: top 42px right -24px;
+        max-width: 768px;
     }
 
     .heroTitle {
@@ -81,12 +85,13 @@
     }
 }
 
-@media screen and (width >= 1280px) {
+@media screen and (width >=1280px) {
     .heroWrapper {
         padding-left: 160px;
         padding-top: 166px;
         background-size: 722px 707px;
         background-position: top 64px right 12px;
+        max-width: 1280px;
     }
 
     .heroTitle {
@@ -109,12 +114,13 @@
     }
 }
 
-@media screen and (width >= 1920px) {
+@media screen and (width >=1920px) {
     .heroWrapper {
         padding-top: 192px;
         padding-left: 160px;
         background-size: 926px 829px;
         background-position: top 116px right 68px;
+        max-width: 1920px;
     }
 
     .heroTitle {

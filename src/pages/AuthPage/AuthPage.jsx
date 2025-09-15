@@ -2,8 +2,8 @@ import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
 import LoginWindow from '../../components/AuthModal/LoginWindow';
 import { isExistUser } from '../../redux/auth/operations';
-import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import Container from '../../layout/Container/Container';
+import AuthContainer from '../../layout/AuthContainer/AuthContainer';
 
 function AuthPage() {
   const location = useLocation();
@@ -24,13 +24,13 @@ function AuthPage() {
 
   return (
     <Container>
-      <PageWrapper>
+      <AuthContainer>
         <LoginWindow
           title={'Sing in or register '}
           type={'email'}
           onLoginSuccess={handleLoginSuccess}
         />
-      </PageWrapper>
+      </AuthContainer>
     </Container>
   );
 }

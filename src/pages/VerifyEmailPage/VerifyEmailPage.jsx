@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { verifyEmail } from '../../redux/auth/operations';
-import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import Container from '../../layout/Container/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAuth } from '../../redux/auth/selectors';
 import WellcomeWindow from '../../components/AuthModal/WellcomeWindow';
+import AuthContainer from '../../layout/AuthContainer/AuthContainer';
 
 function VerifyEmailPage() {
   const [searchParams] = useSearchParams();
@@ -29,7 +29,7 @@ function VerifyEmailPage() {
     dispatch(verifyEmail(token))
       .then(async (res) => {
         const data = await res.json();
-        console.log('data', data);
+        console.log('data', data); //data.status = 200?
         if (res.ok) {
           setIsSuccess(true);
           setMessage(data.message || 'Successful registration!');
@@ -46,7 +46,7 @@ function VerifyEmailPage() {
 
   return (
     <Container>
-      <PageWrapper>
+      <AuthContainer>
         {loading && <p>Token verification...</p>}
         {isSuccess && user && (
           <WellcomeWindow
@@ -60,7 +60,7 @@ function VerifyEmailPage() {
             }}
           />
         )}
-      </PageWrapper>
+      </AuthContainer>
     </Container>
   );
 }

@@ -8,7 +8,7 @@ import { getUserById, registerUser } from '../../redux/auth/operations';
 //import { useNavigate } from 'react-router';
 //import { selectAuth } from '../../redux/auth/selectors';
 import Container from '../../layout/Container/Container';
-import PageWrapper from '../../layout/PageWrapper/PageWrapper';
+import AuthContainer from '../../layout/AuthContainer/AuthContainer';
 
 function RegisterPage() {
   //const navigate = useNavigate();
@@ -30,13 +30,13 @@ function RegisterPage() {
     dispatch(registerUser(value)).then((result) => {
       const { id } = result.payload;
       if (id) dispatch(getUserById(id));
-      //setIsSuccess(true);
+      //setIsSuccess(true); тут по идее проверяю ответ. если 201, setIsSubmitted(true);
     });
   };
 
   return (
     <Container>
-      <PageWrapper>
+      <AuthContainer>
         {!chooseRole && <RoleWindow onChooseRole={handleRole} />}
         {!isSubmitted && chooseRole && (
           <RegisterForm
@@ -57,7 +57,7 @@ function RegisterPage() {
             }}
           />
         )} */}
-      </PageWrapper>
+      </AuthContainer>
     </Container>
   );
 }

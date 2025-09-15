@@ -5,54 +5,27 @@
   left: 0;
   right: 0;
   z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 19px 32px;
   background-color: var(--accent-background-color);
   transition: background-color 0.3s ease;
-}
-
-@media screen and (width >=768px) {
-  .navContainer {
-    padding: 34px 69px 34px 37px;
-  }
-}
-
-@media screen and (width >=1280px) {
-  .navContainer {
-    padding: 40px 170px 40px 158px;
-  }
-}
-
-@media screen and (width >=1920px) {
-  .navContainer {
-    padding: 45px 160px 35px 156px;
-  }
 }
 
 .navContainer.scrolled {
   background-color: var(--accent-bgc-transparent);
 }
 
+.contentContainer{
+  max-width: 402px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 32px;
+}
+
 .logoLink {
   width: 90px;
   height: 32px;
-}
-
-@media screen and (width >=1280px) {
-  .logoLink {
-    width: 128px;
-    height: 45px;
-  }
-}
-
-@media screen and (width >=1920px) {
-  .logoLink {
-    width: 124px;
-    height: 45px;
-    margin-right: 92px;
-  }
 }
 
 .rightBlock {
@@ -63,26 +36,6 @@
 .hamburgerIcon {
   width: 30px;
   height: 13px;
-}
-
-@media screen and (width >=768px) {
-  .hamburgerIcon {
-    width: 34px;
-    height: 25px;
-  }
-}
-
-@media screen and (width >=1280px) {
-  .hamburgerIcon {
-    width: 34px;
-    height: 34px;
-  }
-}
-
-@media screen and (width >=1920px) {
-  .hamburgerIcon {
-    display: none;
-  }
 }
 
 .link {
@@ -106,48 +59,14 @@
   display: none;
 }
 
-@media screen and (width >=1920px) {
-  .navLinks {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    padding: 17px 42px 17px 52px;
-    gap: 56px;
-    border: 1px solid #d9d9d9;
-    border-radius: 40px;
-    background-color: var(--header-background-color);
-  }
-}
-
 .authLinks {
   display: none;
-}
-
-@media screen and (width >=768px) {
-  .authLinks {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-  }
 }
 
 .loginContainer {
   display: flex;
   align-items: center;
   gap: 20px;
-}
-
-@media screen and (width >=1280px) {
-  .loginContainer {
-    gap: 28px;
-  }
-}
-
-@media screen and (width >=1920px) {
-  .loginContainer {
-    gap: 20px;
-  }
 }
 
 .iconContainer {
@@ -174,12 +93,6 @@
   display: none;
 }
 
-@media screen and (width >=1920px) {
-  .forumLink {
-    display: block;
-  }
-}
-
 .forumLink:hover {
   color: #007bff;
 }
@@ -201,20 +114,10 @@
   border: 1px solid #d9d9d9;
   cursor: pointer;
   text-decoration: none;
-  color: #000;
+  color: var(--primary-color);
   font-size: 16px;
   font-weight: 600;
   background-color: var(--header-background-color);
-}
-
-@media screen and (width >=1280px) {
-  .loginBtn {
-    width: 115px;
-    padding: 18px 28px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1;
-  }
 }
 
 .mobileMenu {
@@ -241,24 +144,6 @@
   height: 32px;
 }
 
-@media screen and (width >=768px) {
-  .closeButton {
-    top: 34px;
-    right: 60px;
-    width: 48px;
-    height: 48px;
-  }
-}
-
-@media screen and (width >=1280px) {
-  .closeButton {
-    top: 54px;
-    right: 170px;
-    width: 60px;
-    height: 60px;
-  }
-}
-
 .mobileList {
   display: flex;
   flex-direction: column;
@@ -273,4 +158,102 @@
   padding: 10px 25px;
   font-size: 20px;
   line-height: 20px;
+}
+
+@media screen and (width >=768px) {
+  .contentContainer {
+    max-width: 768px;
+    padding: 34px 69px 34px 37px;
+  }
+
+  .hamburgerIcon {
+    width: 34px;
+    height: 25px;
+  }
+
+  .authLinks {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .closeButton {
+    top: 34px;
+    right: 60px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media screen and (width >=1280px) {
+  .contentContainer {
+    max-width: 1280px;
+    padding: 40px 170px 40px 158px;
+  }
+
+  .logoLink {
+    width: 128px;
+    height: 45px;
+  }
+
+  .hamburgerIcon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .loginContainer {
+    gap: 28px;
+  }
+
+  .loginBtn {
+    width: 115px;
+    padding: 18px 28px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .closeButton {
+    top: 54px;
+    right: 170px;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media screen and (width >=1920px) {
+  .contentContainer {
+    max-width: 1920px;
+    padding: 45px 160px 35px 156px;
+  }
+
+  .logoLink {
+    width: 124px;
+    height: 45px;
+    margin-right: 92px;
+  }
+
+  .hamburgerIcon {
+    display: none;
+  }
+
+  .navLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 17px 42px 17px 52px;
+    gap: 56px;
+    border: 1px solid #d9d9d9;
+    border-radius: 40px;
+    background-color: var(--header-background-color);
+  }
+
+  .loginContainer {
+    gap: 20px;
+  }
+
+  .forumLink {
+    display: block;
+  }
 }
