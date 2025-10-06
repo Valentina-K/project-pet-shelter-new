@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { verifyEmail } from '../../redux/auth/operations';
 import Container from '../../layout/Container/Container';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectAuth } from '../../redux/auth/selectors';
+import { useDispatch } from 'react-redux';
 import WellcomeWindow from '../../components/AuthModal/WellcomeWindow';
 import AuthContainer from '../../layout/AuthContainer/AuthContainer';
 
@@ -15,7 +14,6 @@ function VerifyEmailPage() {
   const [loading, setLoading] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
   const from = localStorage.getItem('from') || '/';
-  const { user } = useSelector(selectAuth);
 
   const token = searchParams.get('token');
 
@@ -48,12 +46,9 @@ function VerifyEmailPage() {
     <Container>
       <AuthContainer>
         {loading && <p>Token verification...</p>}
-        {isSuccess && user && (
+        {isSuccess && (
           <WellcomeWindow
             title={message}
-            firstname={user.firstName}
-            lastname={user.lastName}
-            email={user.email}
             isRegistration={true}
             onCloseWindow={() => {
               navigate(from);

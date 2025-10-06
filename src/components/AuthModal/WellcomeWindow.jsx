@@ -27,7 +27,7 @@ function WellcomeWindow({
           </h3>
           <p className={styles.email}>{email}</p>
           {isRegistration && (
-            <p className={styles.gladtosee}>Glad to see you!</p>
+            <p className={styles.gladtosee}>Now you can log in.</p>
           )}
         </div>
         <button
@@ -45,9 +45,9 @@ function WellcomeWindow({
 
 WellcomeWindow.propTypes = {
   title: PropTypes.string.isRequired,
-  firstname: PropTypes.string.isRequired,
-  lastname: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
+  firstname: PropTypes.string,
+  lastname: PropTypes.string,
+  email: PropTypes.string,
   isRegistration: PropTypes.bool.isRequired,
   onCloseWindow: PropTypes.func.isRequired,
 };

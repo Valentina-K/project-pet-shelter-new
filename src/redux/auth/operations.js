@@ -45,7 +45,7 @@ export const registerUser = createAsyncThunk(
         userData
       );
       console.log('Register response data:', data);
-      setAuthToken(data.token);
+      //setAuthToken(data.token);
       return data;
     } catch (err) {
       console.error('Register error:', err);

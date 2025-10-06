@@ -61,9 +61,9 @@ function HomePage() {
     }
   };
   return (
-    <Container>
-      <PageWrapper>
-        <Hero />
+    <PageWrapper>
+      <Hero />
+      <Container>
         {!isLoading && (
           <OurAnimals
             onViewMoreClick={handlePageChange}
@@ -77,8 +77,8 @@ function HomePage() {
         <OurBlog />
         <Subscribe />
         <Statistics />
-      </PageWrapper>
-    </Container>
+      </Container>
+    </PageWrapper>
   );
 }
 
