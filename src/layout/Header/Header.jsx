@@ -45,88 +45,75 @@ function Navigation() {
     <nav
       className={clsx(styles.navContainer, { [styles.scrolled]: isScrolled })}
     >
-      <div className={styles.contentContainer}>
-        <NavLink to="/" className={styles.logoLink}>
-          <img src={Logo} alt="logo" />
+      <NavLink to="/" className={styles.logoLink}>
+        <img src={Logo} alt="logo" />
+      </NavLink>
+      <div className={styles.navLinks}>
+        <NavLink to="/about-us" className={style}>
+          {t('menu.about-us')}
         </NavLink>
-        <div className={styles.navLinks}>
-          <NavLink to="/about-us" className={style}>
-            {t('menu.about-us')}
+        <NavLink to="/animals" className={style}>
+          {t('menu.our-animals')}
+        </NavLink>
+        <NavLink to="/shelters" className={style}>
+          {t('menu.shelters')}
+        </NavLink>
+        <NavLink to="/contacts" className={style}>
+          {t('menu.volunteers')}
+        </NavLink>
+      </div>
+      <div className={styles.rightBlock}>
+        <div className={styles.authLinks}>
+          <NavLink to="/" className={styles.forumLink}>
+            <TiMessages className={styles.forumIcon} />
           </NavLink>
-          <NavLink to="/animals" className={style}>
-            {t('menu.our-animals')}
-          </NavLink>
-          <NavLink to="/shelters" className={style}>
-            {t('menu.shelters')}
-          </NavLink>
-          <NavLink to="/contacts" className={style}>
-            {t('menu.volunteers')}
-          </NavLink>
-        </div>
-        <div className={styles.rightBlock}>
-          <div className={styles.authLinks}>
-            <NavLink to="/" className={styles.forumLink}>
-              <TiMessages className={styles.forumIcon} />
-            </NavLink>
-            <div className={styles.loginContainer}>
-              <LocaleDropDown />
-              {!isAuth ? (
-                <button onClick={handleSignInClick} className={styles.loginBtn}>
-                  Log In
-                </button>
-              ) : (
-                <UserMenu />
-              )}
-            </div>
+          <div className={styles.loginContainer}>
+            <LocaleDropDown />
+            {!isAuth ? (
+              <button onClick={handleSignInClick} className={styles.loginBtn}>
+                {t('menu.log-in')}
+              </button>
+            ) : (
+              <UserMenu />
+            )}
           </div>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <img src={burger} alt="menu" className={styles.hamburgerIcon} />
-          </button>
         </div>
-        <div
-          className={clsx(styles.mobileMenu, { [styles.opened]: isMenuOpen })}
-        >
-          <ul className={styles.mobileList}>
-            <li className={styles.mobileLink}>
-              <NavLink>Log in</NavLink>
-            </li>
-            <li className={styles.mobileLink}>
-              <NavLink>ENG/UKR</NavLink>
-            </li>
-            <li className={styles.mobileLink}>
-              <NavLink
-                to="/about-us"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {t('menu.about-us')}
-              </NavLink>
-            </li>
-            <li className={styles.mobileLink}>
-              <NavLink to="/animals" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                {t('menu.our-animals')}
-              </NavLink>
-            </li>
-            <li className={styles.mobileLink}>
-              <NavLink
-                to="/shelters"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {t('menu.shelters')}
-              </NavLink>
-            </li>
-            <li className={styles.mobileLink}>
-              <NavLink
-                to="/contacts"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {t('menu.volunteers')}
-              </NavLink>
-            </li>
-          </ul>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <IoIosClose className={styles.closeButton} />
-          </button>
-        </div>
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <img src={burger} alt="menu" className={styles.hamburgerIcon} />
+        </button>
+      </div>
+      <div className={clsx(styles.mobileMenu, { [styles.opened]: isMenuOpen })}>
+        <ul className={styles.mobileList}>
+          <li className={styles.mobileLink}>
+            <NavLink>{t('menu.log-in')}</NavLink>
+          </li>
+          <li className={styles.mobileLink}>
+            <NavLink>ENG/UKR</NavLink>
+          </li>
+          <li className={styles.mobileLink}>
+            <NavLink to="/about-us" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {t('menu.about-us')}
+            </NavLink>
+          </li>
+          <li className={styles.mobileLink}>
+            <NavLink to="/animals" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {t('menu.our-animals')}
+            </NavLink>
+          </li>
+          <li className={styles.mobileLink}>
+            <NavLink to="/shelters" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {t('menu.shelters')}
+            </NavLink>
+          </li>
+          <li className={styles.mobileLink}>
+            <NavLink to="/contacts" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {t('menu.volunteers')}
+            </NavLink>
+          </li>
+        </ul>
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <IoIosClose className={styles.closeButton} />
+        </button>
       </div>
     </nav>
   );

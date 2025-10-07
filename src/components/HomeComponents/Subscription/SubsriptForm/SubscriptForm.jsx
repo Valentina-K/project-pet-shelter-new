@@ -1,10 +1,12 @@
 import { useState } from 'react';
 //import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 import styles from './SubscriptForm.module.css';
 import Button from '../../../UI/Button';
 
 const SubscriptionForm = () => {
   const [email, setEmail] = useState('');
+  const { t } = useTranslation();
   const [message, setMessage] = useState('');
   const [visible, setVisible] = useState(false);
 
@@ -26,23 +28,20 @@ const SubscriptionForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <h3 className={styles.title}>Subscribe to the news</h3>
+      <h3 className={styles.title}>{t('home.subscription.h2')}</h3>
       <div>
         <input
           type="email"
-          placeholder="Your email "
+          placeholder={t('home.subscription.placeholder')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
           className={styles.input}
         />
-        <p className={styles.text}>
-          Stay updated with our latest stories and tips! Enter your email to
-          subscribe to our blog
-        </p>
+        <p className={styles.text}>{t('home.subscription.description')}</p>
       </div>
       <Button type="submit" className={styles.button}>
-        Subscribe
+        {t('home.subscription.button')}
       </Button>
       {visible && (
         <p
