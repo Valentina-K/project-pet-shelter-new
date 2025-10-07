@@ -33,6 +33,7 @@
         }
     },
     "menu": {
+        "log-in": "Log In",
         "main": "Main Page",
         "about-us": "About us",
         "our-animals": "Our animals",

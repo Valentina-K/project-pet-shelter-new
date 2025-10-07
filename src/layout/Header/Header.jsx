@@ -71,7 +71,7 @@ function Navigation() {
             <LocaleDropDown />
             {!isAuth ? (
               <button onClick={handleSignInClick} className={styles.loginBtn}>
-                Log In
+                {t('menu.log-in')}
               </button>
             ) : (
               <UserMenu />
@@ -85,7 +85,7 @@ function Navigation() {
       <div className={clsx(styles.mobileMenu, { [styles.opened]: isMenuOpen })}>
         <ul className={styles.mobileList}>
           <li className={styles.mobileLink}>
-            <NavLink>Log in</NavLink>
+            <NavLink>{t('menu.log-in')}</NavLink>
           </li>
           <li className={styles.mobileLink}>
             <NavLink>ENG/UKR</NavLink>
