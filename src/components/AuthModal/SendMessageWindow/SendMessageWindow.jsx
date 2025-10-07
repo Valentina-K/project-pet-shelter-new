@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './SendMessageWindow.css';
+import styles from './SendMessageWindow.module.css';
 
 function SendMessageWindow({ text }) {
   return <div className={styles.wrapper}>{text}</div>;

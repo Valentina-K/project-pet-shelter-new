@@ -37,6 +37,11 @@
     color: #000;
 }
 
+.agry {
+    width: 26px;
+    height: 24px;
+}
+
 .inputError {
     position: relative;
 }
