@@ -29,8 +29,8 @@ function VerifyEmailPage() {
         const data = await res.json();
         console.log('data', data); //data.status = 200?
         if (res.ok) {
-          setIsSuccess(true);
           setMessage(data.message || 'Successful registration!');
+          setIsSuccess(true);
         } else {
           setMessage(data.message || 'Email confirmation error.');
         }
