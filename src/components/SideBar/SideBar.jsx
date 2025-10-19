@@ -4,6 +4,7 @@ import {
   getCategories,
   getCategoryById,
 } from '../../redux/categories/operations';
+import { useTranslation } from 'react-i18next';
 import {
   selectCategories,
   selectIsLoading,
@@ -23,13 +24,14 @@ import { selectListAttrByCategory } from '../../redux/advertisements/selectors.j
 
 function SideBar() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const categories = useSelector(selectCategories); //get all categories
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const items = useSelector(selectListAttrByCategory);
   const selectCategory = useSelector(selectSelectedCategory);
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
-  const [categoryTitle, setCategoryTitle] = useState('Categories');
+  const [categoryTitle, setCategoryTitle] = useState(t('side-bar'));
   useEffect(() => {
     if (categories.length === 0 && !isLoading) {
       dispatch(getCategories());
@@ -56,7 +58,7 @@ function SideBar() {
   }, [selectedCategoryId, dispatch]);
 
   useEffect(() => {
-    if (!selectCategory['id']) setCategoryTitle('Categories');
+    if (!selectCategory['id']) setCategoryTitle(t('side-bar'));
     else setCategoryTitle(categories[selectCategory['id'] - 1].name);
   }, [selectCategory, categories, dispatch]);
 
