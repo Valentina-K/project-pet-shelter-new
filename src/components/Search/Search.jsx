@@ -1,12 +1,13 @@
 import { IoSearch } from 'react-icons/io5';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import styles from './Search.module.css';
 
 function Search({ onSearch }) {
   const [searchValue, setSearchValue] = useState('');
   const [query, setQuery] = useState('');
-
+  const { t } = useTranslation();
   const handleChanged = (e) => setSearchValue(e.target.value);
   const handleClick = () => {
     setQuery(encodeURIComponent(searchValue));
@@ -40,7 +41,7 @@ function Search({ onSearch }) {
         className={styles.searchButton}
         onClick={handleClick}
       >
-        Search
+        {t('search')}
       </button>
     </div>
   );

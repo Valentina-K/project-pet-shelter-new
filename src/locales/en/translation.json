@@ -32,6 +32,8 @@
             "button":"Join us"
         }
     },
+    "search": "Search",
+    "side-bar": "Categories",
     "menu": {
         "log-in": "Log In",
         "main": "Main Page",
