@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import styles from './AuthModal.module.css';
 import { useEffect, useState } from 'react';
 import AuthSocial from './AuthSocial/AuthSocial';
 import { Link } from 'react-router-dom';
+import Button from '../UI/Button';
+import styles from './AuthModal.module.css';
 
 function LoginWindow({ title, type, error = '', onLoginSuccess }) {
   const placeholder = type === 'email' ? 'Mail address' : 'Password';
@@ -59,9 +60,9 @@ function LoginWindow({ title, type, error = '', onLoginSuccess }) {
               </div>
             )}
           </div>
-          <button onClick={handleContinue} className={styles.continueButton}>
+          <Button onClick={handleContinue} className={styles.continueButton}>
             Continue
-          </button>
+          </Button>
         </div>
         <div className={styles.orLine}>or</div>
         <AuthSocial />

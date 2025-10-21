@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import RoleWindow from '../../components/AuthModal/Register/RoleWindow/RoleWindow';
 import RegisterForm from '../../components/AuthModal/Register/RegisterForm/RegisterForm';
 import SendMessageWindow from '../../components/AuthModal/SendMessageWindow/SendMessageWindow';
-import { getUserById, registerUser } from '../../redux/auth/operations';
+import { registerUser } from '../../redux/auth/operations';
 //import WellcomeWindow from '../../components/AuthModal/WellcomeWindow';
 //import { useNavigate } from 'react-router';
 //import { selectAuth } from '../../redux/auth/selectors';
@@ -28,8 +28,9 @@ function RegisterPage() {
   const handleSubmitted = (value) => {
     setIsSubmitted(true);
     dispatch(registerUser(value)).then((result) => {
-      const { id } = result.payload;
-      if (id) dispatch(getUserById(id));
+      if (result === 200) setIsSubmitted(true);
+      //const { id } = result.payload;
+      //if (id) dispatch(getUserById(id));
       //setIsSuccess(true); тут по идее проверяю ответ. если 201, setIsSubmitted(true);
     });
   };

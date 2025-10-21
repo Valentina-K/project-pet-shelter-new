@@ -60,7 +60,10 @@ const authSlice = createSlice({
       })
       .addCase(isExistUser.rejected, handleRejected)
       .addCase(registerUser.pending, handlePending)
-      .addCase(registerUser.fulfilled, handleFulfilled)
+      .addCase(registerUser.fulfilled, (state) => {
+        state.isLoading = false;
+        state.error = null;
+      })
       .addCase(registerUser.rejected, handleRejected)
       .addCase(loginUser.pending, handlePending)
       .addCase(loginUser.fulfilled, handleFulfilled)
