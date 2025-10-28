@@ -19,7 +19,7 @@
 .acceptIcon {
     margin-right: 12px;
     width: 26px;
-    height: 24px;
+    height: 26px;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 

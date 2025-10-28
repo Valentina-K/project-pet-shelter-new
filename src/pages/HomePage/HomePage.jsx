@@ -25,6 +25,7 @@ import Statistics from '../../components/HomeComponents/Statistics/Statistics';
 import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import Container from '../../layout/Container/Container';
 import HotAds from '../../components/HomeComponents/HotAds/HotAds';
+import Loader from '../../components/Loader/Loader';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -60,6 +61,9 @@ function HomePage() {
       dispatch(setHasMore(true));
     }
   };
+
+  if (isLoading) return <Loader />;
+
   return (
     <PageWrapper>
       <Hero />

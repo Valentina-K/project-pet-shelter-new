@@ -64,7 +64,7 @@ export const verifyEmail = createAsyncThunk(
     console.log('Dispatching registerUser with:', token);
     try {
       const result = await publicApi.get(
-        `/api/v1/auth/verify-email?token=${token})`
+        `/api/v1/auth/verify-email?token=${token}`
       );
       console.log('Verify response data:', result);
       //setAuthToken(data.token);
