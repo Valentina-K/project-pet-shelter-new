@@ -33,7 +33,7 @@ function WellcomeRegisterWindow({ title, isRegistration, onCloseWindow }) {
           <Button
             className={styles.homeButton}
             onClick={() => {
-              navigate('/sign-in');
+              navigate('/auth');
             }}
           >
             Log in

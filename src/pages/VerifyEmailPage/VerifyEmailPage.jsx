@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import AuthContainer from '../../layout/AuthContainer/AuthContainer';
 import Loader from '../../components/Loader/Loader';
 import WellcomeRegisterWindow from '../../components/AuthModal/WellcomeRegisterWindow';
+import { inProgressTokens, processedTokens } from '../../modules/tokenManager';
 
 function VerifyEmailPage() {
   const [searchParams] = useSearchParams();
@@ -25,11 +26,14 @@ function VerifyEmailPage() {
       return;
     }
 
+    // Если токен уже обрабатывался — выходим
+    if (processedTokens.has(token) || inProgressTokens.has(token)) return;
+
+    inProgressTokens.add(token);
+
     dispatch(verifyEmail(token))
       .then((res) => {
-        //const data = await res.json();
-        console.log('res', res); //data.status = 200?
-        if (res === 200) {
+        if (res.payload === 200) {
           setMessage('Successful registration!');
           setIsSuccess(true);
         } else {
@@ -40,6 +44,10 @@ function VerifyEmailPage() {
       .catch(() => {
         setMessage('Network error. Try again.');
         setLoading(false);
+      })
+      .finally(() => {
+        inProgressTokens.delete(token);
+        processedTokens.add(token);
       });
   }, [token, dispatch]);
 

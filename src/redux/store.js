@@ -14,6 +14,7 @@ import advertisementsReducer from './advertisements/slice';
 import { categoriesReducer } from './categories/slice';
 import photosReducer from './photos/slice';
 import authReducer from './auth/slice';
+import authorsReducer from './authors/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -27,6 +28,7 @@ export const store = configureStore({
     advertisements: advertisementsReducer,
     photos: photosReducer,
     category: categoriesReducer,
+    authors: authorsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

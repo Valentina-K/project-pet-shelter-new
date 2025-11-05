@@ -3,20 +3,16 @@ import Hero from '../../components/HomeComponents/Hero/Hero';
 import OurAnimals from '../../components/HomeComponents/OurAnimals/OurAnimals';
 import {
   selectAdvertisements,
-  selectPage,
   selectTotalPage,
   selectTotalElements,
+  selectIsLoading,
+  selectHasMore,
 } from '../../redux/advertisements/selectors';
-import { selectIsLoading } from '../../redux/photos/selectors';
-import { useEffect } from 'react';
-import { fetchAdvertisements } from '../../redux/advertisements/operations';
-import {
-  setPage,
-  setHasMore,
-  resetData,
-} from '../../redux/advertisements/slice';
+import { useEffect, useMemo, useState } from 'react';
+import { getAllAds } from '../../redux/advertisements/operations';
+import { setHasMore, resetData } from '../../redux/advertisements/slice';
 import { useWindowWidth } from '../../hooks';
-import { clearFilters } from '../../redux/categories/slice';
+//import { clearFilters } from '../../redux/categories/slice';
 import Shelters from '../../components/HomeComponents/Shelters/Shelters';
 import JoinUsSection from '../../components/HomeComponents/JoinUsSection/JoinUsSection';
 import OurBlog from '../../components/HomeComponents/OurBlog/OurBlog';
@@ -24,45 +20,41 @@ import Subscribe from '../../components/HomeComponents/Subscription/Subscription
 import Statistics from '../../components/HomeComponents/Statistics/Statistics';
 import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import Container from '../../layout/Container/Container';
-import HotAds from '../../components/HomeComponents/HotAds/HotAds';
+//import HotAds from '../../components/HomeComponents/HotAds/HotAds';
 import Loader from '../../components/Loader/Loader';
 
 function HomePage() {
   const dispatch = useDispatch();
-  const ads = useSelector(selectAdvertisements);
-  const isLoading = useSelector(selectIsLoading);
-  const page = useSelector(selectPage);
+  const [page, setPage] = useState(0);
   const widthScreen = useWindowWidth();
-  const size = widthScreen < 768 ? 4 : widthScreen < 1920 ? 6 : 8;
+  const size = useMemo(
+    () => (widthScreen < 768 ? 4 : widthScreen < 1920 ? 6 : 8),
+    [widthScreen]
+  );
+  const ads = useSelector(selectAdvertisements);
   const totalPage = useSelector(selectTotalPage);
   const totalElements = useSelector(selectTotalElements);
+  const hasMore = useSelector(selectHasMore);
+  const isLoading = useSelector(selectIsLoading);
+
   useEffect(() => {
     dispatch(resetData());
-    dispatch(clearFilters());
   }, [dispatch]);
+
   useEffect(() => {
-    console.log('from home page', page, size);
-    dispatch(fetchAdvertisements({ page, size }));
-  }, [dispatch, page, size]);
-  /* useEffect(() => {
-    const fetchAds = async () => {
-      try {
-        await dispatch(fetchAdvertisements({ page, size }));
-      } catch (err) {
-        console.log('error fetching ads:', err);
-      }
-    };
-    fetchAds();
-  }, [dispatch, page]); */
+    //
+    //dispatch(clearFilters());
+    dispatch(getAllAds({ size, page }));
+  }, [dispatch, size, page]);
 
   const handlePageChange = () => {
     if (page < totalPage) {
-      dispatch(setPage(page + 1));
+      setPage((prev) => prev + 1);
       dispatch(setHasMore(true));
     }
   };
 
-  if (isLoading) return <Loader />;
+  if (isLoading && !hasMore) return <Loader />;
 
   return (
     <PageWrapper>
@@ -75,7 +67,7 @@ function HomePage() {
             limit={totalElements}
           />
         )}
-        <HotAds />
+        {/* <HotAds /> */}
         <Shelters />
         <JoinUsSection />
         <OurBlog />

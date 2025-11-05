@@ -15,7 +15,6 @@ function PreviewBlog({ blog }) {
   const formattedDate = `${month}, ${year}`;
   useEffect(() => {
     const element = textRef.current;
-    console.log('element', element);
     if (!element) return;
 
     const truncateText = () => {
