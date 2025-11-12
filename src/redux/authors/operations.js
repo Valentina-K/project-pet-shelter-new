@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { publicApi } from '../api';
 
 export const fetchUserById = createAsyncThunk(
-  'auth/getUserById',
+  'authors/getUserById',
   async (id, thunkAPI) => {
     try {
       const { data } = await publicApi.get(`/api/v1/user/${id}`);

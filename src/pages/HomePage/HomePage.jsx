@@ -22,6 +22,7 @@ import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import Container from '../../layout/Container/Container';
 //import HotAds from '../../components/HomeComponents/HotAds/HotAds';
 import Loader from '../../components/Loader/Loader';
+import { getHotAds } from '../../redux/hotads/operations';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ function HomePage() {
 
   useEffect(() => {
     //
-    //dispatch(clearFilters());
+    dispatch(getHotAds());
     dispatch(getAllAds({ size, page }));
   }, [dispatch, size, page]);
 

@@ -11,7 +11,6 @@ const advertisementSlice = createSlice({
   name: 'advertisements',
   initialState: {
     items: [],
-    hotItems: [],
     filterItems: [],
     searchItems: [],
     /* page: 0, */
