@@ -6,7 +6,8 @@ import {
   selectTotalPage,
   selectTotalElements,
   selectIsLoading,
-  selectHasMore,
+  //selectHasMore,
+  //selectError,
 } from '../../redux/advertisements/selectors';
 import { useEffect, useMemo, useState } from 'react';
 import { getAllAds } from '../../redux/advertisements/operations';
@@ -35,9 +36,9 @@ function HomePage() {
   const ads = useSelector(selectAdvertisements);
   const totalPage = useSelector(selectTotalPage);
   const totalElements = useSelector(selectTotalElements);
-  const hasMore = useSelector(selectHasMore);
+  //const hasMore = useSelector(selectHasMore);
   const isLoading = useSelector(selectIsLoading);
-
+  //const error = useSelector(selectError);
   useEffect(() => {
     dispatch(resetData());
   }, [dispatch]);
@@ -55,7 +56,7 @@ function HomePage() {
     }
   };
 
-  if (isLoading && !hasMore) return <Loader />;
+  if (isLoading) return <Loader />;
 
   return (
     <PageWrapper>
