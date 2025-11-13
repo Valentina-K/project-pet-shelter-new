@@ -16,67 +16,68 @@ function Footer() {
   };
   return (
     <div className={styles.wrapper}>
-      <div className={styles.footerContainer}>
-        <ul className={styles.infoList}>
-          <NavLink to="/" className={styles.logo}>
-            <img src={Logo} alt="logo" />
-          </NavLink>
-          <li className={styles.infoItem}>{t('footer.city')}</li>
-          <li className={styles.infoItem}>{t('footer.address')} </li>
-          <li className={styles.infoItem}>{t('footer.questions')}</li>
-          <li className={styles.infoItem}>
-            <a href="mailto:contact@animal_shelter.com">
-              <strong>contact@animal_shelter.com</strong>
+      <div className={styles.contentContainer}>
+        <div className={styles.footerContainer}>
+          <ul className={styles.infoList}>
+            <NavLink to="/" className={styles.logo}>
+              <img src={Logo} alt="logo" />
+            </NavLink>
+            <li className={styles.infoItem}>{t('footer.city')}</li>
+            <li className={styles.infoItem}>{t('footer.address')} </li>
+            <li className={styles.infoItem}>{t('footer.questions')}</li>
+            <li className={styles.infoItem}>
+              <a href="mailto:contact@animal_shelter.com">
+                <strong>contact@animal_shelter.com</strong>
+              </a>
+            </li>
+          </ul>
+          <div className={styles.contactsContainer}>
+            <a href="tel:+380446756528" className={styles.phone}>
+              +380446756528
             </a>
-          </li>
-        </ul>
-        <div className={styles.contactsContainer}>
-          <a href="tel:+380446756528" className={styles.phone}>
-            +380446756528
-          </a>
-          <div className={styles.socialLinks}>
-            <SocialLinks />
+            <div className={styles.socialLinks}>
+              <SocialLinks />
+            </div>
+          </div>
+          <div className={styles.navContainer}>
+            <NavLink to="/" className={style}>
+              {t('menu.main')}
+            </NavLink>
+            <NavLink to="/about-us" className={style}>
+              {t('menu.about-us')}
+            </NavLink>
+            <NavLink to="/animals" className={style}>
+              {t('menu.our-animals')}
+            </NavLink>
+            <NavLink to="/shelters" className={style}>
+              {t('menu.shelters')}
+            </NavLink>
+            <NavLink to="/contacts" className={style}>
+              {t('menu.volunteers')}
+            </NavLink>
           </div>
         </div>
-        <div className={styles.navContainer}>
-          <NavLink to="/" className={style}>
-            {t('menu.main')}
-          </NavLink>
-          <NavLink to="/about-us" className={style}>
-            {t('menu.about-us')}
-          </NavLink>
-          <NavLink to="/animals" className={style}>
-            {t('menu.our-animals')}
-          </NavLink>
-          <NavLink to="/shelters" className={style}>
-            {t('menu.shelters')}
-          </NavLink>
-          <NavLink to="/contacts" className={style}>
-            {t('menu.volunteers')}
-          </NavLink>
+        <button
+          onClick={scrollToTop}
+          className={styles.scrollToTopBtn}
+          aria-label="scroll to top"
+        >
+          <IoIosArrowUp className={styles.icon} />
+        </button>
+        <div className={styles.policyWrapper}>
+          <ul className={styles.policyContainer}>
+            <li className={styles.policyItem}>
+              © 2024 Animal Shelter. {t('footer.all-rights')}
+            </li>
+            <li className={styles.policyItem}>
+              <a href="#">{t('footer.privacy')}</a>
+            </li>
+            <li className={styles.policyItem}>
+              <a href="#">{t('footer.terms')}</a>
+            </li>
+          </ul>
+          <p className={styles.policyCreated}>{t('footer.created-by')}</p>
         </div>
-      </div>
-
-      <button
-        onClick={scrollToTop}
-        className={styles.scrollToTopBtn}
-        aria-label="scroll to top"
-      >
-        <IoIosArrowUp className={styles.icon} />
-      </button>
-      <div className={styles.policyWrapper}>
-        <ul className={styles.policyContainer}>
-          <li className={styles.policyItem}>
-            © 2024 Animal Shelter. {t('footer.all-rights')}
-          </li>
-          <li className={styles.policyItem}>
-            <a href="#">{t('footer.privacy')}</a>
-          </li>
-          <li className={styles.policyItem}>
-            <a href="#">{t('footer.terms')}</a>
-          </li>
-        </ul>
-        <p className={styles.policyCreated}>{t('footer.created-by')}</p>
       </div>
     </div>
   );

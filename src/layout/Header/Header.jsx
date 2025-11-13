@@ -45,42 +45,44 @@ function Navigation() {
     <nav
       className={clsx(styles.navContainer, { [styles.scrolled]: isScrolled })}
     >
-      <NavLink to="/" className={styles.logoLink}>
-        <img src={Logo} alt="logo" />
-      </NavLink>
-      <div className={styles.navLinks}>
-        <NavLink to="/about-us" className={style}>
-          {t('menu.about-us')}
+      <div className={styles.contentContainer}>
+        <NavLink to="/" className={styles.logoLink}>
+          <img src={Logo} alt="logo" />
         </NavLink>
-        <NavLink to="/animals" className={style}>
-          {t('menu.our-animals')}
-        </NavLink>
-        <NavLink to="/shelters" className={style}>
-          {t('menu.shelters')}
-        </NavLink>
-        <NavLink to="/contacts" className={style}>
-          {t('menu.volunteers')}
-        </NavLink>
-      </div>
-      <div className={styles.rightBlock}>
-        <div className={styles.authLinks}>
-          <NavLink to="/" className={styles.forumLink}>
-            <TiMessages className={styles.forumIcon} />
+        <div className={styles.navLinks}>
+          <NavLink to="/about-us" className={style}>
+            {t('menu.about-us')}
           </NavLink>
-          <div className={styles.loginContainer}>
-            <LocaleDropDown />
-            {!isAuth ? (
-              <button onClick={handleSignInClick} className={styles.loginBtn}>
-                {t('menu.log-in')}
-              </button>
-            ) : (
-              <UserMenu />
-            )}
-          </div>
+          <NavLink to="/animals" className={style}>
+            {t('menu.our-animals')}
+          </NavLink>
+          <NavLink to="/shelters" className={style}>
+            {t('menu.shelters')}
+          </NavLink>
+          <NavLink to="/contacts" className={style}>
+            {t('menu.volunteers')}
+          </NavLink>
         </div>
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <img src={burger} alt="menu" className={styles.hamburgerIcon} />
-        </button>
+        <div className={styles.rightBlock}>
+          <div className={styles.authLinks}>
+            <NavLink to="/" className={styles.forumLink}>
+              <TiMessages className={styles.forumIcon} />
+            </NavLink>
+            <div className={styles.loginContainer}>
+              <LocaleDropDown />
+              {!isAuth ? (
+                <button onClick={handleSignInClick} className={styles.loginBtn}>
+                  {t('menu.log-in')}
+                </button>
+              ) : (
+                <UserMenu />
+              )}
+            </div>
+          </div>
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <img src={burger} alt="menu" className={styles.hamburgerIcon} />
+          </button>
+        </div>
       </div>
       <div className={clsx(styles.mobileMenu, { [styles.opened]: isMenuOpen })}>
         <ul className={styles.mobileList}>

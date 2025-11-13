@@ -1,5 +1,7 @@
 .statisticsSection {
-    margin-bottom: 88px;
+    max-width: 402px;
+    width: 100%;
+    margin: 0 auto 88px;
 }
 
 .subTitle {
@@ -86,6 +88,7 @@
 
 @media (width >= 768px) {
     .statisticsSection {
+        max-width: 768px;
         margin-bottom: 128px;
     }
 
@@ -124,6 +127,10 @@
 }
 
 @media (width >= 1280px) {
+    .statisticsSection {
+        max-width: 1280px;
+    }
+
     .subTitle {
         font-size: 24px;
         margin-bottom: 40px;
@@ -160,6 +167,10 @@
 }
 
 @media (width >= 1920px) {
+    .statisticsSection {
+        max-width: 1920px;
+    }
+
     .subTitle {
         font-size: 32px;
     }

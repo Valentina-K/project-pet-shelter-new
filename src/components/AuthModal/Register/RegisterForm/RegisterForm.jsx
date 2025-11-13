@@ -126,7 +126,7 @@ const RegisterForm = ({ chooseRole, onFormSubmit }) => {
             </label>
 
             <ConfirmPasswordField />
-            <Field name="agree" component={CheckBox} />
+            <Field name="agree" component={CheckBox} className={styles.agry} />
             <button type="submit" disabled={!isValid || !dirty}>
               Register
             </button>

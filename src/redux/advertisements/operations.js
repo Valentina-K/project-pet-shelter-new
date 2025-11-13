@@ -1,6 +1,21 @@
 import { privateApi, publicApi } from '../api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+export const getAllAds = createAsyncThunk(
+  'advertisements/getAll',
+  async ({ size, page }, thunkAPI) => {
+    try {
+      const { data } = await publicApi.get('/api/v1/ad', {
+        params: { size, page },
+      });
+      console.log('data', data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const fetchAdvertisements = createAsyncThunk(
   'advertisements/fetchAll',
   async ({ page, size, filters = {} }, thunkAPI) => {

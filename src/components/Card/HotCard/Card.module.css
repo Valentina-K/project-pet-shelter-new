@@ -71,6 +71,7 @@
   }
 
   .infoWrapper {
+    width: 100%;
     padding: 19px 27px;
     height: 221px;
     gap: 16px;

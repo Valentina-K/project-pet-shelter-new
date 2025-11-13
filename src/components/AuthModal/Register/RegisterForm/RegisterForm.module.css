@@ -4,7 +4,7 @@
     padding: 120px 311px;
     border-radius: 30px;
     background: #CFCFCF;
-
+    margin: 0 auto;
 }
 
 .container h2 {
@@ -35,6 +35,11 @@
     line-height: 24px;
     letter-spacing: 5%;
     color: #000;
+}
+
+.agry {
+    width: 26px;
+    height: 24px;
 }
 
 .inputError {

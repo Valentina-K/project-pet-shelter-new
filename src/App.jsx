@@ -25,6 +25,9 @@ const AuthPage = lazy(() => import('./pages/AuthPage/AuthPage.jsx'));
 const RegisterPage = lazy(
   () => import('./pages/RegisterPage/RegisterPage.jsx')
 );
+const VerifyEmailPage = lazy(
+  () => import('./pages/VerifyEmailPage/VerifyEmailPage.jsx')
+);
 const AnimalPage = lazy(() => import('./pages/AnimalPage/AnimalPage.jsx'));
 const MainPage = lazy(() => import('./pages/profile/MainPage.jsx'));
 const MessagesPage = lazy(() => import('./pages/profile/MessagesPage.jsx'));
@@ -63,6 +66,7 @@ function App() {
           <Route path="/sign-in" element={<SignInPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/verify-email" element={<VerifyEmailPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route element={<PrivateRoute />}>
             <Route path="/dashboard" element={<DashboardPage />}>

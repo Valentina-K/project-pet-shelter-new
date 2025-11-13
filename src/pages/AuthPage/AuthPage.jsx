@@ -1,9 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
+import toast, { Toaster } from 'react-hot-toast';
 import LoginWindow from '../../components/AuthModal/LoginWindow';
 import { isExistUser } from '../../redux/auth/operations';
-import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import Container from '../../layout/Container/Container';
+import AuthContainer from '../../layout/AuthContainer/AuthContainer';
 
 function AuthPage() {
   const location = useLocation();
@@ -11,12 +12,12 @@ function AuthPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   localStorage.setItem('from', from);
+  const notify = (message) => toast.error(message);
 
   const handleLoginSuccess = (value) => {
-    console.log(value);
     dispatch(isExistUser(value)).then((result) => {
-      if (result.payload) {
-        console.log(result.payload);
+      if (result.error) notify(result.payload);
+      else if (result.payload) {
         navigate('/sign-in', { state: { value } });
       } else {
         navigate('/register', { state: { value } });
@@ -26,13 +27,14 @@ function AuthPage() {
 
   return (
     <Container>
-      <PageWrapper>
+      <AuthContainer>
         <LoginWindow
           title={'Sing in or register '}
           type={'email'}
           onLoginSuccess={handleLoginSuccess}
         />
-      </PageWrapper>
+      </AuthContainer>
+      <Toaster />
     </Container>
   );
 }

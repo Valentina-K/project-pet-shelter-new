@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+  getAllAds,
   fetchAdvertisements,
   addNewAdvertisement,
   deleteAdvertisement,
@@ -10,8 +11,10 @@ const advertisementSlice = createSlice({
   name: 'advertisements',
   initialState: {
     items: [],
-    page: 0,
-    size: 8,
+    filterItems: [],
+    searchItems: [],
+    /* page: 0, */
+    /* size: 8, */
     totalPages: 0,
     totalElements: 0,
     hasMore: false,
@@ -34,15 +37,17 @@ const advertisementSlice = createSlice({
   reducers: {
     resetData(state) {
       state.items = [];
-      state.page = 0;
+      /* state.page = 0; */
+      state.totalElements = 0;
+      state.totalPages = 0;
       state.hasMore = false;
     },
-    setPage(state, action) {
+    /* setPage(state, action) {
       state.page = action.payload;
-    },
-    setSize(state, action) {
+    }, */
+    /* setSize(state, action) {
       state.size = action.payload;
-    },
+    }, */
     setHasMore(state, action) {
       state.hasMore = action.payload;
     },
@@ -90,18 +95,37 @@ const advertisementSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
+      .addCase(getAllAds.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getAllAds.fulfilled, (state, action) => {
+        console.log(state.hasMore);
+        state.isLoading = false;
+        if (state.hasMore) state.items.push(...action.payload.content);
+        else state.items = action.payload.content;
+        state.totalPages = action.payload.page.totalPages;
+        state.totalElements = action.payload.page.totalElements;
+        state.error = null;
+      })
+      .addCase(getAllAds.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload || 'Failed to fetch advertisements';
+      })
       .addCase(fetchAdvertisements.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
       .addCase(fetchAdvertisements.fulfilled, (state, action) => {
+        console.log('from state 1', state.items);
         state.isLoading = false;
         if (state.hasMore) state.items.push(...action.payload.page.content);
-        else state.items = action.payload.page.content;
+        else state.filterItems = action.payload.page.content;
         state.totalPages = action.payload.page.page.totalPages;
         state.totalElements = action.payload.page.page.totalElements;
         state.listOfAttributeCounts = action.payload.listOfAttributeCounts;
         state.error = null;
+        console.log('from state 2', state.items);
       })
       .addCase(fetchAdvertisements.rejected, (state, action) => {
         state.isLoading = false;

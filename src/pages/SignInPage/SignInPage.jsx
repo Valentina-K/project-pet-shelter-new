@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUserById, loginUser } from '../../redux/auth/operations';
 import Container from '../../layout/Container/Container';
-import PageWrapper from '../../layout/PageWrapper/PageWrapper';
+import AuthContainer from '../../layout/AuthContainer/AuthContainer';
 
 function SignInPage() {
   const location = useLocation();
@@ -27,14 +27,14 @@ function SignInPage() {
 
   return (
     <Container>
-      <PageWrapper>
+      <AuthContainer>
         <LoginWindow
           title={'Еnter password '}
           type={'password'}
           onLoginSuccess={handleLoginSuccess}
           error={error}
         />
-      </PageWrapper>
+      </AuthContainer>
     </Container>
   );
 }

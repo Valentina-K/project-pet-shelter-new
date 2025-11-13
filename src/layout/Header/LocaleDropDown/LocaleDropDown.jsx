@@ -8,7 +8,7 @@ const locale = ['en', 'ua'];
 function LocaleDropDown() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { i18n } = useTranslation();
-  const [choiseLocale, setChoiseLocale] = useState('EN');
+  const [choiseLocale, setChoiseLocale] = useState(i18n.language);
   const handleToggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
@@ -16,7 +16,6 @@ function LocaleDropDown() {
     i18n.changeLanguage(locale);
     setChoiseLocale(locale);
     setIsDropdownOpen(false);
-    // need to add logic to change the language
   };
   return (
     <div className={styles.wrapper}>

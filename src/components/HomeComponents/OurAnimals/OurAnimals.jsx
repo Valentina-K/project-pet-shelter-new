@@ -8,6 +8,7 @@ import styles from './OurAnimals.module.css';
 
 function OurAnimals({ ads = [], onViewMoreClick, limit }) {
   const isHasMore = ads.length < limit;
+  console.log('from our animals');
   const { t } = useTranslation();
   return (
     <Section>

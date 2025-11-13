@@ -1,10 +1,10 @@
+import AuthContainer from '../../layout/AuthContainer/AuthContainer';
 import Container from '../../layout/Container/Container';
-import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 
 function ResetPasswordPage() {
   return (
     <Container>
-      <PageWrapper>ResetPasswordPage</PageWrapper>
+      <AuthContainer>ResetPasswordPage</AuthContainer>
     </Container>
   );
 }

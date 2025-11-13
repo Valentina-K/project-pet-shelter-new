@@ -1,12 +1,14 @@
 .heroWrapper {
-    width: 100vw;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 402px;
     padding-top: 77px;
     padding-left: 23px;
     background-color: #fff;
     background-image: url('/src/assets/img/hero.png');
     background-repeat: no-repeat;
-    background-size: 236px 211px;
-    background-position: right -10px top 6px;
+    background-size: 284px 200px;
+    background-position: right -8px bottom 57px;
 }
 
 .heroTitle {
@@ -44,11 +46,13 @@
     padding: 6px 0;
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width >=768px) {
     .heroWrapper {
         padding-left: 40px;
-        background-size: 492px 439px;
-        background-position: top 42px right -24px;
+        background-size: 628px 441px;
+        background-position: bottom 0 right 0;
+        max-width: 768px;
+        min-width: 768px;
     }
 
     .heroTitle {
@@ -81,12 +85,14 @@
     }
 }
 
-@media screen and (width >= 1280px) {
+@media screen and (width >=1280px) {
     .heroWrapper {
         padding-left: 160px;
         padding-top: 166px;
-        background-size: 722px 707px;
-        background-position: top 64px right 12px;
+        background-size: 989px 698px;
+        background-position: bottom 0 right -20px;
+        max-width: 1280px;
+        min-width: 1280px;
     }
 
     .heroTitle {
@@ -109,12 +115,14 @@
     }
 }
 
-@media screen and (width >= 1920px) {
+@media screen and (width >=1920px) {
     .heroWrapper {
         padding-top: 192px;
         padding-left: 160px;
-        background-size: 926px 829px;
-        background-position: top 116px right 68px;
+        background-size: 1377px 972px;
+        background-position: bottom 0 right -7px;
+        max-width: 1920px;
+        min-width: 1920px;
     }
 
     .heroTitle {

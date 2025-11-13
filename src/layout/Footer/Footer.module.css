@@ -1,29 +1,18 @@
 .wrapper {
   position: relative;
-  display: flex;
-  flex-flow: column wrap;
   border-top: 1px solid #ddd;
-  padding: 90px 32px 13px;
   background-color: var(--accent-background-color);
   width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
-@media screen and (width >= 768px) {
-  .wrapper {
-    padding: 139px 40px 10px;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .wrapper {
-    padding: 88px 160px 32px;
-  }
-}
-
-@media screen and (width >= 1920px) {
-  .wrapper {
-    padding: 98px 163px 36px 160px;
-  }
+.contentContainer {
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 402px;
+  padding: 90px 32px 13px;
+  margin: 0 auto;
 }
 
 .footerContainer {
@@ -33,24 +22,6 @@
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 148px;
-}
-
-@media screen and (width >= 768px) {
-  .footerContainer {
-    margin-bottom: 24px;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .footerContainer {
-    margin-bottom: 40px;
-  }
-}
-
-@media screen and (width >= 1920px) {
-  .footerContainer {
-    margin-bottom: 76px;
-  }  
 }
 
 .infoList {
@@ -65,22 +36,6 @@
   margin-bottom: 24px;
 }
 
-@media screen and (width >= 768px) {
-  .logo {
-    width: 88px;
-    height: 32px;
-    margin-bottom: 16px;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .logo {
-    width: 128px;
-    height: 45px;
-    margin-bottom: 24px;
-  }
-}
-
 .infoItem {
   display: flex;
   font-size: 14px;
@@ -89,65 +44,18 @@
   width: 180px;
 }
 
-@media screen and (width >= 768px) {
-  .infoItem {
-    font-size: 16px;
-    width: 320px;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .infoItem {
-    font-size: 20px;
-    width: 405px;
-  }
-}
-
-@media screen and (width >= 1920px) {
-  .infoItem {
-    font-size: 22px;
-    line-height: 1.5;
-    width: 410px;
-  }  
-}
-
 .infoItem:nth-child(3) {
   margin-bottom: 16px;
-}
-
-@media screen and (width >= 768px) {
-  .infoItem:nth-child(3) {
-    margin-bottom: 12px;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .infoItem:nth-child(3) {
-    margin-bottom: 24px;
-  }
 }
 
 .contactsContainer {
   position: absolute;
   top: 243px;
-  left: 50%; 
+  left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-@media screen and (width >= 768px) {
-  .contactsContainer {
-    top: -61px;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .contactsContainer {
-    top: 0;
-    gap: 10px;
-  }  
 }
 
 .phone {
@@ -156,12 +64,6 @@
   font-style: normal;
   font-weight: 700;
   line-height: 1;
-}
-
-@media screen and (width >= 1280px) {
-  .phone {
-    font-size: 40px;
-  }    
 }
 
 .navContainer {
@@ -173,32 +75,10 @@
   gap: 11px;
 }
 
-@media screen and (width >= 768px) {
-  .navContainer {
-    margin-top: 0;
-    gap: 16px;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .navContainer {
-    gap: 24px;
-  }
-}
-
 .policyWrapper {
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
-}
-
-@media screen and (width >= 768px) {
-  .policyWrapper {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
 }
 
 .policyContainer {
@@ -209,24 +89,6 @@
   list-style: none;
 }
 
-@media screen and (width >= 768px) {
-  .policyContainer {
-    gap: 40px;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .policyContainer {
-    gap: 60px;
-  }
-}
-
-@media screen and (width >= 1920px) {
-  .policyContainer {
-    height: 100px;
-  }
-}
-
 .policyItem {
   font-family: var(--terms-font-family);
   text-align: center;
@@ -235,51 +97,11 @@
   line-height: 28px;
 }
 
-@media screen and (width >= 768px) {
-  .policyItem {
-    font-size: 14px;
-    line-height: 28px;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .policyItem {
-    font-size: 20px;
-    line-height: 28px;
-  }  
-}
-
-@media screen and (width >= 768px) {
-  .policyItem:nth-child(3) {
-    display: none;
-  }
-}
-
-@media screen and (width >= 1920px) {
-  .policyItem:nth-child(3) {
-    display: block;
-  }
-}
-
 .policyCreated {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 10px;
   line-height: 10px;
-}
-
-@media screen and (width >= 768px) {
-  .policyCreated {    
-    font-size: 14px;
-    line-height: 14px;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .policyCreated {
-    font-size: 20px;
-    line-height: 20px;
-  }
 }
 
 .nav {
@@ -294,25 +116,6 @@
   line-height: 1;
   font-weight: 600;
   text-decoration: none;
-}
-
-@media screen and (width >= 768px) {
-  .link {
-    font-size: 16px;    
-    font-weight: 400;
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .link {
-    font-size: 20px;
-  }
-}
-
-@media scrinen and (width >= 1920px) {
-  .link {
-    font-size: 22px;
-  }
 }
 
 .active {
@@ -349,7 +152,74 @@ a {
   background-color: #1f14be;
 }
 
+.icon {
+  width: 72px;
+  height: 80px;
+}
+
 @media screen and (width >=768px) {
+  .contentContainer {
+    max-width: 768px;
+    padding: 139px 40px 10px;
+  }
+
+  .footerContainer {
+    margin-bottom: 24px;
+  }
+
+  .logo {
+    width: 88px;
+    height: 32px;
+    margin-bottom: 16px;
+  }
+
+  .infoItem {
+    font-size: 16px;
+    width: 320px;
+  }
+
+  .infoItem:nth-child(3) {
+    margin-bottom: 12px;
+  }
+
+  .contactsContainer {
+    top: -61px;
+  }
+
+  .navContainer {
+    margin-top: 0;
+    gap: 16px;
+  }
+
+  .policyWrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .policyContainer {
+    gap: 40px;
+  }
+
+  .policyItem {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .policyItem:nth-child(3) {
+    display: none;
+  }
+
+  .policyCreated {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .link {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
   .scrollToTopBtn {
     bottom: 318px;
     right: 55px;
@@ -357,6 +227,61 @@ a {
 }
 
 @media screen and (width >=1280px) {
+  .contentContainer {
+    max-width: 1280px;
+    padding: 88px 160px 32px;
+  }
+
+  .footerContainer {
+    margin-bottom: 40px;
+  }
+
+  .logo {
+    width: 128px;
+    height: 45px;
+    margin-bottom: 24px;
+  }
+
+  .infoItem {
+    font-size: 20px;
+    width: 405px;
+  }
+
+  .infoItem:nth-child(3) {
+    margin-bottom: 24px;
+  }
+
+  .contactsContainer {
+    top: 0;
+    gap: 10px;
+  }
+
+  .phone {
+    font-size: 40px;
+  }
+
+  .navContainer {
+    gap: 24px;
+  }
+
+  .policyContainer {
+    gap: 60px;
+  }
+
+  .policyItem {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .policyCreated {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .link {
+    font-size: 20px;
+  }
+
   .scrollToTopBtn {
     width: 104px;
     height: 104px;
@@ -366,15 +291,37 @@ a {
 }
 
 @media screen and (width >=1920px) {
+  .contentContainer {
+    max-width: 1920px;
+    padding: 98px 163px 36px 160px;
+  }
+
+  .footerContainer {
+    margin-bottom: 76px;
+  }
+
+  .infoItem {
+    font-size: 22px;
+    line-height: 1.5;
+    width: 410px;
+  }
+
+  .policyContainer {
+    height: 100px;
+  }
+
+  .policyItem:nth-child(3) {
+    display: block;
+  }
+
+  .link {
+    font-size: 22px;
+  }
+
   .scrollToTopBtn {
     width: 120px;
     height: 120px;
     bottom: 456px;
     right: 163px;
   }
-}
-
-.icon {
-  width: 72px;
-  height: 80px;
 }
