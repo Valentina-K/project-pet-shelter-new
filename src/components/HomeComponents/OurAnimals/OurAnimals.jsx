@@ -5,17 +5,19 @@ import SectionTitle from '../../UI/SectionTitle.jsx';
 import Button from '../../UI/Button.jsx';
 import Section from '../../../layout/Section/Section.jsx';
 import styles from './OurAnimals.module.css';
+import Loader from '../../Loader/Loader.jsx';
+//import Loader from '../../Loader/Loader.jsx';
 
 function OurAnimals({ ads = [], onViewMoreClick, limit }) {
   const isHasMore = ads.length < limit;
-  console.log('from our animals');
+  console.log('from our animals', ads);
   const { t } = useTranslation();
   return (
     <Section>
       <SectionTitle text={t('home.titles.our-animals')} />
       <div className={styles.animalsBlock}>
         {ads.length === 0 ? (
-          <p>No advertisements available.</p>
+          <Loader />
         ) : (
           ads.map((card) => (
             <div className={styles.item} key={card.id}>
