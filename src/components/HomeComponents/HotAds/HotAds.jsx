@@ -2,17 +2,17 @@ import Card from '../../Card/HotCard/Card';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
-import {
-  selectAdvertisements,
-  selectIsLoading,
-} from '../../redux/hotads/selectors';
 import NavControls from '../NavControls/NavControls';
 import SectionTitle from '../../UI/SectionTitle.jsx';
 import Section from '../../../layout/Section/Section.jsx';
 import { useWindowWidth } from '../../../hooks';
 import styles from './HotAds.module.css';
 import { useSelector } from 'react-redux';
-import { selectError } from '../../../redux/photos/selectors.js';
+import {
+  selectAdvertisements,
+  selectError,
+  selectIsLoading,
+} from '../../../redux/hotads/selectors.js';
 
 function HotAds() {
   const { t } = useTranslation();

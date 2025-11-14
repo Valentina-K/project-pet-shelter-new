@@ -1,7 +1,7 @@
-export const selectAdvertisements = (state) => state.advertisements.items;
+export const selectAdvertisements = (state) => state.hotads.items;
 
-export const selectSearchQuery = (state) => state.advertisements.searchQuery;
+export const selectSearchQuery = (state) => state.hotads.searchQuery;
 
-export const selectIsLoading = (state) => state.advertisements.isLoading;
+export const selectIsLoading = (state) => state.hotads.isLoading;
 
-export const selectError = (state) => state.advertisements.error;
+export const selectError = (state) => state.hotads.error;
