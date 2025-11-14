@@ -21,7 +21,7 @@ import Subscribe from '../../components/HomeComponents/Subscription/Subscription
 import Statistics from '../../components/HomeComponents/Statistics/Statistics';
 import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import Container from '../../layout/Container/Container';
-//import HotAds from '../../components/HomeComponents/HotAds/HotAds';
+import HotAds from '../../components/HomeComponents/HotAds/HotAds';
 import Loader from '../../components/Loader/Loader';
 import { getHotAds } from '../../redux/hotads/operations';
 
@@ -45,7 +45,7 @@ function HomePage() {
 
   useEffect(() => {
     //
-    dispatch(getHotAds());
+    dispatch(getHotAds(true));
     dispatch(getAllAds({ size, page }));
   }, [dispatch, size, page]);
 
@@ -69,7 +69,7 @@ function HomePage() {
             limit={totalElements}
           />
         )}
-        {/* <HotAds /> */}
+        <HotAds />
         <Shelters />
         <JoinUsSection />
         <OurBlog />
