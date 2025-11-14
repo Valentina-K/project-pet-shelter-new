@@ -7,6 +7,7 @@
   z-index: 10;
 }
 
+/* 20 */
 .block {
   /* --sz: 10vmin; */
 
@@ -30,7 +31,7 @@
 }
 
 .blue {
-  --bg: linear-gradient(50deg, #06515a 0%, #44d5f2 100%);
+  --bg: linear-gradient(50deg, #922325 0%, #f6caca 100%);
 
   margin-left: 4.5vmin;
   animation: attract-blue var(--animation);
