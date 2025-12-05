@@ -10,6 +10,23 @@
     left: 32px;
 }
 
+.closeIconInit {
+    position: absolute;
+    right: 280px;
+    top: 24px;
+    opacity: 0.1;
+}
+
+.closeIcon {
+    position: absolute;
+    left: 64px;
+    top: 24px;
+    cursor: pointer;
+    transform: translateX(800px);
+    opacity: 1;
+    transition: all 1s;
+}
+
 .icon {
     width: 35px;
     height: 35px;

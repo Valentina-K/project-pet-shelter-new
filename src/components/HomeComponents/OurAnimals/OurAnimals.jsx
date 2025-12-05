@@ -10,7 +10,6 @@ import Loader from '../../Loader/Loader.jsx';
 
 function OurAnimals({ ads = [], onViewMoreClick, limit }) {
   const isHasMore = ads.length < limit;
-  console.log('from our animals', ads);
   const { t } = useTranslation();
   return (
     <Section>

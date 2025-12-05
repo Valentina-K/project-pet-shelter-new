@@ -13,8 +13,6 @@ const advertisementSlice = createSlice({
     items: [],
     filterItems: [],
     searchItems: [],
-    /* page: 0, */
-    /* size: 8, */
     totalPages: 0,
     totalElements: 0,
     hasMore: false,
@@ -37,17 +35,11 @@ const advertisementSlice = createSlice({
   reducers: {
     resetData(state) {
       state.items = [];
-      /* state.page = 0; */
       state.totalElements = 0;
       state.totalPages = 0;
       state.hasMore = false;
     },
-    /* setPage(state, action) {
-      state.page = action.payload;
-    }, */
-    /* setSize(state, action) {
-      state.size = action.payload;
-    }, */
+
     setHasMore(state, action) {
       state.hasMore = action.payload;
     },
@@ -100,7 +92,6 @@ const advertisementSlice = createSlice({
         state.error = null;
       })
       .addCase(getAllAds.fulfilled, (state, action) => {
-        console.log(state.hasMore);
         state.isLoading = false;
         if (state.hasMore) state.items.push(...action.payload.content);
         else state.items = action.payload.content;
@@ -117,15 +108,12 @@ const advertisementSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchAdvertisements.fulfilled, (state, action) => {
-        console.log('from state 1', state.items);
         state.isLoading = false;
-        if (state.hasMore) state.items.push(...action.payload.page.content);
-        else state.filterItems = action.payload.page.content;
+        state.filterItems = action.payload.page.content;
         state.totalPages = action.payload.page.page.totalPages;
         state.totalElements = action.payload.page.page.totalElements;
         state.listOfAttributeCounts = action.payload.listOfAttributeCounts;
         state.error = null;
-        console.log('from state 2', state.items);
       })
       .addCase(fetchAdvertisements.rejected, (state, action) => {
         state.isLoading = false;
@@ -137,7 +125,7 @@ const advertisementSlice = createSlice({
       })
       .addCase(fetchSearchAdvertisements.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.items = action.payload.page.content;
+        state.filterItems = action.payload.page.content;
         state.totalPages = action.payload.page.page.totalPages;
         state.totalElements = action.payload.page.page.totalElements;
         state.listOfAttributeCounts = action.payload.listOfAttributeCounts;

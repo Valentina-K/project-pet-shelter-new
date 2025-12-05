@@ -1,30 +1,38 @@
 import { IoSearch } from 'react-icons/io5';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import styles from './Search.module.css';
+import { IoMdClose } from 'react-icons/io';
 
 function Search({ onSearch }) {
   const [searchValue, setSearchValue] = useState('');
-  const [query, setQuery] = useState('');
   const { t } = useTranslation();
+  const [className, setClassName] = useState(`${styles.closeIconInit}`);
+
+  const clearSearch = () => {
+    setClassName(`${styles.closeIconInit}`);
+    setSearchValue('');
+    onSearch('');
+  };
+
   const handleChanged = (e) => setSearchValue(e.target.value);
   const handleClick = () => {
-    setQuery(encodeURIComponent(searchValue));
-    setSearchValue('');
+    const value = searchValue.trim();
+    onSearch(encodeURIComponent(value));
   };
   const handleKeyDown = (e) => {
+    const value = searchValue.trim();
     if (e.keyCode === 13) {
-      setQuery(encodeURIComponent(searchValue));
-      setSearchValue('');
+      onSearch(encodeURIComponent(value));
     }
   };
 
-  useEffect(() => {
-    onSearch(query);
-  }, [query, onSearch]);
   return (
     <div className={styles.searchContainer}>
+      <div className={className} onClick={clearSearch}>
+        <IoMdClose className={styles.icon} />
+      </div>
       <div className={styles.searchIcon}>
         <IoSearch className={styles.icon} />
       </div>
@@ -33,8 +41,8 @@ function Search({ onSearch }) {
         className={styles.input}
         value={searchValue}
         onChange={handleChanged}
-        onFocus={() => setSearchValue('')}
         onKeyDown={handleKeyDown}
+        onFocus={() => setClassName(`${styles.closeIcon}`)}
       />
       <button
         type="button"

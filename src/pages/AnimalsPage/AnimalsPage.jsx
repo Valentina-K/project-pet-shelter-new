@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback, useEffect, useState } from 'react';
 import {
-  selectAdvertisements,
+  selectFilteredAdvertisements,
   selectIsLoading,
-  selectPage,
   selectTotalPage,
 } from '../../redux/advertisements/selectors';
 import {
@@ -11,53 +10,45 @@ import {
   fetchSearchAdvertisements,
 } from '../../redux/advertisements/operations';
 import { selectSelectedFilters } from '../../redux/categories/selectors';
-import { setPage } from '../../redux/advertisements/slice';
 import Pagination from '../../components/Pagination/Pagination';
 import Search from '../../components/Search/Search';
 import CardList from '../../components/CardList/CardList';
 import SideBar from '../../components/SideBar/SideBar';
-import { clearAttributes, clearFilters } from '../../redux/categories/slice';
 import SelectedAttribute from '../../components/AttributesFilter/SelectedAttribute/SelectedAttribute';
 import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import Container from '../../layout/Container/Container';
 import styles from './styles.module.css';
+import Loader from '../../components/Loader/Loader';
 
 function AnimalsPage() {
   const dispatch = useDispatch();
-  const ads = useSelector(selectAdvertisements);
+  const ads = useSelector(selectFilteredAdvertisements);
   const isLoading = useSelector(selectIsLoading);
   const filters = useSelector(selectSelectedFilters);
-  const page = useSelector(selectPage);
+  const [page, setPage] = useState(0);
   const size = 15;
   const totalPage = useSelector(selectTotalPage);
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    /* dispatch(resetData()); */
-    dispatch(clearFilters());
-    dispatch(clearAttributes());
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (searchQuery) {
-      const search = {
-        description: `${searchQuery}`,
-      };
-      dispatch(setPage(0));
+    if (searchQuery.trim() !== '') {
+      const search = { description: searchQuery };
       dispatch(fetchSearchAdvertisements({ page, size, query: search }));
-    } else dispatch(fetchAdvertisements({ page, size, filters }));
-  }, [dispatch, filters, page, size, searchQuery]);
+    } else {
+      dispatch(fetchAdvertisements({ page, size, filters }));
+    }
+  }, [page, searchQuery, filters, dispatch]);
 
-  const handlePageChange = useCallback(
-    (newPage) => {
-      dispatch(setPage(newPage - 1));
-    },
-    [dispatch]
-  );
+  const handlePageChange = (current) => {
+    setPage(current);
+  };
 
   const handleSearchConfirm = useCallback((query) => {
+    setPage(0);
     setSearchQuery(query);
   }, []);
+
+  if (isLoading) return <Loader />;
 
   return (
     <Container>

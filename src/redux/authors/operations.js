@@ -6,7 +6,6 @@ export const fetchUserById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const { data } = await publicApi.get(`/api/v1/user/${id}`);
-      console.log('get user by id', data);
       return data;
     } catch (error) {
       console.error('Error:', error.response?.data || error.message);

@@ -19,7 +19,6 @@ export const getCategoryById = createAsyncThunk(
   async (categoryId, thunkAPI) => {
     try {
       const { data } = await publicApi.get(`/api/v1/category/${categoryId}`);
-      console.log('fetch categ by ID from operations:', data);
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);

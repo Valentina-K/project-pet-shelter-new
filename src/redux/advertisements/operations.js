@@ -3,12 +3,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getAllAds = createAsyncThunk(
   'advertisements/getAll',
-  async ({ size, page }, thunkAPI) => {
+  async ({ size = 15, page }, thunkAPI) => {
     try {
       const { data } = await publicApi.get('/api/v1/ad', {
         params: { size, page },
       });
-      console.log('data', data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,7 +18,6 @@ export const getAllAds = createAsyncThunk(
 export const fetchAdvertisements = createAsyncThunk(
   'advertisements/fetchAll',
   async ({ page, size, filters = {} }, thunkAPI) => {
-    console.log(page, size, filters);
     try {
       const { data } = await publicApi.get('/api/v1/ad/counted', {
         params: { page, size, ...filters },

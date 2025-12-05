@@ -16,7 +16,6 @@ const authorsSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchUserById.fulfilled, (state, action) => {
-        console.log(action.payload);
         const user = action.payload;
         state.entities[user.id] = user;
         state.loading = false;

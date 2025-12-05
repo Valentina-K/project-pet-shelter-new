@@ -25,7 +25,6 @@ function Card({ ad }) {
   const author = useSelector(selectAuthorById(ad.authorId));
 
   useEffect(() => {
-    console.log('from Card', author);
     if (!author) {
       dispatch(fetchUserById(ad.authorId));
     }

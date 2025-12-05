@@ -8,7 +8,7 @@ export const selectTopAdvertisements = createSelector(
 );
 
 export const selectFilteredAdvertisements = (state) =>
-  state.advertisements.filteredItems;
+  state.advertisements.filterItems;
 
 export const selectListOfAttributeCounts = (state) =>
   state.advertisements.listOfAttributeCounts;
