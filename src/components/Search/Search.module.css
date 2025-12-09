@@ -34,7 +34,7 @@
 
 .input {
     padding: 24px 0 24px 80px;
-    background: #D9D9D9;
+    background: var(--component-background-color);
     border-radius: 34px;
     width: 100%;
     font-size: 32px;
@@ -45,15 +45,15 @@
 }
 
 .searchButton {
-    width: 260px;
+    width: 164px;
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
     padding: 18.5px 97px;
     border-radius: 32px;
-    background-color: #6A6A6A;
-    color: #D9D9D9;
+    background: var(--accent-color);
+    color: var(--secondary-color);
     font-family: Inter, sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -62,4 +62,41 @@
     text-align: center;
     letter-spacing: 0.02em;
     z-index: 2;
+}
+
+@media screen and (width>=1280px) {
+    .closeIconInit {
+    position: absolute;
+    right: 184px;
+    top: 24px;
+    opacity: 0.1;
+}
+
+.closeIcon {
+    transform: translateX(320px);
+}
+}
+
+@media screen and (width>=1920px) {
+    .searchButton {
+    width: 260px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 18.5px 97px;
+    border-radius: 32px;
+    background: var(--accent-color);
+    color: var(--secondary-color);
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    z-index: 2;
+}
+
+
 }
