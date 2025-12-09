@@ -1,8 +1,16 @@
 .wrapper {
-    width: 375px;
+    width: 347px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
     justify-content: center;
+    align-items: center;
+}
+
+@media screen and (width >=1920px) {
+    .wrapper{
+        width: 375px;
+        gap: 24px;
+    }
 }

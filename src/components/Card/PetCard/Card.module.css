@@ -30,10 +30,10 @@
   height: 16px;
 }
 
-.favorite svg{
-    width: 18px;
+.favorite svg {
+  width: 18px;
   height: 16px;
-  }
+}
 
 .titleWrapper {
   display: flex;
@@ -87,7 +87,7 @@
   line-height: 14px;
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width >=768px) {
   .cardWrapper {
     padding: 16px;
   }
@@ -98,7 +98,7 @@
     right: 16px;
   }
 
-  .favorite svg{
+  .favorite svg {
     width: 22px;
     height: 20px;
   }
@@ -133,7 +133,7 @@
   }
 }
 
-@media screen and (width >= 1280px) {
+@media screen and (width >=1280px) {
   .cardWrapper {
     padding: 16px;
     gap: 10px;
@@ -164,7 +164,7 @@
   }
 }
 
-@media screen and (width >= 1920px) {
+@media screen and (width >=1920px) {
   .cardWrapper {
     padding: 24px;
     gap: 20px;

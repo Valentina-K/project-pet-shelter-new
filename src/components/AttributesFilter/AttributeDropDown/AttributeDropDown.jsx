@@ -23,7 +23,11 @@ function AttributeDropDown({ contents, onChange }) {
     if (contents.length > 1) setSelectedValue('');
   }, [contents.length]);
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={
+        isDropdownOpen ? `${styles.wrapper} ${styles.isOpen}` : styles.wrapper
+      }
+    >
       <div
         className={
           isDropdownOpen
@@ -36,30 +40,28 @@ function AttributeDropDown({ contents, onChange }) {
         {isDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </div>
       {isDropdownOpen && (
-        <div>
-          <ul className={styles.optionsList}>
-            {contents.map((attribute, index) => (
-              <li key={index} className={styles.optionsItem}>
-                <span className={styles.itemWrapper}>
-                  {attribute.value}
-                  <span>({attribute.count})</span>
-                </span>
-                <label className={styles.customRadio}>
-                  <input
-                    type="checkbox"
-                    name="attribute"
-                    value={attribute.name}
-                    checked={selectedValue === attribute.value}
-                    onClick={() => handleCategoryChange(attribute.value)}
-                    onChange={() => {}}
-                    className={styles.hiddenRadio}
-                  />
-                  <span className={styles.radioMark}></span>
-                </label>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className={styles.optionsList}>
+          {contents.map((attribute, index) => (
+            <li key={index} className={styles.optionsItem}>
+              <span className={styles.itemWrapper}>
+                {attribute.value}
+                <span>({attribute.count})</span>
+              </span>
+              <label className={styles.customRadio}>
+                <input
+                  type="checkbox"
+                  name="attribute"
+                  value={attribute.name}
+                  checked={selectedValue === attribute.value}
+                  onClick={() => handleCategoryChange(attribute.value)}
+                  onChange={() => {}}
+                  className={styles.hiddenRadio}
+                />
+                <span className={styles.radioMark}></span>
+              </label>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
