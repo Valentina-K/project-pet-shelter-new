@@ -42,7 +42,8 @@
 }
 
 .breedCategoriesContainer.isOpenBreed {
-  width: 518px;
+  width: max-content;
+  overflow-x: auto;
   height: 151px;
   border-radius: 34px 34px 0 0;
   transition: all linear .3s;
@@ -93,10 +94,10 @@
 }
 
 .breedListWrapper {
-  width: 518px;
+  width: max-content;
+  overflow: auto;
+  height: fit-content;
   max-height: 583px;
-  height: 100%;
-  overflow-y: auto;
   background: #EEE;
 }
 
@@ -190,6 +191,30 @@
 
 .hiddenRadio:not(:checked)+.radioMark::after {
   content: none;
+}
+
+@media screen and (width>=768px) {
+  .breedCategoriesContainer.isOpenBreed {
+  width: 518px;
+  height: 151px;
+  border-radius: 34px 34px 0 0;
+  transition: all linear .3s;
+}
+
+.breedListWrapper {
+  width: 518px;
+  max-height: 583px;
+  height: 100%;
+  overflow-y: auto;
+  background: #EEE;
+}
+
+.optionsList {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  padding: 30px 0;
+}
 }
 
 @media screen and (width >=1920px) {

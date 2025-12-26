@@ -9,23 +9,25 @@ function AttributesFilter({ attributes, onSelectedAttribute }) {
   };
   return (
     <div className={styles.wrapper}>
-      {attributes.map(
-        (attribute, index) =>
-          attribute.length > 0 &&
-          (attribute[0].name === 'breed' ? (
-            <BreedDropDown
-              key={index}
-              contents={attribute}
-              onChange={handleClick}
-            />
-          ) : (
-            <AttributeDropDown
-              key={index}
-              contents={attribute}
-              onChange={handleClick}
-            />
-          ))
-      )}
+      <div className={styles.attrContainer}>
+        {attributes.map(
+          (attribute, index) =>
+            attribute.length > 0 &&
+            (attribute[0].name === 'breed' ? (
+              <BreedDropDown
+                key={index}
+                contents={attribute}
+                onChange={handleClick}
+              />
+            ) : (
+              <AttributeDropDown
+                key={index}
+                contents={attribute}
+                onChange={handleClick}
+              />
+            ))
+        )}
+      </div>
     </div>
   );
 }

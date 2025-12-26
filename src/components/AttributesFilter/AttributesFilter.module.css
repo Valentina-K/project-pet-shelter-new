@@ -1,6 +1,10 @@
 .wrapper {
-    width: 347px;
     border-radius: 5px;
+}
+
+.attrContainer {
+    background: #BBB2A999;
+    border-radius: 34px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -9,8 +13,11 @@
 }
 
 @media screen and (width >=1920px) {
-    .wrapper{
+    .wrapper {
         width: 375px;
+    }
+
+    .attrContainer {
         gap: 24px;
     }
 }
