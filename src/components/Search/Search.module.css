@@ -66,89 +66,86 @@
 
 @media screen and (width>=768px) {
     .input {
-    padding: 16px 20px 16px 70px;
-    background: var(--component-background-color);
-    border-radius: 34px;
-    width: 100%;
-    font-size: 32px;
-    border: none;
-    outline: none;
-}
+        padding: 16px 20px 16px 70px;
+        background: var(--component-background-color);
+        border-radius: 34px;
+        width: 100%;
+        font-size: 32px;
+        border: none;
+        outline: none;
+    }
 
-.closeIconInit {
-    right: 280px;
-    top: 24px;
-    opacity: 0.1;
-}
+    .closeIconInit {
+        right: 280px;
+        top: 24px;
+        opacity: 0.1;
+    }
 
-.icon {
-    width: 25px;
-    height: 25px;
-}
+    .icon {
+        width: 25px;
+        height: 25px;
+    }
 
-.searchButton{
-    width: 164px;
-}
+    .searchButton {
+        width: 164px;
+    }
 }
 
 @media screen and (width>=1280px) {
- .input {
-    padding: 24px 0 24px 80px;
-    background: var(--component-background-color);
-    border-radius: 34px;
-    width: 100%;
-    font-size: 32px;
-    border: none;
-    outline: none;
+    .input {
+        background: var(--component-background-color);
+        border-radius: 34px;
+        width: 100%;
+        font-size: 32px;
+        border: none;
+        outline: none;
 
-    /* color: */
-}
+        /* color: */
+    }
 
     .closeIconInit {
-    position: absolute;
-    right: 184px;
-    top: 24px;
-    opacity: 0.1;
-    
-}
+        position: absolute;
+        right: 184px;
+        top: 24px;
+        opacity: 0.1;
 
-.closeIcon {
-    transform: translateX(320px);
-}
+    }
+
+    .closeIcon {
+        transform: translateX(320px);
+    }
 }
 
 @media screen and (width>=1920px) {
     .input {
-    padding: 24px 0 24px 80px;
-    background: var(--component-background-color);
-    border-radius: 34px;
-    width: 100%;
-    font-size: 32px;
-    border: none;
-    outline: none;
+        padding: 24px 0 24px 80px;
+        background: var(--component-background-color);
+        border-radius: 34px;
+        width: 100%;
+        font-size: 32px;
+        border: none;
+        outline: none;
 
-    /* color: */
-}
+        /* color: */
+    }
 
     .searchButton {
-    width: 260px;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 18.5px 97px;
-    border-radius: 32px;
-    background: var(--accent-color);
-    color: var(--secondary-color);
-    font-family: Inter, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    letter-spacing: 0.02em;
-    z-index: 2;
-}
-
-
+        width: 260px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 18.5px 97px;
+        border-radius: 32px;
+        background: var(--accent-color);
+        color: var(--secondary-color);
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: 0.02em;
+        z-index: 2;
+    }
 }
