@@ -12,11 +12,11 @@ import {
   selectSelectedCategory,
 } from '../../redux/categories/selectors.js';
 import AttributesFilter from '../AttributesFilter/AttributesFilter.jsx';
-import toast from 'react-hot-toast';
 import {
   clearAttributes,
-  toggleFilter,
   toggleAttributes,
+  clearFilters,
+  toggleFilter,
 } from '../../redux/categories/slice.js';
 import DropDown from './DropDown/DropDown.jsx';
 import { selectListAttrByCategory } from '../../redux/advertisements/selectors.js';
@@ -27,10 +27,12 @@ function SideBar() {
   const categories = useSelector(selectCategories); //get all categories
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const [categoryTitle, setCategoryTitle] = useState(t('side-bar'));
+
   const items = useSelector(selectListAttrByCategory);
   const selectCategory = useSelector(selectSelectedCategory);
-  const [selectedCategoryId, setSelectedCategoryId] = useState('');
-  const [categoryTitle, setCategoryTitle] = useState(t('side-bar'));
+  const selectedCategoryId = selectCategory.id ? selectCategory.id : null;
+
   useEffect(() => {
     if (categories.length === 0 && !isLoading) {
       dispatch(getCategories());
@@ -38,27 +40,19 @@ function SideBar() {
   }, [dispatch, isLoading, categories.length]);
 
   useEffect(() => {
-    const fetchAttributes = async () => {
-      if (selectedCategoryId) {
-        try {
-          const categoryId = Number(selectedCategoryId);
-          dispatch(getCategoryById(categoryId));
-        } catch (err) {
-          toast.error('Error fetching category attributes:', err);
-        }
-      }
-    };
-    fetchAttributes();
-  }, [selectedCategoryId, dispatch]);
-
-  useEffect(() => {
-    if (!selectCategory['id']) setCategoryTitle(t('side-bar'));
-    else setCategoryTitle(categories[selectCategory['id'] - 1].name);
+    if (!selectCategory['id']) {
+      setCategoryTitle(t('side-bar'));
+    } else setCategoryTitle(categories[selectCategory['id'] - 1].name);
   }, [selectCategory, categories, t]);
 
   const handleCategoryChange = (categoryId) => {
-    setSelectedCategoryId((prev) => (prev === categoryId ? '' : categoryId));
     dispatch(toggleFilter({ category: categoryId }));
+    dispatch(getCategoryById(Number(categoryId)));
+    dispatch(clearAttributes());
+  };
+
+  const handleCloseClick = () => {
+    dispatch(clearFilters());
     dispatch(clearAttributes());
   };
 
@@ -74,6 +68,8 @@ function SideBar() {
         contents={categories}
         title={categoryTitle}
         onChange={handleCategoryChange}
+        onClear={handleCloseClick}
+        value={selectedCategoryId}
       />
       {items?.length > 0 && (
         <AttributesFilter

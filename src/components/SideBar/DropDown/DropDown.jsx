@@ -1,34 +1,51 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { IoIosArrowDown, IoIosArrowUp, IoMdClose } from 'react-icons/io';
 import styles from './DropDown.module.css';
 
-function DropDown({ contents, title, onChange }) {
+function DropDown({ contents, title, onChange, onClear, value }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(null);
 
-  const handleCategoryChange = (categoryId) => {
-    setSelectedValue((prev) => (prev === categoryId ? null : categoryId));
+  //если категория была выбрана, то выпадающего списка нет, вместо этого крестик, заголовок - выбранная категория
+  //если категория не выбрана, заголовок - Категории, выпадающий список с категориями, возможность открывать/закрывать список
+
+  const isNotSelected = value === null; //value - categoryId
+
+  const handleToggle = () => {
+    if (!isNotSelected) return;
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  const handleSelect = (categoryId) => {
+    setIsDropdownOpen(false);
     onChange(categoryId);
   };
 
-  const handleToggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
+  const handleClear = (e) => {
+    e.stopPropagation();
+    onClear();
   };
+
   return (
     <div className={styles.wrapper}>
       <div
         className={
-          isDropdownOpen
+          isDropdownOpen && isNotSelected
             ? `${styles.categoriesContainer} ${styles.isOpen}`
             : styles.categoriesContainer
         }
-        onClick={handleToggleDropdown}
+        onClick={handleToggle}
       >
         <h2 className={styles.category}>{title}</h2>
-        {isDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
+        {!isNotSelected ? (
+          <IoMdClose onClick={handleClear} />
+        ) : isDropdownOpen ? (
+          <IoIosArrowUp />
+        ) : (
+          <IoIosArrowDown />
+        )}
       </div>
-      {isDropdownOpen && (
+      {isDropdownOpen && isNotSelected && (
         <div>
           <ul className={styles.optionsList}>
             {contents.map((category) => (
@@ -41,10 +58,8 @@ function DropDown({ contents, title, onChange }) {
                   <input
                     type="radio"
                     name="category"
-                    value={category.id}
-                    checked={selectedValue === category.id}
-                    onChange={() => {}}
-                    onClick={() => handleCategoryChange(category.id)}
+                    checked={value === category.id}
+                    onChange={() => handleSelect(category.id)}
                     className={styles.hiddenRadio}
                   />
                   <span className={styles.radioMark}></span>
@@ -68,6 +83,8 @@ DropDown.propTypes = {
   ).isRequired,
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onClear: PropTypes.func.isRequired,
+  value: PropTypes.number,
 };
 
 export default DropDown;

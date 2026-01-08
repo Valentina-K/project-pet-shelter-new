@@ -34,11 +34,7 @@ const categorySlice = createSlice({
     },
     toggleFilter: (state, action) => {
       const categoryId = action.payload.category;
-      const currentValue = state.selectedFilters['category'];
-      if (currentValue === categoryId) {
-        state.selectedFilters = {};
-        state.selectedCategory = {};
-      } else state.selectedFilters = { category: categoryId };
+      state.selectedFilters = { category: categoryId };
     },
     clearFilters: (state) => {
       state.selectedFilters = {};

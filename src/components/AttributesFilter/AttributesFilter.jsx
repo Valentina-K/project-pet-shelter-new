@@ -9,7 +9,7 @@ function AttributesFilter({ attributes, onSelectedAttribute }) {
   };
   return (
     <div className={styles.wrapper}>
-      <ul>
+      <div className={styles.attrContainer}>
         {attributes.map(
           (attribute, index) =>
             attribute.length > 0 &&
@@ -27,7 +27,7 @@ function AttributesFilter({ attributes, onSelectedAttribute }) {
               />
             ))
         )}
-      </ul>
+      </div>
     </div>
   );
 }

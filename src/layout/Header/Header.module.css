@@ -134,6 +134,7 @@
   inset: 0;
   background-color: var(--header-mobile-menu-background-color);
   padding: 88px 26px 40px;
+  z-index: 10;
 }
 
 .closeButton {

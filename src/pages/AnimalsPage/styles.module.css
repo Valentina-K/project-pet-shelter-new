@@ -1,17 +1,115 @@
-.pageContainer{
+.pageContainer {
+    position: relative;
     display: flex;
-    gap: 70px;
-    width: 1920px;
     padding-bottom: 80px;
+    width: 402px;
+    margin: 0 auto;
 }
 
-.leftBlock{
-    width: 335px;
+.leftBlock {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 347px;
+    padding: 20px;
+    border: 1px dotted #9747FF;
+    height: fit-content;
+    transition: transform 0.3s ease;
+    z-index: 2;
 }
 
-.rightBlock{
-    width: 1195px;
+.closed {
+    transform: translateX(-330px);
+}
+
+.open {
+    transform: translateX(0);
+}
+
+.toggleBtn {
+    position: absolute;
+    right: -40px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.rightBlock {
+    width: 370px;
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 16px;
+    margin: 0 auto;
+}
+
+@media screen and (width>=768px) {
+    .pageContainer {
+        width: 100%;
+    }
+
+    .leftBlock {
+        top: 80px;
+    }
+
+    .rightBlock {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+    }
+}
+
+@media screen and (width>=1280px) {
+    .pageContainer {
+        display: flex;
+        max-width: 1280px;
+        padding-bottom: 80px;
+    }
+
+    .leftBlock {
+        position: static;
+        width: 347px;
+        transform: none;
+    }
+
+    .toggleBtn {
+        display: none;
+    }
+
+    .overlay {
+        display: none;
+    }
+
+    .rightBlock {
+        width: 634px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+@media screen and (width>=1920px) {
+    .pageContainer {
+        display: flex;
+        gap: 30px;
+        max-width: 1920px;
+        padding-bottom: 80px;
+    }
+
+    .leftBlock {
+        width: 375px;
+    }
+
+    .rightBlock {
+        width: 1195px;
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+    }
 }

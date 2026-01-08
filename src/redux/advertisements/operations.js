@@ -31,10 +31,10 @@ export const fetchAdvertisements = createAsyncThunk(
 
 export const fetchSearchAdvertisements = createAsyncThunk(
   'advertisements/fetchSearchAll',
-  async ({ page, size, query = {} }, thunkAPI) => {
+  async ({ page, size, description = '' }, thunkAPI) => {
     try {
       const { data } = await publicApi.get('/api/v1/ad/counted', {
-        params: { page, size, ...query },
+        params: { page, size, description },
       });
       return data;
     } catch (err) {

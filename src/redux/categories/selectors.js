@@ -23,9 +23,16 @@ export const selectSelectedFilters = createSelector(
         },
         {}
       );
+      //console.log({...categoriesState.selectedFilters, ...mergedAttributes} )
       return { ...categoriesState.selectedFilters, ...mergedAttributes };
     } else return {};
   }
+);
+
+export const selectFilter = createSelector(
+  [selectCategoriesState],
+  (categoriesState) =>
+    categoriesState ? categoriesState.selectedFilters.category : null
 );
 
 export const selectSelectedCategory = createSelector(
