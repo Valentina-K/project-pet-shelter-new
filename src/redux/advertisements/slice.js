@@ -44,6 +44,16 @@ const advertisementSlice = createSlice({
       state.hasMore = action.payload;
     },
 
+    setSearchString(state, action) {
+      state.searchString = action.payload;
+      state.page = 0;
+    },
+
+    clearSearchString(state) {
+      state.searchString = '';
+      state.page = 0;
+    },
+
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
       const {
@@ -168,7 +178,14 @@ const advertisementSlice = createSlice({
   },
 });
 
-export const { setSearchQuery, setPage, setSize, setHasMore, resetData } =
-  advertisementSlice.actions;
+export const {
+  setSearchQuery,
+  setPage,
+  setSize,
+  setHasMore,
+  resetData,
+  setSearchString,
+  clearSearchString,
+} = advertisementSlice.actions;
 
 export default advertisementSlice.reducer;

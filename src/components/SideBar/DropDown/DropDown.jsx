@@ -5,10 +5,11 @@ import styles from './DropDown.module.css';
 
 function DropDown({ contents, title, onChange, onClear, value }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  //const [selectedValue, setSelectedValue] = useState(null);
-  //console.log('isNotSelected', isNotSelected)
 
-  const isNotSelected = value === null;
+  //если категория была выбрана, то выпадающего списка нет, вместо этого крестик, заголовок - выбранная категория
+  //если категория не выбрана, заголовок - Категории, выпадающий список с категориями, возможность открывать/закрывать список
+
+  const isNotSelected = value === null; //value - categoryId
 
   const handleToggle = () => {
     if (!isNotSelected) return;
@@ -16,23 +17,15 @@ function DropDown({ contents, title, onChange, onClear, value }) {
   };
 
   const handleSelect = (categoryId) => {
-    onChange(categoryId);
     setIsDropdownOpen(false);
+    onChange(categoryId);
   };
 
   const handleClear = (e) => {
     e.stopPropagation();
     onClear();
   };
-  /*  const handleCategoryChange = (categoryId) => {
-    setSelectedValue((prev) => (prev === categoryId ? null : categoryId));
-    onChange(categoryId);
-  }; */
 
-  /* const handleToggleDropdown = () => {
-    if (!isNotSelected) onClick(); //category is selected
-    else setIsDropdownOpen((prev) => !prev);
-  }; */
   return (
     <div className={styles.wrapper}>
       <div

@@ -13,6 +13,8 @@ export const selectFilteredAdvertisements = (state) =>
 export const selectListOfAttributeCounts = (state) =>
   state.advertisements.listOfAttributeCounts;
 
+export const selectSearchString = (state) => state.advertisements.searchString;
+
 export const selectListAttrByCategory = createSelector(
   [selectSelectedCategory, selectListOfAttributeCounts],
   (selectedCategory, listOfAttributeCounts) =>

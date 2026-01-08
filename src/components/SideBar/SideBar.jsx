@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  /* getCategories, */
+  getCategories,
   getCategoryById,
 } from '../../redux/categories/operations';
 import { useTranslation } from 'react-i18next';
@@ -12,11 +12,11 @@ import {
   selectSelectedCategory,
 } from '../../redux/categories/selectors.js';
 import AttributesFilter from '../AttributesFilter/AttributesFilter.jsx';
-import toast from 'react-hot-toast';
 import {
   clearAttributes,
-  toggleFilter,
   toggleAttributes,
+  clearFilters,
+  toggleFilter,
 } from '../../redux/categories/slice.js';
 import DropDown from './DropDown/DropDown.jsx';
 import { selectListAttrByCategory } from '../../redux/advertisements/selectors.js';
@@ -28,50 +28,32 @@ function SideBar() {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const [categoryTitle, setCategoryTitle] = useState(t('side-bar'));
-  //const [notSelected, setNotSelected] = useState(true);
 
   const items = useSelector(selectListAttrByCategory);
   const selectCategory = useSelector(selectSelectedCategory);
-  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const selectedCategoryId = selectCategory.id ? selectCategory.id : null;
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (categories.length === 0 && !isLoading) {
       dispatch(getCategories());
     }
-  }, [dispatch, isLoading, categories.length]); */
-
-  useEffect(() => {
-    const fetchAttributes = async () => {
-      if (selectedCategoryId) {
-        try {
-          const categoryId = Number(selectedCategoryId);
-          dispatch(getCategoryById(categoryId));
-        } catch (err) {
-          toast.error('Error fetching category attributes:', err);
-        }
-      }
-    };
-    fetchAttributes();
-  }, [selectedCategoryId, dispatch]);
+  }, [dispatch, isLoading, categories.length]);
 
   useEffect(() => {
     if (!selectCategory['id']) {
       setCategoryTitle(t('side-bar'));
-      //setNotSelected(true);
     } else setCategoryTitle(categories[selectCategory['id'] - 1].name);
   }, [selectCategory, categories, t]);
 
   const handleCategoryChange = (categoryId) => {
-    //setNotSelected(false);
-    setSelectedCategoryId((prev) => (prev === categoryId ? null : categoryId));
     dispatch(toggleFilter({ category: categoryId }));
+    dispatch(getCategoryById(Number(categoryId)));
     dispatch(clearAttributes());
   };
 
   const handleCloseClick = () => {
+    dispatch(clearFilters());
     dispatch(clearAttributes());
-    //setCategoryTitle(t('side-bar'));
-    setSelectedCategoryId(null);
   };
 
   const handleSelectedAttribute = (attributeName) => {

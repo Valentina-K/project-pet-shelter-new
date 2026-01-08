@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   selectFilteredAdvertisements,
   selectIsLoading,
+  selectSearchString,
   selectTotalPage,
 } from '../../redux/advertisements/selectors';
+import { fetchAdvertisements } from '../../redux/advertisements/operations';
 import {
-  fetchAdvertisements,
-  fetchSearchAdvertisements,
-} from '../../redux/advertisements/operations';
+  clearSearchString,
+  setSearchString,
+} from '../../redux/advertisements/slice';
 import { selectSelectedFilters } from '../../redux/categories/selectors';
 import Pagination from '../../components/Pagination/Pagination';
 import Search from '../../components/Search/Search';
@@ -28,25 +30,23 @@ function AnimalsPage() {
   const [page, setPage] = useState(0);
   const size = 15;
   const totalPage = useSelector(selectTotalPage);
-  const [searchQuery, setSearchQuery] = useState('');
+  const searchQuery = useSelector(selectSearchString);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
-    if (searchQuery.trim() !== '') {
-      const search = { description: searchQuery };
-      dispatch(fetchSearchAdvertisements({ page, size, query: search }));
-    } else {
-      dispatch(fetchAdvertisements({ page, size, filters }));
-    }
+    const filter = { ...filters, description: searchQuery };
+    dispatch(fetchAdvertisements({ page, size, filters: filter }));
+    setIsSidebarOpen(false);
   }, [page, searchQuery, filters, dispatch]);
 
   const handlePageChange = (current) => {
     setPage(current);
   };
 
-  const handleSearchConfirm = useCallback((query) => {
-    setPage(0);
-    setSearchQuery(query);
-  }, []);
+  const handleSearchConfirm = () => {
+    const filter = { ...filters, description: searchQuery };
+    dispatch(fetchAdvertisements({ page, size, filters: filter }));
+  };
 
   if (isLoading) return <Loader />;
 
@@ -55,11 +55,33 @@ function AnimalsPage() {
       <PageWrapper>
         <SelectedAttribute />
         <div className={styles.pageContainer}>
-          <div className={styles.leftBlock}>
+          <div
+            className={`${styles.leftBlock} ${
+              isSidebarOpen ? styles.open : styles.closed
+            }`}
+          >
+            <button
+              className={styles.toggleBtn}
+              onClick={() => setIsSidebarOpen((prev) => !prev)}
+              aria-label="Toggle filters"
+            >
+              ☰
+            </button>
             <SideBar />
           </div>
+          {isSidebarOpen && (
+            <div
+              className={styles.overlay}
+              onClick={() => setIsSidebarOpen(false)}
+            />
+          )}
           <div className={styles.rightBlock}>
-            <Search onSearch={handleSearchConfirm} />
+            <Search
+              value={searchQuery}
+              onSearch={handleSearchConfirm}
+              onClear={() => dispatch(clearSearchString())}
+              onChange={(value) => dispatch(setSearchString(value))}
+            />
             {!isLoading && <CardList ads={ads} />}
             {!isLoading && (
               <Pagination

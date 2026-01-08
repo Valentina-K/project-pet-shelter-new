@@ -21,10 +21,12 @@
   align-items: center;
   border-radius: 34px;
   background: #d9d9d9;
+  transition: border-radius 0.5s;
 }
 
 .categoriesContainer.isOpen {
   border-radius: 34px 34px 0 0;
+  transition: border-radius 0.5s;
 }
 
 .breedCategoriesContainer {

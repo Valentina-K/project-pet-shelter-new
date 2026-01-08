@@ -13,10 +13,6 @@
 }
 
 @media screen and (width >=1920px) {
-    .wrapper {
-        width: 375px;
-    }
-
     .attrContainer {
         gap: 24px;
     }

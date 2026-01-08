@@ -127,7 +127,6 @@
 
 @media screen and (width >=1920px) {
   .wrapper {
-    width: 375px;
     margin-bottom: 24px;
   }
 
@@ -140,5 +139,6 @@
   .optionsList {
     gap: 24px;
     padding-top: 30px;
+    width: 335px;
   }
 }
