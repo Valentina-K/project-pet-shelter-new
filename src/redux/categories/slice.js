@@ -34,11 +34,14 @@ const categorySlice = createSlice({
     },
     toggleFilter: (state, action) => {
       const categoryId = action.payload.category;
-      state.selectedFilters = { category: categoryId };
+      if (state.selectedFilters.category === categoryId) {
+        return;
+      }
+      state.selectedFilters.category = categoryId;
     },
     clearFilters: (state) => {
-      state.selectedFilters = {};
-      state.selectedCategory = {};
+      state.selectedFilters = initialState.selectedFilters;
+      state.selectedCategory = initialState.selectedCategory;
     },
     addAttributes: (state, action) => {
       state.selectedAttributes.push(action.payload);

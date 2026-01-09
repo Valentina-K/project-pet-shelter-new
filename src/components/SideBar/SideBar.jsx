@@ -7,8 +7,8 @@ import {
 import { useTranslation } from 'react-i18next';
 import {
   selectCategories,
-  selectIsLoading,
-  selectError,
+  selectCategoryIsLoading,
+  selectCategoryError,
   selectSelectedCategory,
 } from '../../redux/categories/selectors.js';
 import AttributesFilter from '../AttributesFilter/AttributesFilter.jsx';
@@ -25,8 +25,8 @@ function SideBar() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const categories = useSelector(selectCategories); //get all categories
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const isLoading = useSelector(selectCategoryIsLoading);
+  const error = useSelector(selectCategoryError);
   const [categoryTitle, setCategoryTitle] = useState(t('side-bar'));
 
   const items = useSelector(selectListAttrByCategory);
@@ -63,7 +63,7 @@ function SideBar() {
   return (
     <>
       {isLoading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
+      {error && <p>Error SideBar: {error}</p>}
       <DropDown
         contents={categories}
         title={categoryTitle}

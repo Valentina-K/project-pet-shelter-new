@@ -2,7 +2,7 @@ import { useOutletContext } from 'react-router';
 import { useParams } from 'react-router-dom';
 import {
   selectCategories,
-  selectIsLoading,
+  selectCategoryIsLoading,
 } from '../../../redux/categories/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCategories } from '../../../redux/categories/operations';
@@ -21,7 +21,7 @@ function AddAd() {
   // const [selectedFiles, setSelectedFiles] = useState([]);
   const categories = useSelector(selectCategories);
   const [animal, setAnimal] = useState(null);
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectCategoryIsLoading);
   const { user } = useOutletContext();
 
   useEffect(() => {
