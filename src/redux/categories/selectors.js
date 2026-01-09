@@ -7,9 +7,9 @@ export const selectCategories = createSelector(
   (categoriesState) => (categoriesState ? categoriesState.categories : [])
 );
 
-export const selectIsLoading = (state) => state.category.isLoading;
+export const selectCategoryIsLoading = (state) => state.category.isLoading;
 
-export const selectError = (state) => state.category.error;
+export const selectCategoryError = (state) => state.category.error;
 
 export const selectSelectedFilters = createSelector(
   /* [selectCategoriesState],

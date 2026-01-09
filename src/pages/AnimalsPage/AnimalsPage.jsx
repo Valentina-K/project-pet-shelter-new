@@ -2,9 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import {
   selectFilteredAdvertisements,
-  selectIsLoading,
   selectSearchString,
   selectTotalPage,
+  selectIsLoading,
+  selectError,
 } from '../../redux/advertisements/selectors';
 import { fetchAdvertisements } from '../../redux/advertisements/operations';
 import {
@@ -21,23 +22,38 @@ import PageWrapper from '../../layout/PageWrapper/PageWrapper';
 import Container from '../../layout/Container/Container';
 import styles from './styles.module.css';
 import Loader from '../../components/Loader/Loader';
+import Error from '../../components/Error/Error';
 
 function AnimalsPage() {
   const dispatch = useDispatch();
-  const ads = useSelector(selectFilteredAdvertisements);
-  const isLoading = useSelector(selectIsLoading);
-  const filters = useSelector(selectSelectedFilters);
   const [page, setPage] = useState(0);
   const size = 15;
+  const ads = useSelector(selectFilteredAdvertisements);
+  const isLoading = useSelector(selectIsLoading);
   const totalPage = useSelector(selectTotalPage);
   const searchQuery = useSelector(selectSearchString);
+  const error = useSelector(selectError);
+
+  const filters = useSelector(selectSelectedFilters);
+  //const isCategoryLoading = useSelector(selectCategoryIsLoading);
+  //const categoryError = useSelector(selectCategoryError);
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  //const isLoading = isAdsLoading || isCategoryLoading;
+  //const isError = adsError || categoryError;
+  console.log('isLoading', isLoading);
 
   useEffect(() => {
-    const filter = { ...filters, description: searchQuery };
-    dispatch(fetchAdvertisements({ page, size, filters: filter }));
-    setIsSidebarOpen(false);
-  }, [page, searchQuery, filters, dispatch]);
+    if (!isLoading && !error) {
+      const filter = { ...filters, description: searchQuery };
+      dispatch(fetchAdvertisements({ page, size, filters: filter }));
+      setIsSidebarOpen(false);
+    }
+  }, [page, searchQuery, filters, dispatch, isLoading, error]);
+
+  useEffect(() => {
+    setPage(0);
+  }, [filters]);
 
   const handlePageChange = (current) => {
     setPage(current);
@@ -49,7 +65,7 @@ function AnimalsPage() {
   };
 
   if (isLoading) return <Loader />;
-
+  if (error) return <Error />;
   return (
     <Container>
       <PageWrapper>
