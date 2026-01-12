@@ -20,6 +20,7 @@
 
 .infoWrapper {
   position: relative;
+  width: 100%;
   padding: 11px 22px;
   display: flex;
   flex-direction: column;

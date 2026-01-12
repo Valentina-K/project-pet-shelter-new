@@ -9,13 +9,6 @@
     background-color: var(--header-background-color);       
 }
 
-@media screen and (width >= 1280px) {
-    .wrapper {
-        width: 128px;
-        padding: 18px 25px;
-    }      
-}
-
 .localeContainer{
     display: flex;
     align-items: center;
@@ -28,13 +21,6 @@
     line-height: 1;
 }
 
-@media screen and (width >= 1280px) {
-    .choiseLocale {
-        font-size: 20px;
-        font-weight: 400;
-    }        
-}
-
 .optionsList {
     position: absolute;
     width: 100%;
@@ -44,7 +30,7 @@
     gap: 16px;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 22px;
+    padding: 10px 22px;
     border-radius: 0 0 20px 20px;
     box-shadow: 10px 9px 20px #7f8385;
     background-color: var(--header-background-color); 
@@ -59,14 +45,24 @@
     line-height: 1;
   }
 
-  @media screen and (width >= 1280px) {
-    .optionsItem {
-        font-size: 20px;
-        font-weight: 400;
-    }        
-  }
-
   .dropdownIcon{
     width: 22px;
     height: 22px;
   }
+  
+  @media screen and (width >= 1280px) {
+    .wrapper {
+        width: 128px;
+        padding: 18px 25px;
+    }     
+    
+    .choiseLocale {
+        font-size: 20px;
+        font-weight: 400;
+    }  
+    
+    .optionsItem {
+        font-size: 20px;
+        font-weight: 400;
+    }  
+}

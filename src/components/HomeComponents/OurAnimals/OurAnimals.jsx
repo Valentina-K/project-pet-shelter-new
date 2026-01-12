@@ -27,7 +27,7 @@ function OurAnimals({ ads = [], onViewMoreClick, limit }) {
       </div>
       {isHasMore && (
         <Button className={styles.morebutton} onClick={onViewMoreClick}>
-          View more
+          {t('home.view-more')}
         </Button>
       )}
     </Section>

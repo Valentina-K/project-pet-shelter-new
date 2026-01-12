@@ -2,7 +2,8 @@
     position: relative;
     display: flex;
     padding-bottom: 80px;
-    width: 402px;
+    width: 100%;
+    max-width: 402px;
     margin: 0 auto;
 }
 
@@ -50,7 +51,7 @@
 
 @media screen and (width>=768px) {
     .pageContainer {
-        width: 100%;
+        max-width: 768px;
     }
 
     .leftBlock {
