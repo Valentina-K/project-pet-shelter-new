@@ -57,7 +57,7 @@ function HotAds() {
           typeCard={'hot'}
         />
         <NavLink to="/animals" className={styles.toAllShelters}>
-          View all
+          {t('home.view-all')}
         </NavLink>
       </div>
     </Section>

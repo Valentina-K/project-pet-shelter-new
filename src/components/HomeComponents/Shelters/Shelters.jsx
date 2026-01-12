@@ -65,7 +65,7 @@ function Shelters() {
           typeCard={'shelter'}
         />
         <NavLink to="/shelters" className={styles.toAllShelters}>
-          View all
+          {t('home.view-all')}
         </NavLink>
       </div>
     </Section>

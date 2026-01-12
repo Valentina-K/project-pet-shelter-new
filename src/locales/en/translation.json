@@ -30,7 +30,9 @@
         "join-us":{
             "description":"Join our team and change animals lives for the better! Together we can do more!",
             "button":"Join us"
-        }
+        },
+        "view-all": "View all",
+        "view-more": "View more"
     },
     "search": "Search",
     "side-bar": "Categories",

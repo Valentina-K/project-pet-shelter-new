@@ -35,21 +35,16 @@ function AnimalsPage() {
   const error = useSelector(selectError);
 
   const filters = useSelector(selectSelectedFilters);
-  //const isCategoryLoading = useSelector(selectCategoryIsLoading);
-  //const categoryError = useSelector(selectCategoryError);
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  //const isLoading = isAdsLoading || isCategoryLoading;
-  //const isError = adsError || categoryError;
-  console.log('isLoading', isLoading);
 
   useEffect(() => {
-    if (!isLoading && !error) {
+    if (!error) {
       const filter = { ...filters, description: searchQuery };
       dispatch(fetchAdvertisements({ page, size, filters: filter }));
       setIsSidebarOpen(false);
     }
-  }, [page, searchQuery, filters, dispatch, isLoading, error]);
+  }, [page, searchQuery, filters, dispatch, error]);
 
   useEffect(() => {
     setPage(0);
