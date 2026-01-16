@@ -37,9 +37,11 @@ function Navigation() {
       window.removeEventListener('scroll', handleScroll); // Очищаем обработчик при размонтировании
     };
   }, []);
+
   const handleSignInClick = () => {
     navigate('/auth', { state: { from: location } });
   };
+
   const isAuth = useSelector(selectIsLoggedIn);
   return (
     <nav
@@ -69,7 +71,7 @@ function Navigation() {
               <TiMessages className={styles.forumIcon} />
             </NavLink>
             <div className={styles.loginContainer}>
-              <LocaleDropDown />
+              <LocaleDropDown isMobile={false} />
               {!isAuth ? (
                 <button onClick={handleSignInClick} className={styles.loginBtn}>
                   {t('menu.log-in')}
@@ -86,11 +88,14 @@ function Navigation() {
       </div>
       <div className={clsx(styles.mobileMenu, { [styles.opened]: isMenuOpen })}>
         <ul className={styles.mobileList}>
-          <li className={styles.mobileLink}>
+          <li className={`${styles.mobileLink} ${styles.authLink}`}>
             <NavLink>{t('menu.log-in')}</NavLink>
           </li>
           <li className={styles.mobileLink}>
-            <NavLink>ENG/UKR</NavLink>
+            <LocaleDropDown
+              className={`${styles.locale} ${styles.authLink}`}
+              isMobile={true}
+            />
           </li>
           <li className={styles.mobileLink}>
             <NavLink to="/about-us" onClick={() => setIsMenuOpen(!isMenuOpen)}>
