@@ -13,7 +13,7 @@
   background-color: var(--accent-bgc-transparent);
 }
 
-.contentContainer{
+.contentContainer {
   max-width: 402px;
   width: 100%;
   margin: 0 auto;
@@ -104,7 +104,7 @@
 
 .loginBtn {
   display: inline-flex;
-  width: 95px;
+  width: 98px;
   padding: 8px 24px;
   justify-content: center;
   align-items: center;
@@ -139,10 +139,12 @@
 
 .closeButton {
   position: absolute;
-  top: 31px;
-  right: 26px;
+  top: 30px;
+  right: 30px;
   width: 32px;
   height: 32px;
+  background-color: var(--card-background-color);
+  border-radius: 50%;
 }
 
 .mobileList {
@@ -161,6 +163,21 @@
   line-height: 20px;
 }
 
+.mobileLink:nth-child(2) {
+  padding: 0;
+  height: 42px;
+}
+
+.authLink {
+  border: 1px solid #000;
+}
+
+.locale {
+  height: 100%;
+  padding: 10px 25px;
+  width: auto;
+}
+
 @media screen and (width >=768px) {
   .contentContainer {
     max-width: 768px;
@@ -172,6 +189,11 @@
     height: 25px;
   }
 
+  .mobileList .mobileLink:first-child,
+  .mobileList .mobileLink:nth-child(2) {
+    display: none;
+  }
+
   .authLinks {
     display: flex;
     gap: 24px;
@@ -179,10 +201,8 @@
   }
 
   .closeButton {
-    top: 34px;
-    right: 60px;
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 38px;
   }
 }
 
