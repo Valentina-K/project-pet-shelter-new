@@ -1,5 +1,24 @@
 .container{
     margin: 322px auto;
+    width: 370px;
+}
+
+@media screen and (width >= 768px) {
+    .container{
+        width: 688px;
+    }
+}
+
+@media screen and (width >= 1280px) {
+    .container{
+        width: 796px;
+    }
+}
+
+@media screen and (width >= 1920px) {
+    .container{
+        width: 1060px;
+    }
 }
 
 /* 
