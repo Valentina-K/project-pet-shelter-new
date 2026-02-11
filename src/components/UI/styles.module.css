@@ -3,10 +3,10 @@
     background: var(--accent-color);
     color: var(--secondary-color);
     font-family: var(--font-family);
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
-    line-height: 24px;
-    padding: 8px 0;
+    line-height: 32px;
+    padding: 10px 0;
     border-radius: var(--button-border-radius);
     transition: background 0.3s;
 }
@@ -45,9 +45,7 @@
 @media screen and (width >= 768px) {
     .button {
         width: 244px;
-        padding: 13px 0;
-        font-size: 16px;
-        line-height: 22.4px;
+        padding: 16px 0;
     }
 
     .sectionTitle {
