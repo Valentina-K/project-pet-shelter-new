@@ -2,16 +2,19 @@
 .dropdownContainer {
     position: relative;
     width: 100%;
+    margin-bottom: 16px;
 }
 
 .dropdownHeader {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #d1d5db;
+    background-color: var(--component-background-color);
     padding: 0.75rem;
-    border-radius: 0.75rem;
+    border-radius:24px;
     cursor: pointer;
+    z-index: 3;
 }
 
 .headerLeft {
@@ -26,11 +29,22 @@
 }
 
 .dropdownMenu {
+    position: absolute;
+    left: 0;
+    top: 70%;
     width: 100%;
-    background-color: #d1d5db;
+    background-color: var(--card-background-color);
     padding: 1rem;
-    border-radius: 0.75rem;
+    border-radius: 0 0 24px 24px;
     box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+    z-index: 2;
+    transform: scaleY(0); 
+    transform-origin: top; 
+    transition: transform 0.3s ease;
+}
+
+.dropdownMenu.open{
+    transform: scaleY(1);
 }
 
 .dropdownItem {

@@ -2,6 +2,9 @@ import { createSelector } from '@reduxjs/toolkit';
 import { selectSelectedCategory } from '../categories/selectors';
 export const selectAdvertisements = (state) => state.advertisements.items;
 
+export const selectOneAdvertisement = (state) =>
+  state.advertisements.advertisement;
+
 export const selectTopAdvertisements = createSelector(
   [selectAdvertisements],
   (items) => items.slice(0, 4)

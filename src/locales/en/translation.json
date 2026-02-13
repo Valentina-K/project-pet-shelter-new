@@ -53,5 +53,8 @@
         "terms": "Terms of Service",
         "created-by": "Created with love by Team @467"
     },
-    "error": "Sorry, there was a technical error. Please check back later."
+    "error": "Sorry, there was a technical error. Please check back later.",
+    "goback-animal": "Back to other animals",
+    "goback-shelter": "Back to other shelters",
+    "need-home": "They need home too"
 }

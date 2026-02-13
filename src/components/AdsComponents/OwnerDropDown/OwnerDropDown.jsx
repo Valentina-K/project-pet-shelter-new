@@ -20,7 +20,6 @@ const HeaderItem = ({ user }) => {
 
   return (
     <div className={styles.dropdownContainer}>
-      {/* Основной блок */}
       <div className={styles.dropdownHeader}>
         <div className={styles.headerLeft}>
           <span className={styles.x}>
@@ -71,43 +70,44 @@ const HeaderItem = ({ user }) => {
         </div>
       </div>
 
-      {/* Выпадающее меню */}
-      {isOpen && (
-        <div className={styles.dropdownMenu}>
-          <p>
-            {user.contactInfo?.mission
-              ? user.contactInfo.mission
-              : 'Author did not write information about itself yet'}
+      <div
+        className={
+          isOpen ? `${styles.dropdownMenu} ${styles.open}` : styles.dropdownMenu
+        }
+      >
+        <p>
+          {user.contactInfo?.mission
+            ? user.contactInfo.mission
+            : 'Author did not write information about itself yet'}
+        </p>
+        <div className="mt-3 space-y-2">
+          <p className={styles.dropdownItem}>
+            <FaPhone />{' '}
+            {user.contactInfo?.phone
+              ? user.contactInfo.phone
+              : 'The phone is missing'}
           </p>
-          <div className="mt-3 space-y-2">
+          {user.userRole === 'SHELTER' && (
             <p className={styles.dropdownItem}>
-              <FaPhone />{' '}
-              {user.contactInfo?.phone
-                ? user.contactInfo.phone
-                : 'The phone is missing'}
+              <FaGlobe />{' '}
+              <a
+                href={
+                  user.contactInfo?.website ? user.contactInfo.website : '/'
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {user.contactInfo?.website
+                  ? user.contactInfo.website
+                  : 'The website is missing'}
+              </a>
             </p>
-            {user.userRole === 'SHELTER' && (
-              <p className={styles.dropdownItem}>
-                <FaGlobe />{' '}
-                <a
-                  href={
-                    user.contactInfo?.website ? user.contactInfo.website : '/'
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {user.contactInfo?.website
-                    ? user.contactInfo.website
-                    : 'The website is missing'}
-                </a>
-              </p>
-            )}
-            <p className={styles.dropdownItem}>
-              <FaEnvelope /> {user.email}
-            </p>
-          </div>
+          )}
+          <p className={styles.dropdownItem}>
+            <FaEnvelope /> {user.email}
+          </p>
         </div>
-      )}
+      </div>
     </div>
   );
 };
