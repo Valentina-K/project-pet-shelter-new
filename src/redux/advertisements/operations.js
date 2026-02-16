@@ -43,6 +43,19 @@ export const fetchSearchAdvertisements = createAsyncThunk(
   }
 );
 
+export const fetchAdvertisementById = createAsyncThunk(
+  'advertisements/fetchAdById',
+  async (adId, thunkAPI) => {
+    console.log(adId);
+    try {
+      const { data } = await publicApi.get(`/api/v1/ad/${adId}`);
+      return data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
+
 export const addNewAdvertisement = createAsyncThunk(
   'advertisement/addNew',
   async (formData, thunkAPI) => {

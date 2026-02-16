@@ -1,0 +1,32 @@
+.container {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.back {    
+    font-family: var(--font-family);
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+@media screen and (width >= 768px) {
+    .container{
+        top: 32px;
+    }
+}
+
+@media screen and (width >= 1280px) {
+    .container{
+        top: 72px;
+    }
+}
+
+@media screen and (width >= 1920px) {
+    .container{
+        top: 48px;
+    }
+}

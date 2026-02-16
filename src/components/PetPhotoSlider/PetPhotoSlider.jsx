@@ -3,20 +3,17 @@ import dog from '../../assets/img/dog.png';
 import smallDog from '../../assets/img/smallDog.png';
 import cat from '../../assets/img/whiteCat.png';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 import styles from './style.module.css';
 
 const imgPath = [dog, smallDog, cat];
 
-function PetPhotoSlider({ photos }) {
+function PetPhotoSlider({ photos, className }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   console.log(photos);
   return (
-    <div className={styles.wrapper}>
-      <img
-        className={styles.bigImage}
-        src={imgPath[currentIndex]}
-        alt={photos[currentIndex].altText}
-      />
+    <div className={clsx(styles.wrapper, className)}>
+      <img src={imgPath[currentIndex]} alt={photos[currentIndex].altText} />
       <div className={styles.imgContainer}>
         {photos &&
           photos.map((img, index) => (
@@ -38,6 +35,7 @@ PetPhotoSlider.propTypes = {
       altText: PropTypes.string,
     })
   ),
+  className: PropTypes.string,
 };
 export default PetPhotoSlider;
 

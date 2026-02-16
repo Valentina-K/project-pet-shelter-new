@@ -5,11 +5,13 @@ import {
   addNewAdvertisement,
   deleteAdvertisement,
   fetchSearchAdvertisements,
+  fetchAdvertisementById,
 } from './operations';
 
 const advertisementSlice = createSlice({
   name: 'advertisements',
   initialState: {
+    advertisement: null,
     items: [],
     filterItems: [],
     searchItems: [],
@@ -97,6 +99,21 @@ const advertisementSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
+      .addCase(fetchAdvertisementById.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+        state.advertisement = null;
+      })
+      .addCase(fetchAdvertisementById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.advertisement = action.payload;
+      })
+      .addCase(fetchAdvertisementById.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error;
+        state.advertisement = null;
+      })
       .addCase(getAllAds.pending, (state) => {
         state.isLoading = true;
         state.error = null;
