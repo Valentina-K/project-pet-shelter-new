@@ -77,3 +77,9 @@
         height: 45px;
     }
 }
+
+@media screen and (width >= 1920px) {
+    .sectionTitle{
+        font-size: var(--section-tiltle-font-size);
+    }
+}
